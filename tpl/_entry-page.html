@@ -1,0 +1,19 @@
+<article id="page-{{tpl:EntryID}}" class="page {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}">
+	<header>
+		<h1 class="post-title">{{tpl:EntryTitle}}</h1>
+	</header>
+
+	<section class="post-content">
+		{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+
+		{{tpl:EntryContent}}
+
+		{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+	</section>
+
+	<footer class="post-footer">
+		{{tpl:include src="_attachments.html"}}
+	</footer>
+</article>
+
+{{tpl:include src="_comments.html"}}

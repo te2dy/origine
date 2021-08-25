@@ -1,0 +1,35 @@
+<article id="note-{{tpl:EntryID}}" class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}">
+	<header>
+		<div class="post-meta">
+			<time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time>
+		</div>
+
+		<h1 class="post-title{{tpl:EntryIfSelected return=" post-title-selected"}}">{{tpl:EntryTitle}}</h1>
+	</header>
+
+	<section class="post-content">
+		{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+
+		{{tpl:EntryContent}}
+
+		{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+	</section>
+
+	<footer class="post-footer">
+		<tpl:EntryIf has_category="1">
+			<div class="post-meta">
+				Classé dans <em><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a></em>
+			</div>
+		</tpl:EntryIf>
+
+		<tpl:EntryTags>
+			<tpl:TagsHeader><div class="post-meta post-tags">Mots-clés&nbsp;:</tpl:TagsHeader>
+				<a href="{{tpl:TagURL}}">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
+			<tpl:TagsFooter></div></tpl:TagsFooter>
+		</tpl:EntryTags>
+
+		{{tpl:include src="_attachments.html"}}
+	</footer>
+</article>
+
+{{tpl:include src="_comments.html"}}

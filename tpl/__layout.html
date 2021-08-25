@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="{{tpl:BlogLanguage}}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<tpl:Block name="head-title">
+			<title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> – page {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+		</tpl:Block>
+
+		<tpl:Block name="head-meta">
+			<tpl:Block name="head-description">
+				<meta name="description" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - page {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+			</tpl:Block>
+
+			<tpl:Block name="meta-robots">
+				<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+			</tpl:Block>
+
+			<tpl:Block name="meta-entry">
+				<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+				<meta name="generator" content="Dotclear" />
+			</tpl:Block>
+		</tpl:Block>
+
+		<link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.min.css" media="all" />
+
+		{{tpl:SysBehavior behavior="publicHeadContent"}}
+	</head>
+
+	<body>
+		<div id="site">
+			<header id="site-header">
+				<tpl:Block name="site-header">
+					<h4 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h4>
+
+					<h5 id="site-description">{{tpl:BlogDescription}}</h5>
+
+					{{tpl:SimpleMenu id="main-menu"}}
+
+					{{tpl:SysBehavior behavior="publicTopAfterContent"}}
+				</tpl:Block>
+			</header>
+
+			<main id="site-content">
+				<tpl:Block name="main-content">
+					<tpl:Entries>
+						{{tpl:include src="_entry-loop.html"}}
+
+						<tpl:EntriesFooter>
+							{{tpl:include src="_pagination.html"}}
+						</tpl:EntriesFooter>
+					</tpl:Entries>
+				</tpl:Block>
+			</main>
+
+			{{tpl:include src="_sidebar.html"}}
+
+			{{tpl:include src="_footer.html"}}
+		</div>
+	</body>
+</html>

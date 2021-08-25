@@ -1,0 +1,11 @@
+Nom du thème :
+Description :
+Auteur : Teddy
+Licence :
+Adresse de la licence : 
+
+Note :
+Ce thème n’aurait pu avoir vu le jour sans les ressources mises à disposition librement par la communauté Dotclear.
+Son auteur s’est particulièrement inspiré des travaux réalisés sur le thème Ductile créé par l’association Dotclear.
+
+Notes de version :

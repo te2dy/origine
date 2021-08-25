@@ -1,0 +1,19 @@
+{{tpl:extends parent="__layout.html"}}
+
+<tpl:Block name="head-title">
+	<title>Mots-clés &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
+</tpl:Block>
+
+<tpl:Block name="head-description"></tpl:Block>
+
+<tpl:Block name="main-content">
+	<div id="content-info">
+		<h1 class="content-title">Mots-clés</h1>
+	</div>
+
+	<ul class="tags">
+		<tpl:Tags>
+			<li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+		</tpl:Tags>
+	</ul>
+</tpl:Block>

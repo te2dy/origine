@@ -1,0 +1,24 @@
+{{tpl:extends parent="__layout.html"}}
+
+<tpl:Block name="head-title">
+	<title>{{tpl:CategoryTitle encode_html="1"}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
+</tpl:Block>
+
+<tpl:Block name="head-description">
+	<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:CategoryDescription encode_html="1" remove_html="1"}}">
+</tpl:Block>
+
+<tpl:Block name="main-content">
+	<div id="content-info">
+		<h1 class="content-title">{{tpl:CategoryTitle}}</h1>
+
+		{{tpl:CategoryDescription}}
+	</div>
+	<tpl:Entries>
+		{{tpl:include src="_entry-excerpt.html"}}
+
+		<tpl:EntriesFooter>
+			{{tpl:include src="_pagination.html"}}
+		</tpl:EntriesFooter>
+	</tpl:Entries>
+</tpl:Block>
