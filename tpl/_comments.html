@@ -1,131 +1,131 @@
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-	<div id="comments" class="comment-block">
+  <div id="comments" class="comment-block">
 </tpl:EntryIf>
 
 <tpl:EntryIf show_comments="1">
-	<tpl:Comments with_pings="1">
-		<tpl:CommentsHeader>
-			<h3 id="comments-title">{{tpl:EntryCommentCount one="Un commentaire" more="%s commentaires"}}</h3>
+  <tpl:Comments with_pings="1">
+    <tpl:CommentsHeader>
+      <h3 id="comments-title">{{tpl:EntryCommentCount one="Un commentaire" more="%s commentaires"}}</h3>
 
-			<ul id="comments-list">
-		</tpl:CommentsHeader>
-			<tpl:CommentIf is_ping="0">
-				<li id="commentaire-{{tpl:CommentID}}" class="comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
-			</tpl:CommentIf>
+      <ul id="comments-list">
+    </tpl:CommentsHeader>
+      <tpl:CommentIf is_ping="0">
+        <li id="commentaire-{{tpl:CommentID}}" class="comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
+      </tpl:CommentIf>
 
-			<tpl:CommentIf is_ping="1">
-				<li id="commentaire-{{tpl:PingID}}" class="ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
-			</tpl:CommentIf>
-					<header class="comment-meta">
-						<tpl:CommentIf is_ping="0">
-							<cite class="comment-author">{{tpl:CommentAuthorLink}}</cite>,
-						</tpl:CommentIf>
+      <tpl:CommentIf is_ping="1">
+        <li id="commentaire-{{tpl:PingID}}" class="ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+      </tpl:CommentIf>
+          <header class="comment-meta">
+            <tpl:CommentIf is_ping="0">
+              <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite>,
+            </tpl:CommentIf>
 
-						<tpl:CommentIf is_ping="1">
-							<cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite>,
-						</tpl:CommentIf>
+            <tpl:CommentIf is_ping="1">
+              <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite>,
+            </tpl:CommentIf>
 
-						le {{tpl:CommentDate}} à {{tpl:CommentTime}}&nbsp;:
-					</header>
+            le {{tpl:CommentDate}} à {{tpl:CommentTime}}&nbsp;:
+          </header>
 
-					<div class="comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
-						{{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
+          <div class="comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
+            {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
 
-						<tpl:CommentIf is_ping="1">
-							<div class="ping-elsewhere">Rétrolien&nbsp;:</div>
-						</tpl:CommentIf>
+            <tpl:CommentIf is_ping="1">
+              <div class="ping-elsewhere">Rétrolien&nbsp;:</div>
+            </tpl:CommentIf>
 
-						{{tpl:CommentContent}}
+            {{tpl:CommentContent}}
 
-						{{tpl:SysBehavior behavior="publicCommentAfterContent"}}
-					</div>
-				</li>
-		<tpl:CommentsFooter>
-			</ul>
-		</tpl:CommentsFooter>
-	</tpl:Comments>
+            {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+          </div>
+        </li>
+    <tpl:CommentsFooter>
+      </ul>
+    </tpl:CommentsFooter>
+  </tpl:Comments>
 </tpl:EntryIf>
 
 <tpl:EntryIf comments_active="1">
-	<tpl:Block name="comment-alerts">
-		<tpl:SysIfFormError>
-			<div class="comment-message" id="apercu">{{tpl:SysFormError}}</div>
-		</tpl:SysIfFormError>
+  <tpl:Block name="comment-alerts">
+    <tpl:SysIfFormError>
+      <div class="comment-message" id="apercu">{{tpl:SysFormError}}</div>
+    </tpl:SysIfFormError>
 
-		<tpl:SysIfCommentPublished>
-			<div class="comment-message" id="apercu">Votre commentaire a été publié</div>
-		</tpl:SysIfCommentPublished>
+    <tpl:SysIfCommentPublished>
+      <div class="comment-message" id="apercu">Votre commentaire a été publié</div>
+    </tpl:SysIfCommentPublished>
 
-		<tpl:SysIfCommentPending>
-			<div class="comment-message" id="previsualisation">Votre commentaire a été envoyé. Il ne sera publié qu’après avoir été approuvé.</div>
-		</tpl:SysIfCommentPending>
-	</tpl:Block>
+    <tpl:SysIfCommentPending>
+      <div class="comment-message" id="previsualisation">Votre commentaire a été envoyé. Il ne sera publié qu’après avoir été approuvé.</div>
+    </tpl:SysIfCommentPending>
+  </tpl:Block>
 
-	<tpl:Block name="comment-form">
-		<form action="{{tpl:EntryURL}}#previsualisation" method="post" id="comment-form">
-			<tpl:Block name="comment-form-preview">
-				<tpl:IfCommentPreview>
-					<div id="previsualisation" class="comment-preview">
-						<div class="comment-preview-info">
-							<h3>Prévisualisation</h3>
-						</div>
+  <tpl:Block name="comment-form">
+    <form action="{{tpl:EntryURL}}#previsualisation" method="post" id="comment-form">
+      <tpl:Block name="comment-form-preview">
+        <tpl:IfCommentPreview>
+          <div id="previsualisation" class="comment-preview">
+            <div class="comment-preview-info">
+              <h3>Prévisualisation</h3>
+            </div>
 
-						<div class="comment-content">
-							{{tpl:CommentPreviewContent}}
-						</div>
+            <div class="comment-content">
+              {{tpl:CommentPreviewContent}}
+            </div>
 
-						<div class="comment-info" id="comment-name-preview">
-							&mdash; <span class="comment-author">{{tpl:CommentPreviewName}}</span>
-						</div>
+            <div class="comment-info" id="comment-name-preview">
+              &mdash; <span class="comment-author">{{tpl:CommentPreviewName}}</span>
+            </div>
 
-						<input type="submit" class="submit" value="Envoyer le commentaire">
-					</div>
-				</tpl:IfCommentPreview>
-			</tpl:Block>
+            <input type="submit" class="submit" value="Envoyer le commentaire">
+          </div>
+        </tpl:IfCommentPreview>
+      </tpl:Block>
 
-			<tpl:Block name="comment-form-add">
-				<h3>Écrire un commentaire</h3>
+      <tpl:Block name="comment-form-add">
+        <h3>Écrire un commentaire</h3>
 
-				{{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
+        {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
 
-				<div class="form-entry">
-					<label for="c_name">Nom ou pseudonyme</label>
-					<input name="c_name" id="c_name" type="text" size="30" maxlength="255"
-					 value="{{tpl:CommentPreviewName encode_html="1"}}" required>
-				</div>
+        <div class="form-entry">
+          <label for="c_name">Nom ou pseudonyme</label>
+          <input name="c_name" id="c_name" type="text" size="30" maxlength="255"
+           value="{{tpl:CommentPreviewName encode_html="1"}}" required>
+        </div>
 
-				<div class="form-entry">
-					<label for="c_mail">Adresse électronique</label>
-					<input name="c_mail" id="c_mail" type="email" size="30" maxlength="255"
-					 value="{{tpl:CommentPreviewEmail encode_html="1"}}" required>
-				</div>
+        <div class="form-entry">
+          <label for="c_mail">Adresse électronique</label>
+          <input name="c_mail" id="c_mail" type="email" size="30" maxlength="255"
+           value="{{tpl:CommentPreviewEmail encode_html="1"}}" required>
+        </div>
 
-				<div class="form-entry">
-					<label for="c_site">Adresse d’un compte ou site personnel (facultatif)</label>
-					<input name="c_site" id="c_site" type="text" size="30" maxlength="255"
-					 placeholder="https://…" value="{{tpl:CommentPreviewSite encode_html="1"}}">
-				</div>
+        <div class="form-entry">
+          <label for="c_site">Adresse d’un compte ou site personnel (facultatif)</label>
+          <input name="c_site" id="c_site" type="text" size="30" maxlength="255"
+           placeholder="https://…" value="{{tpl:CommentPreviewSite encode_html="1"}}">
+        </div>
 
-				<div class="form-entry">
-					<label for="c_content">Commentaire</label>
-					<textarea name="c_content" id="c_content" cols="50"
-					 rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
-				</div>
+        <div class="form-entry">
+          <label for="c_content">Commentaire</label>
+          <textarea name="c_content" id="c_content" cols="50"
+           rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+        </div>
 
-				 {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
+         {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
 
-				<div class="form-entry">
-					<input type="submit" class="preview" name="preview" value="Prévisualiser">
+        <div class="form-entry">
+          <input type="submit" class="preview" name="preview" value="Prévisualiser">
 
-					<tpl:IfCommentPreviewOptional>
-						<input type="submit" class="submit" value="Envoyer" />
-					</tpl:IfCommentPreviewOptional>
-				</div>
-			</tpl:Block>
-		</form>
-	</tpl:Block>
+          <tpl:IfCommentPreviewOptional>
+            <input type="submit" class="submit" value="Envoyer" />
+          </tpl:IfCommentPreviewOptional>
+        </div>
+      </tpl:Block>
+    </form>
+  </tpl:Block>
 </tpl:EntryIf>
 
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-	</div>
+  </div>
 </tpl:EntryIf>

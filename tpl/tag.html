@@ -1,24 +1,24 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-	<title>{{tpl:TagID encode_html="1"}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:TagID encode_html="1"}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description">
-	<meta name="description" lang="{{tpl:EntryLang}}" content="Les notes associées au mot-clé «&nbsp;{{tpl:TagID encode_html="1"}}&nbsp;»">
+  <meta name="description" lang="{{tpl:EntryLang}}" content="Les notes associées au mot-clé «&nbsp;{{tpl:TagID encode_html="1"}}&nbsp;»">
 </tpl:Block>
 
 <tpl:Block name="main-content">
-	<div id="content-info">
-		<h1 class="content-title">{{tpl:TagID}}</h1>
+  <div id="content-info">
+    <h1 class="content-title">{{tpl:TagID}}</h1>
 
-		{{tpl:TagDescription}}
-	</div>
-	<tpl:Entries>
-		{{tpl:include src="_entry-excerpt.html"}}
+    {{tpl:TagDescription}}
+  </div>
+  <tpl:Entries>
+    {{tpl:include src="_entry-excerpt.html"}}
 
-		<tpl:EntriesFooter>
-			{{tpl:include src="_pagination.html"}}
-		</tpl:EntriesFooter>
-	</tpl:Entries>
+    <tpl:EntriesFooter>
+      {{tpl:include src="_pagination.html"}}
+    </tpl:EntriesFooter>
+  </tpl:Entries>
 </tpl:Block>

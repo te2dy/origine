@@ -1,19 +1,19 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-	<title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> – page {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+  <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> – page {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
 </tpl:Block>
 
 <tpl:Block name="head-description">
-	<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription}}<tpl:PaginationIf start="0">  - page {{tpl:PaginationCurrent}}</tpl:PaginationIf>">
+  <meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription}}<tpl:PaginationIf start="0">  - page {{tpl:PaginationCurrent}}</tpl:PaginationIf>">
 </tpl:Block>
 
 <tpl:Block name="site-header">
-	<h1 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h1>
+  <h1 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h1>
 
-	<h2 id="site-description">{{tpl:BlogDescription}}</h2>
+  <h2 id="site-description">{{tpl:BlogDescription}}</h2>
 
-	{{tpl:SimpleMenu id="main-menu"}}
+  {{tpl:SimpleMenu id="main-menu"}}
 
-	{{tpl:SysBehavior behavior="publicTopAfterContent"}}
+  {{tpl:SysBehavior behavior="publicTopAfterContent"}}
 </tpl:Block>

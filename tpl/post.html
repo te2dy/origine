@@ -1,19 +1,19 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-	<title>{{tpl:EntryTitle encode_html="1"}}</title>
+  <title>{{tpl:EntryTitle encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description">
-	<tpl:EntryIf extended="1">
-		<meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryExcerpt encode_html="1" remove_html="1"}}">
-	</tpl:EntryIf>
+  <tpl:EntryIf extended="1">
+    <meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryExcerpt encode_html="1" remove_html="1"}}">
+  </tpl:EntryIf>
 
-	<tpl:EntryIf extended="0">
-		<meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="150"}}<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="150">&hellip;</tpl:EntryIfContentIsCut>">
-	</tpl:EntryIf>
+  <tpl:EntryIf extended="0">
+    <meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="150"}}<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="150">&hellip;</tpl:EntryIfContentIsCut>">
+  </tpl:EntryIf>
 </tpl:Block>
 
 <tpl:Block name="main-content">
-	{{tpl:include src="_entry-post.html"}}
+  {{tpl:include src="_entry-post.html"}}
 </tpl:Block>

@@ -1,21 +1,21 @@
 <tpl:Pagination>
-	<div class="pagination">
-		<div class="page-current">
-			page {{tpl:PaginationCurrent}} sur {{tpl:PaginationCounter}}
-		</div>
+  <div class="pagination">
+    <div class="page-current">
+      page {{tpl:PaginationCurrent}} sur {{tpl:PaginationCounter}}
+    </div>
 
-		<div class="page-navigation">
-			<tpl:PaginationIf start="0">
-				<div class="page-prev">
-					<a href="{{tpl:PaginationURL offset="-1"}}">‹&nbsp;Page précédente</a>
-				</div>
-			</tpl:PaginationIf>
+    <div class="page-navigation">
+      <tpl:PaginationIf start="0">
+        <div class="page-prev">
+          <a href="{{tpl:PaginationURL offset="-1"}}">‹&nbsp;Page précédente</a>
+        </div>
+      </tpl:PaginationIf>
 
-			<tpl:PaginationIf end="0">
-				<div class="page-next">
-					<a href="{{tpl:PaginationURL offset="+1"}}">Page suivante&nbsp;›</a>
-				</div>
-			</tpl:PaginationIf>
-		</div>
-	</div>
+      <tpl:PaginationIf end="0">
+        <div class="page-next">
+          <a href="{{tpl:PaginationURL offset="+1"}}">Page suivante&nbsp;›</a>
+        </div>
+      </tpl:PaginationIf>
+    </div>
+  </div>
 </tpl:Pagination>

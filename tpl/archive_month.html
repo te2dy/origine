@@ -1,35 +1,35 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-	<title>Archives - {{tpl:ArchiveDate}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
+  <title>Archives - {{tpl:ArchiveDate}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description">
-	<meta name="description" lang="{{tpl:BlogLanguage}}" content="Archives classées par mois">
+  <meta name="description" lang="{{tpl:BlogLanguage}}" content="Archives classées par mois">
 </tpl:Block>
 
 <tpl:Block name="main-content">
-	<div id="content-info">
-		<h1 class="content-title">Archives de {{tpl:ArchiveDate}} ({{tpl:ArchiveEntriesCount}})</h1>
+  <div id="content-info">
+    <h1 class="content-title">Archives de {{tpl:ArchiveDate}} ({{tpl:ArchiveEntriesCount}})</h1>
 
-		<p>
-			<tpl:ArchivePrevious>
-				<a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> -
-			</tpl:ArchivePrevious>
+    <p>
+      <tpl:ArchivePrevious>
+        <a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> -
+      </tpl:ArchivePrevious>
 
-			{{tpl:ArchiveDate}}
+      {{tpl:ArchiveDate}}
 
-			<tpl:ArchiveNext>
-				- <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a>
-			</tpl:ArchiveNext>
-		</p>
-	</div>
+      <tpl:ArchiveNext>
+        - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a>
+      </tpl:ArchiveNext>
+    </p>
+  </div>
 
-	<tpl:Entries>
-		{{tpl:include src="_entry-excerpt.html"}}
+  <tpl:Entries>
+    {{tpl:include src="_entry-excerpt.html"}}
 
-		<tpl:EntriesFooter>
-			{{tpl:include src="_pagination.html"}}
-		</tpl:EntriesFooter>
-	</tpl:Entries>
+    <tpl:EntriesFooter>
+      {{tpl:include src="_pagination.html"}}
+    </tpl:EntriesFooter>
+  </tpl:Entries>
 </tpl:Block>
