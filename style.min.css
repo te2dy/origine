@@ -199,8 +199,14 @@ textarea {
 .content-info {
   margin-bottom: 2em;
 }
-.content-description {
+.content-meta {
+  margin-bottom: .5em;
+}
+.content-title {
   margin: 0;
+}
+.content-description {
+  margin: .5em 0 0;
 }
 
 /*

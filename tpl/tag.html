@@ -9,11 +9,11 @@
 </tpl:Block>
 
 <tpl:Block name="main-content">
-  <div class="content-info">
+  <header class="content-info">
     <h1 class="content-title">Mot-clé&nbsp;: {{tpl:TagID}}</h1>
 
     <p class="content-description">Liste des notes associées à ce mot-clé&nbsp;:</p>
-  </div>
+  </header>
 
   <tpl:Entries>
     {{tpl:include src="_entry-loop.html"}}

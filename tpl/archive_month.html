@@ -9,21 +9,21 @@
 </tpl:Block>
 
 <tpl:Block name="main-content">
-  <div id="content-info">
-    <h1 class="content-title">Archives de {{tpl:ArchiveDate}} ({{tpl:ArchiveEntriesCount}})</h1>
-
-    <p>
+  <header class="content-info">
+    <div class="content-meta">
       <tpl:ArchivePrevious>
-        <a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> -
+        <a href="{{tpl:ArchiveURL}}" class="prev">&#8249; {{tpl:ArchiveDate encode_html="1"}}</a> &#x2013;
       </tpl:ArchivePrevious>
 
       {{tpl:ArchiveDate}}
 
       <tpl:ArchiveNext>
-        - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a>
+        &#x2013; <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#8250;</a>
       </tpl:ArchiveNext>
-    </p>
-  </div>
+    </div>
+
+    <h1 class="content-title">Archives&#160;: {{tpl:ArchiveDate}}</h1>
+  </header>
 
   <tpl:Entries>
     {{tpl:include src="_entry-loop.html"}}
