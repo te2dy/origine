@@ -9,13 +9,14 @@
 </tpl:Block>
 
 <tpl:Block name="main-content">
-  <div id="content-info">
-    <h1 class="content-title">{{tpl:TagID}}</h1>
+  <div class="content-info">
+    <h1 class="content-title">Mot-clé&nbsp;: {{tpl:TagID}}</h1>
 
-    {{tpl:TagDescription}}
+    <p class="content-description">Liste des notes associées à ce mot-clé&nbsp;:</p>
   </div>
+
   <tpl:Entries>
-    {{tpl:include src="_entry-excerpt.html"}}
+    {{tpl:include src="_entry-loop.html"}}
 
     <tpl:EntriesFooter>
       {{tpl:include src="_pagination.html"}}

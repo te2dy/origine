@@ -136,7 +136,7 @@ textarea {
   font-size: 1em;
   font-style: italic;
   font-weight: 400;
-  margin: 1em 0 0;
+  margin: .5em 0 0;
 }
 
 /*
@@ -181,13 +181,26 @@ textarea {
 
 /* Loop */
 .post-loop {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 .post-loop:last-child {
   margin-bottom: 0;
 }
 .post-loop .post-meta {
-  margin-top: .25rem;
+  margin-top: .25em;
+}
+
+/* Single post */
+.post-single .post-meta {
+  margin-bottom: .5em
+}
+
+/* Archives */
+.content-info {
+  margin-bottom: 2em;
+}
+.content-description {
+  margin: 0;
 }
 
 /*
