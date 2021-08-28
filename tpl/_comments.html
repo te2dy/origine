@@ -18,14 +18,12 @@
       </tpl:CommentIf>
           <header class="comment-meta">
             <tpl:CommentIf is_ping="0">
-              <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite>,
+              <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite>, le <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
             </tpl:CommentIf>
 
             <tpl:CommentIf is_ping="1">
-              <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite>,
+              <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite>, le <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
             </tpl:CommentIf>
-
-            le <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
           </header>
 
           <div class="content comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
@@ -49,15 +47,15 @@
 <tpl:EntryIf comments_active="1">
   <tpl:Block name="comment-alerts">
     <tpl:SysIfFormError>
-      <div class="comment-message" id="apercu">{{tpl:SysFormError}}</div>
+      <div class="comment-message message-red">{{tpl:SysFormError}}</div>
     </tpl:SysIfFormError>
 
     <tpl:SysIfCommentPublished>
-      <div class="comment-message" id="apercu">Votre commentaire a été publié</div>
+      <div class="comment-message message-green">Votre commentaire a été publié.</div>
     </tpl:SysIfCommentPublished>
 
     <tpl:SysIfCommentPending>
-      <div class="comment-message" id="previsualisation">Votre commentaire a été envoyé. Il ne sera publié qu’après avoir été approuvé.</div>
+      <div class="comment-message message-orange">Votre commentaire a été envoyé. Il ne sera publié qu’après avoir été approuvé.</div>
     </tpl:SysIfCommentPending>
   </tpl:Block>
 
@@ -72,10 +70,6 @@
 
             <div class="comment-content">
               {{tpl:CommentPreviewContent}}
-            </div>
-
-            <div class="comment-info" id="comment-name-preview">
-              &mdash; <span class="comment-author">{{tpl:CommentPreviewName}}</span>
             </div>
 
             <input type="submit" class="submit" value="Envoyer le commentaire">
@@ -115,10 +109,10 @@
          {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
 
         <div class="form-entry">
-          <input type="submit" class="preview" name="preview" value="Prévisualiser">
+          <input type="submit"name="preview" value="Prévisualiser">
 
           <tpl:IfCommentPreviewOptional>
-            <input type="submit" class="submit" value="Envoyer" />
+            <input type="submit" value="Envoyer" />
           </tpl:IfCommentPreviewOptional>
         </div>
       </tpl:Block>
