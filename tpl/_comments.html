@@ -28,7 +28,7 @@
             le <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
           </header>
 
-          <div class="comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
+          <div class="content comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
             {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
 
             <tpl:CommentIf is_ping="1">
