@@ -124,6 +124,12 @@ textarea {
 .form-entry label:hover {
   cursor: pointer;
 }
+#page-search-form {
+  margin: 1em 0;
+}
+.page-search-form-input {
+  width: 100%;
+}
 
 /*
  * Header
@@ -318,21 +324,6 @@ textarea {
 .page-next {
   float: right;
   margin-top: .4em;
-}
-
-/**
- * Site Footer
- */
-.site-footer-line {
-  margin-top: .25em;
-}
-.site-footer-line:first-of-type {
-  margin-top: 0;
-}
-#site-footer-search input {
-  display: inline-block;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 /**

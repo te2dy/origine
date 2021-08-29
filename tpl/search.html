@@ -1,21 +1,31 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-  <title>Résultats de recherche pour &quot;{{tpl:SysSearchString encode_html="1"}} sur {{tpl:BlogName encode_html="1"}}</title>
+  <title>Résultats de recherche pour &quot;{{tpl:SysSearchString encode_html="1"}}&quot; sur {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description"></tpl:Block>
 
 <tpl:Block name="main-content">
   <div id="content-info">
+    <form action="{{tpl:BlogURL}}" id="page-search-form" method="get" role="search">
+      <div class="form-entry">
+        <input aria-label="Recherche" class="page-search-form-input" maxlength="255" name="q" placeholder="Les termes de votre recherche" type="text" value="{{tpl:SysSearchString}}" />
+      </div>
+
+      <div class="form-entry">
+        <input type="submit" value="Rechercher" />
+      </div>
+    </form>
+
     <h1 class="content-title">Recherche de «&nbsp;{{tpl:SysSearchString}}&nbsp;»</h1>
 
     <tpl:SysIf search_count="==1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>un</strong> resultat&nbsp;:"}}</p>
+      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>un resultat</strong>&nbsp;:"}}</p>
     </tpl:SysIf>
 
     <tpl:SysIf search_count="&gt;1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>%2$s</strong> resultats&nbsp;:"}}</p>
+      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>%2$s resultats</strong>&nbsp;:"}}</p>
     </tpl:SysIf>
   </div>
 
