@@ -11,16 +11,16 @@
     <h1 class="content-title">Recherche de «&nbsp;{{tpl:SysSearchString}}&nbsp;»</h1>
 
     <tpl:SysIf search_count="==1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Your search returned <strong>one</strong> result."}}</p>
+      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>un</strong> resultat&nbsp;:"}}</p>
     </tpl:SysIf>
 
     <tpl:SysIf search_count="&gt;1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Your search returned <strong>%2$s</strong> results."}}</p>
+      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>%2$s</strong> resultats&nbsp;:"}}</p>
     </tpl:SysIf>
   </div>
 
   <tpl:SysIf search_count="==0">
-    <p>{{tpl:SysSearchString encode_html="1" string="No results."}}</p>
+    <p>{{tpl:SysSearchString encode_html="1" string="Aucun résultat."}}</p>
   </tpl:SysIf>
 
   <tpl:Entries>

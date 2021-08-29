@@ -1,6 +1,12 @@
 <footer id="site-footer">
-  <div id="copyright">
-    {{tpl:SysPoweredBy}}
+  <div id="site-footer-info">
+    <div>
+      <a href="{{tpl:BlogFeedURL}}">RSS</a>&nbsp;&ndash;&nbsp;
+    </div>
+
+    <form id="site-footer-search" action="{{tpl:BlogURL}}" method="get" role="search">
+      <input type="text" maxlength="255" id="q" name="q" placeholder="Recherche" aria-label="Recherche" value="{{tpl:SysSearchString}}" />
+    </form>
   </div>
 
   {{tpl:SysBehavior behavior="publicFooterContent"}}

@@ -6,10 +6,12 @@ body {
   color: #000;
   font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 12pt;
+  margin: 0;
 }
 #site {
-  max-width: 480px;
+  box-sizing: border-box;
   margin: 4em auto;
+  max-width: 480px;
 }
 #site-header {
   margin-bottom: 4em;
@@ -42,10 +44,9 @@ a:hover {
 }
 p {
   margin: 1em 0;
-  line-height: 1.5;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0 .5em 0;
+  margin: 1em 0;
   font-weight: 700;
 }
 h1 {
@@ -75,6 +76,20 @@ em {
 u {
   text-decoration: underline;
 }
+
+/* Images */
+figure {
+  margin: 1em 0;
+}
+img.media {
+  display: block;
+}
+figure p {
+  margin: 0;
+  font-size: .9em;
+}
+
+/* Forms */
 input,
 textarea {
   border: 1px solid #aaa;
@@ -122,7 +137,7 @@ textarea {
   font-size: 1em;
   font-style: italic;
   font-weight: 400;
-  margin: 1em 0 0;
+  margin: .5em 0 0;
 }
 
 /*
@@ -136,9 +151,12 @@ textarea {
   margin: 0;
 }
 .post-content,
-.comment-content {
+.page-content {
+  margin: 1.5em 0;
+}
+.content {
   text-align: justify;
-  line-height: 1.5em;
+  line-height: 1.5;
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
       -ms-hyphens: auto;
@@ -155,11 +173,12 @@ textarea {
       -ms-hyphenate-limit-last: always;
           hyphenate-limit-last: always;
 }
-.post-content {
-  margin: 1.5em 0;
-}
-.post-content a {
+.content a {
   text-decoration: underline;
+}
+.content ul,
+.content ol {
+  margin: 1em 0;
 }
 .post-footer {
   margin: 2rem 0 4rem;
@@ -167,13 +186,32 @@ textarea {
 
 /* Loop */
 .post-loop {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 .post-loop:last-child {
   margin-bottom: 0;
 }
 .post-loop .post-meta {
-  margin-top: .25rem;
+  margin-top: .25em;
+}
+
+/* Single post */
+.post-single .post-meta {
+  margin-bottom: .5em
+}
+
+/* Archives */
+.content-info {
+  margin-bottom: 2em;
+}
+.content-meta {
+  margin-bottom: .5em;
+}
+.content-title {
+  margin: 0;
+}
+.content-description {
+  margin: .5em 0 0;
 }
 
 /*
@@ -187,7 +225,7 @@ textarea {
 }
 #comments-list {
   list-style: none;
-  margin: 2em 0 4em 0;
+  margin: 2em 0 4em;
   padding: 0;
 }
 .comment,
@@ -214,13 +252,34 @@ textarea {
 .comment-preview {
   border: 1px solid #dbdbdb;
   border-radius: 2px;
+  margin-bottom: 2em;
   padding: 1em;
 }
 .comment-preview-info h3 {
   margin-top: 0;
 }
+.comment-preview .comment-content {
+  margin-bottom: 1em;
+}
 #comment-form h3 {
   margin-bottom: 1em;
+}
+.comment-message {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 2em;
+  padding: .5em 0;
+}
+.message-green {
+  border-top: 4px solid green;
+  border-bottom: 4px solid green;
+}
+.message-orange {
+  border-top: 4px solid orange;
+  border-bottom: 4px solid orange;
+}
+.message-red {
+
 }
 
 /*
@@ -245,6 +304,24 @@ textarea {
 }
 
 /**
+ * Site Footer
+ */
+ #site-footer-info {
+   display: flex;
+   align-items: center;
+}
+#site-footer-search {
+  display: inline;
+  width: 100%;
+}
+#site-footer-search input {
+
+  display: inline;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/**
  * Plugins
  */
 
@@ -256,6 +333,7 @@ textarea {
  }
  #main-menu li {
    display: inline-block;
+   margin-top: .2em;
    margin-right: .5em;
  }
  #main-menu li a {
@@ -271,6 +349,27 @@ textarea {
 /*
  * Responsiveness
  */
-@media only screen and (max-width: 520px) {
-
+@media only screen and (max-width: 600px) {
+  #site {
+    margin-top: 2em;
+    max-width: none;
+    width: 80%;
+  }
+  #site-header {
+    margin-bottom: 2em;
+  }
+  #main-menu {
+    margin-top: 1em;
+  }
+  #site-content {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  #site-sidebar {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  #site-footer {
+    margin-top: 2em
+  }
 }

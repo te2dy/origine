@@ -304,6 +304,24 @@ textarea {
 }
 
 /**
+ * Site Footer
+ */
+ #site-footer-info {
+   display: flex;
+   align-items: center;
+}
+#site-footer-search {
+  display: inline;
+  width: 100%;
+}
+#site-footer-search input {
+
+  display: inline;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/**
  * Plugins
  */
 
