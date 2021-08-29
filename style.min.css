@@ -6,10 +6,12 @@ body {
   color: #000;
   font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 12pt;
+  margin: 0;
 }
 #site {
-  max-width: 480px;
+  box-sizing: border-box;
   margin: 4em auto;
+  max-width: 480px;
 }
 #site-header {
   margin-bottom: 4em;
@@ -313,6 +315,7 @@ textarea {
  }
  #main-menu li {
    display: inline-block;
+   margin-top: .2em;
    margin-right: .5em;
  }
  #main-menu li a {
@@ -328,6 +331,27 @@ textarea {
 /*
  * Responsiveness
  */
-@media only screen and (max-width: 520px) {
-
+@media only screen and (max-width: 600px) {
+  #site {
+    margin-top: 2em;
+    max-width: none;
+    width: 80%;
+  }
+  #site-header {
+    margin-bottom: 2em;
+  }
+  #main-menu {
+    margin-top: 1em;
+  }
+  #site-content {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  #site-sidebar {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+  #site-footer {
+    margin-top: 2em
+  }
 }
