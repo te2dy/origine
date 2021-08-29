@@ -8,22 +8,15 @@
       <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> – page {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
     </tpl:Block>
 
-    <tpl:Block name="head-meta">
-      <tpl:Block name="head-description">
-        <meta name="description" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - page {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-      </tpl:Block>
-
-      <tpl:Block name="meta-robots">
-        <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
-      </tpl:Block>
-
-      <tpl:Block name="meta-entry">
-        <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-        <meta name="generator" content="Dotclear" />
-      </tpl:Block>
+    <tpl:Block name="head-description">
+      <meta name="description" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - page {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
     </tpl:Block>
 
-    <link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.min.css" media="all" />
+    <tpl:Block name="head-meta">
+      <meta name="robots" content="{{tpl:BlogMetaRobots}}" />
+    </tpl:Block>
+
+    <link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.min.css" />
 
     {{tpl:SysBehavior behavior="publicHeadContent"}}
   </head>
