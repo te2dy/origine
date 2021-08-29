@@ -1,12 +1,12 @@
 <footer id="site-footer">
-  <div id="site-footer-info">
-    <a href="{{tpl:BlogFeedURL}}" id="site-footer-rss">RSS</a>
-
-    <span class="footer-info-separator"">&ndash;</span>
-
+  <div class="site-footer-line">
     <form id="site-footer-search" action="{{tpl:BlogURL}}" method="get" role="search">
       <input type="text" maxlength="255" id="q" name="q" placeholder="Recherche" aria-label="Recherche" value="{{tpl:SysSearchString}}" />
     </form>
+  </div>
+
+  <div class="site-footer-line">
+    {{tpl:SysPoweredBy}} &ndash; <a href="{{tpl:BlogFeedURL}}" id="site-footer-rss">RSS</a>
   </div>
 
   {{tpl:SysBehavior behavior="publicFooterContent"}}

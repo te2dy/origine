@@ -314,10 +314,11 @@ textarea {
 /**
  * Site Footer
  */
-#site-footer-search {
-  display: inline;
-  width: 100%;
-  break-after: always; /* New syntax */
+.site-footer-line {
+  margin-top: .25em;
+}
+.site-footer-line:first-of-type {
+  margin-top: 0;
 }
 #site-footer-search input {
   display: inline-block;
@@ -375,11 +376,5 @@ textarea {
   }
   #site-footer {
     margin-top: 2em
-  }
-  .footer-info-separator {
-    display: none;
-  }
-  #site-footer-search {
-    display: block;
   }
 }
