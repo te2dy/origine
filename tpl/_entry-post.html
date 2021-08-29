@@ -33,6 +33,16 @@
     </tpl:EntryTags>
 
     {{tpl:include src="_attachments.html"}}
+
+    <div class="post-pagination">
+      <tpl:EntryPrevious>
+        <a href="{{tpl:EntryURL}}" class="link-prev" title="{{tpl:EntryTitle}}">&lsaquo; Billet précédent</a>
+      </tpl:EntryPrevious>
+
+      <tpl:EntryNext>
+        <a href="{{tpl:EntryURL}}" class="link-next" title="{{tpl:EntryTitle}}">Billet suivant &rsaquo;</a>
+      </tpl:EntryNext>
+    </div>
   </footer>
 </article>
 

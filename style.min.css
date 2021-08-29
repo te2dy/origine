@@ -199,6 +199,14 @@ textarea {
 .post-single .post-meta {
   margin-bottom: .5em
 }
+.post-pagination {
+  color: #565656;
+  display: flex;
+  margin-top: 4em;
+}
+.link-next {
+  margin-left: auto;
+}
 
 /* Archives */
 .content-info {
