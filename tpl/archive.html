@@ -12,21 +12,18 @@
   </div>
 
   <article class="post">
-    <h3>Par date</h3>
+    <h2>Par date</h2>
 
     <p class="fromto">Du <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries> au <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries></p>
 
     <tpl:Archives order="asc">
       <tpl:ArchivesYearHeader>
-        <h4>{{tpl:ArchiveDate format="%Y"}}</h4>
-
+        <strong>{{tpl:ArchiveDate format="%Y"}}</strong>
         <ul>
       </tpl:ArchivesYearHeader>
-
         <li>
           <a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a> ({{tpl:ArchiveEntriesCount}})
         </li>
-
       <tpl:ArchivesYearFooter>
         </ul>
       </tpl:ArchivesYearFooter>
@@ -34,7 +31,7 @@
 
     <tpl:Categories level="1">
       <tpl:CategoriesHeader>
-          <h3>Par catégorie</h3>
+          <h2>Par catégorie</h2>
 
           <ul>
       </tpl:CategoriesHeader>
@@ -59,7 +56,7 @@
     <tpl:Tags sortby="count" order="desc">
       <tpl:TagsHeader>
         <div id="by-tag" class="arch-block">
-          <h3>Par mot-clé</h3>
+          <h2>Par mot-clé</h2>
           <ul>
       </tpl:TagsHeader>
             <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
@@ -71,7 +68,7 @@
 
     <tpl:Entries type="page" no_content="1" lastn="0" selected="0">
       <tpl:EntriesHeader>
-        <h3>Pages</h3>
+        <h2>Pages</h2>
         <ul>
       </tpl:EntriesHeader>
         <li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
