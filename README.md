@@ -1,3 +1,3 @@
 # Origine
 
-À venir…
+Un thème Dotclear minimaliste.
