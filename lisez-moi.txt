@@ -1,11 +1,13 @@
-Nom du thème :
-Description :
+Nom du thème : Origine
+Description : Un thème Dotclear minimaliste.
 Auteur : Teddy
-Licence :
-Adresse de la licence : 
+Licence : GPLv3 ou ultérieure
+Adresse de la licence : https://www.gnu.org/licenses/gpl-3.0.fr.html
 
 Note :
 Ce thème n’aurait pu avoir vu le jour sans les ressources mises à disposition librement par la communauté Dotclear.
 Son auteur s’est particulièrement inspiré des travaux réalisés sur le thème Ductile créé par l’association Dotclear.
 
 Notes de version :
+=== 0.1 – 4 septembre 2021 ===
+- Lancement de la première version du thème.
