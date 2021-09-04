@@ -3,9 +3,9 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
     /* Name */       "Origine",
-    /* Description*/ "",
+    /* Description*/ "Un thème Dotclear minimaliste.",
     /* Author */     "Teddy",
-    /* Version */    "alpha",
+    /* Version */    "0.1",
     array(
       'type' => 'theme'
     )
