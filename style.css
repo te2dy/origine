@@ -47,7 +47,6 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   margin: 1em 0;
-  font-weight: 700;
 }
 h1 {
   font-size: 1.5em;
@@ -90,14 +89,13 @@ figure p {
 }
 
 /* Forms */
-input,
-textarea {
+input, textarea {
   border: 1px solid #aaa;
   border-radius: 4px;
   box-sizing: border-box;
   font-family: inherit;
   font-size: 1em;
-  padding: .5rem;
+  padding: .5em;
 }
 input[type="submit"] {
   background-color: #eaeaea;
@@ -123,6 +121,12 @@ textarea {
 }
 .form-entry label:hover {
   cursor: pointer;
+}
+#page-search-form {
+  margin: 1em 0;
+}
+.page-search-form-input {
+  width: 100%;
 }
 
 /*
@@ -150,8 +154,7 @@ textarea {
 .post-title {
   margin: 0;
 }
-.post-content,
-.page-content {
+.post-content, .page-content {
   margin: 1.5em 0;
 }
 .content {
@@ -176,17 +179,16 @@ textarea {
 .content a {
   text-decoration: underline;
 }
-.content ul,
-.content ol {
+.content ul, .content ol {
   margin: 1em 0;
 }
 .post-footer {
-  margin: 2rem 0 4rem;
+  margin: 2em 0 4em;
 }
 
 /* Loop */
 .post-loop {
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 .post-loop:last-child {
   margin-bottom: 0;
@@ -199,10 +201,28 @@ textarea {
 .post-single .post-meta {
   margin-bottom: .5em
 }
+.post-pagination {
+  color: #565656;
+  display: flex;
+  margin-top: 4em;
+}
+.link-next {
+  margin-left: auto;
+}
 
 /* Archives */
 .content-info {
   margin-bottom: 2em;
+}
+.content-label {
+  background-color: #eaeaea;
+  border-radius: 4px;
+  cursor: default;
+  display: inline-block;
+  font-size: .8em;
+  line-height: 1;
+  margin-bottom: .5em;
+  padding: .5em;
 }
 .content-meta {
   margin-bottom: .5em;
@@ -228,8 +248,7 @@ textarea {
   margin: 2em 0 4em;
   padding: 0;
 }
-.comment,
-.ping {
+.comment, .ping {
   margin: 2em 0;
 }
 .comment-meta {
@@ -251,7 +270,7 @@ textarea {
 }
 .comment-preview {
   border: 1px solid #dbdbdb;
-  border-radius: 2px;
+  border-radius: 4px;
   margin-bottom: 2em;
   padding: 1em;
 }
@@ -279,7 +298,8 @@ textarea {
   border-bottom: 4px solid orange;
 }
 .message-red {
-
+  border-top: 4px solid red;
+  border-bottom: 4px solid red;
 }
 
 /*
@@ -301,24 +321,6 @@ textarea {
 .page-next {
   float: right;
   margin-top: .4em;
-}
-
-/**
- * Site Footer
- */
- #site-footer-info {
-   display: flex;
-   align-items: center;
-}
-#site-footer-search {
-  display: inline;
-  width: 100%;
-}
-#site-footer-search input {
-
-  display: inline;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 /**
