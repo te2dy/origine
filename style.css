@@ -34,13 +34,17 @@ body {
  * Content formatting
  */
 a {
+  border-bottom-color: inherit;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
   color: inherit;
   text-decoration: none;
-  transition: all .2s ease;
 }
+a:active,
+a:focus,
 a:hover {
+  border-bottom-style: solid;
   color: #de0000;
-  transition: all .2s ease;
 }
 p {
   margin: 1em 0;
@@ -99,14 +103,12 @@ input, textarea {
 }
 input[type="submit"] {
   background-color: #eaeaea;
-  transition: all .2s ease;
 }
 input[type="submit"]:hover {
   cursor: pointer;
   background-color: #000;
   border-color: #000;
   color: #fff;
-  transition: all .2s ease;
 }
 textarea {
   width: 100%;
@@ -135,6 +137,9 @@ textarea {
 #site-title {
   margin: 0;
   font-size: 1.25em;
+}
+#site-title a {
+  border-bottom: 0;
 }
 #site-description {
   color: #565656;
@@ -176,9 +181,6 @@ textarea {
       -ms-hyphenate-limit-last: always;
           hyphenate-limit-last: always;
 }
-.content a {
-  text-decoration: underline;
-}
 .content ul, .content ol {
   margin: 1em 0;
 }
@@ -195,6 +197,10 @@ textarea {
 }
 .post-loop .post-meta {
   margin-top: .25em;
+}
+.post-loop .post-meta a,
+.post-loop .post-title a {
+  border-bottom: 0;
 }
 
 /* Single post */
@@ -323,29 +329,30 @@ textarea {
 }
 
 /**
+ *
+ */
+.site-footer-line {
+  margin-top: .25em;
+}
+.site-footer-line:first-of-type {
+  margin-top: 0;
+}
+
+/**
  * Plugins
  */
 
  /* Simple Menu plugin */
- #main-menu {
-   list-style: none;
-   margin: 2em 0 0;
-   padding: 0;
- }
- #main-menu li {
-   display: inline-block;
-   margin-top: .2em;
-   margin-right: .5em;
- }
- #main-menu li a {
-   position: relative;
-   display: block;
-   border-bottom: 1px solid #dbdbdb;
-   padding-bottom: .2em;
- }
- #main-menu li a:hover {
-   border-color: #de0000;
- }
+#main-menu {
+  list-style: none;
+  margin: 2em 0 0;
+  padding: 0;
+}
+#main-menu li {
+  display: inline-block;
+  margin-top: .2em;
+  margin-right: .5em;
+}
 
 /*
  * Responsiveness
