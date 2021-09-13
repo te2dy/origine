@@ -1,4 +1,4 @@
-# Origine
+# Origine, un thème Dotclear
 
 Un thème Dotclear minimaliste.
 
