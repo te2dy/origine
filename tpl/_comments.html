@@ -18,11 +18,11 @@
       </tpl:CommentIf>
           <header class="comment-meta">
             <tpl:CommentIf is_ping="0">
-              <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite>, le <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
+              <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite>, <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
             </tpl:CommentIf>
 
             <tpl:CommentIf is_ping="1">
-              <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite>, le <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
+              <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite>, <a href="#commentaire-{{tpl:CommentID}}">{{tpl:CommentDate}} à {{tpl:CommentTime}}</a>&nbsp;:
             </tpl:CommentIf>
           </header>
 
