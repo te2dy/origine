@@ -1,13 +1,42 @@
+:root {
+  --color-light-background: #fff;
+  --color-dark-background: #16161D;
+
+  --color-light-text-primary: #000;
+  --color-dark-text-primary: rgb(255, 255, 255, 0.85);
+
+  --color-light-text-secondary: rgb(0, 0, 0, 0.65);
+  --color-dark-text-secondary: rgb(255, 255, 255, 0.55);
+
+  --color-light-link: #de0000;
+  --color-dark-link: #f14646;
+
+  --color-border: #aaa;
+
+  --color-light-input-text: #000;
+  --color-dark-input-text: #16161D;
+
+  --color-light-input-text-hover: #fff;
+  --color-dark-input-text-hover: #fff;
+
+  --color-light-input-background: #eaeaea;
+  --color-dark-input-background: rgb(255, 255, 255, 0.85);
+
+  --color-light-input-background-hover: #000;
+  --color-dark-input-background-hover: rgb(255, 255, 255, 0.55);
+}
+
 /*
  * Structure
  */
 body {
-  background-color: #fff;
-  color: #000;
+  background-color: var(--color-light-background);
+  color: var(--color-light-text-primary);
   font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 12pt;
   margin: 0;
 }
+
 #site {
   box-sizing: border-box;
   margin: 4em auto;
@@ -25,7 +54,7 @@ body {
   margin-bottom: 4em;
 }
 #site-footer {
-  color: #565656;
+  color: var(--color-light-text-secondary);
   font-size: .9em;
   margin-top: 4em
 }
@@ -44,7 +73,7 @@ a:active,
 a:focus,
 a:hover {
   border-bottom-style: solid;
-  color: #de0000;
+  color: var(--color-light-link);
 }
 p {
   margin: 1em 0;
@@ -94,16 +123,18 @@ figure p {
 
 /* Forms */
 input, textarea {
-  border: 1px solid #aaa;
+  background-color: var(--color-light-input-background);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   box-sizing: border-box;
+  color: var(--color-light-input-text);
   font-family: inherit;
   font-size: 1em;
   padding: .5em;
 }
 input[type="submit"],
 .form-submit {
-  background-color: #eaeaea;
+  background-color: var(--color-light-input-background);
   padding-top: .25em;
   padding-bottom: .25em;
 }
@@ -112,9 +143,9 @@ input[type="submit"]:focus,
 .form-submit:hover,
 .form-submit:focus {
   cursor: pointer;
-  background-color: #000;
-  border-color: #000;
-  color: #fff;
+  background-color: var(--color-light-input-background-hover);
+  border-color: var(--color-light-input-background-hover);
+  color: var(--color-light-input-text-hover);
 }
 textarea {
   width: 100%;
@@ -148,7 +179,7 @@ textarea {
   border-bottom: 0;
 }
 #site-description {
-  color: #565656;
+  color: var(--color-light-text-secondary);
   font-size: 1em;
   font-style: italic;
   font-weight: 400;
@@ -159,7 +190,7 @@ textarea {
  * Posts
  */
 .post-meta {
-  color: #565656;
+  color: var(--color-light-text-secondary);
   font-size: .9em;
 }
 .post-title {
@@ -227,7 +258,7 @@ textarea {
   margin-bottom: 2em;
 }
 .content-label {
-  background-color: #eaeaea;
+  background-color: var(--color-light-input-background);
   border-radius: 4px;
   display: inline-block;
   font-size: .8em;
@@ -263,15 +294,15 @@ textarea {
   margin: 2em 0;
 }
 .comment-meta {
-  color: #565656;
+  color: var(--color-light-text-secondary);
 }
 .comment-author {
-  color: #000;
+  color: var(--color-light-text-primary);
   font-style: normal;
   font-weight: 700;
 }
 .comment-content {
-  border-left: 1px solid #aaa;
+  border-left: 1px solid var(--color-border);
   margin-top: 1em;
   padding-left: 1em;
 }
@@ -280,7 +311,7 @@ textarea {
   margin-bottom: .5em;
 }
 .comment-preview {
-  border: 1px solid #dbdbdb;
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   margin-bottom: 2em;
   padding: 1em;
@@ -319,7 +350,7 @@ textarea {
 .pagination {
   margin: 4em 0 5em;
   text-align: center;
-  color: #565656;
+  color: var(--color-light-text-secondary);
 }
 .page-current {
   display: inline-block;
@@ -335,7 +366,7 @@ textarea {
 }
 
 /**
- *
+ * Site Footer
  */
 .site-footer-line {
   margin-top: .25em;
@@ -360,7 +391,66 @@ textarea {
   margin-right: .5em;
 }
 
-/*
+/**
+ * Dark Color Scheme
+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--color-dark-background);
+    color: var(--color-dark-text-primary);
+  }
+  #site-footer {
+    color: var(--color-dark-text-secondary);
+  }
+  a:active,
+  a:focus,
+  a:hover {
+    color: var(--color-dark-link);
+  }
+  input, textarea {
+    background-color: var(--color-dark-input-background);
+    border-color: transparent;
+    color: var(--color-dark-input-text);
+  }
+  input[type="submit"],
+  .form-submit {
+    background-color: var(--color-dark-input-background);
+  }
+  input[type="submit"]:hover,
+  input[type="submit"]:focus,
+  .form-submit:hover,
+  .form-submit:focus {
+    background-color: var(--color-dark-input-background-hover);
+    border-color: transparent;
+    color: var(--color-dark-input-text-hover);
+  }
+  #site-description {
+    color: var(--color-dark-text-secondary);
+  }
+  .post-meta {
+    color: var(--color-dark-text-secondary);
+  }
+  .content-label {
+    background-color: var(--color-dark-input-background);
+  }
+  .comment-meta {
+    color: var(--color-dark-text-secondary);
+  }
+  .comment-author {
+    color: var(--color-dark-text-primary);
+  }
+  .comment-content {
+    border-left: 1px solid var(--color-border);
+  }
+  .comment-preview {
+    border-color: var(--color-border);
+  }
+  .pagination {
+    color: var(--color-dark-text-secondary);
+  }
+}
+
+/**
  * Responsiveness
  */
 @media only screen and (max-width: 600px) {
