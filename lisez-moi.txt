@@ -13,6 +13,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 == Notes de version ==
 
 === 0.2 – 18 septembre 2021 ===
+- Nouveau : activation d’un thème sombre en fonction des paramètres du système.
+- Réduction de la taille des boutons.
+- Changement du style des liens.
 
 === 0.1 – 4 septembre 2021 ===
 - Lancement de la première version du thème.
