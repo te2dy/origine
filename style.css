@@ -1,37 +1,37 @@
-:root {
-  --color-light-background: #fff;
-  --color-dark-background: #16161D;
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-background: #fff;
+    --color-text-primary: #000;
+    --color-text-secondary: rgb(0, 0, 0, 0.65);
+    --color-link: #de0000;
+    --color-border: #aaa;
+    --color-input-text: #000;
+    --color-input-text-hover: #fff;
+    --color-input-background: #eaeaea;
+    --color-input-background-hover: #000;
+  }
+}
 
-  --color-light-text-primary: #000;
-  --color-dark-text-primary: rgb(255, 255, 255, 0.85);
-
-  --color-light-text-secondary: rgb(0, 0, 0, 0.65);
-  --color-dark-text-secondary: rgb(255, 255, 255, 0.55);
-
-  --color-light-link: #de0000;
-  --color-dark-link: #f14646;
-
-  --color-border: #aaa;
-
-  --color-light-input-text: #000;
-  --color-dark-input-text: #16161D;
-
-  --color-light-input-text-hover: #fff;
-  --color-dark-input-text-hover: #fff;
-
-  --color-light-input-background: #eaeaea;
-  --color-dark-input-background: rgb(255, 255, 255, 0.85);
-
-  --color-light-input-background-hover: #000;
-  --color-dark-input-background-hover: rgb(255, 255, 255, 0.55);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #16161D;
+    --color-text-primary: rgb(255, 255, 255, 0.85);
+    --color-text-secondary: rgb(255, 255, 255, 0.55);
+    --color-link: #f14646;
+    --color-border: #aaa;
+    --color-input-text: #16161D;
+    --color-input-text-hover: #fff;
+    --color-input-background: rgb(255, 255, 255, 0.85);
+    --color-input-background-hover: rgb(255, 255, 255, 0.55);
+  }
 }
 
 /*
  * Structure
  */
 body {
-  background-color: var(--color-light-background);
-  color: var(--color-light-text-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
   font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 12pt;
   margin: 0;
@@ -54,7 +54,7 @@ body {
   margin-bottom: 4em;
 }
 #site-footer {
-  color: var(--color-light-text-secondary);
+  color: var(--color-text-secondary);
   font-size: .9em;
   margin-top: 4em
 }
@@ -73,7 +73,7 @@ a:active,
 a:focus,
 a:hover {
   border-bottom-style: solid;
-  color: var(--color-light-link);
+  color: var(--color-link);
 }
 p {
   margin: 1em 0;
@@ -123,18 +123,19 @@ figure p {
 
 /* Forms */
 input, textarea {
-  background-color: var(--color-light-input-background);
+  background-color: var(--color-input-background);
   border: 1px solid var(--color-border);
   border-radius: 4px;
   box-sizing: border-box;
-  color: var(--color-light-input-text);
+  color: var(--color-input-text);
   font-family: inherit;
   font-size: 1em;
+  max-width: 100%;
   padding: .5em;
 }
 input[type="submit"],
 .form-submit {
-  background-color: var(--color-light-input-background);
+  background-color: var(--color-input-background);
   padding-top: .25em;
   padding-bottom: .25em;
 }
@@ -143,9 +144,9 @@ input[type="submit"]:focus,
 .form-submit:hover,
 .form-submit:focus {
   cursor: pointer;
-  background-color: var(--color-light-input-background-hover);
-  border-color: var(--color-light-input-background-hover);
-  color: var(--color-light-input-text-hover);
+  background-color: var(--color-input-background-hover);
+  border-color: var(--color-input-background-hover);
+  color: var(--color-input-text-hover);
 }
 textarea {
   width: 100%;
@@ -179,7 +180,7 @@ textarea {
   border-bottom: 0;
 }
 #site-description {
-  color: var(--color-light-text-secondary);
+  color: var(--color-text-secondary);
   font-size: 1em;
   font-style: italic;
   font-weight: 400;
@@ -190,7 +191,7 @@ textarea {
  * Posts
  */
 .post-meta {
-  color: var(--color-light-text-secondary);
+  color: var(--color-text-secondary);
   font-size: .9em;
 }
 .post-title {
@@ -258,7 +259,7 @@ textarea {
   margin-bottom: 2em;
 }
 .content-label {
-  background-color: var(--color-light-input-background);
+  background-color: var(--color-input-background);
   border-radius: 4px;
   display: inline-block;
   font-size: .8em;
@@ -294,10 +295,10 @@ textarea {
   margin: 2em 0;
 }
 .comment-meta {
-  color: var(--color-light-text-secondary);
+  color: var(--color-text-secondary);
 }
 .comment-author {
-  color: var(--color-light-text-primary);
+  color: var(--color-text-primary);
   font-style: normal;
   font-weight: 700;
 }
@@ -350,7 +351,7 @@ textarea {
 .pagination {
   margin: 4em 0 5em;
   text-align: center;
-  color: var(--color-light-text-secondary);
+  color: var(--color-text-secondary);
 }
 .page-current {
   display: inline-block;
@@ -392,69 +393,11 @@ textarea {
 }
 
 /**
- * Dark Color Scheme
- */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-dark-background);
-    color: var(--color-dark-text-primary);
-  }
-  #site-footer {
-    color: var(--color-dark-text-secondary);
-  }
-  a:active,
-  a:focus,
-  a:hover {
-    color: var(--color-dark-link);
-  }
-  input, textarea {
-    background-color: var(--color-dark-input-background);
-    border-color: transparent;
-    color: var(--color-dark-input-text);
-  }
-  input[type="submit"],
-  .form-submit {
-    background-color: var(--color-dark-input-background);
-  }
-  input[type="submit"]:hover,
-  input[type="submit"]:focus,
-  .form-submit:hover,
-  .form-submit:focus {
-    background-color: var(--color-dark-input-background-hover);
-    border-color: transparent;
-    color: var(--color-dark-input-text-hover);
-  }
-  #site-description {
-    color: var(--color-dark-text-secondary);
-  }
-  .post-meta {
-    color: var(--color-dark-text-secondary);
-  }
-  .content-label {
-    background-color: var(--color-dark-input-background);
-  }
-  .comment-meta {
-    color: var(--color-dark-text-secondary);
-  }
-  .comment-author {
-    color: var(--color-dark-text-primary);
-  }
-  .comment-content {
-    border-left: 1px solid var(--color-border);
-  }
-  .comment-preview {
-    border-color: var(--color-border);
-  }
-  .pagination {
-    color: var(--color-dark-text-secondary);
-  }
-}
-
-/**
  * Responsiveness
  */
 @media only screen and (max-width: 600px) {
   #site {
+    font-size: .95em;
     margin-top: 2em;
     max-width: none;
     width: 80%;
@@ -475,5 +418,12 @@ textarea {
   }
   #site-footer {
     margin-top: 2em
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  #site {
+    font-size: .9em;
+    width: 90%;
   }
 }
