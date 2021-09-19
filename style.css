@@ -427,3 +427,14 @@ textarea {
     width: 90%;
   }
 }
+
+/**
+ * Print
+ */
+@media print {
+  #main-menu,
+  #comment-form,
+  #site-footer-menu {
+    display: none;
+  }
+}
