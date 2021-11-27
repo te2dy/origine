@@ -19,10 +19,10 @@
     --color-text-secondary: rgb(255, 255, 255, 0.55);
     --color-link: #f14646;
     --color-border: #aaa;
-    --color-input-text: #16161D;
+    --color-input-text: rgb(255, 255, 255, 0.85);
     --color-input-text-hover: #fff;
-    --color-input-background: rgb(255, 255, 255, 0.85);
-    --color-input-background-hover: rgb(255, 255, 255, 0.55);
+    --color-input-background: rgb(255, 255, 255, 0.2);
+    --color-input-background-hover: rgb(255, 255, 255, 0.15);
   }
 }
 
