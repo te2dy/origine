@@ -12,6 +12,10 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 0.2.1 – 27 novembre 2021 ===
+- Amélioration des styles du thème sombre.
+- Corrigé : basculement de l’id « content-info » en class.
+
 === 0.2 – 18 septembre 2021 ===
 - Nouveau : activation d’un thème sombre en fonction des paramètres du système.
 - Réduction de la taille des boutons.
