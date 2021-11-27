@@ -432,9 +432,34 @@ textarea {
  * Print
  */
 @media print {
+  :root{
+    --color-background: #fff;
+    --color-text-primary: #000;
+    --color-text-secondary: rgb(0, 0, 0, 0.65);
+    --color-link: #de0000;
+    --color-border: #aaa;
+    --color-input-text: #000;
+    --color-input-text-hover: #fff;
+    --color-input-background: #eaeaea;
+    --color-input-background-hover: #000;
+  }
+  body {
+    font-size: 12pt;
+  }
   #main-menu,
   #comment-form,
   #site-footer-menu {
     display: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after:avoid;
+    page-break-inside:avoid;
+  }
+  img {
+    page-break-inside:avoid;
+    page-break-after:avoid;
+  }
+  .content a[href^=http]:after {
+    content: " [" attr(href) "]";
   }
 }
