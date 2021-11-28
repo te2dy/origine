@@ -9,3 +9,7 @@
 
   {{tpl:SysBehavior behavior="publicFooterContent"}}
 </footer>
+
+<tpl:SysIf jquery_needed="1">
+  <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
+</tpl:SysIf>
