@@ -8,7 +8,7 @@
 /**
  * Default colors
  *
- * Default colors depending on the system color scheme.
+ * Default colors depend on the system color scheme.
  */
 @media (prefers-color-scheme: light) {
   :root {
