@@ -1,16 +1,16 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-  <title>Page sans contenu – {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Page without content}} – {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description">
-  <meta name="description" content="Il n’y a rien à afficher">
+  <meta name="description" content="{{tpl:lang There is nothing to display}}">
 </tpl:Block>
 
 <tpl:Block name="main-content">
   <div id="content-info">
-    <h1 class="content-title">Aucun contenu</h1>
+    <h1 class="content-title">{{tpl:lang No content}}</h1>
 
     {{tpl:include src="_entry-empty.html"}}
   </div>

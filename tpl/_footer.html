@@ -1,15 +1,22 @@
 <footer id="site-footer">
   <div class="site-footer-line" id="site-footer-menu">
-    <a href="{{tpl:BlogArchiveURL}}">Archives</a> &ndash; <a href="{{tpl:BlogFeedURL}}" rel="alternate">RSS</a>
+    <a href="{{tpl:BlogArchiveURL}}">{{tpl:lang Archives}}</a> &ndash; <a href="{{tpl:BlogFeedURL}}" rel="alternate">{{tpl:lang RSS}}</a>
   </div>
 
   <div class="site-footer-line" id="site-footer-ad">
-    Propulsé par <a href="https://fr.dotclear.org/">Dotclear</a> et <a href="https://github.com/te2dy/origine/">Origine</a>
+    {{tpl:lang Powered by}} <a href="https://fr.dotclear.org/">{{tpl:lang Dotclear}}</a> {{tpl:lang and}} <a href="https://github.com/te2dy/origine/">Origine</a>
   </div>
 
   {{tpl:SysBehavior behavior="publicFooterContent"}}
-</footer>
 
-<tpl:SysIf jquery_needed="1">
-  <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
-</tpl:SysIf>
+  <tpl:SysIf jquery_needed="1">
+    <tpl:Block name="footer-scripts">
+      <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
+      <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
+      <script type="application/json" id="dc_post_remember_str-data">
+      { "post_remember_str": "{{tpl:lang Remember me}}" }
+      </script>
+      <script src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
+    </tpl:Block>
+  </tpl:SysIf>
+</footer>

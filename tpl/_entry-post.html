@@ -1,4 +1,4 @@
-<article id="note-{{tpl:EntryID}}" class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}">
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}">
   <header>
     <div class="post-meta">
       <time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time>
@@ -18,13 +18,13 @@
   <footer class="post-footer">
     <tpl:EntryIf has_category="1">
       <div class="post-meta">
-        Classé dans <em><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a></em>
+        {{tpl:lang Sorted in}} <em><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a></em>
       </div>
     </tpl:EntryIf>
 
     <tpl:EntryTags>
       <tpl:TagsHeader>
-        <div class="post-meta">Mots-clés&nbsp;:
+        <div class="post-meta">{{tpl:lang Tags:}}
       </tpl:TagsHeader>
         <a href="{{tpl:TagURL}}">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
       <tpl:TagsFooter>
@@ -36,11 +36,11 @@
 
     <div class="post-pagination">
       <tpl:EntryPrevious>
-        <a class="link-prev" href="{{tpl:EntryURL}}" rel="prev" title="{{tpl:EntryTitle}}">&lsaquo; Billet précédent</a>
+        <a class="link-prev" href="{{tpl:EntryURL}}" rel="prev" title="{{tpl:EntryTitle}}">{{tpl:lang &lsaquo; Previous post}}</a>
       </tpl:EntryPrevious>
 
       <tpl:EntryNext>
-        <a class="link-next" href="{{tpl:EntryURL}}" rel="next" title="{{tpl:EntryTitle}}">Billet suivant &rsaquo;</a>
+        <a class="link-next" href="{{tpl:EntryURL}}" rel="next" title="{{tpl:EntryTitle}}">{{tpl:lang Next post &rsaquo;}}</a>
       </tpl:EntryNext>
     </div>
   </footer>
