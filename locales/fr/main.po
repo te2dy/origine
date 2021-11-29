@@ -82,6 +82,10 @@ msgstr "&lsaquo; Page précédente"
 msgid "Next page &rsaquo;"
 msgstr "Page suivante &rsaquo;"
 
+#: tpl/archive.html:17
+msgid "From"
+msgstr "Du"
+
 msgid "to"
 msgstr "au"
 
@@ -90,6 +94,10 @@ msgstr "Archives classées par mois"
 
 msgid "category"
 msgstr "categorie"
+
+#: tpl/archive_month.html:25
+msgid "Archives:"
+msgstr "Archives&nbsp;:"
 
 msgid "Search results for"
 msgstr "Résultats de recherche pour"
@@ -100,3 +108,6 @@ msgstr "Billets associés au mot-clé"
 msgid "tag"
 msgstr "mot-clé"
 
+#: tpl/_pagination.html:4
+msgid "of"
+msgstr "sur"

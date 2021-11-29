@@ -12,17 +12,17 @@
   <header class="content-info">
     <div class="content-meta">
       <tpl:ArchivePrevious>
-        <a href="{{tpl:ArchiveURL}}" class="prev">&#8249; {{tpl:ArchiveDate encode_html="1"}}</a> &#x2013;
+        <a href="{{tpl:ArchiveURL}}" class="prev">&lsaquo; {{tpl:ArchiveDate encode_html="1"}}</a> &ndash;
       </tpl:ArchivePrevious>
 
       {{tpl:ArchiveDate}}
 
       <tpl:ArchiveNext>
-        &#x2013; <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#8250;</a>
+        &ndash; <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &rsaquo;</a>
       </tpl:ArchiveNext>
     </div>
 
-    <h1 class="content-title">{{tpl:lang Archives}} &#160;: {{tpl:ArchiveDate}}</h1>
+    <h1 class="content-title">{{tpl:lang Archives:}} {{tpl:ArchiveDate}}</h1>
   </header>
 
   <tpl:Entries>
