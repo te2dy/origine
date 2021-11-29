@@ -19,6 +19,12 @@ msgstr "Il n’y a rien à afficher"
 msgid "No content"
 msgstr "Aucun contenu"
 
+#: tpl/_comments.html:13
+#: tpl/_comments.html:17
+#: tpl/_comments.html:21
+msgid "comment"
+msgstr "commentaire"
+
 msgid "at"
 msgstr "à"
 
