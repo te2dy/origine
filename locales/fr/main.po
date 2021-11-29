@@ -93,7 +93,7 @@ msgid "Archives sorted by month"
 msgstr "Archives classées par mois"
 
 msgid "category"
-msgstr "categorie"
+msgstr "catégorie"
 
 #: tpl/archive_month.html:25
 msgid "Archives:"
