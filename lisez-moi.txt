@@ -12,6 +12,10 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 0.4.1 – 29 novembre 2021 ===
+- Ajout : traductions manquantes.
+- Amélioration : chargement du script "Se souvenir de moi" uniquement dans les billets.
+
 === 0.4 – 29 novembre 2021 ===
 - Ajout : traduction du thème.
 - Ajout : case "Se souvenir de moi" dans le formulaire de commentaire.
