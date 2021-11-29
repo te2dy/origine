@@ -255,6 +255,14 @@ textarea {
 .post-loop .post-title a {
   border-bottom: 0;
 }
+.post-excerpt {
+  color: var(--color-text-secondary);
+  font-size: .9em;
+  margin-top: .25em;
+}
+.post-excerpt a {
+  border-bottom: none;
+}
 
 /* Single Post */
 .post-single .post-meta {

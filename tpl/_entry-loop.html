@@ -4,4 +4,16 @@
   </div>
 
   <h3 class="post-title{{tpl:EntryIfSelected return=" post-title-selected"}}"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+
+  <section class="post-excerpt content">
+    <!-- # Entry with an excerpt -->
+    <tpl:EntryIf extended="1">
+      <a href="{{tpl:EntryURL}}">{{tpl:EntryExcerpt}}</a>
+    </tpl:EntryIf>
+
+    <!-- # Entry without excerpt -->
+    <tpl:EntryIf extended="0">
+        <a href="{{tpl:EntryURL}}">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[&hellip;]</tpl:EntryIfContentIsCut></a>
+    </tpl:EntryIf>
+  </section>
 </article>
