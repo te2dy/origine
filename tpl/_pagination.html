@@ -1,19 +1,19 @@
 <tpl:Pagination>
   <div class="pagination">
     <div class="page-current">
-      page {{tpl:PaginationCurrent}} sur {{tpl:PaginationCounter}}
+      {{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
     </div>
 
     <div class="page-navigation">
       <tpl:PaginationIf start="0">
         <div class="page-prev">
-          <a href="{{tpl:PaginationURL offset="-1"}}">‹&nbsp;Page précédente</a>
+          <a href="{{tpl:PaginationURL offset="-1"}}">{{tpl:lang &lsaquo; Previous page}}</a>
         </div>
       </tpl:PaginationIf>
 
       <tpl:PaginationIf end="0">
         <div class="page-next">
-          <a href="{{tpl:PaginationURL offset="+1"}}">Page suivante&nbsp;›</a>
+          <a href="{{tpl:PaginationURL offset="+1"}}">{{tpl:lang Next page &rsaquo;}}</a>
         </div>
       </tpl:PaginationIf>
     </div>

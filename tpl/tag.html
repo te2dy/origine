@@ -5,12 +5,12 @@
 </tpl:Block>
 
 <tpl:Block name="head-description">
-  <meta name="description" lang="{{tpl:EntryLang}}" content="Les notes associées au mot-clé «&nbsp;{{tpl:TagID encode_html="1"}}&nbsp;»">
+  <meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:lang Posts related to the tag}} {{tpl:TagID encode_html="1"}}">
 </tpl:Block>
 
 <tpl:Block name="main-content">
   <header class="content-info">
-    <span class="content-label">mot-clé</span>
+    <span class="content-label">{{tpl:lang tag}}</span>
 
     <h1 class="content-title">{{tpl:TagID}}</h1>
   </header>

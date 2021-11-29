@@ -1,14 +1,14 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-  <title>Résultats de recherche pour &quot;{{tpl:SysSearchString encode_html="1"}}&quot; sur {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Search results for}} &quot;{{tpl:SysSearchString encode_html="1"}}&quot; {{tpl:lang of}} {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description"></tpl:Block>
 
 <tpl:Block name="main-content">
   <div class="content-info">
-    <h1 class="content-title">Recherche</h1>
+    <h1 class="content-title">{{tpl:lang Search}}</h1>
 
     <section class="page-content content">
       <form action="{{tpl:BlogURL}}" id="page-search-form" method="get" role="search">
@@ -23,16 +23,16 @@
     </section>
 
     <tpl:SysIf search_count="==1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>un resultat</strong>&nbsp;:"}}</p>
+      <p>{{tpl:SysSearchString encode_html="1" string="{{Your search returned <strong>one result</strong>:"}}</p>
     </tpl:SysIf>
 
     <tpl:SysIf search_count="&gt;1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Votre recherche a retourné <strong>%2$s resultats</strong>&nbsp;:"}}</p>
+      <p>{{tpl:SysSearchString encode_html="1" string="Your search returned <strong>%2$s results</strong>:"}}</p>
     </tpl:SysIf>
   </div>
 
   <tpl:SysIf search_count="==0">
-    <p>{{tpl:SysSearchString encode_html="1" string="Aucun résultat."}}</p>
+    <p>{{tpl:SysSearchString encode_html="1" string="No results."}}</p>
   </tpl:SysIf>
 
   <tpl:Entries>

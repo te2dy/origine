@@ -1,20 +1,20 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-  <title>Archives &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Archives}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description"></tpl:Block>
 
 <tpl:Block name="main-content">
   <div id="content-info">
-    <h1 class="content-title">Archives</h1>
+    <h1 class="content-title">{{tpl:lang Archives}}</h1>
   </div>
 
   <article class="post">
-    <h2>Par date</h2>
+    <h2>{{tpl:lang By date}}</h2>
 
-    <p class="fromto">Du <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries> au <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries></p>
+    <p class="fromto">{{tpl:lang From}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries> {{tpl:lang to}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries></p>
 
     <tpl:Archives order="asc">
       <tpl:ArchivesYearHeader>
@@ -31,7 +31,7 @@
 
     <tpl:Categories level="1">
       <tpl:CategoriesHeader>
-          <h2>Par catégorie</h2>
+          <h2>{{tpl:lang By category}}</h2>
 
           <ul>
       </tpl:CategoriesHeader>
@@ -56,7 +56,7 @@
     <tpl:Tags sortby="count" order="desc">
       <tpl:TagsHeader>
         <div id="by-tag" class="arch-block">
-          <h2>Par mot-clé</h2>
+          <h2>{{tpl:lang By tag}}</h2>
           <ul>
       </tpl:TagsHeader>
             <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
@@ -68,7 +68,7 @@
 
     <tpl:Entries type="page" no_content="1" lastn="0" selected="0">
       <tpl:EntriesHeader>
-        <h2>Pages</h2>
+        <h2>{{tpl:lang Pages}}</h2>
         <ul>
       </tpl:EntriesHeader>
         <li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
