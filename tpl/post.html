@@ -17,3 +17,13 @@
 <tpl:Block name="main-content">
   {{tpl:include src="_entry-post.html"}}
 </tpl:Block>
+
+<tpl:Block name="footer-scripts">
+  <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
+  <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
+  <script type="application/json" id="dc_post_remember_str-data">
+  { "post_remember_str": "{{tpl:lang Remember me}}" }
+  </script>
+  <script src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
+  </tpl:Block>
+</tpl:Block>
