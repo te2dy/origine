@@ -176,7 +176,8 @@ textarea {
   font-size: .9em;
   margin-bottom: .25em;
 }
-.form-entry label:hover {
+.form-entry label:hover,
+#comment-form .remember label:hover {
   cursor: pointer;
 }
 #page-search-form {
@@ -254,18 +255,20 @@ textarea {
   margin-bottom: 0;
 }
 .post-loop .post-meta {
-  margin-top: .25em;
+  margin-bottom: .25em;
 }
 .post-loop .post-meta a,
 .post-loop .post-title a {
   border-bottom: none;
+}
+.post-excerpt {
+  margin-top: .25em;
 }
 .post-excerpt a {
   border-bottom: none;
   color: var(--color-text-secondary);
   display: block;
   font-size: .9em;
-  margin-top: .25em;
 }
 .post-excerpt a:active,
 .post-excerpt a:focus,
@@ -362,6 +365,12 @@ textarea {
   font-weight: bold;
   margin-bottom: 2em;
   padding: .5em 0;
+}
+#comment-form .remember {
+  margin: .5em 0;
+}
+#comment-form .remember input[type="checkbox"] {
+  margin-left: 0;
 }
 .message-green {
   border-top: 4px solid green;
