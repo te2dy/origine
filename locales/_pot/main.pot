@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: origine 0.3\n"
+"Project-Id-Version: origine 0.5\n"
 "POT-Creation-Date: 2021-11-30T07:42:00+00:00\n"
 "PO-Revision-Date: 2021-11-29T07:41:00+00:00\n"
 "Last-Translator: Teddy\n"
@@ -11,136 +11,136 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Page without content"
-msgstr "Page sans contenu"
+msgstr ""
 
 msgid "There is nothing to display"
-msgstr "Il n’y a rien à afficher"
+msgstr ""
 
 msgid "No content"
-msgstr "Aucun contenu"
+msgstr ""
 
 #: tpl/_comments.html:13
 #: tpl/_comments.html:17
 #: tpl/_comments.html:21
 msgid "comment"
-msgstr "commentaire"
+msgstr ""
 
 #: tpl/_comments.html:21
 msgid "at"
-msgstr "à"
+msgstr ""
 
 #: tpl/_comments.html:21
 msgid ":"
-msgstr "&nbsp;:"
+msgstr ""
 
 msgid "Trackback:"
-msgstr "Rétrolien&nbsp;:"
+msgstr ""
 
 msgid "Previewing"
-msgstr "Prévisualisation"
+msgstr ""
 
 msgid "Send comment"
-msgstr "Envoyer le commentaire"
+msgstr ""
 
 msgid "Write a comment"
-msgstr "Écrire un commentaire"
+msgstr ""
 
 msgid "Name or nickname"
-msgstr "Nom ou pseudonyme"
+msgstr ""
 
 msgid "Email address"
-msgstr "Adresse électronique"
+msgstr ""
 
 msgid "URL of your personal account or website (optional)"
-msgstr "Adresse de votre compte ou site personnel (facultatif)"
+msgstr ""
 
 msgid "There is nothing to display."
-msgstr "Il n’y a rien à afficher."
+msgstr ""
 
 msgid "post"
-msgstr "billet"
+msgstr ""
 
 msgid "Sorted in"
-msgstr "Classé dans"
+msgstr ""
 
 msgid "Tags:"
-msgstr "Mots-clés&nbsp;:"
+msgstr ""
 
 #: tpl/_entry-post.html:37
 msgid "At the time of printing, this post was available at:"
-msgstr "Au moment de l’impression, ce billet était disponible sur&nbsp;:"
+msgstr ""
 
 #: tpl/_entry-post.html:37
 msgid "At the time of printing, this post and its comment (not displayed here) were available at:"
-msgstr "Au moment de l’impression, ce billet et son commentaire (non affiché ici) étaient disponibles sur&nbsp;:"
+msgstr ""
 
 #: tpl/_entry-post.html:37
 msgid "At the time of printing, this post and its comments (not displayed here) were available at:"
-msgstr "Au moment de l’impression, ce billet et ses commentaires (non affichés ici) étaient disponibles sur&nbsp;:"
+msgstr ""
 
 msgid "&lsaquo; Previous post"
-msgstr "&lsaquo; Billet précédent"
+msgstr ""
 
 msgid "Next post &rsaquo;"
-msgstr "Billet suivant &rsaquo;"
+msgstr ""
 
 msgid "RSS"
-msgstr "RSS"
+msgstr ""
 
 msgid "Powered by"
-msgstr "Propulsé par"
+msgstr ""
 
 msgid "and"
-msgstr "et"
+msgstr ""
 
 msgid "Remember me"
-msgstr "Se souvenir de moi"
+msgstr ""
 
 msgid "&lsaquo; Previous page"
-msgstr "&lsaquo; Page précédente"
+msgstr ""
 
 msgid "Next page &rsaquo;"
-msgstr "Page suivante &rsaquo;"
+msgstr ""
 
 #: tpl/archive.html:17
 msgid "From"
-msgstr "Du"
+msgstr ""
 
 #: tpl/archive.html:17
 msgid "to"
-msgstr "au"
+msgstr ""
 
 msgid "Archives sorted by month"
-msgstr "Archives classées par mois"
+msgstr ""
 
 msgid "category"
-msgstr "catégorie"
+msgstr ""
 
 #: tpl/archive_month.html:25
 msgid "Archives:"
-msgstr "Archives&nbsp;:"
+msgstr ""
 
 msgid "Search results for"
-msgstr "Résultats de recherche pour"
+msgstr ""
 
 #: tpl/search.html:26
 msgid "Your search returned <strong>one result</strong>:"
-msgstr "Votre recherche a retourné <strong>un résultat</strong>&nbsp;:"
+msgstr ""
 
 #: tpl/search.html:30
 msgid "Your search returned <strong>%2$s results</strong>:"
-msgstr "Votre recherche a retourné <strong>%2$s résultats</strong>&nbsp;:"
+msgstr ""
 
 #: tpl/search.html:35
 msgid "No results."
-msgstr "Aucun résultat."
+msgstr ""
 
 msgid "Posts related to the tag"
-msgstr "Billets associés au mot-clé"
+msgstr ""
 
 msgid "tag"
-msgstr "mot-clé"
+msgstr ""
 
 #: tpl/_pagination.html:4
 msgid "of"
-msgstr "sur"
+msgstr ""
