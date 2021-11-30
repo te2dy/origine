@@ -5,7 +5,7 @@ $this->registerModule(
   /* Name */       'Origine',
   /* Description*/ 'Un thème minimaliste.',
   /* Author */     'Teddy',
-  /* Version */    '0.4.1',
+  /* Version */    '0.5',
   array(
     'type'      => 'theme',
   )

@@ -12,6 +12,14 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 0.5 – 30 novembre 2021 ===
+- Ajout : affichage de l’extrait dans la liste des billets.
+- Ajout : traductions manquantes.
+- Ajout : fichier .pot pour la traduction du thème.
+- Amélioration : styles pour l’impression.
+- Amélioration : règles obsolètes dans la feuille de styles.
+- Amélioration : traduction française.
+
 === 0.4.1 – 29 novembre 2021 ===
 - Ajout : traductions manquantes.
 - Amélioration : chargement du script "Se souvenir de moi" uniquement dans les billets.
