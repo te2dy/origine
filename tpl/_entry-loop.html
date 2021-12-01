@@ -8,7 +8,7 @@
   <section class="post-excerpt content">
     <!-- # Entry with an excerpt -->
     <tpl:EntryIf extended="1">
-      <a href="{{tpl:EntryURL}}">{{tpl:EntryExcerpt}}</a>
+      <a href="{{tpl:EntryURL}}">{{tpl:EntryExcerpt encode_html="1" remove_html="1"}}</a>
     </tpl:EntryIf>
 
     <!-- # Entry without excerpt -->
