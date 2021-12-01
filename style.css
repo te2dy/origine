@@ -2,7 +2,7 @@
  * Theme Stylesheet
  *
  * Only the style.min.css file is used to render the site.
- * This one is just meant to be read by a human.
+ * This one is just meant to be read by humans.
  */
 
 /**
@@ -414,6 +414,9 @@ textarea {
 }
 .site-footer-line:first-of-type {
   margin-top: 0;
+}
+.site-footer-line p {
+  margin: .25em 0;
 }
 
 /**
