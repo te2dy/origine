@@ -248,17 +248,17 @@ textarea {
 }
 
 /* Post List */
-.post-loop {
+.post-list {
   margin-bottom: 2em;
 }
-.post-loop:last-child {
+.post-list:last-child {
   margin-bottom: 0;
 }
-.post-loop .post-meta {
+.post-list .post-meta {
   margin-bottom: .25em;
 }
-.post-loop .post-meta a,
-.post-loop .post-title a {
+.post-list .post-meta a,
+.post-list .post-title a {
   border-bottom: none;
 }
 .post-excerpt {
