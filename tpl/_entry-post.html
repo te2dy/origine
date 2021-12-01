@@ -16,6 +16,8 @@
   </section>
 
   <footer class="post-footer">
+    {{tpl:include src="_attachments.html"}}
+
     <tpl:EntryIf has_category="1">
       <div class="post-meta">
         {{tpl:lang Sorted in}} <em><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a></em>
@@ -36,8 +38,6 @@
     <div class="post-meta" id="post-footer-print">
       {{tpl:EntryCommentCount none="At the time of printing, this post was available at:" one="At the time of printing, this post and its comment (not displayed here) were available at:" more="At the time of printing, this post and its comments (not displayed here) were available at:"}}<br><a href="{{tpl:EntryURL}}">{{tpl:EntryURL}}</a>
     </div>
-
-    {{tpl:include src="_attachments.html"}}
 
     <div class="post-pagination">
       <tpl:EntryPrevious>
