@@ -1,7 +1,7 @@
 = Origine, un thème Dotclear =
 
 Nom du thème : Origine
-Description : Un thème Dotclear minimaliste.
+Description : Un thème Dotclear minimaliste
 Auteur : Teddy
 Licence : GPLv3 ou ultérieure
 Adresse de la licence : https://www.gnu.org/licenses/gpl-3.0.fr.html
@@ -11,6 +11,14 @@ Ce thème n’aurait pu avoir vu le jour sans les ressources mises à dispositio
 Son auteur s’est particulièrement inspiré des travaux réalisés sur le thème Ductile créé par l’association Dotclear.
 
 == Notes de version ==
+
+=== 0.6 – 1er décembre 2021 ===
+- Ajout : capture d’écran pour présenter le thème.
+- Suppression : format des extraits.
+- Suppression : lien vers les archives et le flux RSS.
+- Modification : emplacement des annexes.
+- Modifications mineures de chaînes de texte.
+- Modifications mineures de la feuille de styles pour un meilleur rendu.
 
 === 0.5 – 30 novembre 2021 ===
 - Ajout : affichage de l’extrait dans la liste des billets.
