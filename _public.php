@@ -33,6 +33,11 @@ class tplOrigineTheme
     'strlen(' . sprintf($short, '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' . $content . '<?php endif; ?>';
   }
 
+  /**
+   * Display a "lang" attribute and its value
+   * when the language of the current post is different
+   * of the language defined for the blog.
+   */
   public static function origineEntryLang()
   {
     global $core, $_ctx;
