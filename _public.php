@@ -6,6 +6,7 @@ if (!defined('DC_RC_PATH')) { return; }
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 $core->tpl->addBlock('EntryIfContentIsCut', [__NAMESPACE__ . '\tplOrigineTheme', 'EntryIfContentIsCut']);
+$core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 
 class tplOrigineTheme
 {
@@ -30,5 +31,17 @@ class tplOrigineTheme
 
     return '<?php if (strlen(' . sprintf($full, '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
     'strlen(' . sprintf($short, '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' . $content . '<?php endif; ?>';
+  }
+
+  public static function origineEntryLang()
+  {
+    global $core, $_ctx;
+
+    $lang_attr = '';
+    if ($_ctx->posts->post_lang != $core->blog->settings->system->lang) {
+      $lang_attr = ' lang="' . $_ctx->posts->post_lang . '"';
+    }
+
+    return $lang_attr;
   }
 }
