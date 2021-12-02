@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: origine 0.3\n"
 "POT-Creation-Date: 2021-11-30T07:42:00+00:00\n"
-"PO-Revision-Date: 2021-11-29T15:45:00+00:00\n"
+"PO-Revision-Date: 2021-12-02T18:28:00+00:00\n"
 "Last-Translator: Teddy\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -120,8 +120,16 @@ msgstr "catégorie"
 msgid "Archives:"
 msgstr "Archives&nbsp;:"
 
+#: tpl/search.html:11
+msgid "Search"
+msgstr "Recherche"
+
+#: tpl/search.html:16
+msgid "Search terms"
+msgstr "Termes de la recherche"
+
 msgid "Search results for"
-msgstr "Résultats de recherche pour"
+msgstr "Résultats de la recherche"
 
 #: tpl/search.html:26
 msgid "Your search returned <strong>one result</strong>:"

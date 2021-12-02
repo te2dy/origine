@@ -3,7 +3,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: origine 0.5\n"
 "POT-Creation-Date: 2021-11-30T07:42:00+00:00\n"
-"PO-Revision-Date: 2021-11-29T15:45:00+00:00\n"
+"PO-Revision-Date: 2021-12-02T18:28:00+00:00\n"
 "Last-Translator: Teddy\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -118,6 +118,14 @@ msgstr ""
 
 #: tpl/archive_month.html:25
 msgid "Archives:"
+msgstr ""
+
+#: tpl/search.html:11
+msgid "Search"
+msgstr ""
+
+#: tpl/search.html:16
+msgid "Search terms"
 msgstr ""
 
 msgid "Search results for"
