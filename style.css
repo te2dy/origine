@@ -80,6 +80,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
+a:active,
 a:focus,
 a:hover {
   border-bottom-style: solid;
@@ -153,8 +154,10 @@ input[type="submit"],
   padding-top: .25em;
   padding-bottom: .25em;
 }
+input[type="submit"]:active,
 input[type="submit"]:focus,
 input[type="submit"]:hover,
+.form-submit:active,
 .form-submit:focus,
 .form-submit:hover {
   cursor: pointer;
@@ -267,6 +270,7 @@ textarea {
   display: block;
   font-size: .9em;
 }
+.post-excerpt a:active,
 .post-excerpt a:focus,
 .post-excerpt a:hover {
   color: var(--color-link);
