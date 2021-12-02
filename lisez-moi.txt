@@ -12,6 +12,14 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 0.7 – 2 décembre 2021 ===
+- Amélioration : l’attribut "lang" n’est ajouté aux billets que lorsque
+  sa langue est différente de celle définie pour le blog.
+- Ajout : documentation.
+- Correction : traductions manquantes.
+- Améliorations syntaxiques mineures.
+- Modifications mineures de traductions et de la feuille de styles.
+
 === 0.6 – 1er décembre 2021 ===
 - Ajout : capture d’écran pour présenter le thème.
 - Suppression : format des extraits.
