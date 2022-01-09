@@ -34,9 +34,9 @@ class tplOrigineTheme
   }
 
   /**
-   * Display a "lang" attribute and its value
+   * Displays a "lang" attribute and its value
    * when the language of the current post is different
-   * of the language defined for the blog.
+   * from the language defined for the blog.
    */
   public static function origineEntryLang()
   {
