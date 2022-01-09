@@ -12,8 +12,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
-=== 0.? – DATE ===
+=== 1.0 – 9 janvier 2022 ===
 - Amélioration : empêcher les images trop larges de déborder des billets.
+- Mise à jour mineure de la feuille de styles.
 
 === 0.7 – 2 décembre 2021 ===
 - Amélioration : l’attribut "lang" n’est ajouté aux billets que lorsque
