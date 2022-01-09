@@ -120,8 +120,8 @@ del {
   text-decoration: underline;
 }
 mark {
-  background-color: rgb(255, 255, 0, 0.85);
   color: #000;
+  background-color: rgb(255, 255, 0, 0.85);
 }
 
 /* Images & media */
@@ -160,10 +160,10 @@ input[type="submit"]:hover,
 .form-submit:active,
 .form-submit:focus,
 .form-submit:hover {
+  color: var(--color-input-text-hover);
   cursor: pointer;
   background-color: var(--color-input-background-hover);
   border-color: var(--color-input-background-hover);
-  color: var(--color-input-text-hover);
 }
 textarea {
   width: 100%;
@@ -191,8 +191,8 @@ textarea {
  * Site Header
  */
 #site-title {
-  margin: 0;
   font-size: 1.25em;
+  margin: 0;
 }
 #site-title a {
   border-bottom: 0;
@@ -392,9 +392,9 @@ textarea {
  * Pagination
  */
 .pagination {
+  color: var(--color-text-secondary);
   margin: 4em 0 5em;
   text-align: center;
-  color: var(--color-text-secondary);
 }
 .page-current {
   display: inline-block;
@@ -494,8 +494,8 @@ textarea {
     --color-input-background-hover: #000;
   }
   @page {
-    size: portrait;
     margin: 2cm 3cm;
+    size: portrait;
   }
   #site {
     font-size: initial;
@@ -524,8 +524,8 @@ textarea {
     page-break-inside: avoid;
   }
   img {
-    page-break-inside: avoid;
     page-break-after: avoid;
+    page-break-inside: avoid;
   }
   .content a[href^=http]:after {
     content: " [" attr(href) "]";
