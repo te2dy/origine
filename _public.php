@@ -10,6 +10,10 @@ $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'o
 
 class tplOrigineTheme
 {
+  /**
+  * Displays some content when the post is selected.
+  * Default: none.
+  */
   public static function origineEntryIfSelected($attr, $content)
   {
     global $_ctx;
