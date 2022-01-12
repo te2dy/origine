@@ -60,25 +60,24 @@ msgstr ""
 msgid "post"
 msgstr ""
 
+msgid "Selected post"
+msgstr ""
+
 msgid "Sorted in"
 msgstr ""
 
 msgid "Tags:"
 msgstr ""
 
-#: tpl/_entry-post.html:4
-msgid "Selected post"
-msgstr ""
-
-#: tpl/_entry-post.html:43
+#: tpl/_entry-post.html:45
 msgid "At the time of printing, this post was available at:"
 msgstr ""
 
-#: tpl/_entry-post.html:43
+#: tpl/_entry-post.html:45
 msgid "At the time of printing, this post and its comment (not displayed here) were available at:"
 msgstr ""
 
-#: tpl/_entry-post.html:43
+#: tpl/_entry-post.html:45
 msgid "At the time of printing, this post and its comments (not displayed here) were available at:"
 msgstr ""
 

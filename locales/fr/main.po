@@ -60,25 +60,24 @@ msgstr "Il n’y a rien à afficher."
 msgid "post"
 msgstr "billet"
 
+msgid "Selected post"
+msgstr "Billet sélectionné"
+
 msgid "Sorted in"
 msgstr "Classé dans"
 
 msgid "Tags:"
 msgstr "Mots-clés&nbsp;:"
 
-#: tpl/_entry-post.html:4
-msgid "Selected post"
-msgstr "Billet sélectionné"
-
-#: tpl/_entry-post.html:43
+#: tpl/_entry-post.html:45
 msgid "At the time of printing, this post was available at:"
 msgstr "Au moment de l’impression, ce billet était disponible sur&nbsp;:"
 
-#: tpl/_entry-post.html:43
+#: tpl/_entry-post.html:45
 msgid "At the time of printing, this post and its comment (not displayed here) were available at:"
 msgstr "Au moment de l’impression, ce billet et son commentaire (non affiché ici) étaient disponibles sur&nbsp;:"
 
-#: tpl/_entry-post.html:43
+#: tpl/_entry-post.html:45
 msgid "At the time of printing, this post and its comments (not displayed here) were available at:"
 msgstr "Au moment de l’impression, ce billet et ses commentaires (non affichés ici) étaient disponibles sur&nbsp;:"
 

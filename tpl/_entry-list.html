@@ -1,19 +1,29 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-selected"}}">
-  <div class="post-meta">
-    <a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time></a>
-  </div>
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-short-selected"}}">
+  <tpl:origineEntryIfSelected>
+    <div class="post-short-selected-label">
+      {{tpl:lang Selected post}}
+    </div>
+  </tpl:origineEntryIfSelected>
 
-  <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+  <tpl:EntryIf><div class="post-short-selected-content"></tpl:EntryIf>
+    <header>
+      <div class="post-meta">
+        <a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time></a>
+      </div>
 
-  <section class="post-excerpt content">
-    <!-- # Entry with an excerpt -->
-    <tpl:EntryIf extended="1">
-      <a href="{{tpl:EntryURL}}">{{tpl:EntryExcerpt encode_html="1" remove_html="1"}}</a>
-    </tpl:EntryIf>
+      <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+    </header>
 
-    <!-- # Entry without excerpt -->
-    <tpl:EntryIf extended="0">
-        <a href="{{tpl:EntryURL}}">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[&hellip;]</tpl:EntryIfContentCut></a>
-    </tpl:EntryIf>
-  </section>
+    <section class="post-excerpt content">
+      <!-- # Entry with an excerpt -->
+      <tpl:EntryIf extended="1">
+        <a href="{{tpl:EntryURL}}">{{tpl:EntryExcerpt encode_html="1" remove_html="1"}}</a>
+      </tpl:EntryIf>
+
+      <!-- # Entry without excerpt -->
+      <tpl:EntryIf extended="0">
+          <a href="{{tpl:EntryURL}}">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[&hellip;]</tpl:EntryIfContentCut></a>
+      </tpl:EntryIf>
+    </section>
+  <tpl:EntryIf></div></tpl:EntryIf>
 </article>
