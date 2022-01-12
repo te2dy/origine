@@ -19,17 +19,12 @@ msgstr "Il n’y a rien à afficher"
 msgid "No content"
 msgstr "Aucun contenu"
 
-#: tpl/_comments.html:13
-#: tpl/_comments.html:17
-#: tpl/_comments.html:21
 msgid "comment"
 msgstr "commentaire"
 
-#: tpl/_comments.html:21
 msgid "at"
 msgstr "à"
 
-#: tpl/_comments.html:21
 msgid ":"
 msgstr "&nbsp;:"
 
@@ -69,15 +64,14 @@ msgstr "Classé dans"
 msgid "Tags:"
 msgstr "Mots-clés&nbsp;:"
 
-#: tpl/_entry-post.html:45
 msgid "Post printed from"
 msgstr "Billet imprimé depuis"
 
-msgid "&lsaquo; Previous post"
-msgstr "&lsaquo; Billet précédent"
+msgid "‹ Previous post"
+msgstr "‹ Billet précédent"
 
-msgid "Next post &rsaquo;"
-msgstr "Billet suivant &rsaquo;"
+msgid "Next post ›"
+msgstr "Billet suivant ›"
 
 msgid "RSS"
 msgstr "RSS"
@@ -91,17 +85,15 @@ msgstr "et"
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 
-msgid "&lsaquo; Previous page"
-msgstr "&lsaquo; Page précédente"
+msgid "‹ Previous page"
+msgstr "‹ Page précédente"
 
-msgid "Next page &rsaquo;"
-msgstr "Page suivante &rsaquo;"
+msgid "Next page ›"
+msgstr "Page suivante ›"
 
-#: tpl/archive.html:17
 msgid "From"
 msgstr "Du"
 
-#: tpl/archive.html:17
 msgid "to"
 msgstr "au"
 
@@ -111,30 +103,24 @@ msgstr "Archives classées par mois"
 msgid "category"
 msgstr "catégorie"
 
-#: tpl/archive_month.html:25
 msgid "Archives:"
 msgstr "Archives&nbsp;:"
 
-#: tpl/search.html:11
 msgid "Search"
 msgstr "Recherche"
 
-#: tpl/search.html:16
 msgid "Search terms"
 msgstr "Termes de la recherche"
 
 msgid "Search results for"
 msgstr "Résultats de la recherche"
 
-#: tpl/search.html:26
 msgid "Your search returned <strong>one result</strong>:"
 msgstr "Votre recherche a retourné <strong>un résultat</strong>&nbsp;:"
 
-#: tpl/search.html:30
 msgid "Your search returned <strong>%2$s results</strong>:"
 msgstr "Votre recherche a retourné <strong>%2$s résultats</strong>&nbsp;:"
 
-#: tpl/search.html:35
 msgid "No results."
 msgstr "Aucun résultat."
 
@@ -144,6 +130,5 @@ msgstr "Billets associés au mot-clé"
 msgid "tag"
 msgstr "mot-clé"
 
-#: tpl/_pagination.html:4
 msgid "of"
 msgstr "sur"

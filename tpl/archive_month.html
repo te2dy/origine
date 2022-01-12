@@ -1,7 +1,7 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-  <title>{{tpl:lang Archives}} - {{tpl:ArchiveDate}} &lsaquo; {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Archives}} - {{tpl:ArchiveDate}} – {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
 <tpl:Block name="head-description">
@@ -12,13 +12,13 @@
   <header class="content-info">
     <div class="content-meta">
       <tpl:ArchivePrevious>
-        <a href="{{tpl:ArchiveURL}}" class="prev">&lsaquo; {{tpl:ArchiveDate encode_html="1"}}</a> &ndash;
+        <a href="{{tpl:ArchiveURL}}" class="prev">‹ {{tpl:ArchiveDate encode_html="1"}}</a> –
       </tpl:ArchivePrevious>
 
       {{tpl:ArchiveDate}}
 
       <tpl:ArchiveNext>
-        &ndash; <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &rsaquo;</a>
+        – <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} ›</a>
       </tpl:ArchiveNext>
     </div>
 

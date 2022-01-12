@@ -19,17 +19,12 @@ msgstr ""
 msgid "No content"
 msgstr ""
 
-#: tpl/_comments.html:13
-#: tpl/_comments.html:17
-#: tpl/_comments.html:21
 msgid "comment"
 msgstr ""
 
-#: tpl/_comments.html:21
 msgid "at"
 msgstr ""
 
-#: tpl/_comments.html:21
 msgid ":"
 msgstr ""
 
@@ -69,14 +64,13 @@ msgstr ""
 msgid "Tags:"
 msgstr ""
 
-#: tpl/_entry-post.html:45
 msgid "Post printed from"
 msgstr ""
 
-msgid "&lsaquo; Previous post"
+msgid "‹ Previous post"
 msgstr ""
 
-msgid "Next post &rsaquo;"
+msgid "Next post ›"
 msgstr ""
 
 msgid "RSS"
@@ -91,17 +85,15 @@ msgstr ""
 msgid "Remember me"
 msgstr ""
 
-msgid "&lsaquo; Previous page"
+msgid "‹ Previous page"
 msgstr ""
 
-msgid "Next page &rsaquo;"
+msgid "Next page ›"
 msgstr ""
 
-#: tpl/archive.html:17
 msgid "From"
 msgstr ""
 
-#: tpl/archive.html:17
 msgid "to"
 msgstr ""
 
@@ -111,30 +103,24 @@ msgstr ""
 msgid "category"
 msgstr ""
 
-#: tpl/archive_month.html:25
 msgid "Archives:"
 msgstr ""
 
-#: tpl/search.html:11
 msgid "Search"
 msgstr ""
 
-#: tpl/search.html:16
 msgid "Search terms"
 msgstr ""
 
 msgid "Search results for"
 msgstr ""
 
-#: tpl/search.html:26
 msgid "Your search returned <strong>one result</strong>:"
 msgstr ""
 
-#: tpl/search.html:30
 msgid "Your search returned <strong>%2$s results</strong>:"
 msgstr ""
 
-#: tpl/search.html:35
 msgid "No results."
 msgstr ""
 
@@ -144,6 +130,5 @@ msgstr ""
 msgid "tag"
 msgstr ""
 
-#: tpl/_pagination.html:4
 msgid "of"
 msgstr ""
