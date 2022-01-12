@@ -1,10 +1,14 @@
 <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}"{{tpl:origineEntryLang}}>
   <header>
+    <tpl:origineEntryIfSelected>
+      <span class="content-label">{{tpl:lang Selected post}}</span>
+    </tpl:origineEntryIfSelected>
+
     <div class="post-meta">
       <time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time>
     </div>
 
-    <h1 class="post-title{{tpl:EntryIfSelected return=" post-title-selected"}}">{{tpl:EntryTitle}}</h1>
+    <h1 class="post-title">{{tpl:EntryTitle}}</h1>
   </header>
 
   <section class="post-content content">

@@ -1,9 +1,9 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}">
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-selected"}}">
   <div class="post-meta">
     <a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time></a>
   </div>
 
-  <h3 class="post-title{{tpl:EntryIfSelected return=" post-title-selected"}}"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+  <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
 
   <section class="post-excerpt content">
     <!-- # Entry with an excerpt -->
