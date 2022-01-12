@@ -9,35 +9,40 @@
 
       <ul id="comments-list">
     </tpl:CommentsHeader>
+
+    <tpl:CommentIf is_ping="0">
+      <li id="{{tpl:lang comment}}-{{tpl:CommentID}}" class="comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
+    </tpl:CommentIf>
+
+    <tpl:CommentIf is_ping="1">
+      <li id="{{tpl:lang comment}}-{{tpl:PingID}}" class="ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+    </tpl:CommentIf>
+
+    <header class="comment-meta">
       <tpl:CommentIf is_ping="0">
-        <li id="{{tpl:lang comment}}-{{tpl:CommentID}}" class="comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
+        <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#{{tpl:lang comment}}-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
 
       <tpl:CommentIf is_ping="1">
-        <li id="{{tpl:lang comment}}-{{tpl:PingID}}" class="ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+        <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
-          <header class="comment-meta">
-            <tpl:CommentIf is_ping="0">
-              <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#{{tpl:lang comment}}-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
-            </tpl:CommentIf>
+    </header>
 
-            <tpl:CommentIf is_ping="1">
-              <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
-            </tpl:CommentIf>
-          </header>
+    <div class="content comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
+      {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
 
-          <div class="content comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
-            {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
+      <tpl:CommentIf is_ping="1">
+        <div class="ping-elsewhere">
+          {{tpl:lang Trackback:}}
+        </div>
+      </tpl:CommentIf>
 
-            <tpl:CommentIf is_ping="1">
-              <div class="ping-elsewhere">{{tpl:lang Trackback:}}</div>
-            </tpl:CommentIf>
+      {{tpl:CommentContent}}
 
-            {{tpl:CommentContent}}
+      {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+    </div>
+    </li>
 
-            {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
-          </div>
-        </li>
     <tpl:CommentsFooter>
       </ul>
     </tpl:CommentsFooter>
@@ -47,15 +52,21 @@
 <tpl:EntryIf comments_active="1">
   <tpl:Block name="comment-alerts">
     <tpl:SysIfFormError>
-      <div class="comment-message message-red">{{tpl:SysFormError}}</div>
+      <div class="comment-message message-red">
+        {{tpl:SysFormError}}
+      </div>
     </tpl:SysIfFormError>
 
     <tpl:SysIfCommentPublished>
-      <div class="comment-message message-green">{{tpl:lang Your comment has been published.}}</div>
+      <div class="comment-message message-green">
+        {{tpl:lang Your comment has been published.}}
+      </div>
     </tpl:SysIfCommentPublished>
 
     <tpl:SysIfCommentPending>
-      <div class="comment-message message-orange">{{tpl:lang Your comment has been submitted and will be reviewed for publication.}}</div>
+      <div class="comment-message message-orange">
+        {{tpl:lang Your comment has been submitted and will be reviewed for publication.}}
+      </div>
     </tpl:SysIfCommentPending>
   </tpl:Block>
 

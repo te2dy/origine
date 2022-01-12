@@ -2,14 +2,17 @@
   <tpl:AttachmentsHeader>
     <div id="annexes" class="attachments content">
       <h3>Annexes</h3>
+
       <ol>
   </tpl:AttachmentsHeader>
-        <li class="{{tpl:AttachmentType}}">
-          <tpl:AttachmentIf>
-            <a href="{{tpl:AttachmentURL}}">{{tpl:AttachmentTitle}}</a>
-          </tpl:AttachmentIf>
-        </li>
-    <tpl:AttachmentsFooter>
+
+  <li class="{{tpl:AttachmentType}}">
+    <tpl:AttachmentIf>
+      <a href="{{tpl:AttachmentURL}}">{{tpl:AttachmentTitle}}</a>
+    </tpl:AttachmentIf>
+  </li>
+
+  <tpl:AttachmentsFooter>
       </ol>
     </div>
   </tpl:AttachmentsFooter>

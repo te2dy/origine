@@ -21,9 +21,11 @@
         <strong>{{tpl:ArchiveDate format="%Y"}}</strong>
         <ul>
       </tpl:ArchivesYearHeader>
-        <li>
-          <a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a> ({{tpl:ArchiveEntriesCount}})
-        </li>
+
+      <li>
+        <a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a> ({{tpl:ArchiveEntriesCount}})
+      </li>
+
       <tpl:ArchivesYearFooter>
         </ul>
       </tpl:ArchivesYearFooter>
@@ -35,21 +37,27 @@
 
           <ul>
       </tpl:CategoriesHeader>
-          <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+
+      <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+
       <tpl:CategoryFirstChildren>
         <tpl:CategoriesHeader>
           <ul>
         </tpl:CategoriesHeader>
-          <li>
-            <a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
-          </li>
+
+        <li>
+          <a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+        </li>
+
         <tpl:CategoriesFooter>
           </ul>
         </tpl:CategoriesFooter>
       </tpl:CategoryFirstChildren>
-          </li>
+
+      </li>
+
       <tpl:CategoriesFooter>
-          </ul>
+        </ul>
       </tpl:CategoriesFooter>
     </tpl:Categories>
 
@@ -57,9 +65,12 @@
       <tpl:TagsHeader>
         <div id="by-tag" class="arch-block">
           <h2>{{tpl:lang By tag}}</h2>
+
           <ul>
       </tpl:TagsHeader>
-            <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+
+      <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+
       <tpl:TagsFooter>
           </ul>
         </div>
@@ -69,9 +80,12 @@
     <tpl:Entries type="page" no_content="1" lastn="0" selected="0">
       <tpl:EntriesHeader>
         <h2>{{tpl:lang Pages}}</h2>
+
         <ul>
       </tpl:EntriesHeader>
-        <li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
+
+      <li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
+
       <tpl:EntriesFooter>
         </ul>
       </tpl:EntriesFooter>
