@@ -70,16 +70,8 @@ msgid "Tags:"
 msgstr "Mots-clés&nbsp;:"
 
 #: tpl/_entry-post.html:45
-msgid "At the time of printing, this post was available at:"
-msgstr "Au moment de l’impression, ce billet était disponible sur&nbsp;:"
-
-#: tpl/_entry-post.html:45
-msgid "At the time of printing, this post and its comment (not displayed here) were available at:"
-msgstr "Au moment de l’impression, ce billet et son commentaire (non affiché ici) étaient disponibles sur&nbsp;:"
-
-#: tpl/_entry-post.html:45
-msgid "At the time of printing, this post and its comments (not displayed here) were available at:"
-msgstr "Au moment de l’impression, ce billet et ses commentaires (non affichés ici) étaient disponibles sur&nbsp;:"
+msgid "Post printed from"
+msgstr "Billet imprimé depuis"
 
 msgid "&lsaquo; Previous post"
 msgstr "&lsaquo; Billet précédent"

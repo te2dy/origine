@@ -7,6 +7,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
+$core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
 
 class tplOrigineTheme
 {
@@ -42,5 +43,19 @@ class tplOrigineTheme
     }
 
     return $lang_attr;
+  }
+
+  /**
+   * Displays an URL without http or https
+   * to show on posts to print.
+   */
+  public static function originePostPrintURL()
+  {
+    global $_ctx;
+
+    $schemes  = array('http://', 'https://');
+    $post_url = str_replace($schemes, '', $_ctx->posts->getURL());
+
+    return $post_url;
   }
 }

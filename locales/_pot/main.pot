@@ -70,15 +70,7 @@ msgid "Tags:"
 msgstr ""
 
 #: tpl/_entry-post.html:45
-msgid "At the time of printing, this post was available at:"
-msgstr ""
-
-#: tpl/_entry-post.html:45
-msgid "At the time of printing, this post and its comment (not displayed here) were available at:"
-msgstr ""
-
-#: tpl/_entry-post.html:45
-msgid "At the time of printing, this post and its comments (not displayed here) were available at:"
+msgid "Post printed from"
 msgstr ""
 
 msgid "&lsaquo; Previous post"
