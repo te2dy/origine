@@ -13,7 +13,7 @@
 
     <!-- # Entry without excerpt -->
     <tpl:EntryIf extended="0">
-        <a href="{{tpl:EntryURL}}">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentIsCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[&hellip;]</tpl:EntryIfContentIsCut></a>
+        <a href="{{tpl:EntryURL}}">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[&hellip;]</tpl:EntryIfContentCut></a>
     </tpl:EntryIf>
   </section>
 </article>
