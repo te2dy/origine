@@ -519,7 +519,7 @@ textarea {
   }
   #main-menu,
   .post-pagination,
-  .comment-block,
+  #comment-form,
   #site-sidebar,
   #site-footer {
     display: none;
@@ -550,6 +550,17 @@ textarea {
   }
   #post-footer-print {
     display: block;
+  }
+  .comment,
+  .ping {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .comment-meta {
+    font-size: .9em;
+  }
+  .comment-date {
+    font-size: 1em;
   }
 }
 @media print and (orientation: landscape) {
