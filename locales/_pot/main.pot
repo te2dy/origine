@@ -79,7 +79,7 @@ msgstr ""
 msgid "Powered by"
 msgstr ""
 
-msgid "and"
+msgid "designed by"
 msgstr ""
 
 msgid "Remember me"

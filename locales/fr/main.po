@@ -79,8 +79,8 @@ msgstr "RSS"
 msgid "Powered by"
 msgstr "Propulsé par"
 
-msgid "and"
-msgstr "et"
+msgid "designed by"
+msgstr "habillé par"
 
 msgid "Remember me"
 msgstr "Se souvenir de moi"
