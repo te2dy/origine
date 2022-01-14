@@ -2,7 +2,7 @@
 
 Un thème [Dotclear](https://fr.dotclear.org/) ultra minimaliste.
 
-N. B. : La feuille de style ``styles.css`` est proposée à titre d’information ; seule la feuille ``styles.min.css`` est utilisée pour le rendu du thème.
+![Capture d’écran](https://github.com/te2dy/origine/blob/master/screenshot-2x.jpg)
 
 ## Caractéristiques
 
@@ -30,6 +30,10 @@ Dans l’administration de votre site :
 - Allez dans _Apparence du thème_ > _Thèmes installés_.
 - Cliquez sur _Origine_.
 - Cliquez sur _Utiliser celui-ci_.
+
+## Personnalisation
+
+La feuille de style ``styles.css`` est proposée à titre d’information ; seule la feuille ``styles.min.css`` est utilisée pour le rendu du thème. C’est elle que vous devez modifier pour apporter des changements à Origine.
 
 ## Licence
 
