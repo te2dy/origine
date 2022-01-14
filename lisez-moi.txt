@@ -12,7 +12,7 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
-=== 1.1 – 9 janvier 2022 ===
+=== 1.1 – 14 janvier 2022 ===
 - Ajout : prise en charge des billets sélectionnés.
 - Ajout : balise <header> dans l’en-tête des billets de la liste des billets.
 - Ajout : styles des balises <pre> et <code>.
