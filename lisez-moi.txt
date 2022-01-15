@@ -12,13 +12,18 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.2 – 15 janvier 2022 ===
+- Ajout : modèle de page statique.
+- Correction : fermeture de la balise meta description.
+- Correction : style du texte préformaté.
+
 === 1.1 – 14 janvier 2022 ===
 - Ajout : prise en charge des billets sélectionnés.
 - Ajout : balise <header> dans l’en-tête des billets de la liste des billets.
 - Ajout : styles des balises <pre> et <code>.
 - Amélioration : harmonisation du code et de la syntaxe.
 - Modification : utilisation de la balise native EntryIfContentCut à la place
-d’une balise personnelle.
+  d’une balise personnelle.
 - Modification : mention au thème dans le pied de page.
 - Modification : texte affiché à l’impression des billets.
 - Modification : fichier lisez-moi.txt.
@@ -53,12 +58,14 @@ d’une balise personnelle.
 
 === 0.4.1 – 29 novembre 2021 ===
 - Ajout : traductions manquantes.
-- Amélioration : chargement du script "Se souvenir de moi" uniquement dans les billets.
+- Amélioration : chargement du script "Se souvenir de moi" uniquement
+  dans les billets.
 
 === 0.4 – 29 novembre 2021 ===
 - Ajout : traduction du thème.
 - Ajout : case "Se souvenir de moi" dans le formulaire de commentaire.
-- Suppression : lien vers la page d’accueil du titre du site sur la page d’accueil.
+- Suppression : lien vers la page d’accueil du titre du site
+  sur la page d’accueil.
 - Modification : basculement de caractères xHTML en HTML.
 
 === 0.3 – 28 novembre 2021 ===
@@ -71,7 +78,8 @@ d’une balise personnelle.
 - Corrigé : basculement de l’id « content-info » en class.
 
 === 0.2 – 18 septembre 2021 ===
-- Nouveau : activation d’un thème sombre en fonction des paramètres du système.
+- Nouveau : activation d’un thème sombre en fonction
+  des paramètres du système.
 - Réduction de la taille des boutons.
 - Changement du style des liens.
 
