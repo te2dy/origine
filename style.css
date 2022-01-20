@@ -427,9 +427,11 @@ textarea {
   border-top: 4px solid red;
   border-bottom: 4px solid red;
 }
-.comments-feed-link {
+.comments-links ul {
   font-size: .9em;
+  list-style: none;
   margin-top: 2em;
+  padding: 0;
 }
 
 /**
@@ -551,7 +553,7 @@ textarea {
   .post-list-selected-label,
   .post-pagination,
   #comment-form,
-  .comments-feed-link,
+  .,
   #site-sidebar,
   #site-footer {
     display: none;

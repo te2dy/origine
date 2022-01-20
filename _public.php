@@ -8,6 +8,7 @@ if (!defined('DC_RC_PATH')) { return; }
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
+$core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 
 class tplOrigineTheme
 {
@@ -57,5 +58,28 @@ class tplOrigineTheme
     $post_url = str_replace($schemes, '', $_ctx->posts->getURL());
 
     return $post_url;
+  }
+
+  /**
+   * Displays a link to trackbacks
+   */
+  public static function origineEntryPingURL()
+  {
+    global $_ctx;
+
+    $ping_link = '';
+
+    if ($_ctx->posts->trackbacksActive()) {
+      $ping_url = $_ctx->posts->getTrackbackLink();
+
+      $ping_text = $_ctx->posts->getTrackbackLink();
+
+      $schemes  = array('http://', 'https://');
+      $ping_text = str_replace($schemes, '', $ping_text);
+
+      $ping_link = '<a href="' . $ping_url . '">' . $ping_text . '</a>';
+    }
+
+    return $ping_link;
   }
 }

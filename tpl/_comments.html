@@ -131,8 +131,15 @@
   </tpl:Block>
 </tpl:EntryIf>
 
-<div class="comments-feed-link">
-  <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}">{{tpl:lang Comment feed}}</a>
+<div class="comments-links">
+  <ul>
+    <li>
+      <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}">{{tpl:lang Comment feed}}</a>
+    </li>
+    <li>
+      {{tpl:lang Trackback URL:}} {{tpl:origineEntryPingURL}}
+    </li>
+  </ul>
 </div>
 
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">

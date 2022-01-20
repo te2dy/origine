@@ -43,6 +43,9 @@ msgstr ""
 msgid "Comment feed"
 msgstr ""
 
+msgid "Trackback URL:"
+msgstr ""
+
 msgid "Name or nickname"
 msgstr ""
 

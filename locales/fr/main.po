@@ -43,6 +43,9 @@ msgstr "Écrire un commentaire"
 msgid "Comment feed"
 msgstr "Fil de syndication des commentaires"
 
+msgid "Trackback URL:"
+msgstr "Adresse des rétroliens&nbsp;:"
+
 msgid "Name or nickname"
 msgstr "Nom ou pseudonyme"
 
