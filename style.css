@@ -14,7 +14,7 @@
   :root {
     --color-background: #fff;
     --color-text-primary: #000;
-    --color-text-secondary: rgb(0, 0, 0, 0.65);
+    --color-text-secondary: #595959; /* rgb(0, 0, 0, 0.65) */
     --color-link: #de0000;
     --color-border: #aaa;
     --color-input-text: #000;
@@ -27,14 +27,14 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: #16161D;
-    --color-text-primary: rgb(255, 255, 255, 0.85);
-    --color-text-secondary: rgb(255, 255, 255, 0.55);
+    --color-text-primary: #d9d9d9; /* rgb(255, 255, 255, 0.85) */
+    --color-text-secondary: #8c8c8c; /* rgb(255, 255, 255, 0.55) */
     --color-link: #f14646;
     --color-border: #aaa;
-    --color-input-text: rgb(255, 255, 255, 0.85);
+    --color-input-text: #d9d9d9;
     --color-input-text-hover: #fff;
-    --color-input-background: rgb(255, 255, 255, 0.2);
-    --color-input-background-hover: rgb(255, 255, 255, 0.15);
+    --color-input-background: #333333; /* rgb(255, 255, 255, 0.2) */
+    --color-input-background-hover: #262626; /* rgb(255, 255, 255, 0.15) */
   }
 }
 
@@ -90,7 +90,8 @@ p {
   margin: 1em 0;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h1 {
   font-size: 1.5em;
@@ -157,7 +158,8 @@ figure p {
 }
 
 /* Forms */
-input, textarea {
+input,
+textarea {
   background-color: var(--color-input-background);
   border: 1px solid var(--color-border);
   border-radius: 0;
@@ -196,8 +198,8 @@ textarea {
   font-size: .9em;
   margin-bottom: .25em;
 }
-.form-entry label:hover,
-#comment-form .remember label:hover {
+#comment-form .remember label:hover,
+.form-entry label:hover {
   cursor: pointer;
 }
 #page-search-form {
@@ -243,7 +245,8 @@ textarea {
 .post-title {
   margin: 0;
 }
-.post-content, .page-content {
+.post-content,
+.page-content {
   margin: 1.5em 0;
 }
 .content {
@@ -265,7 +268,8 @@ textarea {
       -ms-hyphenate-limit-last: always;
           hyphenate-limit-last: always;
 }
-.content ul, .content ol {
+.content ol,
+.content ul {
   margin: 1em 0;
 }
 .content img {
@@ -368,7 +372,8 @@ textarea {
   margin: 2em 0 4em;
   padding: 0;
 }
-.comment, .ping {
+.comment,
+.ping {
   border-left: 1px solid var(--color-border);
   margin-top: 2em;
   margin-bottom: 2em;
@@ -538,7 +543,7 @@ textarea {
   :root {
     --color-background: #fff;
     --color-text-primary: #000;
-    --color-text-secondary: rgb(0, 0, 0, 0.65);
+    --color-text-secondary: #595959; /* rgb(0, 0, 0, 0.65) */
     --color-link: #de0000;
     --color-border: #aaa;
     --color-input-text: #000;
@@ -555,12 +560,12 @@ textarea {
     margin: 0;
     max-width: 100%;
   }
-  #main-menu,
-  .post-selected-label,
+  .comments-links,
   .post-list-selected-label,
   .post-pagination,
+  .post-selected-label,
   #comment-form,
-  .comments-links,
+  #main-menu,
   #site-sidebar,
   #site-footer {
     display: none;
