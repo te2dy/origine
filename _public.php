@@ -52,7 +52,7 @@ class tplOrigineTheme
    */
   public static function originePostPrintURL()
   {
-    return "<?php echo '<a href=\"'.\$_ctx->posts->getURL().'\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getURL()) . '</a>'; ?>";
+    return "<?php echo '<a href=\"'.\$_ctx->posts->getURL().'\" rel=\"nofollow\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getURL()) . '</a>'; ?>";
   }
 
   /**
@@ -66,7 +66,13 @@ class tplOrigineTheme
         $type = 'atom';
     }
 
-    return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\">" . str_replace(array(\'http://\', \'https://\'), \'\', $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
+    if ( $type !== 'atom' ) {
+      $mime_type = 'application/rss+xml';
+    } else {
+      $mime_type = 'application/atom+xml';
+    }
+
+    return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\" rel=\"nofollow\" type=\"' . $mime_type . '\">" . str_replace(array("http://", "https://"), "", $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
   }
 
   /**
@@ -74,6 +80,6 @@ class tplOrigineTheme
    */
   public static function origineEntryPingURL()
   {
-    return "<?php if (\$_ctx->posts->trackbacksActive()) { echo '<a href=\"'.\$_ctx->posts->getTrackbackLink().'\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getTrackbackLink()) . '</a>'; } ?>";
+    return "<?php if (\$_ctx->posts->trackbacksActive()) { echo '<a href=\"'.\$_ctx->posts->getTrackbackLink().'\" rel=\"nofollow\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getTrackbackLink()) . '</a>'; } ?>";
   }
 }
