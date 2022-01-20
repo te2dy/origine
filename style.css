@@ -428,10 +428,17 @@ textarea {
   border-bottom: 4px solid red;
 }
 .comments-links ul {
+  color: var(--color-text-secondary);
   font-size: .9em;
   list-style: none;
   margin-top: 2em;
   padding: 0;
+}
+.comments-links ul li {
+  margin-bottom: .25em;
+}
+.comments-links ul li:last-child {
+  margin-bottom: 0
 }
 
 /**
@@ -553,7 +560,7 @@ textarea {
   .post-list-selected-label,
   .post-pagination,
   #comment-form,
-  .,
+  .comments-links,
   #site-sidebar,
   #site-footer {
     display: none;

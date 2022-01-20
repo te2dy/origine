@@ -40,11 +40,11 @@ msgstr "Envoyer le commentaire"
 msgid "Write a comment"
 msgstr "Écrire un commentaire"
 
-msgid "Comment feed"
-msgstr "Fil de syndication des commentaires"
+msgid "Comment feed:"
+msgstr "Fil des commentaires&nbsp;:"
 
-msgid "Trackback URL:"
-msgstr "Adresse des rétroliens&nbsp;:"
+msgid "Trackbacks:"
+msgstr "Rétroliens&nbsp;:"
 
 msgid "Name or nickname"
 msgstr "Nom ou pseudonyme"

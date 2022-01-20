@@ -40,10 +40,10 @@ msgstr ""
 msgid "Write a comment"
 msgstr ""
 
-msgid "Comment feed"
+msgid "Comment feed:"
 msgstr ""
 
-msgid "Trackback URL:"
+msgid "Trackbacks;"
 msgstr ""
 
 msgid "Name or nickname"

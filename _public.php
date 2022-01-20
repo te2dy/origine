@@ -8,6 +8,7 @@ if (!defined('DC_RC_PATH')) { return; }
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
+$core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 
 class tplOrigineTheme
@@ -47,39 +48,32 @@ class tplOrigineTheme
   }
 
   /**
-   * Displays an URL without http or https
-   * to show on posts to print.
+   * Displays an URL without http or https to show on posts to print.
    */
   public static function originePostPrintURL()
   {
-    global $_ctx;
-
-    $schemes  = array('http://', 'https://');
-    $post_url = str_replace($schemes, '', $_ctx->posts->getURL());
-
-    return $post_url;
+    return "<?php echo '<a href=\"'.\$_ctx->posts->getURL().'\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getURL()) . '</a>'; ?>";
   }
 
   /**
-   * Displays a link to trackbacks
+   * Display a link to the comment feed of current post.
+   */
+  public static function origineEntryCommentFeedLink($attr)
+  {
+    $type = !empty($attr['type']) ? $attr['type'] : 'atom';
+
+    if (!preg_match('#^(rss2|atom)$#', $type)) {
+        $type = 'atom';
+    }
+
+    return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\">" . str_replace(array(\'http://\', \'https://\'), \'\', $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
+  }
+
+  /**
+   * Displays a link to trackbacks of the current post.
    */
   public static function origineEntryPingURL()
   {
-    global $_ctx;
-
-    $ping_link = '';
-
-    if ($_ctx->posts->trackbacksActive()) {
-      $ping_url = $_ctx->posts->getTrackbackLink();
-
-      $ping_text = $_ctx->posts->getTrackbackLink();
-
-      $schemes  = array('http://', 'https://');
-      $ping_text = str_replace($schemes, '', $ping_text);
-
-      $ping_link = '<a href="' . $ping_url . '">' . $ping_text . '</a>';
-    }
-
-    return $ping_link;
+    return "<?php if (\$_ctx->posts->trackbacksActive()) { echo '<a href=\"'.\$_ctx->posts->getTrackbackLink().'\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getTrackbackLink()) . '</a>'; } ?>";
   }
 }
