@@ -41,6 +41,7 @@
 
       {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
     </div>
+
     </li>
 
     <tpl:CommentsFooter>
@@ -134,11 +135,14 @@
 <div class="comments-links">
   <ul>
     <li>
-      <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}">{{tpl:lang Comment feed}}</a>
+      {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
     </li>
-    <li>
-      {{tpl:lang Trackback URL:}} {{tpl:origineEntryPingURL}}
-    </li>
+
+    <tpl:EntryIf pings_active="1">
+      <li>
+        {{tpl:lang Trackbacks:}} {{tpl:origineEntryPingURL}}
+      </li>
+    </tpl:EntryIf>
   </ul>
 </div>
 
