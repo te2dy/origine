@@ -12,6 +12,15 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.3 – 20 janvier 2022 ===
+- Ajout : lien vers le fil de syndication des commentaires.
+- Ajout : lien d’ajout de rétroliens sous les commentaires.
+- Modification : balisage des widgets du pied de page.
+- Amélioration : système des billets sélectionnés.
+- Suppression : césure des textes préformatés.
+- Mise à jour : traduction française.
+- Mise à jour : styles à l’impression.
+
 === 1.2 – 15 janvier 2022 ===
 - Ajout : modèle de page statique.
 - Correction : fermeture de la balise meta description.
