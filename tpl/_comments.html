@@ -134,9 +134,11 @@
 
 <div class="comments-links">
   <ul>
-    <li>
-      {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
-    </li>
+    <tpl:EntryIf show_comments="1">
+      <li>
+        {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
+      </li>
+    </tpl:EntryIf>
 
     <tpl:EntryIf pings_active="1">
       <li>
