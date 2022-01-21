@@ -156,6 +156,7 @@ figure {
 }
 img.media {
   display: block;
+  max-width: 100%;
 }
 figure p {
   font-size: .9em;
