@@ -22,6 +22,12 @@ msgstr ""
 msgid "comment"
 msgstr ""
 
+msgid "One comment"
+msgstr ""
+
+msgid "%s comments"
+msgstr ""
+
 msgid "at"
 msgstr ""
 

@@ -22,6 +22,12 @@ msgstr "Aucun contenu"
 msgid "comment"
 msgstr "commentaire"
 
+msgid "One comment"
+msgstr "Un commentaire"
+
+msgid "%s comments"
+msgstr ""
+
 msgid "at"
 msgstr "à"
 
