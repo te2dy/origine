@@ -37,6 +37,9 @@ msgstr ""
 msgid "Trackback:"
 msgstr ""
 
+msgid "Ping"
+msgstr ""
+
 msgid "Previewing"
 msgstr ""
 

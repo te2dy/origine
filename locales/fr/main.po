@@ -37,6 +37,9 @@ msgstr "&nbsp;:"
 msgid "Trackback:"
 msgstr "Rétrolien&nbsp;:"
 
+msgid "Ping"
+msgstr "Ping"
+
 msgid "Previewing"
 msgstr "Prévisualisation"
 

@@ -24,18 +24,12 @@
       </tpl:CommentIf>
 
       <tpl:CommentIf is_ping="1">
-        <cite class="comment-author">{{tpl:CommentAuthorLink}} (ping)</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
+        <span class="ping-label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
     </header>
 
     <div class="content comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
       {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
-
-      <tpl:CommentIf is_ping="1">
-        <div class="ping-elsewhere">
-          {{tpl:lang Trackback:}}
-        </div>
-      </tpl:CommentIf>
 
       {{tpl:CommentContent}}
 

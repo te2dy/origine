@@ -396,13 +396,19 @@ textarea {
 }
 .comment,
 .ping {
-  border-left: 1px solid var(--color-border);
   margin-top: 2em;
   margin-bottom: 2em;
-  padding-left: 1em;
+}
+.ping-label {
+  background-color: var(--color-input-background);
+  display: inline-block;
+  font-size: .8em;
+  line-height: 1;
+  padding: .5em;
 }
 .comment-meta {
   color: var(--color-text-secondary);
+  margin-bottom: 1em;
 }
 .comment-author {
   color: var(--color-text-primary);
@@ -411,6 +417,10 @@ textarea {
 }
 .comment-date {
   font-size: .9em;
+}
+.comment-content {
+  border-left: 1px solid var(--color-border);
+  padding-left: 1em;
 }
 .comment-content p {
   margin-top: .5em;
