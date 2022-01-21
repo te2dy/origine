@@ -6,7 +6,7 @@ Un thème [Dotclear](https://fr.dotclear.org/) ultra minimaliste.
 
 ## Présentation
 
-Vous cherchez un thème simple pour mettre en valeur vos écrits ? Que vous soyez simple blogueur, écrivain, journaliste ou intellectuel, Origine est fait pour vous. Il a été spécialement conçu pour garantir une excellente lisibilité à vos textes et tout en réduisant, grâce à son apparence minimaliste, les éléments de distraction qui pourraient perturber leur lecture.
+Vous cherchez un thème simple pour mettre en valeur vos écrits ? Que vous soyez simple blogueur, écrivain, journaliste ou intellectuel, Origine est fait pour vous. Il a été spécialement conçu pour garantir une excellente lisibilité à vos textes et tout en réduisant, grâce à son apparence minimaliste, les éléments de distraction qui pourraient perturber leur lecture. En plus, il est très léger – gage de rapidité.
 
 ## Caractéristiques
 
