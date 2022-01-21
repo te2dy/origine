@@ -7,7 +7,7 @@
     </tpl:origineEntryIfSelected>
 
     <div class="post-meta">
-      <time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}">{{tpl:EntryDate}}</time>
+      <time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time>
     </div>
 
     <h1 class="post-title">{{tpl:EntryTitle}}</h1>
@@ -35,7 +35,7 @@
         <div class="post-meta">{{tpl:lang Tags:}}
       </tpl:TagsHeader>
 
-      <a href="{{tpl:TagURL}}">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
+      <a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
 
       <tpl:TagsFooter>
         </div>
