@@ -12,8 +12,21 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.4 – 21 janvier 2022 ===
+- Ajout : styles de citation (balise <blockquote>).
+- Ajout : styles de séparateur dans le contenu des billets (astérisme).
+- Ajout : attributs aux liens alternatifs dans les commentaires.
+- Correction : masquer le lien vers le fil de commentaires quand
+les commentaires sont fermés.
+- Correction : erreur d’affichage du titre du site dans les pages suivantes.
+- Correction : traductions manquantes pour le titre des commentaires.
+- Amélioration : affichage des commentaires et des pings.
+- Modification : conversion des couleurs RGB avec transparence
+en couleurs hexadécimales.
+- Modification : styles de liste dans les billets.
+
 === 1.3.1 – 20 janvier 2022 ===
-Correction : liens au bas des commentaires.
+- Correction : liens au bas des commentaires.
 
 === 1.3 – 20 janvier 2022 ===
 - Ajout : lien vers le fil de syndication des commentaires.
