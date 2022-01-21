@@ -124,6 +124,11 @@ mark {
   color: #000;
   background-color: rgb(255, 255, 0, 0.85);
 }
+blockquote {
+  border-left: 1px solid var(--color-border);
+  margin: 1em 0;
+  padding: 0 0 0 1em;
+}
 code,
 pre {
   background-color: var(--color-input-background);
@@ -271,9 +276,26 @@ textarea {
 .content ol,
 .content ul {
   margin: 1em 0;
+  padding-left: 1em;
 }
-.content img {
-  max-width: 100%;
+.content ol ol,
+.content ol ul,
+.content ul ol,
+.content ul ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.content li {
+  list-style-position: inside;
+}
+.content hr {
+  border: 0;
+  margin: 2em 0;
+  text-align: center;
+}
+.content hr::after {
+  color: var(--color-text-primary);
+  content: "\002042"; /* ⁂ */
 }
 .post-footer {
   margin: 2em 0 4em;
