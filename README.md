@@ -16,6 +16,7 @@ Vous cherchez un thème simple pour mettre en valeur vos écrits ? Que vous so
 - Activation de couleurs claires ou sombres en fonction du thème du système
 - Optimisé pour l’impression
 - Prise en charge des fonctions Simple Menu et Widgets de Dotclear
+- Adaptation aux paramètres d’accessibilité du système (contrastes élevés, suppression des animations)
 
 ## Téléchargement
 
