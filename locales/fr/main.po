@@ -150,3 +150,6 @@ msgstr "mot-clé"
 
 msgid "of"
 msgstr "sur"
+
+msgid "Published date of the post"
+msgstr "Date de publication du billet"

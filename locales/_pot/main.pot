@@ -150,3 +150,7 @@ msgstr ""
 
 msgid "of"
 msgstr ""
+
+# Accessibility
+msgid "Published date of the post"
+msgstr ""

@@ -7,7 +7,7 @@
     </tpl:origineEntryIfSelected>
 
     <div class="post-meta">
-      <time datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time>
+      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time>
     </div>
 
     <h1 class="post-title">{{tpl:EntryTitle}}</h1>
@@ -44,7 +44,7 @@
 
     <!-- # Displayed only on print. -->
     <div class="post-meta" id="post-footer-print">
-      {{tpl:lang Post printed from}} <a href="{{tpl:EntryURL}}">{{tpl:originePostPrintURL}}</a>
+      {{tpl:lang Post printed from}} <a href="{{tpl:EntryURL}}" rel="nofollow">{{tpl:originePostPrintURL}}</a>
     </div>
 
     <div class="post-pagination">

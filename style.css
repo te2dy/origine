@@ -8,9 +8,9 @@
 /**
  * Default colors
  *
- * Default colors depend on the system color scheme.
+ * Default colors depend on the system color scheme or accessibility options.
  */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) and (prefers-contrast: no-preference) {
   :root {
     --color-background: #fff;
     --color-text-primary: #000;
@@ -24,7 +24,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) and (prefers-contrast: no-preference) {
   :root {
     --color-background: #16161D;
     --color-text-primary: #d9d9d9; /* rgb(255, 255, 255, 0.85) */
@@ -35,6 +35,20 @@
     --color-input-text-hover: #fff;
     --color-input-background: #333333; /* rgb(255, 255, 255, 0.2) */
     --color-input-background-hover: #262626; /* rgb(255, 255, 255, 0.15) */
+  }
+}
+
+@media not (prefers-contrast: no-preference) {
+  body {
+    --color-background: #fff;
+    --color-text-primary: #000;
+    --color-text-secondary: #000;
+    --color-link: #de0000;
+    --color-border: #000;
+    --color-input-text: #000;
+    --color-input-text-hover: #fff;
+    --color-input-background: #fff;
+    --color-input-background-hover: #000;
   }
 }
 
@@ -154,9 +168,11 @@ code {
 figure {
   margin: 1em 0;
 }
+img {
+  max-width: 100%;
+}
 img.media {
   display: block;
-  max-width: 100%;
 }
 figure p {
   font-size: .9em;
@@ -530,6 +546,52 @@ textarea {
 }
 
 /**
+ * Accessibility
+ */
+
+/* Screen reader */
+.skip-links {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.skip-links:focus {
+  background-color: var(--color-text-primary);
+  clip: auto !important;
+  clip-path: none;
+  color: var(--color-background);
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: .5em;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+
+/* High contrast */
+@media not (prefers-contrast: no-preference) {
+  a {
+    border-bottom-style: solid;
+  }
+  .content-label,
+  .ping-label,
+  .post-selected-label {
+    border: 1px solid var(--color-border);
+  }
+}
+
+/**
  * Responsiveness
  *
  * Styles used to display the site on mobile depending on the screen size.
@@ -642,6 +704,7 @@ textarea {
     font-size: 1em;
   }
 }
+
 @media print and (orientation: landscape) {
   body {
     columns: 2;
