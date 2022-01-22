@@ -15,22 +15,21 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 class tplOrigineTheme
 {
   /**
-   * Puts the default stylesheet inside <head>
+   * Adds default inline styles
+   * and puts the default stylesheet inside <head>
    * if the plugin origineConfig has not been activated.
    */
   public static function publicHeadContent()
   {
     global $core;
 
-    /*
     if ($core->plugins->moduleExists('origineConfig') === false
       || ($core->plugins->moduleExists('origineConfig') === true
         && $core->blog->settings->origineConfig->activation === false
       )
     ) {
-      echo '<link href="' . $core->blog->settings->system->themes_url . "/" . $core->blog->settings->system->theme . '/style.min.css" rel="stylesheet" type="text/css" />' . "\n";
+      echo '<style type="text/css">body{font-family:Iowan Old Style,Apple Garamond,Baskerville,Times New Roman,Droid Serif,Times,Source Serif Pro,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size:12pt;}</style>' . "\n";
     }
-    */
 
     echo '<link href="' . $core->blog->settings->system->themes_url . "/" . $core->blog->settings->system->theme . '/style.min.css" rel="stylesheet" type="text/css" />' . "\n";
   }
