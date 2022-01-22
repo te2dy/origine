@@ -5,6 +5,7 @@ if (!defined('DC_RC_PATH')) { return; }
 
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
+$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
@@ -13,6 +14,27 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 
 class tplOrigineTheme
 {
+  /**
+   * Puts the default stylesheet inside <head>
+   * if the plugin origineConfig has not been activated.
+   */
+  public static function publicHeadContent()
+  {
+    global $core;
+
+    /*
+    if ($core->plugins->moduleExists('origineConfig') === false
+      || ($core->plugins->moduleExists('origineConfig') === true
+        && $core->blog->settings->origineConfig->activation === false
+      )
+    ) {
+      echo '<link href="' . $core->blog->settings->system->themes_url . "/" . $core->blog->settings->system->theme . '/style.min.css" rel="stylesheet" type="text/css" />' . "\n";
+    }
+    */
+
+    echo '<link href="' . $core->blog->settings->system->themes_url . "/" . $core->blog->settings->system->theme . '/style.min.css" rel="stylesheet" type="text/css" />' . "\n";
+  }
+
   /**
   * Displays some content when the post is selected.
   * Default: none.
