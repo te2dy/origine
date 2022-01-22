@@ -61,8 +61,6 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 12pt;
   margin: 0;
 }
 #site {
@@ -157,10 +155,6 @@ pre {
 }
 pre {
   display: block;
-  -webkit-hyphens: none;
-     -moz-hyphens: none;
-      -ms-hyphens: none;
-          hyphens: none;
   margin: 1em 0;
   padding: .5em;
 }
@@ -239,7 +233,7 @@ textarea {
  * Site Header
  */
 #site-title {
-  font-size: 1.25em;
+  font-size: 1.5em;
   margin: 0;
 }
 #site-title a {
@@ -247,8 +241,7 @@ textarea {
 }
 #site-description {
   color: var(--color-text-secondary);
-  font-size: 1em;
-  font-style: italic;
+  font-size: .9em;
   font-weight: 400;
   margin: .5em 0 0;
 }
@@ -276,23 +269,7 @@ textarea {
   margin: 1.5em 0;
 }
 .content {
-  text-align: justify;
   line-height: 1.5;
-  -webkit-hyphens: auto;
-     -moz-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-  -webkit-hyphenate-limit-chars: 5 2 2;
-     -moz-hyphenate-limit-chars: 5 2 2;
-      -ms-hyphenate-limit-chars: 5 2 2;
-  -webkit-hyphenate-limit-lines: 2;
-     -moz-hyphenate-limit-lines: 2;
-      -ms-hyphenate-limit-lines: 2;
-          hyphenate-limit-lines: 2;
-  -webkit-hyphenate-limit-last: always;
-     -moz-hyphenate-limit-last: always;
-      -ms-hyphenate-limit-last: always;
-          hyphenate-limit-last: always;
 }
 .content ol,
 .content ul {
