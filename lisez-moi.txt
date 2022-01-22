@@ -12,6 +12,18 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.5 – 22 janvier 2022 ===
+- Ajout : adaptation aux paramètres d’accessibilité du système.
+- Ajout : lien caché vers le contenu pour les lecteurs d’écran.
+- Ajout : attribut pubdate à la date dans la liste des billets.
+- Ajout : attribut aria-label à la date dans la liste des billets.
+- Ajout : attribut rel="tag" aux mots-clés dans les billets.
+- Ajout : transition de couleur des liens survolés.
+- Mise à jour : captures d’écran.
+- Correction : erreur dans le lien vers le billet à l’impression.
+- Correction : les images trop grandes débordent.
+- Suppression : style italique des catégories en bas des billets.
+
 === 1.4 – 21 janvier 2022 ===
 - Ajout : styles de citation (balise <blockquote>).
 - Ajout : styles de séparateur dans le contenu des billets (astérisme).
