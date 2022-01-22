@@ -37,14 +37,7 @@ class tplOrigineTheme
    */
   public static function origineEntryLang()
   {
-    global $core, $_ctx;
-
-    $lang_attr = '';
-    if ($_ctx->posts->post_lang != $core->blog->settings->system->lang) {
-      $lang_attr = ' lang="' . $_ctx->posts->post_lang . '"';
-    }
-
-    return $lang_attr;
+    return "<?php if (\$_ctx->posts->post_lang !== \$core->blog->settings->system->lang) { echo ' lang=\"' . \$_ctx->posts->post_lang . '\"'; } ?>";
   }
 
   /**
@@ -52,7 +45,7 @@ class tplOrigineTheme
    */
   public static function originePostPrintURL()
   {
-    return "<?php echo '<a href=\"'.\$_ctx->posts->getURL().'\" rel=\"nofollow\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getURL()) . '</a>'; ?>";
+    return "<?php echo str_replace(array('http://', 'https://'), '', \$_ctx->posts->getURL()); ?>";
   }
 
   /**
