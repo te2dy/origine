@@ -12,6 +12,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== VERSION ET DATE ===
+- Modification : en-tête des fichiers de traduction.
+
 === 1.6-beta – 23 janvier 2022 ===
 - Ajout : compatibilité avec l’extension origineConfig pour personnaliser
 le thème.
@@ -129,3 +132,22 @@ en couleurs hexadécimales.
 
 === 0.1 – 4 septembre 2021 ===
 - Lancement de la première version du thème.
+
+== Ressources ==
+
+Origine remercie les auteurs des ressources suivantes qui ont permis de réaliser ce thème :
+
+- System font stack
+Auteur : Tom MacWright
+Adresse : https://github.com/tmcw/systemfontstack
+Licence : inconnue
+
+- Ductile
+Auteur : Olivier Meunier & Association Dotclear
+Adresse : https://github.com/dotclear/dotclear/tree/master/themes/ductile
+Licence : GPL-2.0-only
+
+- socialShare
+Auteur : Franck Paul
+Adresse : https://github.com/franck-paul/socialShare
+Licence : GPL-2.0
