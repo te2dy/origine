@@ -1,26 +1,28 @@
 # Origine
 
-Un thème [Dotclear](https://fr.dotclear.org/) ultra minimaliste.
+**Un thème [Dotclear](https://fr.dotclear.org/) ultra minimaliste.**
 
 ![Capture d’écran](https://github.com/te2dy/origine/blob/master/screenshot-2x.jpg)
 
 ## Présentation
 
-Vous cherchez un thème simple pour mettre en valeur vos écrits ? Que vous soyez simple blogueur, écrivain, journaliste ou intellectuel, Origine est fait pour vous. Il a été spécialement conçu pour garantir une excellente lisibilité à vos textes et tout en réduisant, grâce à son apparence minimaliste, les éléments de distraction qui pourraient perturber leur lecture. En plus, il est très léger – gage de rapidité.
+Vous cherchez un thème simple pour mettre en valeur vos écrits ? Que vous soyez simple blogueur, écrivain, journaliste ou intellectuel, Origine est fait pour vous. Il a été spécialement conçu pour garantir une **excellente lisibilité** à vos textes et tout en réduisant, grâce à son apparence **minimaliste**, les éléments de distraction qui pourraient perturber leur lecture. En plus, il est très léger – gage de rapidité.
 
 ## Caractéristiques
 
 - Lisibilité
+- Rapidité
 - Utilisation des polices du système
 - Adaptation à toutes les tailles d’écran, des ordinateurs aux téléphones
 - Activation de couleurs claires ou sombres en fonction du thème du système
 - Optimisé pour l’impression
-- Prise en charge des fonctions Simple Menu et Widgets de Dotclear
-- Adaptation aux paramètres d’accessibilité du système (contrastes élevés, suppression des animations)
+- Prise en charge des fonctions _Simple Menu_ et _Widgets_ de Dotclear
+- jQuery n’est pas nécessaire
+- Prise en compte des paramètres d’accessibilité du système (contrastes élevés, suppression des animations)
 
 ## Téléchargement
 
-[Télécharger la dernière version d’Origine](https://github.com/te2dy/origine/releases/latest)
+**[Télécharger la dernière version d’Origine](https://github.com/te2dy/origine/releases/latest)**
 
 ## Installation
 
@@ -38,7 +40,9 @@ Dans l’administration de votre site :
 
 ## Personnalisation
 
-La feuille de style ``styles.css`` est proposée à titre d’information ; seule la feuille ``styles.min.css`` est utilisée pour le rendu du thème. C’est elle que vous devez modifier pour apporter des changements à Origine.
+Origine peut-être personnalisé à l’aide d’une extension _ad hoc_, **origineConfig**. Il est notamment possible de modifier le schéma de couleurs par défaut, la police d’écriture, ou encore la taille et l’alignement des textes.
+
+Pour personnaliser Origine, rendez-vous sur la page dédiée à [origineConfig](https://github.com/te2dy/origineConfig).
 
 ## Licence
 
