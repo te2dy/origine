@@ -5,38 +5,6 @@
  * This one is just meant to be read by humans.
  */
 
-/**
- * Default colors
- *
- * Default colors depend on the system color scheme or accessibility options.
- */
-:root { /* "prefers-color-scheme: light" not used for better browser support. */
-  --color-background: #fff;
-  --color-text-primary: #000;
-  --color-text-secondary: #595959; /* rgb(0, 0, 0, 0.65) */
-  --color-link: #de0000;
-  --color-border: #aaa;
-  --color-input-text: #000;
-  --color-input-text-hover: #fff;
-  --color-input-background: #eaeaea;
-  --color-input-background-hover: #000;
-}
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #16161D;
-    --color-text-primary: #d9d9d9; /* rgb(255, 255, 255, 0.85) */
-    --color-text-secondary: #8c8c8c; /* rgb(255, 255, 255, 0.55) */
-    --color-link: #f14646;
-    --color-border: #aaa;
-    --color-input-text: #d9d9d9;
-    --color-input-text-hover: #fff;
-    --color-input-background: #333333; /* rgb(255, 255, 255, 0.2) */
-    --color-input-background-hover: #262626; /* rgb(255, 255, 255, 0.15) */
-  }
-}
-
 /* Accessibility: high contrast mode */
 @media (prefers-contrast: more),
        (prefers-contrast: less),

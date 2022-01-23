@@ -58,7 +58,7 @@ class tplOrigineTheme
   }
 
   /**
-   * Minifies inlined styles if the plugin origineConfig is not activated.
+   * Inlines styles.
    */
   public static function origineInlineStyles($attr, $content)
   {
@@ -70,6 +70,9 @@ class tplOrigineTheme
         && $core->blog->settings->origineConfig->activation === false
       )
     ) {
+      // Removes comments.
+      $content = preg_replace('/\/\*(.*?)\*\//', ' ', $content);
+
       // Removes HTML chars except quotes.
       $content = htmlspecialchars($content, ENT_NOQUOTES);
 
@@ -86,6 +89,62 @@ class tplOrigineTheme
 
     // If the plugin origineConfig is activated.
     } else {
+      $content       = '';
+      $css           = array();
+      $media_queries = array();
+
+      if ($core->blog->settings->origineConfig->color_scheme === 'system') {
+        $media_queries[':root']['--color-background']             = '#fff';
+        $media_queries[':root']['--color-text-primary']           = '#000';
+        $media_queries[':root']['--color-text-secondary']         = '#595959';
+        $media_queries[':root']['--color-link']                   = '#de0000';
+        $media_queries[':root']['--color-border']                 = '#aaa';
+        $media_queries[':root']['--color-input-text']             = '#000';
+        $media_queries[':root']['--color-input-text-hover']       = '#fff';
+        $media_queries[':root']['--color-input-background']       = '#eaeaea';
+        $media_queries[':root']['--color-input-background-hover'] = '#000';
+
+        $content .= self::origineConfigArrayToCSS($media_queries);
+
+        $media_queries = array();
+
+        $media_queries[':root']['--color-background']             = '#16161D';
+        $media_queries[':root']['--color-text-primary']           = '#d9d9d9';
+        $media_queries[':root']['--color-text-secondary']         = '#8c8c8c';
+        $media_queries[':root']['--color-link']                   = '#f14646';
+        $media_queries[':root']['--color-border']                 = '#aaa';
+        $media_queries[':root']['--color-input-text']             = '#d9d9d9';
+        $media_queries[':root']['--color-input-text-hover']       = '#fff';
+        $media_queries[':root']['--color-input-background']       = '#333333';
+        $media_queries[':root']['--color-input-background-hover'] = '#262626';
+
+        $content .= '@media (prefers-color-scheme:dark){' . self::origineConfigArrayToCSS($media_queries) . '}';
+      } elseif ($core->blog->settings->origineConfig->color_scheme === 'dark') {
+        $media_queries[':root']['--color-background']             = '#16161D';
+        $media_queries[':root']['--color-text-primary']           = '#d9d9d9';
+        $media_queries[':root']['--color-text-secondary']         = '#8c8c8c';
+        $media_queries[':root']['--color-link']                   = '#f14646';
+        $media_queries[':root']['--color-border']                 = '#aaa';
+        $media_queries[':root']['--color-input-text']             = '#d9d9d9';
+        $media_queries[':root']['--color-input-text-hover']       = '#fff';
+        $media_queries[':root']['--color-input-background']       = '#333333';
+        $media_queries[':root']['--color-input-background-hover'] = '#262626';
+
+        $content .= self::origineConfigArrayToCSS($media_queries);
+      } else {
+        $media_queries[':root']['--color-background']             = '#fff';
+        $media_queries[':root']['--color-text-primary']           = '#000';
+        $media_queries[':root']['--color-text-secondary']         = '#595959';
+        $media_queries[':root']['--color-link']                   = '#de0000';
+        $media_queries[':root']['--color-border']                 = '#aaa';
+        $media_queries[':root']['--color-input-text']             = '#000';
+        $media_queries[':root']['--color-input-text-hover']       = '#fff';
+        $media_queries[':root']['--color-input-background']       = '#eaeaea';
+        $media_queries[':root']['--color-input-background-hover'] = '#000';
+
+        $content .= self::origineConfigArrayToCSS($media_queries);
+      }
+
       if ($core->blog->settings->origineConfig->content_font_family !== 'sans-serif') {
         $css['body']['font-family'] = '"Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
       } else {
@@ -125,7 +184,7 @@ class tplOrigineTheme
         $css['.content']['hyphens']         = 'none';
       }
 
-      $content = self::origineConfigArrayToCSS($css);
+      $content .= self::origineConfigArrayToCSS($css);
     }
 
     return '<style>' . trim($content) . '</style>';
