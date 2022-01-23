@@ -23,6 +23,7 @@ class tplOrigineTheme
   {
     global $core;
 
+    // Styles.
     if ($core->plugins->moduleExists('origineConfig') === false
       || ($core->plugins->moduleExists('origineConfig') === true
         && $core->blog->settings->origineConfig->activation === false
@@ -32,6 +33,15 @@ class tplOrigineTheme
     }
 
     echo '<link href="' . $core->blog->settings->system->themes_url . "/" . $core->blog->settings->system->theme . '/style.min.css" rel="stylesheet" type="text/css" />' . "\n";
+
+    // Copyright.
+    if ($core->blog->settings->system->editor) {
+      echo '<meta name="author" content="' . $core->blog->settings->system->editor . '" />' . "\n";
+    }
+
+    if ($core->blog->settings->system->copyright_notice) {
+      echo '<meta name="copyright" content="' . $core->blog->settings->system->copyright_notice . '" />' . "\n";
+    }
   }
 
   /**
