@@ -6,6 +6,7 @@ if (!defined('DC_RC_PATH')) { return; }
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
+$core->tpl->addBlock('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
@@ -14,34 +15,120 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 
 class tplOrigineTheme
 {
+  public static function origineConfigArrayToCSS($rules, $rule_type = '')
+  {
+    $css = '';
+
+    if ($rules) {
+      foreach ($rules as $key => $value) {
+        if (is_array($value) && !empty($value)) {
+          $selector   = $key;
+          $properties = $value;
+
+          $css .= $selector . '{';
+
+          foreach ($properties as $property => $rule) {
+            $css .= $property . ':' . str_replace(', ', ',', $rule) . ';';
+          }
+
+          $css .= '}';
+        }
+      }
+    }
+
+    return $css;
+  }
+
   /**
-   * Adds default inline styles
-   * and puts the default stylesheet inside <head>
-   * if the plugin origineConfig has not been activated.
+   * Adds some meta tags in head.
    */
   public static function publicHeadContent()
   {
     global $core;
 
-    // Styles.
+    // Adds the name of the editor if set in the settings of Dotclear.
+    if ($core->blog->settings->system->editor) {
+      echo '<meta name="author" content="' . $core->blog->settings->system->editor . '" />' . "\n";
+    }
+
+    // Adds the name of the copyright notice if set in the settings of Dotclear.
+    if ($core->blog->settings->system->copyright_notice) {
+      echo '<meta name="copyright" content="' . $core->blog->settings->system->copyright_notice . '" />' . "\n";
+    }
+  }
+
+  /**
+   * Minifies inlined styles if the plugin origineConfig is not activated.
+   */
+  public static function origineInlineStyles($attr, $content)
+  {
+    global $core;
+
+    // If the plugin origineConfig is not activated.
     if ($core->plugins->moduleExists('origineConfig') === false
       || ($core->plugins->moduleExists('origineConfig') === true
         && $core->blog->settings->origineConfig->activation === false
       )
     ) {
-      echo '<style type="text/css">body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}</style>' . "\n";
+      // Removes HTML chars except quotes.
+      $content = htmlspecialchars($content, ENT_NOQUOTES);
+
+      // Removes carriage returns and new lines.
+      $content = str_replace(array("\n", "\r"), '', $content);
+
+      // Replaces multiple spaces by one space.
+      $content = preg_replace('/\ +/', ' ', $content);
+
+      // Removes unnecessary spaces.
+      $to_replace  = [' { ', ' } ', ': ', ', ', '; '];
+      $replaced_by = ['{', '}', ':', ',', ';'];
+      $content     = str_replace($to_replace, $replaced_by, $content);
+
+    // If the plugin origineConfig is activated.
+    } else {
+      if ($core->blog->settings->origineConfig->content_font_family !== 'sans-serif') {
+        $css['body']['font-family'] = '"Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+      } else {
+        $css['body']['font-family'] = '-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, Arial, sans-serif';
+      }
+
+      if ($core->blog->settings->origineConfig->content_font_size) {
+        $css['body']['font-size'] = abs((int) $core->blog->settings->origineConfig->content_font_size) . 'pt';
+      }
+
+      if ($core->blog->settings->origineConfig->content_text_align === 'justify') {
+        $css['.content']['text-align'] = 'justify';
+      }
+
+      if ($core->blog->settings->origineConfig->content_hyphens == true ) {
+        $css['.content']['-webkit-hyphens'] = 'auto';
+        $css['.content']['-moz-hyphens']    = 'auto';
+        $css['.content']['-ms-hyphens']     = 'auto';
+        $css['.content']['hyphens']         = 'auto';
+
+        $css['.content']['-webkit-hyphenate-limit-chars'] = '5 2 2';
+        $css['.content']['-moz-hyphenate-limit-chars']    = '5 2 2';
+        $css['.content']['-ms-hyphenate-limit-chars']     = '5 2 2';
+
+        $css['.content']['-moz-hyphenate-limit-lines'] = '2';
+        $css['.content']['-ms-hyphenate-limit-lines']  = '2';
+        $css['.content']['hyphenate-limit-lines']      = '2';
+
+        $css['.content']['-webkit-hyphenate-limit-last'] = 'always';
+        $css['.content']['-moz-hyphenate-limit-last']    = 'always';
+        $css['.content']['-ms-hyphenate-limit-last']     = 'always';
+        $css['.content']['hyphenate-limit-last']         = 'always';
+
+        $css['.content']['-webkit-hyphens'] = 'none';
+        $css['.content']['-moz-hyphens']    = 'none';
+        $css['.content']['-ms-hyphens']     = 'none';
+        $css['.content']['hyphens']         = 'none';
+      }
+
+      $content = self::origineConfigArrayToCSS($css);
     }
 
-    echo '<link href="' . $core->blog->settings->system->themes_url . "/" . $core->blog->settings->system->theme . '/style.min.css" rel="stylesheet" type="text/css" />' . "\n";
-
-    // Copyright.
-    if ($core->blog->settings->system->editor) {
-      echo '<meta name="author" content="' . $core->blog->settings->system->editor . '" />' . "\n";
-    }
-
-    if ($core->blog->settings->system->copyright_notice) {
-      echo '<meta name="copyright" content="' . $core->blog->settings->system->copyright_notice . '" />' . "\n";
-    }
+    return '<style>' . trim($content) . '</style>';
   }
 
   /**

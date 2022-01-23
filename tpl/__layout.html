@@ -17,6 +17,16 @@
       <meta name="robots" content="{{tpl:BlogMetaRobots}}" />
     </tpl:Block>
 
+    <!-- # Styles to inline. -->
+    <tpl:origineInlineStyles>
+      body {
+        font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 12pt;
+      }
+    </tpl:origineInlineStyles>
+
+    <link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.min.css" />
+
     <link rel="alternate" type="application/atom+xml" title="RSS" href="{{tpl:BlogFeedURL}}" />
 
     {{tpl:SysBehavior behavior="publicHeadContent"}}
