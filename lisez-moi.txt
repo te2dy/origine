@@ -16,7 +16,7 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 - Ajout : compatibilité avec l’extension origineConfig pour personnaliser
 le thème.
 - Ajout : informations de droit d’auteur dans l’en-tête
-quand elles sont renseignées
+quand elles sont renseignées.
 - Modification : chargement des styles depuis le fichier public.php.
 
 === 1.5 – 22 janvier 2022 ===
