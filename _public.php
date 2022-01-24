@@ -96,14 +96,38 @@ class tplOrigineTheme
     // If the plugin origineConfig is activated.
     } else {
       $content       = '';
-      $css           = array();
-      $media_queries = array();
+      $media_queries = [];
+
+      $link_colors = [
+        'red'    => [
+          'light' => '#de0000',
+          'dark'  => '#f14646',
+        ],
+        'blue'   => [
+          'light' => '#0057B7',
+          'dark'  => '#529ff5',
+        ],
+        'green'  => [
+          'light' => '#006400',
+          'dark'  => '#18af18',
+        ],
+        'orange' => [
+          'light' => '#ff8c00',
+          'dark'  => '#ffab2e',
+        ],
+        'purple' => [
+          'light' => '#800080',
+          'dark'  => '#9a389a',
+        ],
+      ];
+
+      $the_color = $core->blog->settings->origineConfig->content_link_color ? $core->blog->settings->origineConfig->content_link_color : 'red';
 
       if ($core->blog->settings->origineConfig->color_scheme === 'system') {
         $media_queries[':root']['--color-background']             = '#fff';
         $media_queries[':root']['--color-text-primary']           = '#000';
         $media_queries[':root']['--color-text-secondary']         = '#595959';
-        $media_queries[':root']['--color-link']                   = '#de0000';
+        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['light'];
         $media_queries[':root']['--color-border']                 = '#aaa';
         $media_queries[':root']['--color-input-text']             = '#000';
         $media_queries[':root']['--color-input-text-hover']       = '#fff';
@@ -112,12 +136,12 @@ class tplOrigineTheme
 
         $content .= self::origineConfigArrayToCSS($media_queries);
 
-        $media_queries = array();
+        $media_queries = [];
 
         $media_queries[':root']['--color-background']             = '#16161D';
         $media_queries[':root']['--color-text-primary']           = '#d9d9d9';
         $media_queries[':root']['--color-text-secondary']         = '#8c8c8c';
-        $media_queries[':root']['--color-link']                   = '#f14646';
+        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['dark'];
         $media_queries[':root']['--color-border']                 = '#aaa';
         $media_queries[':root']['--color-input-text']             = '#d9d9d9';
         $media_queries[':root']['--color-input-text-hover']       = '#fff';
@@ -129,7 +153,7 @@ class tplOrigineTheme
         $media_queries[':root']['--color-background']             = '#16161D';
         $media_queries[':root']['--color-text-primary']           = '#d9d9d9';
         $media_queries[':root']['--color-text-secondary']         = '#8c8c8c';
-        $media_queries[':root']['--color-link']                   = '#f14646';
+        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['dark'];
         $media_queries[':root']['--color-border']                 = '#aaa';
         $media_queries[':root']['--color-input-text']             = '#d9d9d9';
         $media_queries[':root']['--color-input-text-hover']       = '#fff';
@@ -141,7 +165,7 @@ class tplOrigineTheme
         $media_queries[':root']['--color-background']             = '#fff';
         $media_queries[':root']['--color-text-primary']           = '#000';
         $media_queries[':root']['--color-text-secondary']         = '#595959';
-        $media_queries[':root']['--color-link']                   = '#de0000';
+        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['light'];
         $media_queries[':root']['--color-border']                 = '#aaa';
         $media_queries[':root']['--color-input-text']             = '#000';
         $media_queries[':root']['--color-input-text-hover']       = '#fff';
@@ -151,43 +175,47 @@ class tplOrigineTheme
         $content .= self::origineConfigArrayToCSS($media_queries);
       }
 
+      $css = [];
+
       if ($core->blog->settings->origineConfig->content_font_family !== 'sans-serif') {
         $css['body']['font-family'] = '"Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
       } else {
         $css['body']['font-family'] = '-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, Arial, sans-serif';
       }
 
-      if ($core->blog->settings->origineConfig->content_font_size) {
+      if (isset($core->blog->settings->origineConfig->content_font_size)) {
         $css['body']['font-size'] = abs((int) $core->blog->settings->origineConfig->content_font_size) . 'pt';
       }
 
       if ($core->blog->settings->origineConfig->content_text_align === 'justify') {
-        $css['.content']['text-align'] = 'justify';
+        foreach($content_to_align as $tag) {
+          $css['.content p, .content ol li, .content ul li, .post-excerpt']['text-align'] = 'justify';
+        }
       }
 
       if ($core->blog->settings->origineConfig->content_hyphens == true ) {
-        $css['.content']['-webkit-hyphens'] = 'auto';
-        $css['.content']['-moz-hyphens']    = 'auto';
-        $css['.content']['-ms-hyphens']     = 'auto';
-        $css['.content']['hyphens']         = 'auto';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphens'] = 'auto';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphens']    = 'auto';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphens']     = 'auto';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphens']         = 'auto';
 
-        $css['.content']['-webkit-hyphenate-limit-chars'] = '5 2 2';
-        $css['.content']['-moz-hyphenate-limit-chars']    = '5 2 2';
-        $css['.content']['-ms-hyphenate-limit-chars']     = '5 2 2';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphenate-limit-chars'] = '5 2 2';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphenate-limit-chars']    = '5 2 2';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphenate-limit-chars']     = '5 2 2';
 
-        $css['.content']['-moz-hyphenate-limit-lines'] = '2';
-        $css['.content']['-ms-hyphenate-limit-lines']  = '2';
-        $css['.content']['hyphenate-limit-lines']      = '2';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphenate-limit-lines'] = '2';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphenate-limit-lines']  = '2';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphenate-limit-lines']      = '2';
 
-        $css['.content']['-webkit-hyphenate-limit-last'] = 'always';
-        $css['.content']['-moz-hyphenate-limit-last']    = 'always';
-        $css['.content']['-ms-hyphenate-limit-last']     = 'always';
-        $css['.content']['hyphenate-limit-last']         = 'always';
-
-        $css['.content']['-webkit-hyphens'] = 'none';
-        $css['.content']['-moz-hyphens']    = 'none';
-        $css['.content']['-ms-hyphens']     = 'none';
-        $css['.content']['hyphens']         = 'none';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphenate-limit-last'] = 'always';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphenate-limit-last']    = 'always';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphenate-limit-last']     = 'always';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphenate-limit-last']         = 'always';
+      } else {
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphens'] = 'none';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphens']    = 'none';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphens']     = 'none';
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphens']         = 'none';
       }
 
       $content .= self::origineConfigArrayToCSS($css);
@@ -236,6 +264,7 @@ class tplOrigineTheme
    */
   public static function origineEntryCommentFeedLink($attr)
   {
+    // The type of the feed (Atom or RSS2).
     $type = !empty($attr['type']) ? $attr['type'] : 'atom';
 
     if (!preg_match('#^(rss2|atom)$#', $type)) {

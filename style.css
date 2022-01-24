@@ -118,7 +118,6 @@ pre {
   background-color: var(--color-input-background);
 	font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 	font-size: 1em;
-  text-align: left;
 	white-space: pre-wrap;
 }
 pre {
