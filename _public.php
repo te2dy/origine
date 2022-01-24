@@ -21,6 +21,9 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 
 class tplOrigineTheme
 {
+  /**
+   * Inline CSS from an array.
+   */
   public static function origineConfigArrayToCSS($rules, $rule_type = '')
   {
     $css = '';
@@ -64,7 +67,7 @@ class tplOrigineTheme
   }
 
   /**
-   * Inlines styles.
+   * Inlines styles in the head of the document.
    */
   public static function origineInlineStyles($attr, $content)
   {
@@ -83,7 +86,7 @@ class tplOrigineTheme
       $content = htmlspecialchars($content, ENT_NOQUOTES);
 
       // Removes carriage returns and new lines.
-      $content = str_replace(array("\n", "\r"), '', $content);
+      $content = str_replace(["\n", "\r"], '', $content);
 
       // Replaces multiple spaces by one space.
       $content = preg_replace('/\ +/', ' ', $content);
@@ -95,10 +98,9 @@ class tplOrigineTheme
 
     // If the plugin origineConfig is activated.
     } else {
-      $content       = '';
-      $media_queries = [];
-
-      $link_colors = [
+      $content        = '';
+      $media_queries  = [];
+      $link_colors    = [
         'red'    => [
           'light' => '#de0000',
           'dark'  => '#f14646',
@@ -121,7 +123,8 @@ class tplOrigineTheme
         ],
       ];
 
-      $the_color = $core->blog->settings->origineConfig->content_link_color ? $core->blog->settings->origineConfig->content_link_color : 'red';
+      // Sets a default color and verifies that the color name is allowed.
+      $the_color = array_key_exists($core->blog->settings->origineConfig->content_link_color, $link_colors) ? $core->blog->settings->origineConfig->content_link_color : 'red';
 
       if ($core->blog->settings->origineConfig->color_scheme === 'system') {
         $media_queries[':root']['--color-background']             = '#fff';
@@ -136,6 +139,7 @@ class tplOrigineTheme
 
         $content .= self::origineConfigArrayToCSS($media_queries);
 
+        // Resets $media_queries to set colors for dark scheme.
         $media_queries = [];
 
         $media_queries[':root']['--color-background']             = '#16161D';
@@ -183,17 +187,15 @@ class tplOrigineTheme
         $css['body']['font-family'] = '-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, Arial, sans-serif';
       }
 
-      if (isset($core->blog->settings->origineConfig->content_font_size)) {
+      if ($core->blog->settings->origineConfig->content_font_size) {
         $css['body']['font-size'] = abs((int) $core->blog->settings->origineConfig->content_font_size) . 'pt';
       }
 
       if ($core->blog->settings->origineConfig->content_text_align === 'justify') {
-        foreach($content_to_align as $tag) {
-          $css['.content p, .content ol li, .content ul li, .post-excerpt']['text-align'] = 'justify';
-        }
+        $css['.content p, .content ol li, .content ul li, .post-excerpt']['text-align'] = 'justify';
       }
 
-      if ($core->blog->settings->origineConfig->content_hyphens == true ) {
+      if ($core->blog->settings->origineConfig->content_hyphens === true ) {
         $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphens'] = 'auto';
         $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphens']    = 'auto';
         $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphens']     = 'auto';
@@ -221,7 +223,7 @@ class tplOrigineTheme
       $content .= self::origineConfigArrayToCSS($css);
     }
 
-    return '<style>' . trim($content) . '</style>';
+    return '<style>'.trim($content).'</style>';
   }
 
   /**
@@ -248,7 +250,7 @@ class tplOrigineTheme
    */
   public static function origineEntryLang()
   {
-    return "<?php if (\$_ctx->posts->post_lang !== \$core->blog->settings->system->lang) { echo ' lang=\"' . \$_ctx->posts->post_lang . '\"'; } ?>";
+    return '<?php if ($_ctx->posts->post_lang !== $core->blog->settings->system->lang) { echo " lang=\"" . $_ctx->posts->post_lang . "\""; } ?>';
   }
 
   /**
@@ -256,7 +258,7 @@ class tplOrigineTheme
    */
   public static function originePostPrintURL()
   {
-    return "<?php echo str_replace(array('http://', 'https://'), '', \$_ctx->posts->getURL()); ?>";
+    return '<?php echo str_replace([\'http://\', \'https://\'], "", $_ctx->posts->getURL()); ?>';
   }
 
   /**
@@ -264,20 +266,11 @@ class tplOrigineTheme
    */
   public static function origineEntryCommentFeedLink($attr)
   {
-    // The type of the feed (Atom or RSS2).
-    $type = !empty($attr['type']) ? $attr['type'] : 'atom';
+    // Checks the type of the set feed.
+    $types = ['atom', 'rss2'];
+    $type  = in_array($attr['type'], $feed_types) ? $attr['type'] : 'atom';
 
-    if (!preg_match('#^(rss2|atom)$#', $type)) {
-        $type = 'atom';
-    }
-
-    if ( $type !== 'atom' ) {
-      $mime_type = 'application/rss+xml';
-    } else {
-      $mime_type = 'application/atom+xml';
-    }
-
-    return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\" rel=\"nofollow\" type=\"' . $mime_type . '\">" . str_replace(array("http://", "https://"), "", $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
+    return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\" rel=\"nofollow\" type=\"application/' . $type . '+xml\">" . str_replace(array("http://", "https://"), "", $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
   }
 
   /**
@@ -285,6 +278,8 @@ class tplOrigineTheme
    */
   public static function origineEntryPingURL()
   {
-    return "<?php if (\$_ctx->posts->trackbacksActive()) { echo '<a href=\"'.\$_ctx->posts->getTrackbackLink().'\" rel=\"nofollow\">' . str_replace(array('http://', 'https://'), '', \$_ctx->posts->getTrackbackLink()) . '</a>'; } ?>";
+    return '<?php if ($_ctx->posts->trackbacksActive()) {
+      echo "<a href=\"" . $_ctx->posts->getTrackbackLink() . "\" rel=\"nofollow\">" . str_replace([\'http://\', \'https://\'], \'\', $_ctx->posts->getTrackbackLink()) . "</a>";
+    } ?>';
   }
 }
