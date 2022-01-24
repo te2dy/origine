@@ -181,10 +181,12 @@ class tplOrigineTheme
 
       $css = [];
 
-      if ($core->blog->settings->origineConfig->content_font_family !== 'sans-serif') {
+      if ($core->blog->settings->origineConfig->content_font_family === 'serif') {
         $css['body']['font-family'] = '"Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-      } else {
+      } elseif ($core->blog->settings->origineConfig->content_font_family === 'sans-serif') {
         $css['body']['font-family'] = '-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, Arial, sans-serif';
+      } else {
+        $css['body']['font-family'] = 'Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace';
       }
 
       if ($core->blog->settings->origineConfig->content_font_size) {
