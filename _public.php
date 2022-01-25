@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) { return; }
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
-$core->tpl->addBlock('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
+$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
@@ -79,153 +79,14 @@ class tplOrigineTheme
         && $core->blog->settings->origineConfig->activation === false
       )
     ) {
-      // Removes comments.
-      $content = preg_replace('/\/\*(.*?)\*\//', ' ', $content);
-
-      // Removes HTML chars except quotes.
-      $content = htmlspecialchars($content, ENT_NOQUOTES);
-
-      // Removes carriage returns and new lines.
-      $content = str_replace(["\n", "\r"], '', $content);
-
-      // Replaces multiple spaces by one space.
-      $content = preg_replace('/\ +/', ' ', $content);
-
-      // Removes unnecessary spaces.
-      $to_replace  = [' { ', ' } ', ': ', ', ', '; '];
-      $replaced_by = ['{', '}', ':', ',', ';'];
-      $content     = str_replace($to_replace, $replaced_by, $content);
+      $content = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#fff;--color-input-background:#333333;--color-input-background-hover:#262626;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}';
 
     // If the plugin origineConfig is activated.
     } else {
-      $content        = '';
-      $media_queries  = [];
-      $link_colors    = [
-        'red'    => [
-          'light' => '#de0000',
-          'dark'  => '#f14646',
-        ],
-        'blue'   => [
-          'light' => '#0057B7',
-          'dark'  => '#529ff5',
-        ],
-        'green'  => [
-          'light' => '#006400',
-          'dark'  => '#18af18',
-        ],
-        'orange' => [
-          'light' => '#ff8c00',
-          'dark'  => '#ffab2e',
-        ],
-        'purple' => [
-          'light' => '#800080',
-          'dark'  => '#9a389a',
-        ],
-      ];
-
-      // Sets a default color and verifies that the color name is allowed.
-      $the_color = array_key_exists($core->blog->settings->origineConfig->content_link_color, $link_colors) ? $core->blog->settings->origineConfig->content_link_color : 'red';
-
-      if ($core->blog->settings->origineConfig->color_scheme === 'system') {
-        $media_queries[':root']['--color-background']             = '#fff';
-        $media_queries[':root']['--color-text-primary']           = '#000';
-        $media_queries[':root']['--color-text-secondary']         = '#595959';
-        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['light'];
-        $media_queries[':root']['--color-border']                 = '#aaa';
-        $media_queries[':root']['--color-input-text']             = '#000';
-        $media_queries[':root']['--color-input-text-hover']       = '#fff';
-        $media_queries[':root']['--color-input-background']       = '#eaeaea';
-        $media_queries[':root']['--color-input-background-hover'] = '#000';
-
-        $content .= self::origineConfigArrayToCSS($media_queries);
-
-        // Resets $media_queries to set colors for dark scheme.
-        $media_queries = [];
-
-        $media_queries[':root']['--color-background']             = '#16161D';
-        $media_queries[':root']['--color-text-primary']           = '#d9d9d9';
-        $media_queries[':root']['--color-text-secondary']         = '#8c8c8c';
-        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['dark'];
-        $media_queries[':root']['--color-border']                 = '#aaa';
-        $media_queries[':root']['--color-input-text']             = '#d9d9d9';
-        $media_queries[':root']['--color-input-text-hover']       = '#fff';
-        $media_queries[':root']['--color-input-background']       = '#333333';
-        $media_queries[':root']['--color-input-background-hover'] = '#262626';
-
-        $content .= '@media (prefers-color-scheme:dark){' . self::origineConfigArrayToCSS($media_queries) . '}';
-      } elseif ($core->blog->settings->origineConfig->color_scheme === 'dark') {
-        $media_queries[':root']['--color-background']             = '#16161D';
-        $media_queries[':root']['--color-text-primary']           = '#d9d9d9';
-        $media_queries[':root']['--color-text-secondary']         = '#8c8c8c';
-        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['dark'];
-        $media_queries[':root']['--color-border']                 = '#aaa';
-        $media_queries[':root']['--color-input-text']             = '#d9d9d9';
-        $media_queries[':root']['--color-input-text-hover']       = '#fff';
-        $media_queries[':root']['--color-input-background']       = '#333333';
-        $media_queries[':root']['--color-input-background-hover'] = '#262626';
-
-        $content .= self::origineConfigArrayToCSS($media_queries);
-      } else {
-        $media_queries[':root']['--color-background']             = '#fff';
-        $media_queries[':root']['--color-text-primary']           = '#000';
-        $media_queries[':root']['--color-text-secondary']         = '#595959';
-        $media_queries[':root']['--color-link']                   = $link_colors[$the_color]['light'];
-        $media_queries[':root']['--color-border']                 = '#aaa';
-        $media_queries[':root']['--color-input-text']             = '#000';
-        $media_queries[':root']['--color-input-text-hover']       = '#fff';
-        $media_queries[':root']['--color-input-background']       = '#eaeaea';
-        $media_queries[':root']['--color-input-background-hover'] = '#000';
-
-        $content .= self::origineConfigArrayToCSS($media_queries);
-      }
-
-      $css = [];
-
-      if ($core->blog->settings->origineConfig->content_font_family === 'serif') {
-        $css['body']['font-family'] = '"Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-      } elseif ($core->blog->settings->origineConfig->content_font_family === 'sans-serif') {
-        $css['body']['font-family'] = '-apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, Arial, sans-serif';
-      } else {
-        $css['body']['font-family'] = 'Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace';
-      }
-
-      if ($core->blog->settings->origineConfig->content_font_size) {
-        $css['body']['font-size'] = abs((int) $core->blog->settings->origineConfig->content_font_size) . 'pt';
-      }
-
-      if ($core->blog->settings->origineConfig->content_text_align === 'justify') {
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['text-align'] = 'justify';
-      }
-
-      if ($core->blog->settings->origineConfig->content_hyphens === true ) {
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphens'] = 'auto';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphens']    = 'auto';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphens']     = 'auto';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphens']         = 'auto';
-
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphenate-limit-chars'] = '5 2 2';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphenate-limit-chars']    = '5 2 2';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphenate-limit-chars']     = '5 2 2';
-
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphenate-limit-lines'] = '2';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphenate-limit-lines']  = '2';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphenate-limit-lines']      = '2';
-
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphenate-limit-last'] = 'always';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphenate-limit-last']    = 'always';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphenate-limit-last']     = 'always';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphenate-limit-last']         = 'always';
-      } else {
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-webkit-hyphens'] = 'none';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-moz-hyphens']    = 'none';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['-ms-hyphens']     = 'none';
-        $css['.content p, .content ol li, .content ul li, .post-excerpt']['hyphens']         = 'none';
-      }
-
-      $content .= self::origineConfigArrayToCSS($css);
+      $content = $core->blog->settings->origineConfig->origine_styles;
     }
 
-    return '<style>'.trim($content).'</style>';
+    return '<style>' . trim($content) . '</style>';
   }
 
   /**
