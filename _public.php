@@ -7,13 +7,15 @@
  */
 namespace themes\origine;
 
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {
+  return;
+}
 
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
-$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
+$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
@@ -22,34 +24,8 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 class tplOrigineTheme
 {
   /**
-   * Inline CSS from an array.
-   */
-  public static function origineConfigArrayToCSS($rules, $rule_type = '')
-  {
-    $css = '';
-
-    if ($rules) {
-      foreach ($rules as $key => $value) {
-        if (is_array($value) && !empty($value)) {
-          $selector   = $key;
-          $properties = $value;
-
-          $css .= $selector . '{';
-
-          foreach ($properties as $property => $rule) {
-            $css .= $property . ':' . str_replace(', ', ',', $rule) . ';';
-          }
-
-          $css .= '}';
-        }
-      }
-    }
-
-    return $css;
-  }
-
-  /**
-   * Adds some meta tags in head.
+   * Adds some meta tags in the head section
+   * depending of the blog settings.
    */
   public static function publicHeadContent()
   {
@@ -67,30 +43,34 @@ class tplOrigineTheme
   }
 
   /**
-   * Inlines styles in the head of the document.
+   * Adds styles in the head section.
+   *
+   * If the plugin origineConfig is not installed nor activated,
+   * it will load default styles; otherwise, it will load
+   * the custom styles set in the plugin page.
    */
-  public static function origineInlineStyles($attr, $content)
+  public static function origineInlineStyles()
   {
     global $core;
 
-    // If the plugin origineConfig is not activated.
+    // If the plugin origineConfig is not installed nor activated.
     if ($core->plugins->moduleExists('origineConfig') === false
       || ($core->plugins->moduleExists('origineConfig') === true
         && $core->blog->settings->origineConfig->activation === false
       )
     ) {
-      $content = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#fff;--color-input-background:#333333;--color-input-background-hover:#262626;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}';
+      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#fff;--color-input-background:#333333;--color-input-background-hover:#262626;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}';
 
     // If the plugin origineConfig is activated.
     } else {
-      $content = $core->blog->settings->origineConfig->origine_styles;
+      $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
     }
 
-    return '<style>' . trim($content) . '</style>';
+    return '<style>' . $styles . '</style>';
   }
 
   /**
-  * Displays some content when the post is selected.
+  * Displays a defined content when the current post is selected.
   * Default: none.
   */
   public static function origineEntryIfSelected($attr, $content)
@@ -131,7 +111,7 @@ class tplOrigineTheme
   {
     // Checks the type of the set feed.
     $types = ['atom', 'rss2'];
-    $type  = in_array($attr['type'], $feed_types) ? $attr['type'] : 'atom';
+    $type  = in_array($attr['type'], $types) ? $attr['type'] : 'atom';
 
     return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\" rel=\"nofollow\" type=\"application/' . $type . '+xml\">" . str_replace(array("http://", "https://"), "", $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
   }
