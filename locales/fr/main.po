@@ -147,5 +147,8 @@ msgstr "mot-clé"
 msgid "of"
 msgstr "sur"
 
+msgid "RSS Feed"
+msgstr "Fil de syndication"
+
 msgid "Published date of the post"
 msgstr "Date de publication du billet"

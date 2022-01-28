@@ -14,17 +14,36 @@ if (!defined('DC_RC_PATH')) {
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
+$core->tpl->addBlock('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
-$core->tpl->addValue('originePostPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostPrintURL']);
+$core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
+$core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
+$core->tpl->addValue('origineEntryAuthorName', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryAuthorName']);
 
 class tplOrigineTheme
 {
   /**
-   * Adds some meta tags in the head section
+   * Returns true if the plugin origineConfig
+   * is installed and activated.
+   */
+  public static function origineConfigActivationStatus()
+  {
+    global $core;
+
+    if ($core->plugins->moduleExists('origineConfig') === true
+      && $core->blog->settings->origineConfig->activation === true
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  /**
+   * Adds some meta tags in the <head> section
    * depending of the blog settings.
    */
   public static function publicHeadContent()
@@ -53,15 +72,10 @@ class tplOrigineTheme
   {
     global $core;
 
-    // If the plugin origineConfig is not installed nor activated.
-    if ($core->plugins->moduleExists('origineConfig') === false
-      || ($core->plugins->moduleExists('origineConfig') === true
-        && $core->blog->settings->origineConfig->activation === false
-      )
-    ) {
-      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#fff;--color-input-background:#333333;--color-input-background-hover:#262626;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}';
+    $plugin_activated = self::origineConfigActivationStatus();
 
-    // If the plugin origineConfig is activated.
+    if ($plugin_activated === false) {
+      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#fff;--color-input-background:#333333;--color-input-background-hover:#262626;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}';
     } else {
       $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
     }
@@ -71,19 +85,13 @@ class tplOrigineTheme
 
   /**
   * Displays a defined content when the current post is selected.
-  * Default: none.
   */
   public static function origineEntryIfSelected($attr, $content)
   {
     global $_ctx;
 
-    if (!$_ctx->posts->post_selected) {
-      $if_selected = '';
-    } else {
-      $if_selected = $content;
-    }
-
-    return $if_selected;
+    // If the post is selected, displays the content of the block.
+    return ($_ctx->posts->post_selected === '0') ? '' : $content;
   }
 
   /**
@@ -97,15 +105,32 @@ class tplOrigineTheme
   }
 
   /**
-   * Displays an URL without http or https to show on posts to print.
+   * Creates an URL without http or https to display on posts to print.
    */
-  public static function originePostPrintURL()
+  public static function origineEntryPrintURL()
   {
     return '<?php echo str_replace([\'http://\', \'https://\'], "", $_ctx->posts->getURL()); ?>';
   }
 
+
   /**
-   * Display a link to the comment feed of current post.
+   * Displays a link to the comment feed and trackbacks,
+   * except if the plugin tells no.
+   */
+  public static function origineCommentLinks($attr, $content)
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    // If the plugin is installed and activated.
+    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->comment_links === true ) ) {
+      return $content;
+    }
+  }
+
+  /**
+   * Creates a link to the comment feed of current post.
    */
   public static function origineEntryCommentFeedLink($attr)
   {
@@ -117,12 +142,38 @@ class tplOrigineTheme
   }
 
   /**
-   * Displays a link to trackbacks of the current post.
+   * Creates a link to the trackbacks of the current post.
    */
   public static function origineEntryPingURL()
   {
     return '<?php if ($_ctx->posts->trackbacksActive()) {
       echo "<a href=\"" . $_ctx->posts->getTrackbackLink() . "\" rel=\"nofollow\">" . str_replace([\'http://\', \'https://\'], \'\', $_ctx->posts->getTrackbackLink()) . "</a>";
     } ?>';
+  }
+
+  /**
+   * Displays the author name.
+   *
+   * If a display name is not set in the preferences,
+   * it will show the first and the last name.
+   */
+  public static function origineEntryAuthorName()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === true) {
+      // If a post is open and the post name is set to be displayed.
+      if ($core->url->type === 'posts'
+        && $core->blog->settings->origineConfig->post_author_name === true
+      ) {
+        return '<span class="post-author-name"><?php if ($_ctx->posts->user_displayname) { echo "· " . $_ctx->posts->user_displayname; } elseif ($_ctx->posts->user_firstname) { echo "· " . $_ctx->posts->user_firstname; if ($_ctx->posts->user_name) { echo " " . $_ctx->posts->user_name; } } else { echo $_ctx->posts->user_name ? "· " . $_ctx->posts->user_name : ""; } ?>';
+
+      // Else (in the post list) and if the post name is set to be displayed.
+      } elseif ($core->blog->settings->origineConfig->post_list_author_name === true) {
+        return '<span class="post-author-name"><?php if ($_ctx->posts->user_displayname) { echo "· " . $_ctx->posts->user_displayname; } elseif ($_ctx->posts->user_firstname) { echo "· " . $_ctx->posts->user_firstname; if ($_ctx->posts->user_name) { echo " " . $_ctx->posts->user_name; } } else { echo $_ctx->posts->user_name ? "· " . $_ctx->posts->user_name : ""; } ?>';
+      }
+    }
   }
 }

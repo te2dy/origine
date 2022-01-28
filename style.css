@@ -460,17 +460,17 @@ textarea {
   border-top: 4px solid red;
   border-bottom: 4px solid red;
 }
-.comments-links ul {
+.comment-links ul {
   color: var(--color-text-secondary);
   font-size: .9em;
   list-style: none;
   margin-top: 2em;
   padding: 0;
 }
-.comments-links ul li {
+.comment-links ul li {
   margin-bottom: .25em;
 }
-.comments-links ul li:last-child {
+.comment-links ul li:last-child {
   margin-bottom: 0
 }
 
@@ -647,7 +647,7 @@ textarea {
     margin: 0;
     max-width: 100%;
   }
-  .comments-links,
+  .comment-links,
   .post-list-selected-label,
   .post-pagination,
   .post-selected-label,

@@ -147,6 +147,9 @@ msgstr ""
 msgid "of"
 msgstr ""
 
+msgid "RSS Feed"
+msgstr ""
+
 # Accessibility
 msgid "Published date of the post"
 msgstr ""

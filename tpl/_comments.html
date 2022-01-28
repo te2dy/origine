@@ -126,21 +126,23 @@
   </tpl:Block>
 </tpl:EntryIf>
 
-<div class="comments-links">
-  <ul>
-    <tpl:EntryIf show_comments="1">
-      <li>
-        {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
-      </li>
-    </tpl:EntryIf>
+<tpl:origineCommentLinks>
+  <div class="comment-links">
+    <ul>
+      <tpl:EntryIf show_comments="1">
+        <li>
+          {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
+        </li>
+      </tpl:EntryIf>
 
-    <tpl:EntryIf pings_active="1">
-      <li>
-        {{tpl:lang Trackbacks:}} {{tpl:origineEntryPingURL}}
-      </li>
-    </tpl:EntryIf>
-  </ul>
-</div>
+      <tpl:EntryIf pings_active="1">
+        <li>
+          {{tpl:lang Trackbacks:}} {{tpl:origineEntryPingURL}}
+        </li>
+      </tpl:EntryIf>
+    </ul>
+  </div>
+</tpl:origineCommentLinks>
 
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
   </div>
