@@ -84,7 +84,7 @@ class tplOrigineTheme
       $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
     }
 
-    return '<style>' . html::escapeHTML($styles) . '</style>';
+    return '<style>' . $styles . '</style>';
   }
 
   /**
