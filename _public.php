@@ -14,16 +14,18 @@ if (!defined('DC_RC_PATH')) {
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
+
 $core->tpl->addBlock('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
+$core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
+$core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
+
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
-$core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 $core->tpl->addValue('origineEntryAuthorName', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryAuthorName']);
-$core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 class tplOrigineTheme
 {
@@ -43,6 +45,7 @@ class tplOrigineTheme
       return false;
     }
   }
+
   /**
    * Adds some meta tags in the <head> section
    * depending of the blog settings.
@@ -81,12 +84,12 @@ class tplOrigineTheme
       $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
     }
 
-    return '<style>' . $styles . '</style>';
+    return '<style>' . html::escapeHTML($styles) . '</style>';
   }
 
   /**
-  * Displays a defined content when the current post is selected.
-  */
+   * Displays a defined content when the current post is selected.
+   */
   public static function origineEntryIfSelected($attr, $content)
   {
     global $_ctx;
@@ -112,7 +115,6 @@ class tplOrigineTheme
   {
     return '<?php echo str_replace([\'http://\', \'https://\'], "", $_ctx->posts->getURL()); ?>';
   }
-
 
   /**
    * Displays a link to the comment feed and trackbacks,
@@ -165,6 +167,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === true) {
+
       // If a post is open and the post name is set to be displayed.
       if ($core->url->type === 'posts'
         && $core->blog->settings->origineConfig->post_author_name === true
