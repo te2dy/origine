@@ -23,6 +23,7 @@ $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme',
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 $core->tpl->addValue('origineEntryAuthorName', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryAuthorName']);
+$core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 class tplOrigineTheme
 {
@@ -174,6 +175,22 @@ class tplOrigineTheme
       } elseif ($core->blog->settings->origineConfig->post_list_author_name === true) {
         return '<span class="post-author-name"><?php if ($_ctx->posts->user_displayname) { echo "· " . $_ctx->posts->user_displayname; } elseif ($_ctx->posts->user_firstname) { echo "· " . $_ctx->posts->user_firstname; if ($_ctx->posts->user_name) { echo " " . $_ctx->posts->user_name; } } else { echo $_ctx->posts->user_name ? "· " . $_ctx->posts->user_name : ""; } ?>';
       }
+    }
+  }
+
+  /**
+   *
+   */
+  public static function origineFooterCredits($attr, $content)
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false
+    || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits == true)
+    ) {
+      return $content;
     }
   }
 }

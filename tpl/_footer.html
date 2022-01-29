@@ -1,11 +1,13 @@
 <footer id="site-footer">
   {{tpl:Widgets type="custom"}}
 
-  <div class="site-footer-line" id="site-footer-ad">
-    {{tpl:lang Powered by}} <a href="https://fr.dotclear.org/">{{tpl:lang Dotclear}}</a>, {{tpl:lang designed by}} <a href="https://github.com/te2dy/origine/">Origine</a>
-  </div>
-
   {{tpl:SysBehavior behavior="publicFooterContent"}}
+
+  <tpl:origineFooterCredits>
+    <div class="site-footer-line" id="site-footer-ad">
+      {{tpl:lang Powered by}} <a href="https://fr.dotclear.org/">{{tpl:lang Dotclear}}</a>, {{tpl:lang designed by}} <a href="https://github.com/te2dy/origine/">Origine</a>
+    </div>
+  </tpl:origineFooterCredits>
 
   <tpl:SysIf jquery_needed="1">
     <tpl:Block name="footer-scripts">
