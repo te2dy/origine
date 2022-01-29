@@ -18,6 +18,8 @@ msgstr ""
 msgid "No content"
 msgstr ""
 
+# _comments.html
+
 msgid "comment"
 msgstr ""
 
@@ -61,6 +63,12 @@ msgid "Email address"
 msgstr ""
 
 msgid "URL of a personal account or website (optional)"
+msgstr ""
+
+msgid "Private comment"
+msgstr ""
+
+msgid "Reply to the author by email"
 msgstr ""
 
 msgid "There is nothing to display."

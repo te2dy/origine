@@ -47,19 +47,19 @@
 <tpl:EntryIf comments_active="1">
   <tpl:Block name="comment-alerts">
     <tpl:SysIfFormError>
-      <div class="comment-message message-red">
+      <div class="comment-message message-red" id="{{tpl:lang preview}}">
         {{tpl:SysFormError}}
       </div>
     </tpl:SysIfFormError>
 
     <tpl:SysIfCommentPublished>
-      <div class="comment-message message-green">
+      <div class="comment-message message-green" id="{{tpl:lang preview}}">
         {{tpl:lang Your comment has been published.}}
       </div>
     </tpl:SysIfCommentPublished>
 
     <tpl:SysIfCommentPending>
-      <div class="comment-message message-orange">
+      <div class="comment-message message-orange" id="{{tpl:lang preview}}">
         {{tpl:lang Your comment has been submitted and will be reviewed for publication.}}
       </div>
     </tpl:SysIfCommentPending>
@@ -112,7 +112,7 @@
            rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
         </div>
 
-         {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
+        {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
 
         <div class="form-entry">
           <input type="submit" name="preview" value="{{tpl:lang Preview}}">
@@ -125,6 +125,8 @@
     </form>
   </tpl:Block>
 </tpl:EntryIf>
+
+{{tpl:origineEmailAuthor}}
 
 <tpl:origineCommentLinks>
   <div class="comment-links">

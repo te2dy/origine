@@ -26,6 +26,7 @@ $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme'
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 $core->tpl->addValue('origineEntryAuthorName', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryAuthorName']);
+$core->tpl->addValue('origineEmailAuthor', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEmailAuthor']);
 
 class tplOrigineTheme
 {
@@ -195,5 +196,51 @@ class tplOrigineTheme
     ) {
       return $content;
     }
+  }
+
+  /**
+   * Displays a link to replay to the author of the post
+   * by email.
+   */
+  public static function origineEmailAuthor()
+  {
+    global $core, $_ctx;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->email_author !== 'disabled')
+    ) {
+      if ($core->blog->settings->origineConfig->email_author === 'always'
+        || ($core->blog->settings->origineConfig->email_author === 'comments_open'
+          && $_ctx->posts->post_open_comment === '1'
+          && $_ctx->posts->user_email
+        )
+      ) {
+        $output = '<div class="comment-private">';
+
+        $output .= '<h3>' . __('Private comment') . '</h3>';
+
+        $output .= '<a class="button" href="mailto:' . urlencode($_ctx->posts->user_email);
+        $output .= '?subject=' . htmlentities($_ctx->posts->post_title, ENT_NOQUOTES);
+        $output .= '">';
+        $output .= __('Reply to the author by email');
+        $output .= '</a>';
+
+        $output .= '</div>';
+
+        return $output;
+      }
+    }
+  }
+
+  public static function origineCommentsListTitle($attr, $content)
+  {
+    return $content;
+  }
+
+  public static function origineCommentsFormTitle($attr, $content)
+  {
+    return $content;
   }
 }

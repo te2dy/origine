@@ -18,6 +18,8 @@ msgstr "Il n’y a rien à afficher"
 msgid "No content"
 msgstr "Aucun contenu"
 
+#_comments.html
+
 msgid "comment"
 msgstr "commentaire"
 
@@ -62,6 +64,12 @@ msgstr "Adresse électronique"
 
 msgid "URL of a personal account or website (optional)"
 msgstr "Adresse d’un compte ou site personnel (facultatif)"
+
+msgid "Private comment"
+msgstr "Commentaire privé"
+
+msgid "Reply to the author by email"
+msgstr "Répondre à l’auteur par courriel"
 
 msgid "There is nothing to display."
 msgstr "Il n’y a rien à afficher."
