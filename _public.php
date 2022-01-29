@@ -179,7 +179,7 @@ class tplOrigineTheme
   }
 
   /**
-   *
+   * Displays credits except if the plugin tells no.
    */
   public static function origineFooterCredits($attr, $content)
   {
@@ -188,7 +188,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-    || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits == true)
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits === true)
     ) {
       return $content;
     }
