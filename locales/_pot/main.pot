@@ -72,6 +72,9 @@ msgstr ""
 msgid "Selected post"
 msgstr ""
 
+msgid "Page"
+msgstr ""
+
 msgid "Sorted in"
 msgstr ""
 

@@ -72,6 +72,9 @@ msgstr "billet"
 msgid "Selected post"
 msgstr "Billet sélectionné"
 
+msgid "Page"
+msgstr "Page"
+
 msgid "Sorted in"
 msgstr "Classé dans"
 
