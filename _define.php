@@ -5,13 +5,16 @@
  * @copyright Teddy
  * @copyright GPL-3.0
  */
-if (!defined('DC_RC_PATH')) { return; }
+
+if (!defined('DC_RC_PATH')) {
+  return;
+}
 
 $this->registerModule(
-  /* Name */        'Origine',
-  /* Description */ 'Un thème ultra minimaliste.',
-  /* Author */      'Teddy',
-  /* Version */     '1.6.2',
+  'Origine',                   // Name
+  'An ultra minimalist theme', // Description
+  'Teddy',                     // Author
+  '1.6.2',                     // Version
   array(
     'type' => 'theme',
   )

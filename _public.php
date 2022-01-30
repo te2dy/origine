@@ -5,6 +5,7 @@
  * @copyright Teddy
  * @copyright GPL-3.0
  */
+
 namespace themes\origine;
 
 if (!defined('DC_RC_PATH')) {
@@ -49,7 +50,7 @@ class tplOrigineTheme
 
   /**
    * Adds some meta tags in the <head> section
-   * depending of the blog settings.
+   * depending on the blog settings.
    */
   public static function publicHeadContent()
   {
@@ -232,15 +233,5 @@ class tplOrigineTheme
         return $output;
       }
     }
-  }
-
-  public static function origineCommentsListTitle($attr, $content)
-  {
-    return $content;
-  }
-
-  public static function origineCommentsFormTitle($attr, $content)
-  {
-    return $content;
   }
 }
