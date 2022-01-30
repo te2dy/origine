@@ -12,6 +12,11 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.6.2 - 30 janvier 2022 ===
+- Ajout : système de commentaires privés (voir origineConfig).
+- Amélioration : différenciation des billets et des pages dans la recherche.
+- Correction : erreur dans une balise de traduction.
+
 === 1.6.1-beta - 29 janvier 2022 ===
 - Ajout : section Ressources dans le fichier lisez-moi.txt.
 - Ajout : description aux fichiers PHP.
