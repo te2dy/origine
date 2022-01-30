@@ -1,11 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: origine 0.3\n"
-"POT-Creation-Date: 2021-11-30T07:42:00+00:00\n"
-"PO-Revision-Date: 2022-01-15T23:12:00+00:00\n"
 "Last-Translator: Teddy\n"
-"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -21,6 +17,8 @@ msgstr "Il n’y a rien à afficher"
 
 msgid "No content"
 msgstr "Aucun contenu"
+
+#_comments.html
 
 msgid "comment"
 msgstr "commentaire"
@@ -67,6 +65,12 @@ msgstr "Adresse électronique"
 msgid "URL of a personal account or website (optional)"
 msgstr "Adresse d’un compte ou site personnel (facultatif)"
 
+msgid "Private comment"
+msgstr "Commentaire privé"
+
+msgid "Reply to the author by email"
+msgstr "Répondre à l’auteur par courriel"
+
 msgid "There is nothing to display."
 msgstr "Il n’y a rien à afficher."
 
@@ -75,6 +79,9 @@ msgstr "billet"
 
 msgid "Selected post"
 msgstr "Billet sélectionné"
+
+msgid "Page"
+msgstr "Page"
 
 msgid "Sorted in"
 msgstr "Classé dans"
@@ -150,6 +157,9 @@ msgstr "mot-clé"
 
 msgid "of"
 msgstr "sur"
+
+msgid "RSS Feed"
+msgstr "Fil de syndication"
 
 msgid "Published date of the post"
 msgstr "Date de publication du billet"

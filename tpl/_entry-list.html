@@ -10,9 +10,17 @@
   </tpl:EntryIf>
 
   <header>
-    <div class="post-meta">
-      <a href="{{tpl:EntryURL}}"><time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time></a>
-    </div>
+    <tpl:EntryIf type="post">
+      <div class="post-meta">
+        <a href="{{tpl:EntryURL}}"><time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time></a> {{tpl:origineEntryAuthorName}}
+      </div>
+
+      {{tpl:else}}
+
+      <div class="post-meta label">
+        {{tpl:lang Page}}
+      </div>
+    </tpl:EntryIf>
 
     <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
   </header>

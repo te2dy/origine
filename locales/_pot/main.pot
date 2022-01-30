@@ -1,11 +1,7 @@
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: origine 0.5\n"
-"POT-Creation-Date: 2021-11-30T07:42:00+00:00\n"
-"PO-Revision-Date: 2022-01-15T23:12:00+00:00\n"
 "Last-Translator: Teddy\n"
-"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -21,6 +17,8 @@ msgstr ""
 
 msgid "No content"
 msgstr ""
+
+# _comments.html
 
 msgid "comment"
 msgstr ""
@@ -67,6 +65,12 @@ msgstr ""
 msgid "URL of a personal account or website (optional)"
 msgstr ""
 
+msgid "Private comment"
+msgstr ""
+
+msgid "Reply to the author by email"
+msgstr ""
+
 msgid "There is nothing to display."
 msgstr ""
 
@@ -74,6 +78,9 @@ msgid "post"
 msgstr ""
 
 msgid "Selected post"
+msgstr ""
+
+msgid "Page"
 msgstr ""
 
 msgid "Sorted in"
@@ -149,6 +156,9 @@ msgid "tag"
 msgstr ""
 
 msgid "of"
+msgstr ""
+
+msgid "RSS Feed"
 msgstr ""
 
 # Accessibility

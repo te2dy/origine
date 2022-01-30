@@ -24,7 +24,7 @@
       </tpl:CommentIf>
 
       <tpl:CommentIf is_ping="1">
-        <span class="ping-label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
+        <span class="label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
     </header>
 
@@ -47,19 +47,19 @@
 <tpl:EntryIf comments_active="1">
   <tpl:Block name="comment-alerts">
     <tpl:SysIfFormError>
-      <div class="comment-message message-red">
+      <div class="comment-message message-red" id="{{tpl:lang preview}}">
         {{tpl:SysFormError}}
       </div>
     </tpl:SysIfFormError>
 
     <tpl:SysIfCommentPublished>
-      <div class="comment-message message-green">
+      <div class="comment-message message-green" id="{{tpl:lang preview}}">
         {{tpl:lang Your comment has been published.}}
       </div>
     </tpl:SysIfCommentPublished>
 
     <tpl:SysIfCommentPending>
-      <div class="comment-message message-orange">
+      <div class="comment-message message-orange" id="{{tpl:lang preview}}">
         {{tpl:lang Your comment has been submitted and will be reviewed for publication.}}
       </div>
     </tpl:SysIfCommentPending>
@@ -112,7 +112,7 @@
            rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
         </div>
 
-         {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
+        {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
 
         <div class="form-entry">
           <input type="submit" name="preview" value="{{tpl:lang Preview}}">
@@ -126,21 +126,25 @@
   </tpl:Block>
 </tpl:EntryIf>
 
-<div class="comments-links">
-  <ul>
-    <tpl:EntryIf show_comments="1">
-      <li>
-        {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
-      </li>
-    </tpl:EntryIf>
+{{tpl:origineEmailAuthor}}
 
-    <tpl:EntryIf pings_active="1">
-      <li>
-        {{tpl:lang Trackbacks:}} {{tpl:origineEntryPingURL}}
-      </li>
-    </tpl:EntryIf>
-  </ul>
-</div>
+<tpl:origineCommentLinks>
+  <div class="comment-links">
+    <ul>
+      <tpl:EntryIf show_comments="1">
+        <li>
+          {{tpl:lang Comment feed:}} {{tpl:origineEntryCommentFeedLink}}
+        </li>
+      </tpl:EntryIf>
+
+      <tpl:EntryIf pings_active="1">
+        <li>
+          {{tpl:lang Trackbacks:}} {{tpl:origineEntryPingURL}}
+        </li>
+      </tpl:EntryIf>
+    </ul>
+  </div>
+</tpl:origineCommentLinks>
 
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
   </div>
