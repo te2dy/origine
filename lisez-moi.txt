@@ -147,6 +147,11 @@ Auteur : Olivier Meunier & Association Dotclear
 Adresse : https://github.com/dotclear/dotclear/tree/master/themes/ductile
 Licence : GPL-2.0-only
 
+socialMeta
+Auteur : Franck Paul
+Adresse : https://github.com/franck-paul/socialMeta
+Licence : inconnue
+
 socialShare
 Auteur : Franck Paul
 Adresse : https://github.com/franck-paul/socialShare
