@@ -24,7 +24,7 @@
       </tpl:CommentIf>
 
       <tpl:CommentIf is_ping="1">
-        <span class="label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
+        <span class="label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthor}}</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
     </header>
 
@@ -32,6 +32,8 @@
       {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
 
       {{tpl:CommentContent}}
+
+      <tpl:CommentIf is_ping="1"><a href="{{tpl:CommentAuthorURL}}" ref="nofollow">{{tpl:lang Read this post ›}}</a></tpl:CommentIf>
 
       {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
     </div>
