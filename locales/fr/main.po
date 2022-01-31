@@ -56,6 +56,9 @@ msgstr "Fil des commentaires&nbsp;:"
 msgid "Trackbacks:"
 msgstr "Rétroliens&nbsp;:"
 
+msgid "Read this post ›"
+msgstr "Lire ce billet ›"
+
 msgid "Name or nickname"
 msgstr "Nom ou pseudonyme"
 

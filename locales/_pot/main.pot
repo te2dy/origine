@@ -53,7 +53,10 @@ msgstr ""
 msgid "Comment feed:"
 msgstr ""
 
-msgid "Trackbacks;"
+msgid "Trackbacks:"
+msgstr ""
+
+msgid "Read this post ›"
 msgstr ""
 
 msgid "Name or nickname"
