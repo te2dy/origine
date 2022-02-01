@@ -12,6 +12,13 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.7 - 1er février 2022 ===
+- Ajout : prise en charge de l’ajout de logo (origineConfig).
+- Amélioration : liens de navigation pour les lecteurs de contenu.
+- Amélioration : documentation.
+- Suppression : souligné de la date dans les commentaires.
+- Suppression : fonctions inutilisées dans le fichier public.php.
+
 === 1.6.2 - 30 janvier 2022 ===
 - Ajout : système de commentaires privés (voir origineConfig).
 - Amélioration : différenciation des billets et des pages dans la recherche.
