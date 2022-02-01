@@ -23,6 +23,7 @@ $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme'
 
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
+$core->tpl->addValue('origineLogo', [__NAMESPACE__ . '\tplOrigineTheme', 'origineLogo']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
@@ -112,6 +113,32 @@ class tplOrigineTheme
     }
 
     return $links;
+  }
+
+  /**
+   * Displays a logo in the header.
+   */
+  public static function origineLogo()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === true && $core->blog->settings->origineConfig->logo_url !== '') {
+      $src_image = $core->blog->settings->origineConfig->logo_url ? $core->blog->settings->origineConfig->logo_url : '';
+
+      if ($src_image !== '') {
+        $src_image_2x = $core->blog->settings->origineConfig->logo_url_2x ? $core->blog->settings->origineConfig->logo_url_2x : '';
+
+        if ($src_image_2x !== '') {
+          $srcset = ' srcset="' . $src_image_2x . ' 2x"';
+        } else {
+          $srcset = '';
+        }
+
+        return '<img class="site-logo" src="' . $src_image . '"' . $srcset . ' />';
+      }
+    }
   }
 
   /**
