@@ -22,6 +22,7 @@ $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme',
 $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
+$core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
@@ -81,12 +82,36 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false) {
+      // @see styles.css
       $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#fff;--color-input-background:#333333;--color-input-background-hover:#262626;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:12pt;}';
     } else {
       $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
     }
 
     return '<style>' . $styles . '</style>';
+  }
+
+  /**
+   * Displays navigation link for screen readers.
+   */
+  public static function origineScreenReaderLinks()
+  {
+    global $core;
+
+    $links  = '<a id="skip-content" class="skip-links" href="#site-content">';
+    $links .= __('Skip to content');
+    $links .= '</a>';
+
+    if ($core->plugins->moduleExists('simpleMenu') // simpleMenu exists.
+      && $core->blog->settings->system->simpleMenu_active // simpleMenu is activated.
+      && $core->blog->settings->system->simpleMenu // A menu is set.
+    ) {
+      $links .= '<a id="skip-menu" class="skip-links" href="#main-menu">';
+      $links .= __('Skip to menu');
+      $links .= '</a>';
+    }
+
+    return $links;
   }
 
   /**

@@ -9,6 +9,9 @@ msgstr ""
 msgid "Skip to content"
 msgstr "Aller au contenu"
 
+msgid "Skip to menu"
+msgstr "Aller au menu"
+
 msgid "Page without content"
 msgstr "Page sans contenu"
 
