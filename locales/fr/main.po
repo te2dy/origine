@@ -6,11 +6,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+# __layout.html
+
 msgid "Skip to content"
 msgstr "Aller au contenu"
 
 msgid "Skip to menu"
 msgstr "Aller au menu"
+
+msgid "Header image"
+msgstr "Image d’en-tête"
 
 msgid "Page without content"
 msgstr "Page sans contenu"

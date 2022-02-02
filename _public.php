@@ -136,7 +136,7 @@ class tplOrigineTheme
           $srcset = '';
         }
 
-        return '<img class="site-logo" src="' . $src_image . '"' . $srcset . ' />';
+        return '<img alt="' . __('Header image') . '" class="site-logo" src="' . $src_image . '"' . $srcset . ' />';
       }
     }
   }
