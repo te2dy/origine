@@ -27,9 +27,9 @@
     --color-link: #f14646;
     --color-border: #aaa;
     --color-input-text: #d9d9d9;
-    --color-input-text-hover: #fff;
+    --color-input-text-hover: #16161D;
     --color-input-background: #333333; // rgb(255, 255, 255, 0.2)
-    --color-input-background-hover: #262626; //rgb(255, 255, 255, 0.15)
+    --color-input-background-hover: #d9d9d9;
   }
 }
 body {
