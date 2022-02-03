@@ -605,6 +605,10 @@ a:focus-visible .post-meta {
        (prefers-contrast: less),
        (-ms-high-contrast: active),
        (-ms-high-contrast: black-on-white) {
+  .skip-links:focus {
+    background-color: var(--color-text-primary);
+    color: var(--color-background);
+  }
   a {
     text-decoration-style: solid;
   }
@@ -618,10 +622,19 @@ a:focus-visible .post-meta {
     color: var(--color-background);
     text-decoration-color: var(--color-text-primary);
   }
+  a:active .post-meta,
+  a:focus .post-meta,
+  a:hover .post-meta {
+    color: var(--color-background);
+  }
   .content-label,
   .label,
   .post-selected-label {
     border: 1px solid var(--color-border);
+  }
+  input:focus,
+  textarea:focus {
+    outline-color: #000;
   }
 }
 
