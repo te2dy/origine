@@ -9,33 +9,35 @@
     <div class="post-list-selected-content">
   </tpl:EntryIf>
 
-  <header>
-    <tpl:EntryIf type="post">
-      <div class="post-meta">
-        <a href="{{tpl:EntryURL}}"><time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time></a> {{tpl:origineEntryAuthorName}}
-      </div>
+  <a class="post-link" href="{{tpl:EntryURL}}">
+    <header>
+      <tpl:EntryIf type="post">
+        <div class="post-meta">
+          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}}
+        </div>
 
-      {{tpl:else}}
+        {{tpl:else}}
 
-      <div class="post-meta label">
-        {{tpl:lang Page}}
-      </div>
-    </tpl:EntryIf>
+        <div class="post-meta label">
+          {{tpl:lang Page}}
+        </div>
+      </tpl:EntryIf>
 
-    <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
-  </header>
+      <h3 class="post-title">{{tpl:EntryTitle}}</h3>
+    </header>
 
-  <section class="post-excerpt content">
-    <!-- # Entry with an excerpt -->
-    <tpl:EntryIf extended="1">
-      <a href="{{tpl:EntryURL}}">{{tpl:EntryExcerpt encode_html="1" remove_html="1"}}</a>
-    </tpl:EntryIf>
+    <section class="post-excerpt content">
+      <!-- # Entry with an excerpt -->
+      <tpl:EntryIf extended="1">
+        {{tpl:EntryExcerpt encode_html="1" remove_html="1"}}
+      </tpl:EntryIf>
 
-    <!-- # Entry without excerpt -->
-    <tpl:EntryIf extended="0">
-        <a href="{{tpl:EntryURL}}">{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut></a>
-    </tpl:EntryIf>
-  </section>
+      <!-- # Entry without excerpt -->
+      <tpl:EntryIf extended="0">
+          {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut>
+      </tpl:EntryIf>
+    </section>
+  </a>
 
   <tpl:EntryIf selected="1">
     </div>

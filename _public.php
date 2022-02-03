@@ -118,7 +118,7 @@ class tplOrigineTheme
   /**
    * Displays a logo in the header.
    */
-  public static function origineLogo()
+  public static function origineLogo($attr)
   {
     global $core;
 
@@ -136,7 +136,10 @@ class tplOrigineTheme
           $srcset = '';
         }
 
-        return '<img alt="' . __('Header image') . '" class="site-logo" src="' . $src_image . '"' . $srcset . ' />';
+        $link_open  = ($attr['link_home'] === '1') ? '<a href="' . $core->blog->url . '">' : '';
+        $link_close = ($attr['link_home'] === '1') ? '</a>' : '';
+
+        return $link_open . '<img alt="' . __('Header image') . '" class="site-logo" src="' . $src_image . '"' . $srcset . ' />' . $link_close;
       }
     }
   }
