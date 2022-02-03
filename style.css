@@ -13,6 +13,7 @@
   --color-text-primary: #000;
   --color-text-secondary: #595959; // rgb(0, 0, 0, 0.65)
   --color-link: #de0000;
+  --color-link-complementary: #fff;
   --color-border: #aaa;
   --color-input-text: #000;
   --color-input-text-hover: #fff;
@@ -25,6 +26,7 @@
     --color-text-primary: #d9d9d9; // rgb(255, 255, 255, 0.85)
     --color-text-secondary: #8c8c8c; // rgb(255, 255, 255, 0.55)
     --color-link: #f14646;
+    --color-link-complementary: #16161D;
     --color-border: #aaa;
     --color-input-text: #d9d9d9;
     --color-input-text-hover: #16161D;
@@ -101,6 +103,14 @@ a:hover {
   color: var(--color-link);
   text-decoration-style: solid;
 }
+a:focus-visible {
+  background-color: var(--color-link);
+  color: var(--color-link-complementary);
+}
+a:focus-visible img {
+  filter: hue-rotate(90deg);
+}
+
 p {
   margin: 1em 0;
 }
@@ -195,6 +205,11 @@ textarea {
   max-width: 100%;
   padding: .5em;
 }
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--color-link);
+  outline-offset: -1px;
+}
 .button {
   border: 1px solid var(--color-border);
   display: inline-block;
@@ -222,6 +237,9 @@ input[type="submit"]:hover,
   cursor: pointer;
   background-color: var(--color-input-background-hover);
   border-color: var(--color-input-background-hover);
+}
+input[type="submit"]:focus {
+  outline: none;
 }
 textarea {
   width: 100%;
@@ -265,6 +283,10 @@ textarea {
 /**
  * Posts
  */
+.post-link {
+  display: block;
+  text-decoration: none;
+}
 .post-selected-label {
   background-color: var(--color-input-background);
   display: inline-block;
@@ -276,6 +298,14 @@ textarea {
 .post-meta {
   color: var(--color-text-secondary);
   font-size: .9em;
+}
+a:active .post-meta,
+a:focus .post-meta,
+a:hover .post-meta {
+  color: var(--color-link);
+}
+a:focus-visible .post-meta {
+  color: var(--color-link-complementary);
 }
 .post-title {
   margin: 0;
@@ -346,15 +376,7 @@ textarea {
   margin-top: .25em;
 }
 .post-excerpt a {
-  color: var(--color-text-secondary);
-  display: block;
   font-size: .9em;
-  text-decoration: none;
-}
-.post-excerpt a:active,
-.post-excerpt a:focus,
-.post-excerpt a:hover {
-  color: var(--color-link);
 }
 
 /* Single Post */
@@ -562,10 +584,10 @@ textarea {
   word-wrap: normal !important;
 }
 .skip-links:focus {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-link);
   clip: auto !important;
   clip-path: none;
-  color: var(--color-background);
+  color: var(--color-link-complementary);
   display: block;
   font-size: 1em;
   height: auto;
