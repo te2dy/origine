@@ -295,15 +295,20 @@ textarea {
   margin-bottom: 1em;
   padding: .5em;
 }
-.post-meta {
+.post-meta,
+.post-excerpt {
   color: var(--color-text-secondary);
   font-size: .9em;
 }
+a:active .post-excerpt,
+a:focus .post-excerpt,
+a:hover .post-excerpt,
 a:active .post-meta,
 a:focus .post-meta,
 a:hover .post-meta {
   color: var(--color-link);
 }
+a:focus-visible .post-excerpt,
 a:focus-visible .post-meta {
   color: var(--color-link-complementary);
 }
@@ -373,10 +378,8 @@ a:focus-visible .post-meta {
   text-decoration: none;
 }
 .post-excerpt {
-  margin-top: .25em;
-}
-.post-excerpt a {
   font-size: .9em;
+  margin-top: .25em;
 }
 
 /* Single Post */
@@ -614,14 +617,14 @@ a:focus-visible .post-meta {
   }
   a:active,
   a:focus,
-  a:hover,
-  .post-excerpt a:active,
-  .post-excerpt a:focus,
-  .post-excerpt a:hover {
+  a:hover {
     background-color: var(--color-text-primary);
     color: var(--color-background);
     text-decoration-color: var(--color-text-primary);
   }
+  a:active .post-excerpt,
+  a:focus .post-excerpt,
+  a:hover .post-excerpt,
   a:active .post-meta,
   a:focus .post-meta,
   a:hover .post-meta {
