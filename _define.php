@@ -14,7 +14,7 @@ $this->registerModule(
   'Origine',                   // Name
   'An ultra minimalist theme', // Description
   'Teddy',                     // Author
-  '1.7',                       // Version
+  '1.7.1',                     // Version
   array(
     'type' => 'theme',
   )

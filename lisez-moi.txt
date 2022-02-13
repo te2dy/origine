@@ -12,6 +12,11 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.7.1 - 13 février 2022 ===
+- Ajout : attribut alt au logo.
+- Amélioration : couleurs au pointage avec les tabulations (accessibilité).
+- Modification : couleurs par défaut au survol des boutons du thème sombre.
+
 === 1.7 - 1er février 2022 ===
 - Ajout : prise en charge de l’ajout de logo (origineConfig).
 - Amélioration : liens de navigation pour les lecteurs de contenu.
