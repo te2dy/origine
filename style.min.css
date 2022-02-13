@@ -95,7 +95,7 @@ a {
   color: inherit;
   text-decoration: underline;
   text-decoration-style: dotted;
-  text-underline-offset: 5px;
+  text-underline-offset: .313rem;
 }
 a:active,
 a:focus,
@@ -107,11 +107,11 @@ a:focus-visible {
   background-color: var(--color-link);
   color: var(--color-link-complementary);
   text-decoration: none;
-  outline: 3px solid var(--color-link);
-  outline-offset: 0px;
+  outline: .188rem solid var(--color-link);
+  outline-offset: 0;
 }
 a:focus-visible img {
-  outline: 3px solid var(--color-link);
+  outline: .188rem solid var(--color-link);
   outline-offset: 0;
 }
 
@@ -154,7 +154,7 @@ mark {
   background-color: rgb(255, 255, 0, 0.85);
 }
 blockquote {
-  border-left: 1px solid var(--color-border);
+  border-left: .063rem solid var(--color-border);
   margin: 1em 0;
   padding: 0 0 0 1em;
 }
@@ -200,7 +200,7 @@ figure p {
 input,
 textarea {
   background-color: var(--color-input-background);
-  border: 1px solid var(--color-border);
+  border: .063rem solid var(--color-border);
   border-radius: 0;
   box-sizing: border-box;
   color: var(--color-input-text);
@@ -213,11 +213,11 @@ input:focus,
 input:focus-visible,
 textarea:focus,
 textarea:focus-visible {
-  outline: 3px solid var(--color-link);
-  outline-offset: -1px;
+  outline: .188rem solid var(--color-link);
+  outline-offset: -.063rem;
 }
 .button {
-  border: 1px solid var(--color-border);
+  border: .063rem solid var(--color-border);
   display: inline-block;
   padding-right: .5em;
   padding-left: .5em;
@@ -251,8 +251,8 @@ input[type="submit"]:focus-visible,
   border-color: transparent;
   color: var(--color-link-complementary);
   text-decoration: none;
-  outline: 3px solid var(--color-link);
-  outline-offset: 0px;
+  outline: .188rem solid var(--color-link);
+  outline-offset: 0;
 }
 textarea {
   width: 100%;
@@ -371,13 +371,13 @@ a:focus-visible .post-meta {
   margin-bottom: 2em;
 }
 .post-list-selected-label {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: .063rem solid var(--color-border);
   color: var(--color-text-secondary);
   display: inline-block;
   font-size: .8em;
 }
 .post-list-selected-content {
-  border-left: 1px solid var(--color-border);
+  border-left: .063rem solid var(--color-border);
   padding: 1em 0 1em 1em;
 }
 .post-list:last-child {
@@ -467,7 +467,7 @@ a:focus-visible .post-meta {
   text-decoration: none;
 }
 .comment-content {
-  border-left: 1px solid var(--color-border);
+  border-left: .063rem solid var(--color-border);
   padding-left: 1em;
 }
 .comment-content p {
@@ -475,7 +475,7 @@ a:focus-visible .post-meta {
   margin-bottom: .5em;
 }
 .comment-preview {
-  border: 1px solid var(--color-border);
+  border: .063rem solid var(--color-border);
   margin-bottom: 2em;
   padding: 1em;
 }
@@ -496,7 +496,7 @@ a:focus-visible .post-meta {
 }
 .comment-message {
   border-style: solid;
-  border-width: 4px;
+  border-width: .188rem;
   display: block;
   font-weight: bold;
   margin-bottom: 2em;
@@ -646,7 +646,7 @@ a:focus-visible .post-meta {
   .content-label,
   .label,
   .post-selected-label {
-    border: 1px solid var(--color-border);
+    border: .063rem solid var(--color-border);
   }
   input:focus,
   textarea:focus {
