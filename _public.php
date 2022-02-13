@@ -196,7 +196,9 @@ class tplOrigineTheme
   {
     // Checks the type of the set feed.
     $types = ['atom', 'rss2'];
-    $type  = in_array($attr['type'], $types) ? $attr['type'] : 'atom';
+    if (isset($attr['type'])) {
+      $type  = in_array($attr['type'], $types) ? $attr['type'] : 'atom';
+    }
 
     return '<?php echo "<a href=\"" . $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id . "\" rel=\"nofollow\" type=\"application/' . $type . '+xml\">" . str_replace(array("http://", "https://"), "", $core->blog->url.$core->url->getURLFor("feed","' . $type . '") . "/comments/" . $_ctx->posts->post_id) . "</a>"; ?>';
   }
