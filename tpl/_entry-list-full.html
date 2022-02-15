@@ -1,0 +1,47 @@
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-full {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
+  <header>
+    <tpl:origineEntryIfSelected>
+      <div class="post-selected-label">
+        {{tpl:lang Selected post}}
+      </div>
+    </tpl:origineEntryIfSelected>
+
+    <div class="post-meta">
+      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}}
+    </div>
+
+    <h1 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h1>
+  </header>
+
+  <section class="post-content content">
+    {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+
+    {{tpl:EntryContent}}
+
+    {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+  </section>
+
+  <footer class="post-footer">
+    {{tpl:include src="_attachments.html"}}
+
+    <tpl:EntryIf has_category="1">
+      <div class="post-meta">
+        {{tpl:lang Sorted in}} <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a>
+      </div>
+    </tpl:EntryIf>
+
+    <tpl:EntryTags>
+      <tpl:TagsHeader>
+        <div class="post-meta">{{tpl:lang Tags:}}
+      </tpl:TagsHeader>
+
+      <a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
+
+      <tpl:TagsFooter>
+        </div>
+      </tpl:TagsFooter>
+    </tpl:EntryTags>
+
+    {{tpl:originePostListComments context="full"}}
+  </footer>
+</article>

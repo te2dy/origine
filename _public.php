@@ -315,6 +315,8 @@ class tplOrigineTheme
         $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
       } elseif ($core->blog->settings->origineConfig->post_list_type === 'short') {
         $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
+      } elseif ($core->blog->settings->origineConfig->post_list_type === 'full') {
+        $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
       }
     }
 
@@ -323,10 +325,20 @@ class tplOrigineTheme
 
   public static function originePostListComments($attr)
   {
-    if ($attr['context'] === 'standard') {
-      return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></div>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></div>"; } } ?>';
-    } elseif ($attr['context'] === 'short') {
-      return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<span class=\"post-list-comment\">/ <a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></span>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<span class=\"post-list-comment\">/ <a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></span>"; } } ?>';
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === true
+      && $core->blog->settings->origineConfig->post_list_comments === '1'
+    ) {
+      if ($attr['context'] === 'standard') {
+        return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></div>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></div>"; } } ?>';
+      } elseif ($attr['context'] === 'short') {
+        return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<span class=\"post-list-comment\">/ <a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></span>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<span class=\"post-list-comment\">/ <a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></span>"; } } ?>';
+      } elseif ($attr['context'] === 'full') {
+        return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<div class=\"post-meta\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></div>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<div class=\"post-meta\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></div>"; } } ?>';
+      }
     }
   }
 }

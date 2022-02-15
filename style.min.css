@@ -422,6 +422,11 @@ a:focus-visible .post-meta {
   display: inline;
 }
 
+/* Post list (full) */
+.post-list-full .post-selected-label {
+  margin-bottom: 1rem;
+}
+
 /* Single Post */
 .post-single .post-meta {
   margin-bottom: .5em
