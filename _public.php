@@ -274,10 +274,10 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->email_author !== 'disabled')
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->post_email_author !== 'disabled')
     ) {
-      if ($core->blog->settings->origineConfig->email_author === 'always'
-        || ($core->blog->settings->origineConfig->email_author === 'comments_open'
+      if ($core->blog->settings->origineConfig->post_email_author === 'always'
+        || ($core->blog->settings->origineConfig->post_email_author === 'comments_open'
           && $_ctx->posts->post_open_comment === '1'
           && $_ctx->posts->user_email
         )
@@ -330,7 +330,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === true
-      && $core->blog->settings->origineConfig->post_list_comments === '1'
+      && $core->blog->settings->origineConfig->post_list_comments === true
     ) {
       if ($attr['context'] === 'standard') {
         return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></div>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></div>"; } } ?>';

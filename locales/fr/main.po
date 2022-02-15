@@ -91,6 +91,9 @@ msgstr "billet"
 msgid "Selected post"
 msgstr "Billet sélectionné"
 
+msgid "Selected"
+msgstr "Sélectionné"
+
 msgid "Page"
 msgstr "Page"
 
