@@ -31,6 +31,10 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 $core->tpl->addValue('origineEntryAuthorName', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryAuthorName']);
 $core->tpl->addValue('origineEmailAuthor', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEmailAuthor']);
 
+/* TEST NOUVELLES FONCTIONS */
+$core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
+$core->tpl->addValue('originePostListComments', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListComments']);
+
 class tplOrigineTheme
 {
   /**
@@ -292,6 +296,37 @@ class tplOrigineTheme
 
         return $output;
       }
+    }
+  }
+
+  /**
+   * TEST NOUVELLES FONCTIONS
+   */
+  public static function originePostListType()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } else {
+      if ($core->blog->settings->origineConfig->post_list_type === 'standard') {
+        $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+      } elseif ($core->blog->settings->origineConfig->post_list_type === 'short') {
+        $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
+      }
+    }
+
+    return $tpl;
+  }
+
+  public static function originePostListComments($attr)
+  {
+    if ($attr['context'] === 'standard') {
+      return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></div>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<div class=\"post-list-comment\"><a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></div>"; } } ?>';
+    } elseif ($attr['context'] === 'short') {
+      return '<?php if ($_ctx->posts->post_open_comment === "1") { if ($_ctx->posts->nb_comment == 1) { echo "<span class=\"post-list-comment\">/ <a href=\"" . $_ctx->posts->getURL() . "#comments\">" . __("1 comment") . "</a></span>"; } elseif ($_ctx->posts->nb_comment > 1) { echo "<span class=\"post-list-comment\">/ <a href=\"" . $_ctx->posts->getURL() . "#comments\">" . sprintf(__("%d comments"), $_ctx->posts->nb_comment) . "</a></span>"; } } ?>';
     }
   }
 }

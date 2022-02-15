@@ -1,0 +1,25 @@
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
+  <tpl:origineEntryIfSelected>
+    <div class="post-selected-label">
+      {{tpl:lang Selected}}
+    </div>
+  </tpl:origineEntryIfSelected>
+
+  <a class="post-link" href="{{tpl:EntryURL}}">
+    <tpl:EntryIf type="post">
+      <span class="post-meta">
+        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}} /
+      </span>
+
+      {{tpl:else}}
+
+      <span class="post-meta label">
+        {{tpl:lang Page}}
+      </span>
+    </tpl:EntryIf>
+
+    <h3 class="post-title">{{tpl:EntryTitle}}</h3>
+  </a>
+
+  {{tpl:originePostListComments context="short"}}
+</article>
