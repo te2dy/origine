@@ -32,7 +32,7 @@
     <div id="site">
       <header id="site-header">
         <tpl:Block name="site-header">
-          {{tpl:origineLogo link_home="1"}}
+          {{tpl:origineConfigLogo link_home="1"}}
 
           <h4 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h4>
 
@@ -47,7 +47,7 @@
       <main id="site-content">
         <tpl:Block name="main-content">
           <tpl:Entries no_content="0">
-            {{tpl:include src="_entry-list.html"}}
+            {{tpl:originePostListType}}
 
             <tpl:EntriesFooter>
               {{tpl:include src="_pagination.html"}}

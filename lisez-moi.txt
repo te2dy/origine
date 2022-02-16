@@ -12,6 +12,20 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.8.1-beta - 16 février 2022 ===
+- Amélioration : harmonisation entre le thème et l’extension.
+
+=== 1.8-beta - 16 février 2022 ===
+- Ajout : plusieurs styles de liste de billets à choisir avec origineConfig.
+- Ajout : marges aux liens survolés en mode accessibilité.
+- Amélioration : la taille de l’intégralité du thème est désormais proportionnelle à la taille de la police définie par le navigateur.
+- Correction : les scripts spécifiques aux billets et aux pages ne s’affichent pas.
+- Correction : avertissement PHP "Undefined array key ’type’".
+- Correction : lien manquant sur le logo sur certaines pages et zone de clic trop grande.
+- Modification : taille du texte dans la liste des billets.
+- Modification : nom de certains paramètres.
+- Mise à jour : traductions.
+
 === 1.7.1 - 13 février 2022 ===
 - Ajout : attribut alt au logo.
 - Amélioration : couleurs au pointage avec les tabulations (accessibilité).

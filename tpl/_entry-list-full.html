@@ -1,4 +1,4 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}"{{tpl:origineEntryLang}}>
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
   <header>
     <tpl:origineEntryIfSelected>
       <div class="post-selected-label">
@@ -10,7 +10,7 @@
       <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
     </div>
 
-    <h1 class="post-title">{{tpl:EntryTitle}}</h1>
+    <h1 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h1>
   </header>
 
   <section class="post-content content">
@@ -44,21 +44,6 @@
       </tpl:TagsFooter>
     </tpl:EntryTags>
 
-    <!-- # Displayed only on print. -->
-    <div class="post-meta" id="post-footer-print">
-      {{tpl:lang Post printed from}} <a href="{{tpl:EntryURL}}" rel="nofollow">{{tpl:origineEntryPrintURL}}</a>
-    </div>
-
-    <div class="post-pagination">
-      <tpl:EntryPrevious>
-        <a class="link-prev" href="{{tpl:EntryURL}}" rel="prev" title="{{tpl:EntryTitle}}">{{tpl:lang ‹ Previous post}}</a>
-      </tpl:EntryPrevious>
-
-      <tpl:EntryNext>
-        <a class="link-next" href="{{tpl:EntryURL}}" rel="next" title="{{tpl:EntryTitle}}">{{tpl:lang Next post ›}}</a>
-      </tpl:EntryNext>
-    </div>
+    {{tpl:origineConfigPostListComments context="full"}}
   </footer>
 </article>
-
-{{tpl:include src="_comments.html"}}

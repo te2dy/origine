@@ -9,16 +9,15 @@
 </tpl:Block>
 
 <tpl:Block name="site-header">
-
   <!-- # Use h1 & h2 headings for site title & description on home only. -->
   <tpl:PaginationIf start="1">
-    {{tpl:origineLogo}}
+    {{tpl:origineConfigLogo}}
 
     <h1 id="site-title">{{tpl:BlogName}}</h1>
   </tpl:PaginationIf>
 
   <tpl:PaginationIf start="0">
-    {{tpl:origineLogo link_home="1"}}
+    {{tpl:origineConfigLogo link_home="1"}}
 
     <h1 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h1>
   </tpl:PaginationIf>

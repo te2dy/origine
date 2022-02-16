@@ -1,19 +1,19 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
-  <tpl:origineEntryIfSelected>
-    <div class="post-list-selected-label">
-      {{tpl:lang Selected post}}
-    </div>
-  </tpl:origineEntryIfSelected>
-
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-standard {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
   <tpl:EntryIf selected="1">
     <div class="post-list-selected-content">
   </tpl:EntryIf>
+
+  <tpl:origineEntryIfSelected>
+    <div class="post-selected-label">
+      {{tpl:lang Selected post}}
+    </div>
+  </tpl:origineEntryIfSelected>
 
   <a class="post-link" href="{{tpl:EntryURL}}">
     <header>
       <tpl:EntryIf type="post">
         <div class="post-meta">
-          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}}
+          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
         </div>
 
         {{tpl:else}}
@@ -38,6 +38,8 @@
       </tpl:EntryIf>
     </section>
   </a>
+
+  {{tpl:origineConfigPostListComments context="standard"}}
 
   <tpl:EntryIf selected="1">
     </div>

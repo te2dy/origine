@@ -16,20 +16,19 @@ if (!defined('DC_RC_PATH')) {
 
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
 
-$core->tpl->addBlock('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
+$core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
+
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
-$core->tpl->addValue('origineLogo', [__NAMESPACE__ . '\tplOrigineTheme', 'origineLogo']);
+$core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
-$core->tpl->addValue('origineEntryAuthorName', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryAuthorName']);
-$core->tpl->addValue('origineEmailAuthor', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEmailAuthor']);
 
 class tplOrigineTheme
 {
@@ -116,32 +115,28 @@ class tplOrigineTheme
   }
 
   /**
-   * Displays a logo in the header.
+   * Loads the right entry list template based on origineConfig settings.
+   * Default: standard.
    */
-  public static function origineLogo($attr)
+  public static function originePostListType()
   {
     global $core;
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === true && $core->blog->settings->origineConfig->logo_url !== '') {
-      $src_image = $core->blog->settings->origineConfig->logo_url ? $core->blog->settings->origineConfig->logo_url : '';
-
-      if ($src_image !== '') {
-        $src_image_2x = $core->blog->settings->origineConfig->logo_url_2x ? $core->blog->settings->origineConfig->logo_url_2x : '';
-
-        if ($src_image_2x !== '') {
-          $srcset = ' srcset="' . $src_image_2x . ' 2x"';
-        } else {
-          $srcset = '';
-        }
-
-        $link_open  = ($attr['link_home'] === '1') ? '<a href="' . $core->blog->url . '">' : '';
-        $link_close = ($attr['link_home'] === '1') ? '</a>' : '';
-
-        return $link_open . '<img alt="' . __('Header image') . '" class="site-logo" src="' . $src_image . '"' . $srcset . ' />' . $link_close;
-      }
+    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard') ) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard' ) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'short') {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'full') {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
+    } else {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
     }
+
+    return $tpl;
   }
 
   /**
@@ -217,33 +212,6 @@ class tplOrigineTheme
   }
 
   /**
-   * Displays the author name.
-   *
-   * If a display name is not set in the preferences,
-   * it will show the first and the last name.
-   */
-  public static function origineEntryAuthorName()
-  {
-    global $core;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    if ($plugin_activated === true) {
-
-      // If a post is open and the post name is set to be displayed.
-      if ($core->url->type === 'posts'
-        && $core->blog->settings->origineConfig->post_author_name === true
-      ) {
-        return '<span class="post-author-name"><?php if ($_ctx->posts->user_displayname) { echo "· " . $_ctx->posts->user_displayname; } elseif ($_ctx->posts->user_firstname) { echo "· " . $_ctx->posts->user_firstname; if ($_ctx->posts->user_name) { echo " " . $_ctx->posts->user_name; } } else { echo $_ctx->posts->user_name ? "· " . $_ctx->posts->user_name : ""; } ?>';
-
-      // Else (in the post list) and if the post name is set to be displayed.
-      } elseif ($core->blog->settings->origineConfig->post_list_author_name === true) {
-        return '<span class="post-author-name"><?php if ($_ctx->posts->user_displayname) { echo "· " . $_ctx->posts->user_displayname; } elseif ($_ctx->posts->user_firstname) { echo "· " . $_ctx->posts->user_firstname; if ($_ctx->posts->user_name) { echo " " . $_ctx->posts->user_name; } } else { echo $_ctx->posts->user_name ? "· " . $_ctx->posts->user_name : ""; } ?>';
-      }
-    }
-  }
-
-  /**
    * Displays credits except if the plugin tells no.
    */
   public static function origineFooterCredits($attr, $content)
@@ -256,42 +224,6 @@ class tplOrigineTheme
       || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits === true)
     ) {
       return $content;
-    }
-  }
-
-  /**
-   * Displays a link to replay to the author of the post
-   * by email.
-   */
-  public static function origineEmailAuthor()
-  {
-    global $core, $_ctx;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->email_author !== 'disabled')
-    ) {
-      if ($core->blog->settings->origineConfig->email_author === 'always'
-        || ($core->blog->settings->origineConfig->email_author === 'comments_open'
-          && $_ctx->posts->post_open_comment === '1'
-          && $_ctx->posts->user_email
-        )
-      ) {
-        $output = '<div class="comment-private">';
-
-        $output .= '<h3>' . __('Private comment') . '</h3>';
-
-        $output .= '<a class="button" href="mailto:' . urlencode($_ctx->posts->user_email);
-        $output .= '?subject=' . htmlentities($_ctx->posts->post_title, ENT_NOQUOTES);
-        $output .= '">';
-        $output .= __('Reply to the author by email');
-        $output .= '</a>';
-
-        $output .= '</div>';
-
-        return $output;
-      }
     }
   }
 }
