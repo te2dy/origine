@@ -325,6 +325,9 @@ a:focus-visible .post-meta {
 .post-excerpt {
   color: var(--color-text-secondary);
 }
+.post-meta {
+  font-size: .9em;
+}
 .post-title {
   margin: 0;
 }
@@ -373,16 +376,6 @@ a:focus-visible .post-meta {
 .post-list:last-child {
   margin-bottom: 0;
 }
-.post-list .post-meta {
-  font-size: .9em;
-}
-.post-list .post-title {
-  font-size: 1.1em;
-}
-.post-list .post-meta a,
-.post-list .post-title a {
-  text-decoration: none;
-}
 .post-excerpt {
   margin-top: .25em;
 }
@@ -399,6 +392,13 @@ a:focus-visible .post-meta {
 }
 .post-list-standard .post-meta {
   margin-bottom: .25em;
+}
+.post-list-standard .post-title {
+  font-size: 1.1em;
+}
+.post-list-standard .post-meta a,
+.post-list-standard .post-title a {
+  text-decoration: none;
 }
 .post-list-standard .post-selected-label {
   margin-left: -1rem;
@@ -424,12 +424,28 @@ a:focus-visible .post-meta {
   font-size: 1rem;
 }
 .post-list-short .post-title {
+  font-size: 1.1em;
+}
+.post-list-short .post-meta a,
+.post-list-short .post-title a {
+  text-decoration: none;
+}
+.post-list-short .post-title {
   display: inline;
+}
+.post-list-short .post-author-name {
+  color: var(--color-text-secondary);
+}
+.post-list-short .post-author-name a {
+  text-decoration: none;
 }
 
 /* Post list (full) */
 .post-list-full .post-selected-label {
   margin-bottom: 1rem;
+}
+.post-list-full .post-title a {
+  text-decoration: none;
 }
 
 /* Single Post */

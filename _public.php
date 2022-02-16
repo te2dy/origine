@@ -24,13 +24,11 @@ $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme'
 
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
+$core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
-
-/* TEST NOUVELLES FONCTIONS */
-$core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 
 class tplOrigineTheme
 {
@@ -114,6 +112,31 @@ class tplOrigineTheme
     }
 
     return $links;
+  }
+
+  /**
+   * Loads the right entry list template based on origineConfig settings.
+   * Default: standard.
+   */
+  public static function originePostListType()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard') ) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard' ) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'short') {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'full') {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
+    } else {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    }
+
+    return $tpl;
   }
 
   /**
@@ -202,35 +225,5 @@ class tplOrigineTheme
     ) {
       return $content;
     }
-  }
-
-  /**
-   * TEST NOUVELLES FONCTIONS
-   */
-  public static function originePostListType()
-  {
-    global $core;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard')
-    ) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    } elseif ($plugin_activated === true
-      && $core->blog->settings->origineConfig->post_list_type === 'standard'
-    ) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    } elseif ($plugin_activated === true
-      && $core->blog->settings->origineConfig->post_list_type === 'short') {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
-    } elseif ($plugin_activated === true
-      && $core->blog->settings->origineConfig->post_list_type === 'full') {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
-    } else {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    }
-
-    return $tpl;
   }
 }
