@@ -1,4 +1,4 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-full {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
+<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
   <header>
     <tpl:origineEntryIfSelected>
       <div class="post-selected-label">
@@ -7,7 +7,7 @@
     </tpl:origineEntryIfSelected>
 
     <div class="post-meta">
-      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}}
+      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
     </div>
 
     <h1 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h1>
@@ -17,6 +17,8 @@
     {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
 
     {{tpl:EntryContent}}
+
+    {{tpl:origineConfigEntryAuthorNameSignature}}
 
     {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
   </section>
@@ -42,6 +44,6 @@
       </tpl:TagsFooter>
     </tpl:EntryTags>
 
-    {{tpl:originePostListComments context="full"}}
+    {{tpl:origineConfigPostListComments context="full"}}
   </footer>
 </article>

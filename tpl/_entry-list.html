@@ -13,7 +13,7 @@
     <header>
       <tpl:EntryIf type="post">
         <div class="post-meta">
-          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}}
+          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
         </div>
 
         {{tpl:else}}
@@ -39,7 +39,7 @@
     </section>
   </a>
 
-  {{tpl:originePostListComments context="standard"}}
+  {{tpl:origineConfigPostListComments context="standard"}}
 
   <tpl:EntryIf selected="1">
     </div>

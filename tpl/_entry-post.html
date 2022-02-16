@@ -7,7 +7,7 @@
     </tpl:origineEntryIfSelected>
 
     <div class="post-meta">
-      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}}
+      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
     </div>
 
     <h1 class="post-title">{{tpl:EntryTitle}}</h1>
@@ -17,6 +17,8 @@
     {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
 
     {{tpl:EntryContent}}
+
+    {{tpl:origineConfigEntryAuthorNameSignature}}
 
     {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
   </section>

@@ -8,7 +8,7 @@
   <a class="post-link" href="{{tpl:EntryURL}}">
     <tpl:EntryIf type="post">
       <span class="post-meta">
-        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineEntryAuthorName}} /
+        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> /
       </span>
 
       {{tpl:else}}
@@ -21,5 +21,7 @@
     <h3 class="post-title">{{tpl:EntryTitle}}</h3>
   </a>
 
-  {{tpl:originePostListComments context="short"}}
+  {{tpl:origineConfigEntriesAuthorName}}
+
+  {{tpl:origineConfigPostListComments context="short"}}
 </article>
