@@ -3,3 +3,6 @@
 
 # Ignore .psd files.
 *.psd
+
+# Ignore DotAddict files
+dotaddict-*
