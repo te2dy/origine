@@ -12,6 +12,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.8.3 - 17 février 2022 ===
+- Mise à jour : captures d’écran.
+
 === 1.8.2 - 17 février 2022 ===
 - Amélioration : conversion de valeurs px en em.
 - Correction : changement du style de liste de billets sur tous les modèles.
