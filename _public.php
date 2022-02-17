@@ -2,6 +2,10 @@
 /**
  * Origine, an ultra minimalist theme for Dotclear
  *
+ * Note: all template tags found in html files
+ * and whose name starts with {{tpl:origineConfig…
+ * are handled by the plugin origineConfig.
+ *
  * @copyright Teddy
  * @copyright GPL-3.0
  */
@@ -14,41 +18,32 @@ if (!defined('DC_RC_PATH')) {
 
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
+// Behaviors
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
 
-$core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
-
+// Blocks
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
-$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
+// Values
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
-$core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
 $core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 
+/**
+ * Template tags used in combination with origineConfig plugin.
+ */
+
+// Values
+$core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
+$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
+$core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
+
 class tplOrigineTheme
 {
-  /**
-   * Returns true if the plugin origineConfig
-   * is installed and activated.
-   */
-  public static function origineConfigActivationStatus()
-  {
-    global $core;
-
-    if ($core->plugins->moduleExists('origineConfig') === true
-      && $core->blog->settings->origineConfig->activation === true
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   /**
    * Adds some meta tags in the <head> section
    * depending on the blog settings.
@@ -69,26 +64,46 @@ class tplOrigineTheme
   }
 
   /**
-   * Adds styles in the head section.
-   *
-   * If the plugin origineConfig is not installed nor activated,
-   * it will load default styles; otherwise, it will load
-   * the custom styles set in the plugin page.
+   * Displays a defined content when the current post is selected.
    */
-  public static function origineInlineStyles()
+  public static function origineEntryIfSelected($attr, $content)
+  {
+    global $_ctx;
+
+    // If the post is selected, displays the content of the block.
+    return ($_ctx->posts->post_selected === '0') ? '' : $content;
+  }
+
+  /**
+   * Displays a link to the comment feed and trackbacks,
+   * except if the plugin tells no.
+   */
+  public static function origineCommentLinks($attr, $content)
   {
     global $core;
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === false) {
-      // @see styles.css
-      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-link-complementary:#fff;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-link-complementary: #fff;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333333;--color-input-background-hover:#d9d9d9;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1em;}';
-    } else {
-      $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
+    // If the plugin is installed and activated.
+    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->comment_links === true ) ) {
+      return $content;
     }
+  }
 
-    return '<style>' . $styles . '</style>';
+  /**
+   * Displays credits except if the plugin tells no.
+   */
+  public static function origineFooterCredits($attr, $content)
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits === true)
+    ) {
+      return $content;
+    }
   }
 
   /**
@@ -115,42 +130,6 @@ class tplOrigineTheme
   }
 
   /**
-   * Loads the right entry list template based on origineConfig settings.
-   * Default: standard.
-   */
-  public static function originePostListType()
-  {
-    global $core;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard') ) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard' ) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'short') {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
-    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'full') {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
-    } else {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    }
-
-    return $tpl;
-  }
-
-  /**
-   * Displays a defined content when the current post is selected.
-   */
-  public static function origineEntryIfSelected($attr, $content)
-  {
-    global $_ctx;
-
-    // If the post is selected, displays the content of the block.
-    return ($_ctx->posts->post_selected === '0') ? '' : $content;
-  }
-
-  /**
    * Displays a "lang" attribute and its value
    * when the language of the current post is different
    * from the language defined for the blog.
@@ -166,22 +145,6 @@ class tplOrigineTheme
   public static function origineEntryPrintURL()
   {
     return '<?php echo str_replace([\'http://\', \'https://\'], "", $_ctx->posts->getURL()); ?>';
-  }
-
-  /**
-   * Displays a link to the comment feed and trackbacks,
-   * except if the plugin tells no.
-   */
-  public static function origineCommentLinks($attr, $content)
-  {
-    global $core;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    // If the plugin is installed and activated.
-    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->comment_links === true ) ) {
-      return $content;
-    }
   }
 
   /**
@@ -211,19 +174,70 @@ class tplOrigineTheme
     } ?>';
   }
 
+  // Template tags used in combination with origineConfig plugin:
+
   /**
-   * Displays credits except if the plugin tells no.
+   * Returns true if the plugin origineConfig
+   * is installed and activated.
    */
-  public static function origineFooterCredits($attr, $content)
+  public static function origineConfigActivationStatus()
+  {
+    global $core;
+
+    if ($core->plugins->moduleExists('origineConfig') === true
+      && $core->blog->settings->origineConfig->activation === true
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Adds styles in the head section.
+   *
+   * If the plugin origineConfig is not installed nor activated,
+   * it will load default styles; otherwise, it will load
+   * the custom styles set in the plugin page.
+   */
+  public static function origineInlineStyles()
   {
     global $core;
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits === true)
-    ) {
-      return $content;
+    if ($plugin_activated === false) {
+      // @see styles.css
+      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-link-complementary:#fff;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000;}@media(prefers-color-scheme: dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-link-complementary: #fff;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333333;--color-input-background-hover:#d9d9d9;}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1em;}';
+    } else {
+      $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
     }
+
+    return '<style>' . $styles . '</style>';
+  }
+
+  /**
+   * Loads the right entry list template based on origineConfig settings.
+   * Default: standard.
+   */
+  public static function originePostListType()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard') ) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard' ) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'short') {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
+    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'full') {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
+    } else {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    }
+
+    return $tpl;
   }
 }
