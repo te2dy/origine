@@ -660,11 +660,11 @@ a:focus-visible .post-meta {
   display: block;
   font-size: 1em;
   height: auto;
-  left: 5px;
+  left: .3125rem;
   line-height: normal;
-  padding: .5em;
+  padding: .5rem;
   text-decoration: none;
-  top: 5px;
+  top: .3125rem;
   width: auto;
   z-index: 100000;
 }
