@@ -604,6 +604,41 @@ a:focus-visible .post-meta {
 }
 
 /**
+ * Widgets
+ */
+#site-sidebar .widget {
+  margin: 2em 0;
+}
+#site-sidebar .widget h2 {
+  font-size: 1.1em;
+  margin: 0 0 .5em;
+}
+#site-sidebar .widget ul {
+  margin: 0;
+  padding: 0;
+}
+#site-sidebar .widget ul li {
+  list-style: none;
+}
+#site-footer .widget {
+  margin: 1em 0;
+}
+#site-footer .widget h2 {
+  font-size: 1rem;
+  margin: 0 0 .5em;
+}
+#site-footer p {
+  margin: .5em 0;
+}
+#site-footer .widget ul {
+  margin: .5em 0;
+  padding: 0;
+}
+#site-footer .widget ul li {
+  list-style: none;
+}
+
+/**
  * Site Footer
  */
 .site-footer-line {
