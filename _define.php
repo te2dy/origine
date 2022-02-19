@@ -11,10 +11,10 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $this->registerModule(
-  'Origine',                   // Name
-  'An ultra minimalist theme', // Description
-  'Teddy',                     // Author
-  '1.8.3',                     // Version
+  /* Name */        'Origine',
+  /* Description */ 'An ultra minimalist theme',
+  /* Author */      'Teddy',
+  /* Version */     '1.8.3',
   array(
     'type' => 'theme',
   )
