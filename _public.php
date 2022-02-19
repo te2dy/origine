@@ -24,6 +24,8 @@ $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'pu
 // Blocks
 $core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
+$core->tpl->addBlock('origineSidebar', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSidebar']);
+$core->tpl->addBlock('origineFooter', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooter']);
 $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 // Values
@@ -86,6 +88,38 @@ class tplOrigineTheme
 
     // If the plugin is installed and activated.
     if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->comment_links === true ) ) {
+      return $content;
+    }
+  }
+
+  /**
+   * Displays the sidebar except if the plugin tells no.
+   */
+  public static function origineSidebar($attr, $content)
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->sidebar_enabled === true)
+    ) {
+      return $content;
+    }
+  }
+
+  /**
+   * Displays the footer except if the plugin tells no.
+   */
+  public static function origineFooter($attr, $content)
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_enabled === true)
+    ) {
       return $content;
     }
   }
