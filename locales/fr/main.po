@@ -118,6 +118,9 @@ msgstr "RSS"
 msgid "Powered by"
 msgstr "Propulsé par"
 
+msgid "https://dotclear.org/"
+msgstr "https://fr.dotclear.org/"
+
 msgid "designed by"
 msgstr "habillé par"
 
