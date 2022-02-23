@@ -1,8 +1,6 @@
 <footer id="site-footer">
   {{tpl:Widgets type="custom"}}
 
-  {{tpl:SysBehavior behavior="publicFooterContent"}}
-
   <tpl:origineFooterCredits>
     <div class="site-footer-line" id="site-footer-ad">
       {{tpl:lang Powered by}} <a href="{{tpl:lang https://dotclear.org/}}">{{tpl:lang Dotclear}}</a>, {{tpl:lang designed by}} <a href="https://github.com/te2dy/origine/">Origine</a>
@@ -14,4 +12,6 @@
       <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
     </tpl:Block>
   </tpl:SysIf>
+
+  {{tpl:SysBehavior behavior="publicFooterContent"}}
 </footer>
