@@ -423,11 +423,9 @@ a:focus-visible .post-meta {
 .post-list-short .post-selected-label {
   display: inline-block;
 }
-.post-list-short .post-meta {
-  font-size: 1rem;
-}
+.post-list-short .post-meta,
 .post-list-short .post-title {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 .post-list-short .post-meta a,
 .post-list-short .post-title a {
