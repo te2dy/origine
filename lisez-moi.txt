@@ -12,6 +12,11 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.8.5 - 26 février 2022 ===
+- Correction : chargement des scripts.
+- Modification : marges diverses dans le pied de page.
+- Modification : taille du titre en mode court.
+
 === 1.8.4 - 19 février 2022 ===
 - Ajout : possibilité de désactiver la barre latérale et le pied de page avec origineConfig.
 - Ajout : styles de widgets.
