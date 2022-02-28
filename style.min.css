@@ -653,11 +653,15 @@ a:focus-visible .post-meta {
     background-color: var(--color-text-primary);
     color: var(--color-background);
   }
+  a {
+    text-decoration: underline;
+  }
   a:active,
   a:focus,
   a:hover {
     background-color: var(--color-text-primary);
     color: var(--color-background);
+    text-decoration: none;
   }
   a:active .post-excerpt,
   a:focus .post-excerpt,
