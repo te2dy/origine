@@ -48,16 +48,13 @@ body{
   font-size: 1.1em;
 }
 .post-list-standard .post-selected-label {
+  border-left: none;
   margin-left: -1rem;
   margin-bottom: .5rem;
 }
 .post-list-standard .post-list-selected-content {
   border-left: .063rem solid var(--color-border);
   padding-left: 1rem;
-}
-.post-list-standard .post-list-comment {
-  font-size: .9em;
-  margin-top: .25rem;
 }
 */
 
@@ -104,7 +101,6 @@ body {
   margin-bottom: 4em;
 }
 #site-footer {
-  color: var(--color-text-secondary);
   font-size: .9em;
   margin-top: 4em
 }
@@ -113,23 +109,37 @@ body {
  * Content formatting
  */
 a {
+  border-bottom: .063rem dotted var(--color-text-primary);
   color: inherit;
   text-decoration: none;
 }
 a:active,
 a:focus,
 a:hover {
+  border-bottom-color: var(--color-link);
+  border-bottom-style: solid;
   color: var(--color-link);
 }
 a:focus-visible {
-  background-color: var(--color-link);
-  color: var(--color-link-complementary);
+  border-bottom: none;
   outline: .188rem solid var(--color-link);
   outline-offset: 0;
 }
 a:focus-visible img {
+  border-bottom: none;
   outline: .188rem solid var(--color-link);
   outline-offset: 0;
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+.text-secondary a {
+  border-bottom-color: var(--color-text-secondary);
+}
+.text-secondary a:active,
+.text-secondary a:focus,
+.text-secondary a:hover {
+  border-bottom-color: var(--color-link);
 }
 
 p {
@@ -178,7 +188,7 @@ blockquote {
 code,
 pre {
   background-color: var(--color-input-background);
-	font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+	font-family: Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
 	font-size: 1em;
 	white-space: pre-wrap;
 }
@@ -191,9 +201,9 @@ code {
   display: inline;
 }
 .label {
-  background-color: var(--color-input-background);
+  border: .063rem solid var(--color-border);
   display: inline-block;
-  font-size: .8em;
+  font-size: .9em;
   line-height: 1;
   padding: .5em;
 }
@@ -298,8 +308,10 @@ textarea {
   font-size: 1.5em;
   margin: 0;
 }
+#site-title a {
+  border-bottom: none;
+}
 #site-description {
-  color: var(--color-text-secondary);
   font-size: 1em;
   font-weight: 400;
   margin: .5em 0 0;
@@ -308,13 +320,8 @@ textarea {
 /**
  * Posts
  */
-.post-link:active .label,
-.post-link:focus .label,
-.post-link:hover .label {
-  color: var(--color-text-secondary);
-}
 .post-selected-label {
-  background-color: var(--color-input-background);
+  border: .063rem solid var(--color-border);
   display: inline-block;
   font-size: .9em;
   line-height: 1;
@@ -323,37 +330,12 @@ textarea {
 .post-single .post-selected-label {
   margin-bottom: 1rem;
 }
-a:active .post-excerpt,
-a:focus .post-excerpt,
-a:hover .post-excerpt,
-a:active .post-meta,
-a:focus .post-meta,
-a:hover .post-meta {
-  color: var(--color-link);
-}
-a:focus-visible .post-excerpt,
-a:focus-visible .post-meta {
-  color: var(--color-link-complementary);
-}
-.post-meta,
-.post-excerpt {
-  color: var(--color-text-secondary);
-}
-.post-meta {
-  font-size: .9em;
-}
-.post-title {
-  margin: 0;
-}
 .post-content,
 .page-content {
   margin: 1.5em 0;
 }
 .content {
   line-height: 1.5;
-}
-.content a {
-  text-decoration: underline;
 }
 .content ol,
 .content ul {
@@ -390,17 +372,54 @@ a:focus-visible .post-meta {
 }
 
 /* Post List */
+.post-list .label {
+  margin-bottom: .5rem;
+}
+.post-link:focus-visible .post-excerpt,
+.post-link:focus-visible .post-meta,
+.post-link:focus-visible .post-title {
+  color: var(--color-link-complementary);
+}
 .post-list {
   margin-bottom: 2em;
 }
 .post-list:last-child {
   margin-bottom: 0;
 }
+.post-meta {
+  font-size: .9em;
+}
+.post-title {
+  margin: 0;
+}
 .post-excerpt {
-  margin-top: .25em;
+  margin-top: .5em;
+}
+.read-more {
+  font-size: .9em;
+  margin-top: .5em;
+}
+.read-more-link {
+  background-color: var(--color-input-background);
+  border-bottom: none;
+  color: var(--color-input-text);
+  display: inline-block;
+  line-height: 1;
+  padding: .5em;
+}
+.read-more-link:active,
+.read-more-link:focus,
+.read-more-link:hover {
+  background-color: var(--color-input-background-hover);
+  border-bottom: none;
+  color: var(--color-input-text-hover);
+}
+.content .read-more-link {
+  text-decoration: none;
 }
 .post-list-comment {
-  color: var(--color-text-secondary);
+  display: inline-block;
+  margin-left: .25em;
 }
 
 /* Single Post */
@@ -408,7 +427,6 @@ a:focus-visible .post-meta {
   margin-bottom: .5em
 }
 .post-pagination {
-  color: var(--color-text-secondary);
   display: flex;
   margin-top: 4em;
 }
@@ -420,14 +438,7 @@ a:focus-visible .post-meta {
 .content-info {
   margin-bottom: 2em;
 }
-.content-label {
-  background-color: var(--color-input-background);
-  display: inline-block;
-  font-size: .8em;
-  line-height: 1;
-  padding: .5em;
-}
-.content-info .content-label {
+.content-info .label {
   margin-bottom: .5em;
 }
 .content-meta {
@@ -446,9 +457,6 @@ a:focus-visible .post-meta {
 .comment-block {
   margin: 4em 0;
 }
-.comment-count {
-  color: var(--color-text-secondary);
-}
 #comments-list {
   list-style: none;
   margin: 2em 0 4em;
@@ -460,7 +468,6 @@ a:focus-visible .post-meta {
   margin-bottom: 2em;
 }
 .comment-meta {
-  color: var(--color-text-secondary);
   margin-bottom: 1em;
 }
 .comment-author {
@@ -521,7 +528,6 @@ a:focus-visible .post-meta {
   margin-top: 4em;
 }
 .comment-links ul {
-  color: var(--color-text-secondary);
   font-size: .9em;
   list-style: none;
   margin-top: 2em;
@@ -538,7 +544,6 @@ a:focus-visible .post-meta {
  * Pagination
  */
 .pagination {
-  color: var(--color-text-secondary);
   margin: 4em 0 5em;
   text-align: center;
 }
@@ -654,27 +659,34 @@ a:focus-visible .post-meta {
     color: var(--color-background);
   }
   a {
-    text-decoration: underline;
+    border-bottom-style: solid;
   }
   a:active,
   a:focus,
-  a:hover {
+  a:hover,
+  .text-secondary a:active,
+  .text-secondary a:focus,
+  .text-secondary a:hover {
     background-color: var(--color-text-primary);
-    color: var(--color-background);
-    text-decoration: none;
-  }
-  a:active .post-excerpt,
-  a:focus .post-excerpt,
-  a:hover .post-excerpt,
-  a:active .post-meta,
-  a:focus .post-meta,
-  a:hover .post-meta {
+    border-bottom-color: var(--color-text-primary);
     color: var(--color-background);
   }
   .content-label,
   .label,
-  .post-selected-label {
+  .post-selected-label,
+  .read-more-link {
     border: .063rem solid var(--color-border);
+  }
+  .read-more-link {
+    background-color: var(--color-input-background-hover);
+    color: var(--color-input-text-hover);
+  }
+  .read-more-link:active,
+  .read-more-link:focus,
+  .read-more-link:hover {
+    background-color: var(--color-input-background);
+    border-bottom: .063rem solid var(--color-border);
+    color: var(--color-input-text);
   }
   input:focus,
   textarea:focus {
