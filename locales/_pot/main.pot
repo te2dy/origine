@@ -94,6 +94,12 @@ msgstr ""
 msgid "Selected"
 msgstr ""
 
+msgid "Read more"
+msgstr ""
+
+msgid "Read more about"
+msgstr ""
+
 msgid "Page"
 msgstr ""
 

@@ -94,6 +94,12 @@ msgstr "Billet sélectionné"
 msgid "Selected"
 msgstr "Sélectionné"
 
+msgid "Read more"
+msgstr "Lire la suite"
+
+msgid "Read more about"
+msgstr "Lire la suite de"
+
 msgid "Page"
 msgstr "Page"
 
