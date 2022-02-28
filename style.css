@@ -56,6 +56,13 @@ body{
   border-left: .063rem solid var(--color-border);
   padding-left: 1rem;
 }
+.post-list-standard .label {
+  margin-bottom: .5rem;
+}
+.post-list-standard .post-list-comment {
+  display: inline-block;
+  margin-left: .25em;
+}
 */
 
 /* Accessibility: high contrast mode */
@@ -122,13 +129,13 @@ a:hover {
 }
 a:focus-visible {
   border-bottom: none;
-  outline: .188rem solid var(--color-link);
-  outline-offset: 0;
+  outline: .063rem solid var(--color-link);
+  outline-offset: .125rem;
 }
 a:focus-visible img {
   border-bottom: none;
-  outline: .188rem solid var(--color-link);
-  outline-offset: 0;
+  outline: .063rem solid var(--color-link);
+  outline-offset: .125rem;
 }
 .text-secondary {
   color: var(--color-text-secondary);
@@ -240,8 +247,8 @@ input:focus,
 input:focus-visible,
 textarea:focus,
 textarea:focus-visible {
-  outline: .188rem solid var(--color-link);
-  outline-offset: -.063rem;
+  outline: .063rem solid var(--color-link);
+  outline-offset: .125rem;
 }
 .button {
   border: .063rem solid var(--color-border);
@@ -273,11 +280,9 @@ input[type="submit"]:hover,
 input[type="submit"]:focus-visible,
 .button:focus-visible,
 .form-submit:focus-visible {
-  background-color: var(--color-link);
   border-color: transparent;
-  color: var(--color-link-complementary);
-  outline: .188rem solid var(--color-link);
-  outline-offset: 0;
+  outline: .063rem solid var(--color-link);
+  outline-offset: .125rem;
 }
 textarea {
   width: 100%;
@@ -372,14 +377,6 @@ textarea {
 }
 
 /* Post List */
-.post-list .label {
-  margin-bottom: .5rem;
-}
-.post-link:focus-visible .post-excerpt,
-.post-link:focus-visible .post-meta,
-.post-link:focus-visible .post-title {
-  color: var(--color-link-complementary);
-}
 .post-list {
   margin-bottom: 2em;
 }
@@ -416,10 +413,6 @@ textarea {
 }
 .content .read-more-link {
   text-decoration: none;
-}
-.post-list-comment {
-  display: inline-block;
-  margin-left: .25em;
 }
 
 /* Single Post */
@@ -634,10 +627,8 @@ textarea {
   word-wrap: normal !important;
 }
 .skip-links:focus {
-  background-color: var(--color-link);
   clip: auto !important;
   clip-path: none;
-  color: var(--color-link-complementary);
   display: block;
   font-size: 1em;
   height: auto;
