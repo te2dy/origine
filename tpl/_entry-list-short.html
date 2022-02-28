@@ -5,21 +5,19 @@
     </div>
   </tpl:origineEntryIfSelected>
 
-  <a class="post-link" href="{{tpl:EntryURL}}">
-    <tpl:EntryIf type="post">
-      <span class="post-meta">
-        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> /
-      </span>
+  <tpl:EntryIf type="post">
+    <span class="post-meta text-secondary">
+      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> /
+    </span>
 
-      {{tpl:else}}
+    {{tpl:else}}
 
-      <span class="post-meta label">
-        {{tpl:lang Page}}
-      </span>
-    </tpl:EntryIf>
+    <span class="post-meta text-secondary label">
+      {{tpl:lang Page}}
+    </span>
+  </tpl:EntryIf>
 
-    <h3 class="post-title">{{tpl:EntryTitle}}</h3>
-  </a>
+  <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
 
   {{tpl:origineConfigEntriesAuthorName}}
 

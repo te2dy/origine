@@ -6,7 +6,7 @@
       </div>
     </tpl:origineEntryIfSelected>
 
-    <div class="post-meta">
+    <div class="post-meta text-secondary">
       <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
     </div>
 
@@ -27,14 +27,14 @@
     {{tpl:include src="_attachments.html"}}
 
     <tpl:EntryIf has_category="1">
-      <div class="post-meta">
+      <div class="post-meta text-secondary">
         {{tpl:lang Sorted in}} <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a>
       </div>
     </tpl:EntryIf>
 
     <tpl:EntryTags>
       <tpl:TagsHeader>
-        <div class="post-meta">{{tpl:lang Tags:}}
+        <div class="post-meta text-secondary">{{tpl:lang Tags:}}
       </tpl:TagsHeader>
 
       <a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
@@ -45,11 +45,11 @@
     </tpl:EntryTags>
 
     <!-- # Displayed only on print. -->
-    <div class="post-meta" id="post-footer-print">
+    <div class="post-meta text-secondary" id="post-footer-print">
       {{tpl:lang Post printed from}} <a href="{{tpl:EntryURL}}" rel="nofollow">{{tpl:origineEntryPrintURL}}</a>
     </div>
 
-    <div class="post-pagination">
+    <div class="post-pagination text-secondary">
       <tpl:EntryPrevious>
         <a class="link-prev" href="{{tpl:EntryURL}}" rel="prev" title="{{tpl:EntryTitle}}">{{tpl:lang ‹ Previous post}}</a>
       </tpl:EntryPrevious>

@@ -20,11 +20,11 @@
 
     <header class="comment-meta">
       <tpl:CommentIf is_ping="0">
-        <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date">, <a href="#{{tpl:lang comment}}-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
+        <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date text-secondary">, <a href="#{{tpl:lang comment}}-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
 
       <tpl:CommentIf is_ping="1">
-        <span class="label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthor}}</cite><span class="comment-date">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
+        <span class="label">{{tpl:lang Ping}}</span> <cite class="comment-author">{{tpl:CommentAuthor}}</cite><span class="comment-date text-secondary">, <a href="#comment-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
       </tpl:CommentIf>
     </header>
 
@@ -131,7 +131,7 @@
 {{tpl:origineConfigEmailAuthor}}
 
 <tpl:origineCommentLinks>
-  <div class="comment-links">
+  <div class="comment-links text-secondary">
     <ul>
       <tpl:EntryIf show_comments="1">
         <li>
