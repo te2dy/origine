@@ -9,37 +9,39 @@
     </div>
   </tpl:origineEntryIfSelected>
 
-  <a class="post-link" href="{{tpl:EntryURL}}">
-    <header>
-      <tpl:EntryIf type="post">
-        <div class="post-meta">
-          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
-        </div>
+  <tpl:EntryIf type="page">
+    <div class="label">
+      {{tpl:lang Page}}
+    </div>
+  </tpl:EntryIf>
 
-        {{tpl:else}}
+  <header>
+    <tpl:EntryIf type="post">
+      <div class="post-meta text-secondary">
+        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
+      </div>
+    </tpl:EntryIf>
 
-        <div class="post-meta label">
-          {{tpl:lang Page}}
-        </div>
-      </tpl:EntryIf>
+    <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+  </header>
 
-      <h3 class="post-title">{{tpl:EntryTitle}}</h3>
-    </header>
+  <section class="post-excerpt content text-secondary">
+    <!-- # Entry with an excerpt -->
+    <tpl:EntryIf extended="1">
+      {{tpl:EntryExcerpt encode_html="1" remove_html="1"}}
+    </tpl:EntryIf>
 
-    <section class="post-excerpt content">
-      <!-- # Entry with an excerpt -->
-      <tpl:EntryIf extended="1">
-        {{tpl:EntryExcerpt encode_html="1" remove_html="1"}}
-      </tpl:EntryIf>
+    <!-- # Entry without excerpt -->
+    <tpl:EntryIf extended="0">
+        {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut>
+    </tpl:EntryIf>
+  </section>
 
-      <!-- # Entry without excerpt -->
-      <tpl:EntryIf extended="0">
-          {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut>
-      </tpl:EntryIf>
-    </section>
-  </a>
+  <div class="read-more">
+    <a aria-label="{{tpl:lang Read more about}} {{tpl:EntryTitle}}" class="read-more-link" href="{{tpl:EntryURL}}">{{tpl:lang Read more}}</a>
 
-  {{tpl:origineConfigPostListComments context="standard"}}
+    {{tpl:origineConfigPostListComments context="standard"}}
+  </div>
 
   <tpl:EntryIf selected="1">
     </div>
