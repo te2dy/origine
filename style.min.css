@@ -38,6 +38,27 @@ body{
   font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1em;
 }
+.post-list-standard .post-link {
+  display: block;
+}
+.post-list-standard .post-meta {
+  margin-bottom: .25em;
+}
+.post-list-standard .post-title {
+  font-size: 1.1em;
+}
+.post-list-standard .post-selected-label {
+  margin-left: -1rem;
+  margin-bottom: .5rem;
+}
+.post-list-standard .post-list-selected-content {
+  border-left: .063rem solid var(--color-border);
+  padding-left: 1rem;
+}
+.post-list-standard .post-list-comment {
+  font-size: .9em;
+  margin-top: .25rem;
+}
 */
 
 /* Accessibility: high contrast mode */
@@ -380,52 +401,6 @@ a:focus-visible .post-meta {
 }
 .post-list-comment {
   color: var(--color-text-secondary);
-}
-
-/* Post list (standard) */
-.post-list-standard .post-link {
-  display: block;
-}
-.post-list-standard .post-meta {
-  margin-bottom: .25em;
-}
-.post-list-standard .post-title {
-  font-size: 1.1em;
-}
-.post-list-standard .post-selected-label {
-  margin-left: -1rem;
-  margin-bottom: .5rem;
-}
-.post-list-standard .post-list-selected-content {
-  border-left: .063rem solid var(--color-border);
-  padding-left: 1rem;
-}
-.post-list-standard .post-list-comment {
-  font-size: .9em;
-  margin-top: .25rem;
-}
-
-/* Post list (short) */
-.post-list-short .post-link {
-  display: inline-block;
-}
-.post-list-short .post-selected-label {
-  display: inline-block;
-}
-.post-list-short .post-meta,
-.post-list-short .post-title {
-  font-size: 1em;
-}
-.post-list-short .post-title {
-  display: inline;
-}
-.post-list-short .post-author-name {
-  color: var(--color-text-secondary);
-}
-
-/* Post list (full) */
-.post-list-full .post-selected-label {
-  margin-bottom: 1rem;
 }
 
 /* Single Post */
