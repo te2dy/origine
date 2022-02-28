@@ -38,6 +38,27 @@ body{
   font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1em;
 }
+.post-list-standard .post-link {
+  display: block;
+}
+.post-list-standard .post-meta {
+  margin-bottom: .25em;
+}
+.post-list-standard .post-title {
+  font-size: 1.1em;
+}
+.post-list-standard .post-selected-label {
+  margin-left: -1rem;
+  margin-bottom: .5rem;
+}
+.post-list-standard .post-list-selected-content {
+  border-left: .063rem solid var(--color-border);
+  padding-left: 1rem;
+}
+.post-list-standard .post-list-comment {
+  font-size: .9em;
+  margin-top: .25rem;
+}
 */
 
 /* Accessibility: high contrast mode */
@@ -93,20 +114,16 @@ body {
  */
 a {
   color: inherit;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: .313rem;
+  text-decoration: none;
 }
 a:active,
 a:focus,
 a:hover {
   color: var(--color-link);
-  text-decoration-style: solid;
 }
 a:focus-visible {
   background-color: var(--color-link);
   color: var(--color-link-complementary);
-  text-decoration: none;
   outline: .188rem solid var(--color-link);
   outline-offset: 0;
 }
@@ -221,7 +238,6 @@ textarea:focus-visible {
   display: inline-block;
   padding-right: .5em;
   padding-left: .5em;
-  text-decoration: none;
 }
 input[type="submit"],
 .form-submit,
@@ -250,7 +266,6 @@ input[type="submit"]:focus-visible,
   background-color: var(--color-link);
   border-color: transparent;
   color: var(--color-link-complementary);
-  text-decoration: none;
   outline: .188rem solid var(--color-link);
   outline-offset: 0;
 }
@@ -283,9 +298,6 @@ textarea {
   font-size: 1.5em;
   margin: 0;
 }
-#site-title a {
-  text-decoration: none;
-}
 #site-description {
   color: var(--color-text-secondary);
   font-size: 1em;
@@ -296,8 +308,10 @@ textarea {
 /**
  * Posts
  */
-.post-link {
-  text-decoration: none;
+.post-link:active .label,
+.post-link:focus .label,
+.post-link:hover .label {
+  color: var(--color-text-secondary);
 }
 .post-selected-label {
   background-color: var(--color-input-background);
@@ -337,6 +351,9 @@ a:focus-visible .post-meta {
 }
 .content {
   line-height: 1.5;
+}
+.content a {
+  text-decoration: underline;
 }
 .content ol,
 .content ul {
@@ -384,69 +401,6 @@ a:focus-visible .post-meta {
 }
 .post-list-comment {
   color: var(--color-text-secondary);
-}
-.post-list-comment a {
-  text-decoration: none;
-}
-
-/* Post list (standard) */
-.post-list-standard .post-link {
-  display: block;
-}
-.post-list-standard .post-meta {
-  margin-bottom: .25em;
-}
-.post-list-standard .post-title {
-  font-size: 1.1em;
-}
-.post-list-standard .post-meta a,
-.post-list-standard .post-title a {
-  text-decoration: none;
-}
-.post-list-standard .post-selected-label {
-  margin-left: -1rem;
-  margin-bottom: .5rem;
-}
-.post-list-standard .post-list-selected-content {
-  border-left: .063rem solid var(--color-border);
-  padding-left: 1rem;
-}
-.post-list-standard .post-list-comment {
-  font-size: .9em;
-  margin-top: .25rem;
-}
-
-/* Post list (short) */
-.post-list-short .post-link {
-  display: inline-block;
-}
-.post-list-short .post-selected-label {
-  display: inline-block;
-}
-.post-list-short .post-meta,
-.post-list-short .post-title {
-  font-size: 1em;
-}
-.post-list-short .post-meta a,
-.post-list-short .post-title a {
-  text-decoration: none;
-}
-.post-list-short .post-title {
-  display: inline;
-}
-.post-list-short .post-author-name {
-  color: var(--color-text-secondary);
-}
-.post-list-short .post-author-name a {
-  text-decoration: none;
-}
-
-/* Post list (full) */
-.post-list-full .post-selected-label {
-  margin-bottom: 1rem;
-}
-.post-list-full .post-title a {
-  text-decoration: none;
 }
 
 /* Single Post */
@@ -516,9 +470,6 @@ a:focus-visible .post-meta {
 }
 .comment-date {
   font-size: .9em;
-}
-.comment-date a {
-  text-decoration: none;
 }
 .comment-content {
   border-left: .063rem solid var(--color-border);
@@ -688,7 +639,6 @@ a:focus-visible .post-meta {
   left: .3125rem;
   line-height: normal;
   padding: .5rem;
-  text-decoration: none;
   top: .3125rem;
   width: auto;
   z-index: 100000;
@@ -704,14 +654,14 @@ a:focus-visible .post-meta {
     color: var(--color-background);
   }
   a {
-    text-decoration-style: solid;
+    text-decoration: underline;
   }
   a:active,
   a:focus,
   a:hover {
     background-color: var(--color-text-primary);
     color: var(--color-background);
-    text-decoration-color: var(--color-text-primary);
+    text-decoration: none;
   }
   a:active .post-excerpt,
   a:focus .post-excerpt,
