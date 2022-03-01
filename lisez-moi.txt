@@ -12,6 +12,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.9.1 - 1er mars 2022 ===
+- Amélioration : harmonisation des styles.
+
 === 1.9 - 28 février 2022 ===
 - Ajout : bouton Lire la suite sous les billets de la liste.
 - Mise à jour : nombreux styles de la liste des billets, boutons, étiquettes…
