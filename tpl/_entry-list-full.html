@@ -1,10 +1,16 @@
 <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
   <header>
     <tpl:origineEntryIfSelected>
-      <div class="post-selected-label">
+      <div class="label label-selected">
         {{tpl:lang Selected post}}
       </div>
     </tpl:origineEntryIfSelected>
+
+    <tpl:EntryIf type="page">
+      <div class="label label-page">
+        {{tpl:lang Page}}
+      </div>
+    </tpl:EntryIf>
 
     <div class="post-meta text-secondary">
       <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}

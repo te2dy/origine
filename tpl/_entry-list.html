@@ -4,13 +4,13 @@
   </tpl:EntryIf>
 
   <tpl:origineEntryIfSelected>
-    <div class="post-selected-label">
+    <div class="label label-selected">
       {{tpl:lang Selected post}}
     </div>
   </tpl:origineEntryIfSelected>
 
   <tpl:EntryIf type="page">
-    <div class="label">
+    <div class="label label-page">
       {{tpl:lang Page}}
     </div>
   </tpl:EntryIf>
@@ -37,11 +37,11 @@
     </tpl:EntryIf>
   </section>
 
-  <div class="read-more">
-    <a aria-label="{{tpl:lang Read more about}} {{tpl:EntryTitle}}" class="read-more-link" href="{{tpl:EntryURL}}">{{tpl:lang Read more}}</a>
+  <footer class="post-footer">
+    <a aria-label="{{tpl:lang Read more about}} {{tpl:EntryTitle}}" class="button read-more" href="{{tpl:EntryURL}}">{{tpl:lang Read more}}</a>
 
     {{tpl:origineConfigPostListComments context="standard"}}
-  </div>
+  </footer>
 
   <tpl:EntryIf selected="1">
     </div>
