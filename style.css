@@ -510,20 +510,19 @@ textarea {
  * Pagination
  */
 .pagination {
-  margin: 4em 0 5em;
+  margin: 2em 0 4em;
+}
+.pagination .page-current {
   text-align: center;
 }
-.page-current {
-  display: inline-block;
-  margin: 0 auto;
-}
-.page-prev {
-  float: left;
-  margin-top: .4em;
+.pagination-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: .25em;
 }
 .page-next {
-  float: right;
-  margin-top: .4em;
+  margin-left: auto;
 }
 
 /**
@@ -707,6 +706,18 @@ textarea {
   #site {
     font-size: .9em;
     width: 90%;
+  }
+  .pagination {
+    margin: 2em 0;
+  }
+  .pagination-links {
+    display: block;
+    text-align: center;
+    margin-top: 0;
+  }
+  .page-prev,
+  .page-next {
+    margin-top: .25em;
   }
 }
 

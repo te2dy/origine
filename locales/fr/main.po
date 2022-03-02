@@ -112,11 +112,17 @@ msgstr "Mots-clés&nbsp;:"
 msgid "Post printed from"
 msgstr "Billet imprimé depuis"
 
-msgid "‹ Previous post"
-msgstr "‹ Billet précédent"
+msgid "‹ Previous page"
+msgstr "‹ précédente"
 
-msgid "Next post ›"
-msgstr "Billet suivant ›"
+msgid "Link to previous posts"
+msgstr "Lien vers les billets précédents"
+
+msgid "Next page ›"
+msgstr "suivante ›"
+
+msgid "Link to next posts"
+msgstr "Lien vers les billets suivants"
 
 msgid "RSS"
 msgstr "RSS"

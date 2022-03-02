@@ -112,10 +112,16 @@ msgstr ""
 msgid "Post printed from"
 msgstr ""
 
-msgid "‹ Previous post"
+msgid "‹ Previous page"
 msgstr ""
 
-msgid "Next post ›"
+msgid "Link to previous posts"
+msgstr ""
+
+msgid "Next page ›"
+msgstr ""
+
+msgid "Link to next posts"
 msgstr ""
 
 msgid "RSS"
