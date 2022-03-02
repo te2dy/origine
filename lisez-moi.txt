@@ -12,6 +12,11 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.9.3 - 2 mars 2022 ===
+- Amélioration : réorganisation des fichiers de traduction.
+- Correction : oubli de traductions.
+- Modification : augmentation de la marge basse des commentaires.
+
 === 1.9.2 - 2 mars 2022 ===
 - Amélioration : simplification du code concernant le chargement du modèle de liste de billets.
 - Amélioration : harmonisation des styles.
