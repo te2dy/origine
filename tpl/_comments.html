@@ -28,7 +28,7 @@
       </tpl:CommentIf>
     </header>
 
-    <div class="content comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf>">
+    <div class="comment-content<tpl:CommentIf is_ping="1"> ping-content</tpl:CommentIf> text">
       {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
 
       {{tpl:CommentContent}}
@@ -76,7 +76,7 @@
               <h3>{{tpl:lang Previewing}}</h3>
             </div>
 
-            <div class="comment-content">
+            <div class="comment-content text">
               {{tpl:CommentPreviewContent}}
             </div>
 
