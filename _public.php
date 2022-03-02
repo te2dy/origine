@@ -260,16 +260,10 @@ class tplOrigineTheme
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard') ) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'standard' ) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
-    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'short') {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-short.html']);
-    } elseif ($plugin_activated === true && $core->blog->settings->origineConfig->post_list_type === 'full') {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-full.html']);
-    } else {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list.html']);
+    if ($plugin_activated === false) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-standard.html']);
+    } elseif ($plugin_activated === true) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->post_list_type . '.html']);
     }
 
     return $tpl;
