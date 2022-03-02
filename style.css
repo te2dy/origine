@@ -354,30 +354,30 @@ textarea {
 .page-content {
   margin: 1.5em 0;
 }
-.content {
+.text {
   line-height: 1.5;
 }
-.content ol,
-.content ul {
+.text ol,
+.text ul {
   margin: 1em 0;
   padding-left: 1em;
 }
-.content ol ol,
-.content ol ul,
-.content ul ol,
-.content ul ul {
+.text ol ol,
+.text ol ul,
+.text ul ol,
+.text ul ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-.content li {
+.text li {
   list-style-position: inside;
 }
-.content hr {
+.text hr {
   border: 0;
   margin: 2em 0;
   text-align: center;
 }
-.content hr::after {
+.text hr::after {
   color: var(--color-text-primary);
   content: "\002042"; /* ⁂ */
 }
@@ -773,7 +773,7 @@ textarea {
     page-break-after: avoid;
     page-break-inside: avoid;
   }
-  .content a[href^=http]:after {
+  .text a[href^=http]:after {
     content: " [" attr(href) "]";
   }
   .post-single .post-footer {
