@@ -430,8 +430,7 @@ textarea {
 }
 .comment,
 .ping {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 2em 0 3em;
 }
 .comment-meta {
   margin-bottom: 1em;
