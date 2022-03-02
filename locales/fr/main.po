@@ -6,7 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-# __layout.html
+# Head
+
+msgid "RSS Feed"
+msgstr "Fil de syndication"
+
+# Header
 
 msgid "Skip to content"
 msgstr "Aller au contenu"
@@ -14,37 +19,51 @@ msgstr "Aller au contenu"
 msgid "Skip to menu"
 msgstr "Aller au menu"
 
-msgid "Header image"
-msgstr "Image d’en-tête"
+# Posts & pages
 
-msgid "Page without content"
-msgstr "Page sans contenu"
+msgid "post"
+msgstr "billet"
 
-msgid "There is nothing to display"
-msgstr "Il n’y a rien à afficher"
+msgid "Selected post"
+msgstr "Billet sélectionné"
 
-msgid "No content"
-msgstr "Aucun contenu"
+msgid "Selected"
+msgstr "Sélectionné"
 
-#_comments.html
+msgid "Read more"
+msgstr "Lire la suite"
+
+msgid "Read more about"
+msgstr "Lire la suite de"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Sorted in"
+msgstr "Classé dans"
+
+msgid "Tags:"
+msgstr "Mots-clés&nbsp;:"
+
+msgid "Post printed from"
+msgstr "Billet imprimé depuis"
+
+msgid "‹ Previous post"
+msgstr "‹ Billet précédent"
+
+msgid "Next post ›"
+msgstr "Billet suivant ›"
+
+# Comments & trackbacks
 
 msgid "comment"
 msgstr "commentaire"
-
-msgid "One comment"
-msgstr "Un commentaire"
-
-msgid "%s comments"
-msgstr ""
 
 msgid "at"
 msgstr "à"
 
 msgid ":"
 msgstr "&nbsp;:"
-
-msgid "Trackback:"
-msgstr "Rétrolien&nbsp;:"
 
 msgid "Ping"
 msgstr "Ping"
@@ -76,56 +95,21 @@ msgstr "Adresse électronique"
 msgid "URL of a personal account or website (optional)"
 msgstr "Adresse d’un compte ou site personnel (facultatif)"
 
-msgid "Private comment"
-msgstr "Commentaire privé"
+msgid "Remember me"
+msgstr "Se souvenir de moi"
 
-msgid "Reply to the author by email"
-msgstr "Répondre à l’auteur par courriel"
+# Pagination
 
-msgid "There is nothing to display."
-msgstr "Il n’y a rien à afficher."
-
-msgid "post"
-msgstr "billet"
-
-msgid "Selected post"
-msgstr "Billet sélectionné"
-
-msgid "Selected"
-msgstr "Sélectionné"
-
-msgid "Read more"
-msgstr "Lire la suite"
-
-msgid "Read more about"
-msgstr "Lire la suite de"
-
-msgid "Page"
-msgstr "Page"
-
-msgid "Sorted in"
-msgstr "Classé dans"
-
-msgid "Tags:"
-msgstr "Mots-clés&nbsp;:"
-
-msgid "Post printed from"
-msgstr "Billet imprimé depuis"
+msgid "of"
+msgstr "sur"
 
 msgid "‹ Previous page"
-msgstr "‹ précédente"
-
-msgid "Link to previous posts"
-msgstr "Lien vers les billets précédents"
+msgstr "‹ Page précédente"
 
 msgid "Next page ›"
-msgstr "suivante ›"
+msgstr "Page suivante ›"
 
-msgid "Link to next posts"
-msgstr "Lien vers les billets suivants"
-
-msgid "RSS"
-msgstr "RSS"
+# Footer
 
 msgid "Powered by"
 msgstr "Propulsé par"
@@ -136,14 +120,7 @@ msgstr "https://fr.dotclear.org/"
 msgid "designed by"
 msgstr "habillé par"
 
-msgid "Remember me"
-msgstr "Se souvenir de moi"
-
-msgid "‹ Previous page"
-msgstr "‹ Page précédente"
-
-msgid "Next page ›"
-msgstr "Page suivante ›"
+# Archives
 
 msgid "From"
 msgstr "Du"
@@ -159,6 +136,14 @@ msgstr "catégorie"
 
 msgid "Archives:"
 msgstr "Archives&nbsp;:"
+
+msgid "Posts related to the tag"
+msgstr "Billets associés au mot-clé"
+
+msgid "tag"
+msgstr "mot-clé"
+
+# Search
 
 msgid "Search"
 msgstr "Recherche"
@@ -178,17 +163,24 @@ msgstr "Votre recherche a retourné <strong>%2$s résultats</strong>&nbsp;:"
 msgid "No results."
 msgstr "Aucun résultat."
 
-msgid "Posts related to the tag"
-msgstr "Billets associés au mot-clé"
+# 404
 
-msgid "tag"
-msgstr "mot-clé"
+msgid "There is nothing to display"
+msgstr "Il n’y a rien à afficher"
 
-msgid "of"
-msgstr "sur"
+msgid "Page without content"
+msgstr "Page sans contenu"
 
-msgid "RSS Feed"
-msgstr "Fil de syndication"
+msgid "No content"
+msgstr "Aucun contenu"
+
+# Accessibility
 
 msgid "Published date of the post"
 msgstr "Date de publication du billet"
+
+msgid "Link to previous posts"
+msgstr "Lien vers les billets précédents"
+
+msgid "Link to next posts"
+msgstr "Lien vers les billets suivants"

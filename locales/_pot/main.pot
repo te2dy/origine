@@ -6,7 +6,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-# __layout.html
+# Head
+
+msgid "RSS Feed"
+msgstr ""
+
+# Header
 
 msgid "Skip to content"
 msgstr ""
@@ -14,36 +19,50 @@ msgstr ""
 msgid "Skip to menu"
 msgstr ""
 
-msgid "Header image"
+# Posts & pages
+
+msgid "post"
 msgstr ""
 
-msgid "Page without content"
+msgid "Selected post"
 msgstr ""
 
-msgid "There is nothing to display"
+msgid "Selected"
 msgstr ""
 
-msgid "No content"
+msgid "Read more"
 msgstr ""
 
-# _comments.html
+msgid "Read more about"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Sorted in"
+msgstr ""
+
+msgid "Tags:"
+msgstr ""
+
+msgid "Post printed from"
+msgstr ""
+
+msgid "‹ Previous post"
+msgstr ""
+
+msgid "Next post ›"
+msgstr ""
+
+# Comments & trackbacks
 
 msgid "comment"
-msgstr ""
-
-msgid "One comment"
-msgstr ""
-
-msgid "%s comments"
 msgstr ""
 
 msgid "at"
 msgstr ""
 
 msgid ":"
-msgstr ""
-
-msgid "Trackback:"
 msgstr ""
 
 msgid "Ping"
@@ -76,56 +95,21 @@ msgstr ""
 msgid "URL of a personal account or website (optional)"
 msgstr ""
 
-msgid "Private comment"
+msgid "Remember me"
 msgstr ""
 
-msgid "Reply to the author by email"
-msgstr ""
+# Pagination
 
-msgid "There is nothing to display."
-msgstr ""
-
-msgid "post"
-msgstr ""
-
-msgid "Selected post"
-msgstr ""
-
-msgid "Selected"
-msgstr ""
-
-msgid "Read more"
-msgstr ""
-
-msgid "Read more about"
-msgstr ""
-
-msgid "Page"
-msgstr ""
-
-msgid "Sorted in"
-msgstr ""
-
-msgid "Tags:"
-msgstr ""
-
-msgid "Post printed from"
+msgid "of"
 msgstr ""
 
 msgid "‹ Previous page"
 msgstr ""
 
-msgid "Link to previous posts"
-msgstr ""
-
 msgid "Next page ›"
 msgstr ""
 
-msgid "Link to next posts"
-msgstr ""
-
-msgid "RSS"
-msgstr ""
+# Footer
 
 msgid "Powered by"
 msgstr ""
@@ -136,14 +120,7 @@ msgstr ""
 msgid "designed by"
 msgstr ""
 
-msgid "Remember me"
-msgstr ""
-
-msgid "‹ Previous page"
-msgstr ""
-
-msgid "Next page ›"
-msgstr ""
+# Archives
 
 msgid "From"
 msgstr ""
@@ -159,6 +136,14 @@ msgstr ""
 
 msgid "Archives:"
 msgstr ""
+
+msgid "Posts related to the tag"
+msgstr ""
+
+msgid "tag"
+msgstr ""
+
+# Search
 
 msgid "Search"
 msgstr ""
@@ -178,18 +163,24 @@ msgstr ""
 msgid "No results."
 msgstr ""
 
-msgid "Posts related to the tag"
+# 404
+
+msgid "There is nothing to display"
 msgstr ""
 
-msgid "tag"
+msgid "Page without content"
 msgstr ""
 
-msgid "of"
-msgstr ""
-
-msgid "RSS Feed"
+msgid "No content"
 msgstr ""
 
 # Accessibility
+
 msgid "Published date of the post"
+msgstr ""
+
+msgid "Link to previous posts"
+msgstr ""
+
+msgid "Link to next posts"
 msgstr ""
