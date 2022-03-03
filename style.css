@@ -676,7 +676,6 @@ textarea {
 /* Default max-width : 480px + margins */
 @media only screen and (max-width: calc(1rem * 30 + (4em * 2))) {
   #site {
-    font-size: .95em;
     margin-top: 2em;
     max-width: none;
     width: 80%;
@@ -703,7 +702,6 @@ textarea {
 /* Default max-width : 320px + margins */
 @media only screen and (max-width: calc(1rem * 20 + (2em * 2))) {
   #site {
-    font-size: .9em;
     width: 90%;
   }
   .pagination {
