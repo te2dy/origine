@@ -14,7 +14,7 @@ $this->registerModule(
   /* Name */        'Origine',
   /* Description */ 'An ultra minimalist theme',
   /* Author */      'Teddy',
-  /* Version */     '1.9.3',
+  /* Version */     '1.9.4',
   array(
     'type' => 'theme',
   )
