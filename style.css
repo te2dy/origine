@@ -94,7 +94,7 @@ body{
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  margin: 0;
+  margin: 0 2em;
 }
 #site {
   box-sizing: border-box;
@@ -673,8 +673,23 @@ textarea {
  * Styles used to display the site on mobile depending on the screen size.
  */
 
-/* Default max-width : 480px + margins */
-@media only screen and (max-width: calc(1rem * 30 + (4em * 2))) {
+/**
+ * Adaptive media queries with calc():
+ * @media only screen and (max-width: calc(1rem * 30 + 4em * 2)) {
+ * are not supported yet on Chrome.
+ *
+ * For a default pixel size of 16px, this formula is equal to:
+ * 16px × 30 + 64px * 2
+ * 480px + 128px
+ * 608px
+ *
+ * Required: body left and right margin on full screens
+ * if the default pixel size is superior to 16px.
+ */
+@media only screen and (max-width: 608px) {
+  body {
+    margin: 0;
+  }
   #site {
     margin-top: 2em;
     max-width: none;
@@ -699,8 +714,20 @@ textarea {
   }
 }
 
-/* Default max-width : 320px + margins */
-@media only screen and (max-width: calc(1rem * 20 + (2em * 2))) {
+/**
+ * Adaptive media queries with calc():
+ * @media only screen and (max-width: calc(1rem * 20 + (2em * 2))) {
+ * are not supported yet on Chrome.
+ *
+ * For a default pixel size of 16px, this formula is equal to:
+ * 16px × 30 + 32px * 2
+ * 320px + 64px
+ * 384px
+ *
+ * Required: body left and right margin on full screens
+ * if the default pixel size is superior to 16px.
+ */
+@media only screen and (max-width: 384px) {
   #site {
     width: 90%;
   }
