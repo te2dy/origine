@@ -8,6 +8,8 @@
 
 Vous cherchez un thème simple pour mettre en valeur vos écrits ? Que vous soyez simple blogueur, écrivain, journaliste ou intellectuel, Origine est fait pour vous. Il a été spécialement conçu pour garantir une **excellente lisibilité** à vos textes tout en réduisant, grâce à son apparence **minimaliste**, les éléments de distraction qui pourraient perturber leur lecture.
 
+Pour personnaliser ce thème, utilisez l’extension [origineConfig](https://github.com/te2dy/origineConfig).
+
 ## Caractéristiques
 
 - Lisible
