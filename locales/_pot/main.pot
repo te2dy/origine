@@ -117,7 +117,7 @@ msgstr ""
 msgid "https://dotclear.org/"
 msgstr ""
 
-msgid "designed by"
+msgid "and"
 msgstr ""
 
 # Archives

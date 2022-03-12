@@ -117,8 +117,8 @@ msgstr "Propulsé par"
 msgid "https://dotclear.org/"
 msgstr "https://fr.dotclear.org/"
 
-msgid "designed by"
-msgstr "habillé par"
+msgid "and"
+msgstr "et"
 
 # Archives
 
