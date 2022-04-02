@@ -187,8 +187,7 @@ del {
   text-decoration: underline;
 }
 mark {
-  color: #000;
-  background-color: rgb(255, 255, 0, 0.85);
+  background-color: #fbf7a6;
 }
 blockquote {
   border-left: .063rem solid var(--color-border);
