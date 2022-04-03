@@ -35,11 +35,5 @@
     <p>{{tpl:SysSearchString encode_html="1" string="No results."}}</p>
   </tpl:SysIf>
 
-  <tpl:Entries>
-    {{tpl:originePostListType}}
-
-    <tpl:EntriesFooter>
-      {{tpl:include src="_pagination.html"}}
-    </tpl:EntriesFooter>
-  </tpl:Entries>
+  {{tpl:originePostListType}}
 </tpl:Block>

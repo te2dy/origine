@@ -22,13 +22,13 @@ if (!defined('DC_RC_PATH')) {
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
 
 // Blocks
-$core->tpl->addBlock('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addBlock('origineSidebar', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSidebar']);
 $core->tpl->addBlock('origineFooter', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooter']);
 $core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 // Values
+$core->tpl->addValue('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
@@ -63,17 +63,6 @@ class tplOrigineTheme
     if ($core->blog->settings->system->copyright_notice) {
       echo '<meta name="copyright" content="' . $core->blog->settings->system->copyright_notice . '" />' . "\n";
     }
-  }
-
-  /**
-   * Displays a defined content when the current post is selected.
-   */
-  public static function origineEntryIfSelected($attr, $content)
-  {
-    global $_ctx;
-
-    // If the post is selected, displays the content of the block.
-    return ($_ctx->posts->post_selected === '0') ? '' : $content;
   }
 
   /**
@@ -138,6 +127,36 @@ class tplOrigineTheme
     ) {
       return $content;
     }
+  }
+
+  /**
+   * Displays a defined content when the current post is selected.
+   */
+  public static function origineEntryIfSelected()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false) {
+      $tpl = 'standard';
+    } elseif ($plugin_activated === true) {
+      $tpl = $core->blog->settings->origineConfig->post_list_type;
+    }
+
+    if ($tpl === 'standard' || $tpl === 'full') {
+      $label = __('Selected post');
+    } else {
+      $label = __('Selected');
+    }
+
+    return "<?php if (\$_ctx->posts->post_selected === '0') {"
+         . "echo '';"
+         . "} else {"
+         . "echo '<div class=\"label label-selected\">';"
+         . "echo '" . $label . "';"
+         . "echo '</div>';"
+         . "} ?>";
   }
 
   /**

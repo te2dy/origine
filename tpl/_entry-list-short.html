@@ -1,25 +1,27 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
-  <tpl:origineEntryIfSelected>
-    <div class="label label-selected">
-      {{tpl:lang Selected}}
-    </div>
-  </tpl:origineEntryIfSelected>
+<tpl:Entries no_content="1">
+  <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
+    {{tpl:origineEntryIfSelected}}
 
-  <tpl:EntryIf type="page">
-    <div class="label label-page">
-      {{tpl:lang Page}}
-    </div>
-  </tpl:EntryIf>
+    <tpl:EntryIf type="page">
+      <div class="label label-page">
+        {{tpl:lang Page}}
+      </div>
+    </tpl:EntryIf>
 
-  <tpl:EntryIf type="post">
-    <span class="post-meta text-secondary">
-      <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> /
-    </span>
-  </tpl:EntryIf>
+    <tpl:EntryIf type="post">
+      <span class="post-meta text-secondary">
+        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> /
+      </span>
+    </tpl:EntryIf>
 
-  <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+    <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
 
-  {{tpl:origineConfigEntriesAuthorName}}
+    {{tpl:origineConfigEntriesAuthorName}}
 
-  {{tpl:origineConfigPostListComments context="short"}}
-</article>
+    {{tpl:origineConfigPostListComments context="short"}}
+  </article>
+
+  <tpl:EntriesFooter>
+    {{tpl:include src="_pagination.html"}}
+  </tpl:EntriesFooter>
+</tpl:Entries>

@@ -1,49 +1,53 @@
-<article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-standard {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
-  <tpl:EntryIf selected="1">
-    <div class="post-list-selected-content">
-  </tpl:EntryIf>
+<tpl:Entries no_content="0">
+  <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-standard {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
+    <tpl:EntryIf selected="1">
+      <div class="post-list-selected-content">
+    </tpl:EntryIf>
 
-  <tpl:origineEntryIfSelected>
-    <div class="label label-selected">
-      {{tpl:lang Selected post}}
-    </div>
-  </tpl:origineEntryIfSelected>
+    {{tpl:origineEntryIfSelected}}
 
-  <tpl:EntryIf type="page">
-    <div class="label label-page">
-      {{tpl:lang Page}}
-    </div>
-  </tpl:EntryIf>
-
-  <header>
-    <tpl:EntryIf type="post">
-      <div class="post-meta text-secondary">
-        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
+    <tpl:EntryIf type="page">
+      <div class="label label-page">
+        {{tpl:lang Page}}
       </div>
     </tpl:EntryIf>
 
-    <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
-  </header>
+    <header>
+      <tpl:EntryIf type="post">
+        <div class="post-meta text-secondary">
+          <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
+        </div>
+      </tpl:EntryIf>
 
-  <section class="post-excerpt text text-secondary">
-    <!-- # Entry with an excerpt -->
-    <tpl:EntryIf extended="1">
-      {{tpl:EntryExcerpt encode_html="1" remove_html="1"}}
+      <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+    </header>
+
+    <section class="post-excerpt text text-secondary">
+      {{tpl:EntryFirstImage class="post-thumbnail" size="o"}}
+
+      <!-- # Entry with an excerpt -->
+      <tpl:EntryIf extended="1">
+        {{tpl:EntryExcerpt encode_html="1" remove_html="1"}}
+      </tpl:EntryIf>
+
+      <!-- # Entry without excerpt -->
+      <tpl:EntryIf extended="0">
+          {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut>
+      </tpl:EntryIf>
+    </section>
+
+    <footer class="post-footer">
+      <a aria-label="{{tpl:lang Read more about}} {{tpl:EntryTitle}}" class="button read-more" href="{{tpl:EntryURL}}">{{tpl:lang Read more}}</a>
+
+      {{tpl:origineConfigPostListComments context="standard"}}
+    </footer>
+
+    <tpl:EntryIf selected="1">
+      </div>
     </tpl:EntryIf>
+  </article>
 
-    <!-- # Entry without excerpt -->
-    <tpl:EntryIf extended="0">
-        {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut>
-    </tpl:EntryIf>
-  </section>
-
-  <footer class="post-footer">
-    <a aria-label="{{tpl:lang Read more about}} {{tpl:EntryTitle}}" class="button read-more" href="{{tpl:EntryURL}}">{{tpl:lang Read more}}</a>
-
-    {{tpl:origineConfigPostListComments context="standard"}}
-  </footer>
-
-  <tpl:EntryIf selected="1">
-    </div>
-  </tpl:EntryIf>
-</article>
+  <tpl:EntriesFooter>
+    {{tpl:include src="_pagination.html"}}
+  </tpl:EntriesFooter>
+</tpl:Entries>
