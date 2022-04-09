@@ -76,7 +76,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     // If the plugin is installed and activated.
-    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['comment_links'] === true ) ) {
+    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['content_comment_links'] === true ) ) {
       return $content;
     }
   }
@@ -91,7 +91,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['sidebar_enabled'] === true)
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['widgets_enabled'] === true)
     ) {
       return $content;
     }
@@ -143,7 +143,7 @@ class tplOrigineTheme
     if ($plugin_activated === false) {
       $tpl = 'standard';
     } elseif ($plugin_activated === true) {
-      $tpl = $core->blog->settings->origineConfig->origine_settings['post_list_type'];
+      $tpl = $core->blog->settings->origineConfig->origine_settings['content_post_list_type'];
     }
 
     if ($tpl === 'standard' || $tpl === 'full') {
@@ -286,7 +286,7 @@ class tplOrigineTheme
     if ($plugin_activated === false) {
       $tpl = $core->tpl->includeFile(['src' => '_entry-list-standard.html']);
     } elseif ($plugin_activated === true) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->origine_settings['post_list_type'] . '.html']);
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->origine_settings['content_post_list_type'] . '.html']);
     }
 
     return $tpl;
