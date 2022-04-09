@@ -76,7 +76,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     // If the plugin is installed and activated.
-    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->comment_links === true ) ) {
+    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['comment_links'] === true ) ) {
       return $content;
     }
   }
@@ -91,7 +91,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->sidebar_enabled === true)
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['sidebar_enabled'] === true)
     ) {
       return $content;
     }
@@ -107,7 +107,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_enabled === true)
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_enabled'] === true)
     ) {
       return $content;
     }
@@ -123,7 +123,9 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->footer_credits === true)
+      || ($plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true
+      )
     ) {
       return $content;
     }
@@ -141,7 +143,7 @@ class tplOrigineTheme
     if ($plugin_activated === false) {
       $tpl = 'standard';
     } elseif ($plugin_activated === true) {
-      $tpl = $core->blog->settings->origineConfig->post_list_type;
+      $tpl = $core->blog->settings->origineConfig->origine_settings['post_list_type'];
     }
 
     if ($tpl === 'standard' || $tpl === 'full') {
@@ -238,7 +240,9 @@ class tplOrigineTheme
     global $core;
 
     if ($core->plugins->moduleExists('origineConfig') === true
-      && $core->blog->settings->origineConfig->activation === true
+      && version_compare('0.6.3', $core->plugins->moduleInfo('origineConfig', 'version'), '<') // Needed to support the new parameter origine_settings that contains all the plugin settings.
+      && is_array($core->blog->settings->origineConfig->origine_settings)
+      && $core->blog->settings->origineConfig->origine_settings['activation'] === true
     ) {
       return true;
     } else {
@@ -263,7 +267,7 @@ class tplOrigineTheme
       // @see styles.css
       $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000}@media (prefers-color-scheme:dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333;--color-input-background-hover:#d9d9d9}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1em}.post-list-standard .post-link{display:block}.post-list-standard .post-meta{margin-bottom:.25em}.post-list-standard .post-title{font-size:1.1em}.post-list-standard .label-selected{border-left:none;margin-left:-1rem;margin-bottom:.5em}.post-list-standard .post-list-selected-content{border-left:.063rem solid var(--color-border);padding-left:1rem}.post-list-standard .label-page{margin-bottom:.5em}.post-list-standard .post-list-comment{display:inline-block;margin-left:.25em}.post-list-standard .post-footer{font-size:.9em;margin-top:.5em}.post-list-standard .read-more{border:none}';
     } else {
-      $styles = $core->blog->settings->origineConfig->origine_styles ? $core->blog->settings->origineConfig->origine_styles : '';
+      $styles = $core->blog->settings->origineConfig->origine_settings['styles'] ? $core->blog->settings->origineConfig->origine_settings['styles'] : '';
     }
 
     return '<style>' . $styles . '</style>';
@@ -282,7 +286,7 @@ class tplOrigineTheme
     if ($plugin_activated === false) {
       $tpl = $core->tpl->includeFile(['src' => '_entry-list-standard.html']);
     } elseif ($plugin_activated === true) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->post_list_type . '.html']);
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->origine_settings['post_list_type'] . '.html']);
     }
 
     return $tpl;
