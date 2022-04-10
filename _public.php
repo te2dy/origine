@@ -41,7 +41,6 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 
 // Values
 $core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
-$core->tpl->addValue('origineFunctionsDisabled', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFunctionsDisabled']);
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryFirstImage', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryFirstImage']);
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
@@ -128,7 +127,11 @@ class tplOrigineTheme
     if ($plugin_activated === false
       || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true)
     ) {
-      return $content;
+      if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
+        return $content;
+      } else {
+        return str_replace('https://themes.dotaddict.org/galerie-dc2/details/origine">Origine<', 'https://github.com/te2dy/origine">Origine ' . $core->themes->moduleInfo('origine', 'version') . '<', $content);
+      }
     }
   }
 
@@ -251,18 +254,6 @@ class tplOrigineTheme
   }
 
   /**
-   * An array of functions in development to disable in production.
-   */
-  public static function origineFunctionsDisabled()
-  {
-    $functions_disabled = [
-      'origineEntryFirstImage',
-    ];
-
-    return $functions_disabled;
-  }
-
-  /**
    * Loads the right entry list template based on origineConfig settings.
    * Default: standard.
    */
@@ -288,35 +279,82 @@ class tplOrigineTheme
    */
   public static function origineEntryFirstImage($attr)
   {
-    $functions_disabled = self::origineFunctionsDisabled();
-
-    if (in_array(__FUNCTION__, $functions_disabled, true) === true) {
+    if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
       return;
     }
 
     global $core;
 
-    $plugin_activated = self::origineConfigActivationStatus();
+    $url_public_relative = $core->blog->settings->system->public_url;
 
-    $sizes = ['s', 'm', 'o'];
+    return '
+      <?php
+      // All images URL
+      $img_o_url  = context::EntryFirstImageHelper(" . addslashes(\"o\") . ", 0, 0, 1);
+      $img_o_only = true;
 
-    //$f = new fileItem($root.'/'.$file_name,$root,$root_url);
+      if ($img_o_url) {
+        $img_m_url = context::EntryFirstImageHelper(" . addslashes(\"m\") . ", 0, 0, 1);
+        $img_s_url = context::EntryFirstImageHelper(" . addslashes(\"s\") . ", 0, 0, 1);
 
-    return '<?php
-      $size_original = context::EntryFirstImageHelper(" . addslashes(\"o\") . ", 0, 0, 1);
-      $size_medium   = context::EntryFirstImageHelper(" . addslashes(\"m\") . ", 0, 0, 1);
-      $size_small    = context::EntryFirstImageHelper(" . addslashes(\"s\") . ", 0, 0, 1);
+        // All image width if URLs are different.
+        $img_o_path   = $core->blog->public_path . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
+        $img_o_width  = getimagesize($img_o_path)[0];
+        $img_o_height = getimagesize($img_o_path)[1];
+
+        $images      = [];
+        $images["o"] = [ "$img_o_url", $img_o_width];
+
+        $img_m_width = 0;
+        $img_s_width = 0;
+
+        if ($img_o_url !== $img_m_url && $img_o_url !== $img_s_url) {
+          $img_o_only = false;
+
+          if ($img_o_url !== $img_m_url) {
+            $img_m_path   = $core->blog->public_path . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
+            $img_m_width  = getimagesize($img_m_path)[0];
+          }
+
+          if ($img_o_url !== $img_s_url) {
+            $img_s_path   = $core->blog->public_path . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
+            $img_s_width  = getimagesize($img_s_path)[0];
+          }
+
+          $images = [];
+
+          if ($img_m_width > 0) {
+            $images["m"] = [ "$img_m_url", $img_m_width];
+          }
+
+          if ($img_s_width > 0) {
+            $images["s"] = [ "$img_s_url", $img_s_width];
+          }
+        }
+
+        $src_set_value = "";
+
+        if (count($images) > 1) {
+          $src_set_value .= " srcset=\"";
+
+          foreach ($images as $size => $data) {
+            $src_set_value .= $data[0] . " " . $data[1] . "px";
+
+            if (array_key_last($images) !== $size) {
+              $src_set_value .= ", ";
+            }
+          }
+
+          $src_set_value .= "\"";
+        }
+        ?>
+
+        <img class="post-thumbnail" src="<?php echo $img_o_url; ?>"<?php echo $src_set_value; ?> />
+
+        <?php
+      }
       ?>
-
-      <img
-        src="<?php echo $size_original; ?>"
-
-        <?php // if ($size_original !== $size_medium && $size_original !== $size_small) { ?>
-          srcset="<?php echo $size_original; ?>,
-            <?php echo $size_medium; ?>,
-            <?php echo $size_small; ?>"
-        <?php // } ?>
-      />';
+      ';
   }
 
   /**
