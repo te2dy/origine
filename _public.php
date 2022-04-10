@@ -349,7 +349,7 @@ class tplOrigineTheme
         }
         ?>
 
-        <img class="post-thumbnail" src="<?php echo $img_o_url; ?>"<?php echo $src_set_value; ?> />
+        <img class="post-thumbnail" loading="lazy" src="<?php echo $img_o_url; ?>"<?php echo $src_set_value; ?> />
 
         <?php
       }
