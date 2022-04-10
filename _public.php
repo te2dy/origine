@@ -76,7 +76,8 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     // If the plugin is installed and activated.
-    if ($plugin_activated === false || ( $plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['content_comment_links'] === true ) ) {
+    if ($plugin_activated === false
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['content_comment_links'] === true)) {
       return $content;
     }
   }
@@ -123,9 +124,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false
-      || ($plugin_activated === true
-        && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true
-      )
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true)
     ) {
       return $content;
     }
@@ -142,7 +141,7 @@ class tplOrigineTheme
 
     if ($plugin_activated === false) {
       $tpl = 'standard';
-    } elseif ($plugin_activated === true) {
+    } else {
       $tpl = $core->blog->settings->origineConfig->origine_settings['content_post_list_type'];
     }
 
@@ -241,7 +240,6 @@ class tplOrigineTheme
 
     if ($core->plugins->moduleExists('origineConfig') === true
       && version_compare('0.6.3', $core->plugins->moduleInfo('origineConfig', 'version'), '<') // Needed to support the new parameter origine_settings that contains all the plugin settings.
-      && is_array($core->blog->settings->origineConfig->origine_settings)
       && $core->blog->settings->origineConfig->origine_settings['activation'] === true
     ) {
       return true;
