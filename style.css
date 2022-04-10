@@ -397,6 +397,10 @@ textarea {
 .post-list:last-child {
   margin-bottom: 0;
 }
+.post-thumbnail {
+  display: block;
+  margin: 1em 0 .5em;
+}
 .post-excerpt {
   margin-top: .5em;
 }
