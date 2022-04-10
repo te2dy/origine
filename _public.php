@@ -41,8 +41,10 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 
 // Values
 $core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
-$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
+$core->tpl->addValue('origineFunctionsDisabled', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFunctionsDisabled']);
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
+$core->tpl->addValue('origineEntryFirstImage', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryFirstImage']);
+$core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 
 class tplOrigineTheme
 {
@@ -249,6 +251,75 @@ class tplOrigineTheme
   }
 
   /**
+   * An array of functions in development to disable in production.
+   */
+  public static function origineFunctionsDisabled()
+  {
+    $functions_disabled = [
+      'origineEntryFirstImage',
+    ];
+
+    return $functions_disabled;
+  }
+
+  /**
+   * Loads the right entry list template based on origineConfig settings.
+   * Default: standard.
+   */
+  public static function originePostListType()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if ($plugin_activated === false) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-standard.html']);
+    } elseif ($plugin_activated === true) {
+      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->origine_settings['content_post_list_type'] . '.html']);
+    }
+
+    return $tpl;
+  }
+
+  /**
+   * Displays the first image of a post.
+   *
+   * IN DEVELOPMENT.
+   */
+  public static function origineEntryFirstImage($attr)
+  {
+    $functions_disabled = self::origineFunctionsDisabled();
+
+    if (in_array(__FUNCTION__, $functions_disabled, true) === true) {
+      return;
+    }
+
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    $sizes = ['s', 'm', 'o'];
+
+    //$f = new fileItem($root.'/'.$file_name,$root,$root_url);
+
+    return '<?php
+      $size_original = context::EntryFirstImageHelper(" . addslashes(\"o\") . ", 0, 0, 1);
+      $size_medium   = context::EntryFirstImageHelper(" . addslashes(\"m\") . ", 0, 0, 1);
+      $size_small    = context::EntryFirstImageHelper(" . addslashes(\"s\") . ", 0, 0, 1);
+      ?>
+
+      <img
+        src="<?php echo $size_original; ?>"
+
+        <?php // if ($size_original !== $size_medium && $size_original !== $size_small) { ?>
+          srcset="<?php echo $size_original; ?>,
+            <?php echo $size_medium; ?>,
+            <?php echo $size_small; ?>"
+        <?php // } ?>
+      />';
+  }
+
+  /**
    * Adds styles in the head section.
    *
    * If the plugin origineConfig is not installed nor activated,
@@ -269,24 +340,5 @@ class tplOrigineTheme
     }
 
     return '<style>' . $styles . '</style>';
-  }
-
-  /**
-   * Loads the right entry list template based on origineConfig settings.
-   * Default: standard.
-   */
-  public static function originePostListType()
-  {
-    global $core;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    if ($plugin_activated === false) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-standard.html']);
-    } elseif ($plugin_activated === true) {
-      $tpl = $core->tpl->includeFile(['src' => '_entry-list-' . $core->blog->settings->origineConfig->origine_settings['content_post_list_type'] . '.html']);
-    }
-
-    return $tpl;
   }
 }
