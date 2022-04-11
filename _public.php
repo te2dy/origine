@@ -272,15 +272,25 @@ class tplOrigineTheme
 
     return '
       <?php
-      // All images URL
-      $img_o_url  = context::EntryFirstImageHelper(" . addslashes(\"o\") . ", 0, 0, 1);
+      // The image URL.
+      $img_o_url = context::EntryFirstImageHelper(addslashes("o"), 0, "", true);
+
+      // The image tag and its parameters.
+      $img_o = context::EntryFirstImageHelper(addslashes("o"), 0, "", false);
+
+      // Gets the value of alt.
+      if (preg_match(\'/alt="([^"]+)"/\', $img_o, $alt)) {
+          $img_o_alt = " alt=\"" . $alt[1] . "\"";
+      } else {
+        $img_o_alt = "";
+      }
+
       $img_o_only = true;
 
       if ($img_o_url) {
-        $img_m_url = context::EntryFirstImageHelper(" . addslashes(\"m\") . ", 0, 0, 1);
-        $img_s_url = context::EntryFirstImageHelper(" . addslashes(\"s\") . ", 0, 0, 1);
+        $img_m_url = context::EntryFirstImageHelper(addslashes("m"), 0, "", true);
+        $img_s_url = context::EntryFirstImageHelper(addslashes("s"), 0, "", true);
 
-        // All image width if URLs are different.
         $img_o_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
         $img_o_width  = getimagesize($img_o_path)[0];
         $img_o_height = getimagesize($img_o_path)[1];
@@ -295,16 +305,14 @@ class tplOrigineTheme
           $img_o_only = false;
 
           if ($img_o_url !== $img_m_url) {
-            $img_m_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
-            $img_m_width  = getimagesize($img_m_path)[0];
+            $img_m_path  = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_m_url);
+            $img_m_width = getimagesize($img_m_path)[0];
           }
 
           if ($img_o_url !== $img_s_url) {
-            $img_s_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
-            $img_s_width  = getimagesize($img_s_path)[0];
+            $img_s_path  = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_s_url);
+            $img_s_width = getimagesize($img_s_path)[0];
           }
-
-          $images = [];
 
           if ($img_m_width > 0) {
             $images["m"] = ["$img_m_url", $img_m_width];
@@ -313,15 +321,17 @@ class tplOrigineTheme
           if ($img_s_width > 0) {
             $images["s"] = ["$img_s_url", $img_s_width];
           }
+
+          array_reverse($images);
         }
 
         $src_set_value = "";
 
-        if (count($images) > 1) {
+        if (isset($images) && count($images) > 1) {
           $src_set_value .= " srcset=\"";
 
           foreach ($images as $size => $data) {
-            $src_set_value .= $data[0] . " " . $data[1] . "px";
+            $src_set_value .= "$data[0] $data[1]w";
 
             if (array_key_last($images) !== $size) {
               $src_set_value .= ", ";
@@ -332,7 +342,7 @@ class tplOrigineTheme
         }
         ?>
 
-        <img class="post-thumbnail" loading="lazy" src="<?php echo $img_o_url; ?>"<?php echo $src_set_value; ?> sizes="" />
+        <img<?php echo $img_o_alt; ?> class="post-thumbnail" loading="lazy" src="<?php echo $img_m_url; ?>"<?php echo $src_set_value; ?> />
 
         <?php
       }
