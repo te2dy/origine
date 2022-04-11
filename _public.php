@@ -355,16 +355,15 @@ class tplOrigineTheme
     ) {
       $the_footer .= '<div class="widget" id="site-footer-ad">';
 
+      $url_dotclear  = __('https://dotclear.org/');
+      $text_dotclear = __('Dotclear');
+      $text_origine  = __('Origine');
+
       if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
-        $url_dotclear  = __('https://dotclear.org/');
-        $text_dotclear = __('Dotclear');
         $url_origine   = __('https://themes.dotaddict.org/galerie-dc2/details/origine');
-        $text_origine  = __('Origine');
       } else {
-        $url_dotclear  = __('https://dotclear.org/');
-        $text_dotclear = __('Dotclear');
         $url_origine   = __('https://github.com/te2dy/origine');
-        $text_origine  = __('Origine') . ' ' . $core->themes->moduleInfo('origine', 'version');
+        $text_origine .= ' ' . $core->themes->moduleInfo('origine', 'version');
       }
 
       $the_footer .= sprintf(
