@@ -111,13 +111,22 @@ msgstr ""
 
 # Footer
 
-msgid "Powered by"
+msgid "Dotclear"
 msgstr ""
 
 msgid "https://dotclear.org/"
 msgstr ""
 
-msgid "and"
+msgid "Origine"
+msgstr ""
+
+msgid "https://themes.dotaddict.org/galerie-dc2/details/origine"
+msgstr ""
+
+msgid "https://github.com/te2dy/origine"
+msgstr ""
+
+msgid "Powered by <a href="%1$s">%2$s</a> and <a href="%3$s">%4$s</a>"
 msgstr ""
 
 # Archives

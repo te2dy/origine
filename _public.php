@@ -25,7 +25,6 @@ $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'pu
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addBlock('origineSidebar', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSidebar']);
 $core->tpl->addBlock('origineFooter', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooter']);
-$core->tpl->addBlock('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 
 // Values
 $core->tpl->addValue('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
@@ -43,6 +42,7 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 $core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryFirstImage', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryFirstImage']);
+$core->tpl->addValue('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 
 class tplOrigineTheme
@@ -112,26 +112,6 @@ class tplOrigineTheme
       || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_enabled'] === true)
     ) {
       return $content;
-    }
-  }
-
-  /**
-   * Displays credits except if the plugin tells no.
-   */
-  public static function origineFooterCredits($attr, $content)
-  {
-    global $core;
-
-    $plugin_activated = self::origineConfigActivationStatus();
-
-    if ($plugin_activated === false
-      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true)
-    ) {
-      if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
-        return $content;
-      } else {
-        return str_replace('https://themes.dotaddict.org/galerie-dc2/details/origine">Origine<', 'https://github.com/te2dy/origine">Origine ' . $core->themes->moduleInfo('origine', 'version') . '<', $content);
-      }
     }
   }
 
@@ -276,6 +256,8 @@ class tplOrigineTheme
    * Displays the first image of a post.
    *
    * IN DEVELOPMENT.
+   *
+   * TO PUT IN THE PLUGIN FILES INSTEAD OF THE THEME FILES.
    */
   public static function origineEntryFirstImage($attr)
   {
@@ -286,6 +268,7 @@ class tplOrigineTheme
     global $core;
 
     $url_public_relative = $core->blog->settings->system->public_url;
+    $public_path         = $core->blog->public_path;
 
     return '
       <?php
@@ -298,12 +281,12 @@ class tplOrigineTheme
         $img_s_url = context::EntryFirstImageHelper(" . addslashes(\"s\") . ", 0, 0, 1);
 
         // All image width if URLs are different.
-        $img_o_path   = $core->blog->public_path . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
+        $img_o_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
         $img_o_width  = getimagesize($img_o_path)[0];
         $img_o_height = getimagesize($img_o_path)[1];
 
         $images      = [];
-        $images["o"] = [ "$img_o_url", $img_o_width];
+        $images["o"] = ["$img_o_url", $img_o_width];
 
         $img_m_width = 0;
         $img_s_width = 0;
@@ -312,23 +295,23 @@ class tplOrigineTheme
           $img_o_only = false;
 
           if ($img_o_url !== $img_m_url) {
-            $img_m_path   = $core->blog->public_path . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
+            $img_m_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
             $img_m_width  = getimagesize($img_m_path)[0];
           }
 
           if ($img_o_url !== $img_s_url) {
-            $img_s_path   = $core->blog->public_path . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
+            $img_s_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
             $img_s_width  = getimagesize($img_s_path)[0];
           }
 
           $images = [];
 
           if ($img_m_width > 0) {
-            $images["m"] = [ "$img_m_url", $img_m_width];
+            $images["m"] = ["$img_m_url", $img_m_width];
           }
 
           if ($img_s_width > 0) {
-            $images["s"] = [ "$img_s_url", $img_s_width];
+            $images["s"] = ["$img_s_url", $img_s_width];
           }
         }
 
@@ -349,12 +332,53 @@ class tplOrigineTheme
         }
         ?>
 
-        <img class="post-thumbnail" loading="lazy" src="<?php echo $img_o_url; ?>"<?php echo $src_set_value; ?> />
+        <img class="post-thumbnail" loading="lazy" src="<?php echo $img_o_url; ?>"<?php echo $src_set_value; ?> sizes="" />
 
         <?php
       }
       ?>
       ';
+  }
+
+  /**
+   * Displays credits except if the plugin tells no.
+   */
+  public static function origineFooterCredits()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+    $the_footer       = '';
+
+    if ($plugin_activated === false
+      || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true)
+    ) {
+      $the_footer .= '<div class="widget" id="site-footer-ad">';
+
+      if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
+        $url_dotclear  = __('https://dotclear.org/');
+        $text_dotclear = __('Dotclear');
+        $url_origine   = __('https://themes.dotaddict.org/galerie-dc2/details/origine');
+        $text_origine  = __('Origine');
+      } else {
+        $url_dotclear  = __('https://dotclear.org/');
+        $text_dotclear = __('Dotclear');
+        $url_origine   = __('https://github.com/te2dy/origine');
+        $text_origine  = __('Origine') . ' ' . $core->themes->moduleInfo('origine', 'version');
+      }
+
+      $the_footer .= sprintf(
+        __('Powered by <a href="%1$s">%2$s</a> and <a href="%3$s">%4$s</a>'),
+        $url_dotclear,
+        $text_dotclear,
+        $url_origine,
+        $text_origine
+      );
+
+      $the_footer .= '</div>';
+    }
+
+    return $the_footer;
   }
 
   /**
