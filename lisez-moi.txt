@@ -12,6 +12,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.10.1-dev - 10 avril 2022 ===
+- Modification : fonction pour l’image mise en avant transférée à l’extension.
+
 === 1.10-dev - 10 avril 2022 ===
 - Ajout : affichage de la première image du billet dans la liste des billets.
 - Ajout : numéro de version du thème lorsque l’installation de Dotclear est déclarée en développement.
