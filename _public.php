@@ -41,7 +41,6 @@ $core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme',
 // Values
 $core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
-$core->tpl->addValue('origineEntryFirstImage', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryFirstImage']);
 $core->tpl->addValue('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 $core->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
 
@@ -218,13 +217,16 @@ class tplOrigineTheme
   /**
    * Returns true if the plugin origineConfig
    * is installed and activated.
+   *
+   * To support the user’s settings, the version of the plugin must be superior to 0.6.3.
    */
   public static function origineConfigActivationStatus()
   {
     global $core;
 
     if ($core->plugins->moduleExists('origineConfig') === true
-      && version_compare('0.6.3', $core->plugins->moduleInfo('origineConfig', 'version'), '<') // Needed to support the new parameter origine_settings that contains all the plugin settings.
+      // Needed to support the new parameter origine_settings that contains all the plugin settings.
+      && version_compare('0.6.3', $core->plugins->moduleInfo('origineConfig', 'version'), '<')
       && $core->blog->settings->origineConfig->origine_settings['activation'] === true
     ) {
       return true;
@@ -250,104 +252,6 @@ class tplOrigineTheme
     }
 
     return $tpl;
-  }
-
-  /**
-   * Displays the first image of a post.
-   *
-   * IN DEVELOPMENT.
-   *
-   * TO PUT IN THE PLUGIN FILES INSTEAD OF THE THEME FILES.
-   */
-  public static function origineEntryFirstImage($attr)
-  {
-    if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
-      return;
-    }
-
-    global $core;
-
-    $url_public_relative = $core->blog->settings->system->public_url;
-    $public_path         = $core->blog->public_path;
-
-    return '
-      <?php
-      // The image URL.
-      $img_o_url = context::EntryFirstImageHelper(addslashes("o"), 0, "", true);
-
-      // The image tag and its parameters.
-      $img_o = context::EntryFirstImageHelper(addslashes("o"), 0, "", false);
-
-      // Gets the value of alt.
-      if (preg_match(\'/alt="([^"]+)"/\', $img_o, $alt)) {
-          $img_o_alt = " alt=\"" . $alt[1] . "\"";
-      } else {
-        $img_o_alt = "";
-      }
-
-      $img_o_only = true;
-
-      if ($img_o_url) {
-        $img_m_url = context::EntryFirstImageHelper(addslashes("m"), 0, "", true);
-        $img_s_url = context::EntryFirstImageHelper(addslashes("s"), 0, "", true);
-
-        $img_o_path   = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_o_url);
-        $img_o_width  = getimagesize($img_o_path)[0];
-        $img_o_height = getimagesize($img_o_path)[1];
-
-        $images      = [];
-        $images["o"] = ["$img_o_url", $img_o_width];
-
-        $img_m_width = 0;
-        $img_s_width = 0;
-
-        if ($img_o_url !== $img_m_url && $img_o_url !== $img_s_url) {
-          $img_o_only = false;
-
-          if ($img_o_url !== $img_m_url) {
-            $img_m_path  = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_m_url);
-            $img_m_width = getimagesize($img_m_path)[0];
-          }
-
-          if ($img_o_url !== $img_s_url) {
-            $img_s_path  = "' . $public_path . '" . str_replace("' . $url_public_relative . '" . "/", "/", $img_s_url);
-            $img_s_width = getimagesize($img_s_path)[0];
-          }
-
-          if ($img_m_width > 0) {
-            $images["m"] = ["$img_m_url", $img_m_width];
-          }
-
-          if ($img_s_width > 0) {
-            $images["s"] = ["$img_s_url", $img_s_width];
-          }
-
-          array_reverse($images);
-        }
-
-        $src_set_value = "";
-
-        if (isset($images) && count($images) > 1) {
-          $src_set_value .= " srcset=\"";
-
-          foreach ($images as $size => $data) {
-            $src_set_value .= "$data[0] $data[1]w";
-
-            if (array_key_last($images) !== $size) {
-              $src_set_value .= ", ";
-            }
-          }
-
-          $src_set_value .= "\"";
-        }
-        ?>
-
-        <img<?php echo $img_o_alt; ?> class="post-thumbnail" loading="lazy" src="<?php echo $img_m_url; ?>"<?php echo $src_set_value; ?> />
-
-        <?php
-      }
-      ?>
-      ';
   }
 
   /**
