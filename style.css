@@ -417,8 +417,24 @@ textarea {
   display: flex;
   margin-top: 4em;
 }
-.link-next {
+.post-pagination-next,
+.post-pagination-prev {
+  width: 50%;
+}
+.post-pagination-prev {
+  padding-right: .5em;
+}
+.post-pagination-next {
   margin-left: auto;
+  padding-left: .5em;
+  text-align: right;
+}
+.post-pagination-title {
+  font-size: .9em;
+  margin-bottom: .25em;
+}
+.post-pagination-link-container {
+  font-style: italic;
 }
 
 /**
