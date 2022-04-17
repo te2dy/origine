@@ -132,15 +132,9 @@ a:hover {
   border-bottom-style: solid;
   color: var(--color-link);
 }
-a:focus-visible {
-  border-bottom: none;
-  outline: .063rem solid var(--color-link);
-  outline-offset: .125rem;
-}
+a:focus-visible,
 a:focus-visible img {
   border-bottom: none;
-  outline: .063rem solid var(--color-link);
-  outline-offset: .125rem;
 }
 .text-secondary {
   color: var(--color-text-secondary);
@@ -238,13 +232,6 @@ textarea {
   max-width: 100%;
   padding: .5em;
 }
-input:focus,
-input:focus-visible,
-textarea:focus,
-textarea:focus-visible {
-  outline: .063rem solid var(--color-link);
-  outline-offset: .125rem;
-}
 .button {
   border: .063rem solid var(--color-border);
   display: inline-block;
@@ -272,13 +259,6 @@ input[type="submit"]:hover,
   border-color: var(--color-input-background-hover);
   color: var(--color-input-text-hover);
   cursor: pointer;
-}
-input[type="submit"]:focus-visible,
-.button:focus-visible,
-.form-submit:focus-visible {
-  border-color: transparent;
-  outline: .063rem solid var(--color-link);
-  outline-offset: .125rem;
 }
 textarea {
   width: 100%;
@@ -658,17 +638,6 @@ textarea {
     background-color: var(--color-text-primary);
     border-bottom-color: var(--color-text-primary);
     color: var(--color-background);
-  }
-  a:focus-visible,
-  a:focus-visible img,
-  input:focus,
-  input:focus-visible,
-  textarea:focus,
-  textarea:focus-visible,
-  input[type="submit"]:focus-visible,
-  .button:focus-visible,
-  .form-submit:focus-visible {
-    outline-color: var(--color-border);
   }
   .post-list-standard .read-more {
     border: 1px solid var(--color-border);
