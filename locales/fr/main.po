@@ -6,6 +6,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+# Test
+msgid "home-title-pagination"
+msgstr "– page %d"
+
 # Head
 
 msgid "RSS Feed"
@@ -48,11 +52,11 @@ msgstr "Mots-clés&nbsp;:"
 msgid "Post printed from"
 msgstr "Billet imprimé depuis"
 
-msgid "‹ Previous post"
-msgstr "‹ Billet précédent"
+msgid "Previous post:"
+msgstr "Billet précédent :"
 
-msgid "Next post ›"
-msgstr "Billet suivant ›"
+msgid "Next post:"
+msgstr "Billet suivant :"
 
 # Comments & trackbacks
 

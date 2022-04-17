@@ -51,11 +51,31 @@
 
     <div class="post-pagination text-secondary">
       <tpl:EntryPrevious>
-        <a class="link-prev" href="{{tpl:EntryURL}}" rel="prev" title="{{tpl:EntryTitle}}">{{tpl:lang ‹ Previous post}}</a>
+        <div class="post-pagination-prev">
+          <div class="post-pagination-title">
+            {{tpl:lang Previous post:}}
+          </div>
+
+          <div class="post-pagination-link-container">
+            <a href="{{tpl:EntryURL}}" rel="prev">
+              <em>{{tpl:EntryTitle}}</em>
+            </a>
+          </div>
+        </div>
       </tpl:EntryPrevious>
 
       <tpl:EntryNext>
-        <a class="link-next" href="{{tpl:EntryURL}}" rel="next" title="{{tpl:EntryTitle}}">{{tpl:lang Next post ›}}</a>
+        <div class="post-pagination-next">
+          <div class="post-pagination-title">
+          {{tpl:lang Next post:}}
+          </div>
+
+          <div class="post-pagination-link-container">
+            <a href="{{tpl:EntryURL}}" rel="prev">
+              {{tpl:EntryTitle}}
+            </a>
+          </div>
+        </div>
       </tpl:EntryNext>
     </div>
   </footer>

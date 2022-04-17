@@ -48,10 +48,10 @@ msgstr ""
 msgid "Post printed from"
 msgstr ""
 
-msgid "‹ Previous post"
+msgid "Previous post:"
 msgstr ""
 
-msgid "Next post ›"
+msgid "Next post:"
 msgstr ""
 
 # Comments & trackbacks
