@@ -87,6 +87,9 @@ msgstr "Fil des commentaires&nbsp;:"
 msgid "Trackbacks:"
 msgstr "Rétroliens&nbsp;:"
 
+msgid "Link copied"
+msgstr "Lien copié"
+
 msgid "Read this post ›"
 msgstr "Lire ce billet ›"
 

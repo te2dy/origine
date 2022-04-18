@@ -83,6 +83,9 @@ msgstr ""
 msgid "Trackbacks:"
 msgstr ""
 
+msgid "Link copied"
+msgstr ""
+
 msgid "Read this post ›"
 msgstr ""
 
