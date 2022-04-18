@@ -208,7 +208,7 @@ class tplOrigineTheme
   public static function origineEntryPingURL()
   {
     return '<?php if ($_ctx->posts->trackbacksActive()) {
-      echo "<a href=\"" . $_ctx->posts->getTrackbackLink() . "\" rel=\"nofollow\">" . str_replace([\'http://\', \'https://\'], \'\', $_ctx->posts->getTrackbackLink()) . "</a>";
+      echo "<span data-trackback-url=\"" . $_ctx->posts->getTrackbackLink() . "\" id=\"trackback-url\" onclick=\"origineTrackbackURLCopy();this.onclick=null;\">" . str_replace([\'http://\', \'https://\'], \'\', $_ctx->posts->getTrackbackLink()) . "</span>";
     } ?>';
   }
 

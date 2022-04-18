@@ -504,6 +504,22 @@ textarea {
 .comment-links ul li:last-child {
   margin-bottom: 0
 }
+#trackback-url {
+  border-bottom: .063rem dotted var(--color-text-primary);
+}
+#trackback-url:focus,
+#trackback-url:hover {
+  border-bottom-color: var(--color-link);
+  border-bottom-style: solid;
+  color: var(--color-link);
+  cursor: pointer;
+}
+#trackback-url-copied {
+  background-color: var(--color-input-background);
+  color: var(--color-input-text);
+  line-height: 1;
+  padding: 0 .25em;
+}
 
 /**
  * Pagination

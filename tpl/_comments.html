@@ -140,6 +140,20 @@
       </tpl:EntryIf>
 
       <tpl:EntryIf pings_active="1">
+        <script>
+          function origineTrackbackURLCopy() {
+            // Gets the trackback button & URL.
+            var trackbackButton = document.getElementById("trackback-url"),
+                trackbackURL = trackbackButton.getAttribute("data-trackback-url");
+
+            // Copies it the the clipboard.
+            navigator.clipboard.writeText(trackbackURL);
+
+            //
+            trackbackButton.insertAdjacentHTML("afterend", ' <span id="trackback-url-copied">{{tpl:lang Link copied}}</span>');
+          }
+        </script>
+
         <li>
           {{tpl:lang Trackbacks:}} {{tpl:origineEntryPingURL}}
         </li>
