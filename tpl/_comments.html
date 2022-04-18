@@ -146,10 +146,10 @@
             var trackbackButton = document.getElementById("trackback-url"),
                 trackbackURL = trackbackButton.getAttribute("data-trackback-url");
 
-            // Copies it the the clipboard.
+            // Copies the trackback URL in the clipboard.
             navigator.clipboard.writeText(trackbackURL);
 
-            //
+            // Displays a message to confirm the copy.
             trackbackButton.insertAdjacentHTML("afterend", ' <span id="trackback-url-copied">{{tpl:lang Link copied}}</span>');
           }
         </script>

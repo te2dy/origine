@@ -14,11 +14,14 @@
   <article class="post">
     <h2>{{tpl:lang By date}}</h2>
 
-    <p class="fromto">{{tpl:lang From}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries> {{tpl:lang to}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries></p>
+    <p class="fromto">
+      {{tpl:lang From}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries> {{tpl:lang to}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}">{{tpl:EntryDate}}</a></tpl:Entries>
+    </p>
 
     <tpl:Archives order="asc">
       <tpl:ArchivesYearHeader>
         <strong>{{tpl:ArchiveDate format="%Y"}}</strong>
+
         <ul>
       </tpl:ArchivesYearHeader>
 
@@ -38,7 +41,8 @@
           <ul>
       </tpl:CategoriesHeader>
 
-      <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+      <li>
+        <a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
 
       <tpl:CategoryFirstChildren>
         <tpl:CategoriesHeader>
@@ -84,7 +88,9 @@
         <ul>
       </tpl:EntriesHeader>
 
-      <li><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></li>
+      <li>
+        <a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a>
+      </li>
 
       <tpl:EntriesFooter>
         </ul>

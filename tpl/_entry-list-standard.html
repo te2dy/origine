@@ -25,12 +25,10 @@
     <section class="post-excerpt text text-secondary">
       {{tpl:origineConfigEntryFirstImage}}
 
-      <!-- # Entry with an excerpt -->
       <tpl:EntryIf extended="1">
         {{tpl:EntryExcerpt encode_html="1" remove_html="1"}}
       </tpl:EntryIf>
 
-      <!-- # Entry without excerpt -->
       <tpl:EntryIf extended="0">
           {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="200"}}<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="200">&nbsp;[…]</tpl:EntryIfContentCut>
       </tpl:EntryIf>
