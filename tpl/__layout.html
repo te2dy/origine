@@ -57,11 +57,15 @@
       </main>
 
       <tpl:origineSidebar>
-        {{tpl:include src="_sidebar.html"}}
+        <tpl:Block name="site-sidebar">
+          {{tpl:include src="_sidebar.html"}}
+        </tpl:Block>
       </tpl:origineSidebar>
 
       <tpl:origineFooter>
-        {{tpl:include src="_footer.html"}}
+        <tpl:Block name="site-footer">
+          {{tpl:include src="_footer.html"}}
+        </tpl:Block>
       </tpl:origineFooter>
     </div>
   </body>
