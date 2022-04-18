@@ -12,6 +12,15 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.10.2-beta - 18 avril 2022 ===
+- Ajout : copie par clic de l’adresse de rétrolien des billets.
+- Ajout : encadrement de la barre latérale et du pied de page avec des blocs.
+- Ajout : titre des billets suivants et précédents dans la pagination des billets.
+- Amélioration : documentation et syntaxe.
+- Correction : erreur HTML dans la balise description de l’en-tête.
+- Mise à jour : traduction.
+- Suppression : règles outline des pseudo-classes focus-within.
+
 === 1.10.1-dev - 16 avril 2022 ===
 - Modification : fonction pour l’image mise en avant transférée à l’extension.
 
