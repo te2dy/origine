@@ -1,10 +1,10 @@
 <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}"{{tpl:origineEntryLang}}>
   <header>
-    <tpl:origineEntryIfSelected>
+    <tpl:EntryIf selected="1">
       <div class="label label-selected">
         {{tpl:lang Selected post}}
       </div>
-    </tpl:origineEntryIfSelected>
+    </tpl:EntryIf>
 
     <div class="post-meta text-secondary">
       <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
