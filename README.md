@@ -1,6 +1,6 @@
 # Origine
 
-**Un thème [Dotclear](https://fr.dotclear.org/) ultra minimaliste.**
+**Un thème [Dotclear](https://fr.dotclear.org/) minimaliste.**
 
 ![Capture d’écran](https://github.com/te2dy/origine/blob/master/screenshot-2x.jpg)
 
