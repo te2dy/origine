@@ -62,7 +62,7 @@ class tplOrigineTheme
     $links .= __('Skip to content');
     $links .= '</a>';
 
-    // simpleMenu exists, is activated and a menu has been set.
+    // If simpleMenu exists, is activated and a menu has been set.
     if ($core->plugins->moduleExists('simpleMenu') && $core->blog->settings->system->simpleMenu_active && $core->blog->settings->system->simpleMenu) {
       $links .= '<a id="skip-menu" class="skip-links" href="#main-menu">';
       $links .= __('Skip to menu');
