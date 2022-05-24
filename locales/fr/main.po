@@ -60,6 +60,9 @@ msgstr "Billet suivant :"
 
 # Comments & trackbacks
 
+msgid "One comment"
+msgstr "Un commentaire"
+
 msgid "comment"
 msgstr "commentaire"
 

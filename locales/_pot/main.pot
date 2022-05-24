@@ -56,6 +56,9 @@ msgstr ""
 
 # Comments & trackbacks
 
+msgid "One comment"
+msgstr ""
+
 msgid "comment"
 msgstr ""
 
