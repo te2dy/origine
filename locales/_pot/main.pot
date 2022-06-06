@@ -59,6 +59,9 @@ msgstr ""
 msgid "One comment"
 msgstr ""
 
+msgid "comments"
+msgstr ""
+
 msgid "comment"
 msgstr ""
 

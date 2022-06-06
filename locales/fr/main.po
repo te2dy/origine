@@ -63,6 +63,9 @@ msgstr "Billet suivant :"
 msgid "One comment"
 msgstr "Un commentaire"
 
+msgid "comments"
+msgstr "commentaires"
+
 msgid "comment"
 msgstr "commentaire"
 
