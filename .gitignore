@@ -10,3 +10,6 @@ origine.jpg
 
 # Ignore the file _disabled created by Dotclear when the theme/plugin has been unactivated.
 _disabled
+
+# Ignore "code" folder.
+/code
