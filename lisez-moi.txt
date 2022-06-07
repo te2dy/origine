@@ -12,6 +12,10 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.11 - 7 juin 2022 ===
+- Amélioration : apparence du bloc des commentaires.
+- Modification : ancre des liens du système de commentaires.
+
 === 1.10.3 - 24 mai 2022 ===
 - Amélioration : simplification de fonctions.
 - Amélioration : documentation.
