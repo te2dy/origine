@@ -56,13 +56,31 @@ msgstr ""
 
 # Comments & trackbacks
 
+msgid "reactions"
+msgstr ""
+
+msgid "One reaction"
+msgstr ""
+
+msgid "%d reactions"
+msgstr ""
+
 msgid "One comment"
 msgstr ""
 
-msgid "comments"
+msgid "%d comments"
+msgstr ""
+
+msgid "One trackback"
+msgstr ""
+
+msgid "%d trackback"
 msgstr ""
 
 msgid "comment"
+msgstr ""
+
+msgid "trackback"
 msgstr ""
 
 msgid "at"
@@ -71,7 +89,7 @@ msgstr ""
 msgid ":"
 msgstr ""
 
-msgid "Ping"
+msgid "Trackback:"
 msgstr ""
 
 msgid "Previewing"
@@ -83,13 +101,13 @@ msgstr ""
 msgid "Write a comment"
 msgstr ""
 
-msgid "Comment feed:"
+msgid "Subscribe to comments"
 msgstr ""
 
-msgid "Trackbacks:"
+msgid "Add a trackback:"
 msgstr ""
 
-msgid "Link copied"
+msgid "URL copied"
 msgstr ""
 
 msgid "Read this post ›"

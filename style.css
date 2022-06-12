@@ -57,7 +57,7 @@ body{
 .post-list-standard .label-page {
   margin-bottom: .5em;
 }
-.post-list-standard .post-list-comment {
+.post-list-standard .post-list-reactions {
   display: inline-block;
   margin-left: .25em;
 }
@@ -421,7 +421,7 @@ textarea {
 /**
  * Comments
  */
-.comment-block {
+.reactions-block {
   margin: 4em 0;
 }
 #comments-list {
@@ -429,18 +429,28 @@ textarea {
   margin: 2em 0 4em;
   padding: 0;
 }
-.comment,
-.ping {
-  border-bottom: .063rem solid var(--color-border);
-  margin: 2em 0 1.5em;
-  padding-bottom: 1.5em;
+.reaction {
+  margin: 2em 0;
 }
-.comment:last-child,
-.ping:last-child {
+.reaction:last-child {
   border-bottom: none;
 }
+.reaction-title {
+  margin-top: 2em;
+}
+.reaction {
+  border-left: .063rem solid var(--color-border);
+  padding-left: 1em;
+}
+.comment.me {
+  border-top: .063rem solid var(--color-border);
+  border-right: .063rem solid var(--color-border);
+  border-bottom: .063rem solid var(--color-border);
+  padding-top: 1em;
+  padding-right: 1em;
+}
 .comment-meta {
-  margin-bottom: 1rem;
+  margin-bottom: .5em;
 }
 .comment-author {
   color: var(--color-text-primary);
@@ -449,10 +459,6 @@ textarea {
 }
 .comment-date {
   font-size: .9em;
-}
-.comment-content p {
-  margin-top: .5em;
-  margin-bottom: .5em;
 }
 .comment-preview {
   border: .063rem solid var(--color-border);
@@ -463,7 +469,9 @@ textarea {
   margin-top: 0;
 }
 .comment-preview .comment-content {
+  border: none;
   margin-bottom: 1em;
+  padding: 0;
 }
 #comment-form h3 {
   margin-bottom: 1em;
@@ -478,12 +486,12 @@ textarea {
 #comment-form .remember input[type="checkbox"] {
   margin-left: 0;
 }
+#comment-feed-link {
+  margin-top: 2em;
+}
 .comment-message {
   font-weight: bold;
   margin-bottom: 2em;
-}
-.comment-private {
-  margin-top: 4em;
 }
 .comment-links ul {
   font-size: .9em;
@@ -496,6 +504,15 @@ textarea {
 }
 .comment-links ul li:last-child {
   margin-bottom: 0
+}
+.ping-link {
+  font-style: italic;
+}
+.ping-author {
+  font-style: normal;
+}
+.ping-date {
+  font-size: .9em;
 }
 #trackback-url {
   border-bottom: .063rem dotted var(--color-text-primary);
@@ -539,7 +556,9 @@ textarea {
 #site-sidebar .widget {
   margin: 2em 0;
 }
-#site-sidebar .widget h2, h3, h4 {
+#site-sidebar .widget h2,
+#site-sidebar .widget h3,
+#site-sidebar .widget h4 {
   margin-bottom: .5em;
 }
 #site-sidebar .widget h2 {
@@ -728,6 +747,9 @@ textarea {
 @media only screen and (max-width: 384px) {
   #site {
     width: 90%;
+  }
+  .reaction {
+    padding-left: .5em;
   }
   .pagination {
     margin: 2em 0;

@@ -18,13 +18,12 @@ $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'pu
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
-$core->tpl->addValue('origineEntryPingURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPingURL']);
 
 // Template tags used in combination with origineConfig plugin.
 $core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
+$core->tpl->addValue('origineSeparator', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSeparator']);
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
-$core->tpl->addValue('origineEntryCommentFeedLink', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryCommentFeedLink']);
 $core->tpl->addValue('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addBlock('origineSidebar', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSidebar']);
@@ -93,16 +92,6 @@ class tplOrigineTheme
     return '<?php echo str_replace([\'http://\', \'https://\'], "", $_ctx->posts->getURL()); ?>';
   }
 
-  /**
-   * Creates a link to adds trackbacks for the current post.
-   */
-  public static function origineEntryPingURL()
-  {
-    return '<?php if ($_ctx->posts->trackbacksActive()) {
-      echo "<span data-trackback-url=\"" . $_ctx->posts->getTrackbackLink() . "\" id=\"trackback-url\" onclick=\"origineTrackbackURLCopy();this.onclick=null;\">" . str_replace([\'http://\', \'https://\'], \'\', $_ctx->posts->getTrackbackLink()) . "</span>";
-    } ?>';
-  }
-
   // Template tags used in combination with origineConfig plugin.
 
   /**
@@ -119,6 +108,28 @@ class tplOrigineTheme
       return true;
     } else {
       return false;
+    }
+  }
+
+  /**
+   * DOCUMENTATION A COMPLETER.
+   */
+  public static function origineSeparator()
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if (
+      $plugin_activated === false
+      || (
+        $plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['global_separator'] === "/"
+      )
+    ) {
+      return "/";
+    } else {
+      return $core->blog->settings->origineConfig->origine_settings['global_separator'];
     }
   }
 
@@ -170,27 +181,6 @@ class tplOrigineTheme
   }
 
   /**
-   * Creates a link to the comment feed of current post.
-   */
-  public static function origineEntryCommentFeedLink($attr)
-  {
-    // Checks the type of the set feed.
-    $types = ['atom', 'rss2'];
-
-    if (isset($attr['type']) && in_array($attr['type'], $types)) {
-      $type = $attr['type'];
-    } else {
-      $type = 'atom';
-    }
-
-    return '<?php
-      $feed_url       = $core->blog->url . $core->url->getURLFor("feed", "' . $type . '");
-      $feed_url_short = str_replace(array("http://", "https://"), "", $feed_url);
-
-      echo "<a href=\"" . $feed_url . "/comments/" . $_ctx->posts->post_id . "\" rel=\"nofollow\" type=\"application/' . $type . '+xml\">" . $feed_url_short . "/comments/" . $_ctx->posts->post_id . "</a>"; ?>';
-  }
-
-  /**
    * Displays credits in the footer.
    */
   public static function origineFooterCredits()
@@ -200,7 +190,13 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
     $the_footer       = '';
 
-    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true)) {
+    if (
+      $plugin_activated === false
+      || (
+        $plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['footer_credits'] === true
+      )
+    ) {
       $the_footer .= '<div class="widget" id="site-footer-ad">';
 
       $url_dotclear  = __('https://dotclear.org/');
@@ -210,8 +206,13 @@ class tplOrigineTheme
       if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
         $url_origine   = __('https://themes.dotaddict.org/galerie-dc2/details/origine');
       } else {
-        $url_origine   = __('https://github.com/te2dy/origine');
-        $text_origine .= ' ' . $core->themes->moduleInfo('origine', 'version');
+        $dotclear_version        = $core->getVersion('core');
+        $dotclear_version_parts  = explode('-', $dotclear_version);
+        $dotclear_version_simple = $dotclear_version_parts[0] ? $dotclear_version_parts[0] : $dotclear_version;
+
+        $text_dotclear .= ' ' . $dotclear_version_simple;
+        $url_origine    = __('https://github.com/te2dy/origine');
+        $text_origine  .= ' ' . $core->themes->moduleInfo('origine', 'version');
       }
 
       $the_footer .= sprintf(
@@ -286,7 +287,7 @@ class tplOrigineTheme
     $plugin_activated = self::origineConfigActivationStatus();
 
     if ($plugin_activated === false) {
-      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000}@media (prefers-color-scheme:dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333;--color-input-background-hover:#d9d9d9}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1em}.post-list-standard .post-link{display:block}.post-list-standard .post-meta{margin-bottom:.25em}.post-list-standard .post-title{font-size:1.1em}.post-list-standard .label-selected{border-left:none;margin-left:-1rem;margin-bottom:.5em}.post-list-standard .post-list-selected-content{border-left:.063rem solid var(--color-border);padding-left:1rem}.post-list-standard .label-page{margin-bottom:.5em}.post-list-standard .post-list-comment{display:inline-block;margin-left:.25em}.post-list-standard .post-footer{font-size:.9em;margin-top:.5em}.post-list-standard .read-more{border:none}';
+      $styles = ':root{--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000}@media (prefers-color-scheme:dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333;--color-input-background-hover:#d9d9d9}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1em}.post-list-standard .post-link{display:block}.post-list-standard .post-meta{margin-bottom:.25em}.post-list-standard .post-title{font-size:1.1em}.post-list-standard .label-selected{border-left:none;margin-left:-1rem;margin-bottom:.5em}.post-list-standard .post-list-selected-content{border-left:.063rem solid var(--color-border);padding-left:1rem}.post-list-standard .label-page{margin-bottom:.5em}.post-list-standard .post-list-reactions{display:inline-block;margin-left:.25em}.post-list-standard .post-footer{font-size:.9em;margin-top:.5em}.post-list-standard .read-more{border:none}';
     } else {
       $styles = $core->blog->settings->origineConfig->origine_settings['styles'] ? $core->blog->settings->origineConfig->origine_settings['styles'] : '';
     }

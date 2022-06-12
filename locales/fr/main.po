@@ -60,14 +60,32 @@ msgstr "Billet suivant :"
 
 # Comments & trackbacks
 
+msgid "reactions"
+msgstr "reactions"
+
+msgid "One reaction"
+msgstr "Une réaction"
+
+msgid "%d reactions"
+msgstr "%d réactions"
+
 msgid "One comment"
 msgstr "Un commentaire"
 
-msgid "comments"
-msgstr "commentaires"
+msgid "%d comments"
+msgstr "%d commentaires"
+
+msgid "One trackback"
+msgstr "Un rétrolien"
+
+msgid "%d trackback"
+msgstr "%d rétroliens"
 
 msgid "comment"
 msgstr "commentaire"
+
+msgid "trackback"
+msgstr "retrolien"
 
 msgid "at"
 msgstr "à"
@@ -75,8 +93,8 @@ msgstr "à"
 msgid ":"
 msgstr "&nbsp;:"
 
-msgid "Ping"
-msgstr "Ping"
+msgid "Trackback:"
+msgstr "Rétrolien&nbsp;:"
 
 msgid "Previewing"
 msgstr "Prévisualisation"
@@ -87,14 +105,17 @@ msgstr "Envoyer le commentaire"
 msgid "Write a comment"
 msgstr "Écrire un commentaire"
 
-msgid "Comment feed:"
-msgstr "Fil des commentaires&nbsp;:"
+msgid "Subscribe to comments"
+msgstr "S’abonner aux commentaires"
 
-msgid "Trackbacks:"
-msgstr "Rétroliens&nbsp;:"
+msgid "Add a trackback:"
+msgstr "Ajouter un rétrolien&nbsp;:"
 
-msgid "Link copied"
-msgstr "Lien copié"
+msgid "Trackback URL:"
+msgstr "Adresse de rétrolien&nbsp;:"
+
+msgid "URL copied"
+msgstr "Adresse copiée"
 
 msgid "Read this post ›"
 msgstr "Lire ce billet ›"
