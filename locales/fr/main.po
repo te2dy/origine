@@ -129,6 +129,9 @@ msgstr "Adresse électronique"
 msgid "URL of a personal account or website (optional)"
 msgstr "Adresse d’un compte ou site personnel (facultatif)"
 
+msgid "Your comment"
+msgstr "Votre commentaire"
+
 msgid "Remember me"
 msgstr "Se souvenir de moi"
 

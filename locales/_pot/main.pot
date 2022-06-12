@@ -122,6 +122,9 @@ msgstr ""
 msgid "URL of a personal account or website (optional)"
 msgstr ""
 
+msgid "Your comment"
+msgstr ""
+
 msgid "Remember me"
 msgstr ""
 
