@@ -8,7 +8,7 @@ msgstr ""
 
 # Head
 
-msgid "RSS Feed"
+msgid "Syndicated feed"
 msgstr ""
 
 # Header

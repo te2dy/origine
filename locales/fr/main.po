@@ -6,13 +6,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-# Test
-msgid "home-title-pagination"
-msgstr "– page %d"
-
 # Head
 
-msgid "RSS Feed"
+msgid "Syndicated feed"
 msgstr "Fil de syndication"
 
 # Header
