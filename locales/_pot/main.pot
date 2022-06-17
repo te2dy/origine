@@ -92,7 +92,7 @@ msgstr ""
 msgid "Trackback:"
 msgstr ""
 
-msgid "Markdown language allowed (<a href="$s" rel="nofollow">help</a>)."
+msgid "Markdown language allowed (<a href="https://commonmark.org/help/" hreflang="en" rel="nofollow">help</a>)."
 msgstr ""
 
 msgid "Previewing"
