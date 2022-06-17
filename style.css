@@ -147,6 +147,12 @@ a:focus-visible img {
 .text-secondary a:hover {
   border-bottom-color: var(--color-link);
 }
+.text-italic {
+  font-style: italic;
+}
+.text-small {
+  font-size: .9em;
+}
 p {
   margin: 1em 0;
 }
@@ -271,6 +277,9 @@ textarea {
   display: block;
   font-size: .9em;
   margin-bottom: .25em;
+}
+.form-info {
+  font-size: .9em;
 }
 #comment-form .remember label:hover,
 .form-entry label:hover {
