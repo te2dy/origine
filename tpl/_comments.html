@@ -2,22 +2,22 @@
   <div id="{{tpl:lang reactions}}" class="reactions-block">
 
   <tpl:EntryIf operator="and" has_comment="1" has_ping="1">
-    <h3 class="reaction-title" id="comments-title">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</h3>
+    <h3 class="reaction-title">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</h3>
   </tpl:EntryIf>
 
   <tpl:EntryIf operator="and" has_comment="1" has_ping="0">
-    <h3 class="reaction-title" id="comments-title">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</h3>
+    <h3 class="reaction-title">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</h3>
   </tpl:EntryIf>
 
   <tpl:EntryIf operator="and" has_comment="0" has_ping="1">
-    <h3 class="reaction-title" id="comments-title">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</h3>
+    <h3 class="reaction-title">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</h3>
   </tpl:EntryIf>
 </tpl:EntryIf>
 
 <tpl:EntryIf show_comments="1">
   <tpl:Comments with_pings="1">
     <tpl:CommentsHeader>
-      <ul id="comments-list">
+      <ul id="reactions-list">
     </tpl:CommentsHeader>
 
     <tpl:CommentIf is_ping="0">
@@ -30,6 +30,8 @@
           {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
 
           {{tpl:CommentContent}}
+
+          {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
         </div>
     </tpl:CommentIf>
 
@@ -129,33 +131,35 @@
 
 {{tpl:origineConfigEmailAuthor}}
 
-<tpl:EntryIf pings_active="1">
-  <p class="post-meta text-secondary" id="comment-feed-link">
-    <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" rel="nofollow">{{tpl:lang Subscribe to comments}}</a>
-  </p>
+<tpl:origineCommentLinks>
+  <tpl:EntryIf pings_active="1">
+    <p class="post-meta text-secondary" id="comment-feed-link">
+      <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" rel="nofollow">{{tpl:lang Subscribe to comments}}</a>
+    </p>
 
-  <script>
-    function origineTrackbackURLCopy() {
-      // Gets the trackback button & URL.
-      var trackbackButton  = document.getElementById("trackback-url"),
-          trackbackURL     = trackbackButton.getAttribute("data-trackback-url");
+    <script>
+      function origineTrackbackURLCopy() {
+        // Gets the trackback button & URL.
+        var trackbackButton  = document.getElementById("trackback-url"),
+            trackbackURL     = trackbackButton.getAttribute("data-trackback-url");
 
-      if (document.getElementById("trackback-url-copied")) {
-        document.getElementById("trackback-url-copied").remove();
+        if (document.getElementById("trackback-url-copied")) {
+          document.getElementById("trackback-url-copied").remove();
+        }
+
+        // Copies the trackback URL in the clipboard.
+        navigator.clipboard.writeText(trackbackURL);
+
+        // Displays a message to confirm the copy.
+        trackbackButton.insertAdjacentHTML("afterend", ' <div id="trackback-url-copied">{{tpl:lang URL copied}}</div>');
       }
+    </script>
 
-      // Copies the trackback URL in the clipboard.
-      navigator.clipboard.writeText(trackbackURL);
-
-      // Displays a message to confirm the copy.
-      trackbackButton.insertAdjacentHTML("afterend", ' <span id="trackback-url-copied">{{tpl:lang URL copied}}</span>');
-    }
-  </script>
-
-  <p class="post-meta text-secondary">
-    {{tpl:lang Add a trackback:}} <span data-trackback-url="{{tpl:EntryPingLink}}" id="trackback-url" onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
-  </p>
-</tpl:EntryIf>
+    <p class="post-meta text-secondary" id="trackback-link-container">
+      {{tpl:lang Add a trackback:}} <span data-trackback-url="{{tpl:EntryPingLink}}" id="trackback-url" onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
+    </p>
+  </tpl:EntryIf>
+</tpl:origineCommentLinks>
 
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
   </div>
