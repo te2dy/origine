@@ -807,12 +807,13 @@ textarea {
     margin: 0;
     max-width: 100%;
   }
-  .comment-links,
   .post-pagination,
+  #comment-feed-link,
   #comment-form,
   #main-menu,
   #site-sidebar,
-  #site-footer {
+  #site-footer,
+  #trackback-link-container {
     display: none;
   }
   #site-header {
