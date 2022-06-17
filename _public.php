@@ -250,7 +250,7 @@ class tplOrigineTheme
 
     if ($core->blog->settings->system->markdown_comments === true) {
       echo '<div class="form-entry text-italic text-small">';
-      echo __('Markdown language allowed (<a href="https://commonmark.org/help/" hreflang="en" rel="nofollow">help</a>).');
+      echo __('Markdown language allowed (<a href="https://commonmark.org/help/" rel="nofollow">help</a>).');
       echo '</div>';
     }
   }
