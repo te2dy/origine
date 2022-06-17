@@ -1,7 +1,7 @@
 = Origine, un thème Dotclear =
 
 Nom du thème : Origine
-Description : Un thème Dotclear minimaliste
+Description : Un thème simple
 Auteur : Teddy
 Licence : GPLv3 ou ultérieure
 Adresse de la licence : https://www.gnu.org/licenses/gpl-3.0.fr.html
@@ -11,6 +11,19 @@ Ce thème n’aurait pu avoir vu le jour sans les ressources mises à dispositio
 Son auteur s’est particulièrement inspiré des travaux réalisés sur le thème Ductile, créé par l’association Dotclear.
 
 == Notes de version ==
+
+=== 1.12 - 17 juin 2022 ===
+- Ajout : type du fichier joint dans le lien qui y pointe.
+- Ajout : avertissement lorsque le langage Markdown est autorisé dans les commentaires.
+- Amélioration : réorganisation des commentaires et des rétroliens.
+- Amélioration : harmonisation des styles, du code HTML et de la syntaxe PHP.
+- Correction : oubli d’une étiquette de champ de formulaire dans les commentaires.
+- Correction : oubli de la balise publicCommentBeforeContent.
+- Mise à jour : style de la boîte qui confirme que l’adresse de rétroliens a été copiée.
+- Mise à jour : nom de fonctions.
+- Mise à jour : styles à l’impression.
+- Mise à jour : traductions.
+- Suppression : balise AttachmentIf inutilisée.
 
 === 1.11 - 7 juin 2022 ===
 - Amélioration : apparence du bloc des commentaires.

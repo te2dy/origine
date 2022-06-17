@@ -1,6 +1,6 @@
 <?php
 /**
- * Origine, a minimalist theme for Dotclear
+ * Origine, a Dotclear theme
  *
  * @copyright Teddy
  * @copyright GPL-3.0
@@ -12,9 +12,9 @@ if (!defined('DC_RC_PATH')) {
 
 $this->registerModule(
   /* Name */        'Origine',
-  /* Description */ 'A minimalist theme',
+  /* Description */ 'A simple theme',
   /* Author */      'Teddy',
-  /* Version */     '1.11',
+  /* Version */     '1.12',
   array(
     'type' => 'theme',
   )
