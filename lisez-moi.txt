@@ -12,6 +12,9 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.12.2 - 17 juin 2022 ===
+- Correction : affichage des widgets de navigation dans l’en-tête.
+
 === 1.12.1 - 17 juin 2022 ===
 - Correction : valeur des bordures dans les styles.
 - Mise à jour : lisez-moi.
