@@ -47,22 +47,24 @@
         </tpl:TagsFooter>
       </tpl:EntryTags>
 
-      <tpl:EntryIf operator="and" comments_active="1" pings_active="1" has_comment="1" has_ping="1">
-        <span class="post-meta text-secondary">
-          <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
-        </span>
-      </tpl:EntryIf>
+      <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
+        <tpl:EntryIf operator="and" has_comment="1" has_ping="1">
+          <span class="post-meta text-secondary">
+            <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
+          </span>
+        </tpl:EntryIf>
 
-      <tpl:EntryIf operator="and" comments_active="1" pings_active="0" has_comment="1">
-        <span class="post-meta text-secondary">
-          <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
-        </span>
-      </tpl:EntryIf>
+        <tpl:EntryIf operator="and" has_comment="1" has_ping="0">
+          <span class="post-meta text-secondary">
+            <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
+          </span>
+        </tpl:EntryIf>
 
-      <tpl:EntryIf operator="and" comments_active="0" pings_active="1" has_ping="1">
-        <span class="post-meta text-secondary">
-          <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
-        </span>
+        <tpl:EntryIf operator="and" has_comment="0" has_ping="1">
+          <span class="post-meta text-secondary">
+            <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
+          </span>
+        </tpl:EntryIf>
       </tpl:EntryIf>
     </footer>
   </article>
