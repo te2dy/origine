@@ -24,7 +24,7 @@ Flexible, il prend en compte les préférences de vos lecteurs. Par exemple, la 
 
 ## Démonstration
 
-Pour voir Origine en conditions réelle, visitez le **[blog de démonstration sur DotAddict](https://themes.dotaddict.org/demo-dc2/?theme=origine)**.
+Pour voir Origine en conditions réelles, visitez le **[blog de démonstration sur DotAddict](https://themes.dotaddict.org/demo-dc2/?theme=origine)**.
 
 ## Téléchargement
 
@@ -46,7 +46,7 @@ Rendez-vous sur [la page dédiée à origineConfig](https://github.com/te2dy/ori
 
 ## Contribuer, suggérer, signaler
 
-N’hésitez pas à [contribuer](https://github.com/te2dy/origine/pulls) à ce projet, à [suggérer](https://github.com/te2dy/origine/issues) des nouvelles fonctionnalités ou [signaler](https://github.com/te2dy/origine/issues) des problèmes directement depuis GitHub. Vous pouvez aussi [me contacter par courriel](mailto:zozxebpyr@mozmail.com).
+N’hésitez pas à [contribuer](https://github.com/te2dy/origine/pulls) à ce projet, à [suggérer](https://github.com/te2dy/origine/issues) des nouvelles fonctionnalités ou à [signaler](https://github.com/te2dy/origine/issues) des problèmes directement depuis GitHub. Vous pouvez aussi [me contacter par courriel](mailto:zozxebpyr@mozmail.com).
 
 ## Licence
 
