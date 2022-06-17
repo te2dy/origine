@@ -92,6 +92,9 @@ msgstr "&nbsp;:"
 msgid "Trackback:"
 msgstr "Rétrolien&nbsp;:"
 
+msgid "Markdown language allowed (<a href="$s" rel="nofollow">help</a>)."
+msgstr "Langage Markdown autorisé (<a href="$s" rel="nofollow">aide</a>)."
+
 msgid "Previewing"
 msgstr "Prévisualisation"
 

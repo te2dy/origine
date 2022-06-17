@@ -25,6 +25,7 @@ $core->tpl->addValue('origineSeparator', [__NAMESPACE__ . '\tplOrigineTheme', 'o
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
+$core->addBehavior('publicCommentFormAfterContent', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentsMarkdown']);
 $core->tpl->addBlock('origineCommentLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineCommentLinks']);
 $core->tpl->addBlock('origineSidebar', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSidebar']);
 $core->tpl->addBlock('origineFooter', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooter']);
@@ -238,6 +239,23 @@ class tplOrigineTheme
     }
 
     return $the_footer;
+  }
+
+  /**
+   * Displays a link to the comment feed and trackbacks.
+   */
+  public static function origineCommentsMarkdown()
+  {
+    global $core;
+
+    if ($core->blog->settings->system->markdown_comments === true) {
+      echo '<div class="form-entry text-italic text-small">';
+      echo sprintf(
+        __('Markdown language allowed (<a href="$s" rel="nofollow">help</a>).'),
+        'https://commonmark.org/help/'
+      );
+      echo '</div>';
+    }
   }
 
   /**

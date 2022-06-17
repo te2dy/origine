@@ -133,7 +133,7 @@
 
 <tpl:origineCommentLinks>
   <tpl:EntryIf pings_active="1">
-    <p class="post-meta text-secondary" id="comment-feed-link">
+    <p class="text-secondary text-small" id="comment-feed-link">
       <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" rel="nofollow">{{tpl:lang Subscribe to comments}}</a>
     </p>
 
@@ -155,7 +155,7 @@
       }
     </script>
 
-    <p class="post-meta text-secondary" id="trackback-link-container">
+    <p class="text-secondary text-small" id="trackback-link-container">
       {{tpl:lang Add a trackback:}} <span data-trackback-url="{{tpl:EntryPingLink}}" id="trackback-url" onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
     </p>
   </tpl:EntryIf>
