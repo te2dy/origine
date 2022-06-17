@@ -120,7 +120,8 @@ class tplOrigineTheme
   }
 
   /**
-   * DOCUMENTATION A COMPLETER.
+   * Displays a character to separate theme elements on a same line.
+   * Default : /
    */
   public static function origineSeparator()
   {
@@ -143,7 +144,7 @@ class tplOrigineTheme
 
   /**
    * Loads the right entry list template based on origineConfig settings.
-   * Default: standard.
+   * Default: standard
    */
   public static function originePostListType()
   {
