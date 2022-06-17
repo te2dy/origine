@@ -104,8 +104,14 @@ msgstr "Envoyer le commentaire"
 msgid "Write a comment"
 msgstr "Écrire un commentaire"
 
+msgid "Subscribe to reactions"
+msgstr "S’abonner aux réactions"
+
 msgid "Subscribe to comments"
 msgstr "S’abonner aux commentaires"
+
+msgid "Subscribe to trackbacks"
+msgstr "S’abonner aux rétroliens"
 
 msgid "Add a trackback:"
 msgstr "Ajouter un rétrolien&nbsp;:"

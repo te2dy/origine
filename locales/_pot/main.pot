@@ -104,7 +104,13 @@ msgstr ""
 msgid "Write a comment"
 msgstr ""
 
+msgid "Subscribe to reactions"
+msgstr ""
+
 msgid "Subscribe to comments"
+msgstr ""
+
+msgid "Subscribe to trackbacks"
 msgstr ""
 
 msgid "Add a trackback:"
