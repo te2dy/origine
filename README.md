@@ -8,7 +8,7 @@ Que vous soyez journaliste, écrivain ou simple blogueur, Origine est un thème 
 
 Il a été spécialement conçu pour garantir une **excellente lisibilité** à vos textes tout en réduisant, grâce à son apparence **minimaliste**, les éléments de distraction qui pourraient perturber leur lecture.
 
-Flexible, il prend en compte les préférences de vos lecteurs. Par exemple, la taille de ses textes correspond à la taille des polices définie dans les réglages du navigateur.
+Flexible, il prend en compte les préférences de vos lecteurs. Par exemple, la taille de ses textes n’est pas arbitraire ; elle correspond à la taille des polices définie dans les réglages du navigateur.
 
 ## Caractéristiques
 
