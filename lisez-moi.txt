@@ -12,6 +12,11 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.12.1 - 17 juin 2022 ===
+- Correction : valeur des bordures dans les styles.
+- Mise à jour : lisez-moi.
+- Mise à jour : capture d’écran.
+
 === 1.12 - 17 juin 2022 ===
 - Ajout : type du fichier joint dans le lien qui y pointe.
 - Ajout : avertissement lorsque le langage Markdown est autorisé dans les commentaires.
