@@ -14,7 +14,7 @@ if (!defined('DC_RC_PATH')) {
 
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
-$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'publicHeadContent']);
+$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'origineHeadMeta']);
 $core->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
 $core->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
@@ -35,7 +35,7 @@ class tplOrigineTheme
   /**
    * Adds meta tags in the <head> section depending on the blog settings.
    */
-  public static function publicHeadContent()
+  public static function origineHeadMeta()
   {
     global $core;
 
@@ -62,7 +62,10 @@ class tplOrigineTheme
     $links .= '</a>';
 
     // If simpleMenu exists, is activated and a menu has been set.
-    if ($core->plugins->moduleExists('simpleMenu') && $core->blog->settings->system->simpleMenu_active && $core->blog->settings->system->simpleMenu) {
+    if (
+      $core->plugins->moduleExists('simpleMenu')
+      && $core->blog->settings->system->simpleMenu_active === true
+    ) {
       $links .= '<a id="skip-menu" class="skip-links" href="#main-menu">';
       $links .= __('Skip to menu');
       $links .= '</a>';
