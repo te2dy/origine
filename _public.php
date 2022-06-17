@@ -1,6 +1,6 @@
 <?php
 /**
- * Origine, a minimalist theme for Dotclear
+ * Origine, a Dotclear theme
  *
  * @copyright Teddy
  * @copyright GPL-3.0
@@ -81,7 +81,8 @@ class tplOrigineTheme
    */
   public static function origineEntryLang()
   {
-    return '<?php if ($_ctx->posts->post_lang !== $core->blog->settings->system->lang) {
+    return '
+    <?php if ($_ctx->posts->post_lang !== $core->blog->settings->system->lang) {
       echo " lang=\"" . $_ctx->posts->post_lang . "\"";
     } ?>';
   }
@@ -107,7 +108,11 @@ class tplOrigineTheme
   {
     global $core;
 
-    if ($core->plugins->moduleExists('origineConfig') === true && version_compare('0.6.3', $core->plugins->moduleInfo('origineConfig', 'version'), '<') && $core->blog->settings->origineConfig->origine_settings['activation'] === true) {
+    if (
+      $core->plugins->moduleExists('origineConfig') === true
+      && version_compare('0.6.3', $core->plugins->moduleInfo('origineConfig', 'version'), '<')
+      && $core->blog->settings->origineConfig->origine_settings['activation'] === true
+    ) {
       return true;
     } else {
       return false;
@@ -176,7 +181,9 @@ class tplOrigineTheme
       $label = __('Selected');
     }
 
-    return '<?php if ($_ctx->posts->post_selected === "1") {
+    return '
+    <?php
+    if ($_ctx->posts->post_selected === "1") {
       echo "<div class=\"label label-selected\">";
       echo "' . $label . '";
       echo "</div>";
@@ -241,7 +248,13 @@ class tplOrigineTheme
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['content_comment_links'] === true)) {
+    if (
+      $plugin_activated === false
+      || (
+        $plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['content_comment_links'] === true
+      )
+    ) {
       return $content;
     }
   }
@@ -255,7 +268,13 @@ class tplOrigineTheme
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['widgets_enabled'] === true)) {
+    if (
+      $plugin_activated === false
+      || (
+        $plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['widgets_enabled'] === true
+      )
+    ) {
       return $content;
     }
   }
@@ -269,7 +288,13 @@ class tplOrigineTheme
 
     $plugin_activated = self::origineConfigActivationStatus();
 
-    if ($plugin_activated === false || ($plugin_activated === true && $core->blog->settings->origineConfig->origine_settings['footer_enabled'] === true)) {
+    if (
+      $plugin_activated === false
+      || (
+        $plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['footer_enabled'] === true
+      )
+    ) {
       return $content;
     }
   }
