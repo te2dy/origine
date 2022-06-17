@@ -22,6 +22,7 @@ $core->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme'
 // Template tags used in combination with origineConfig plugin.
 $core->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
 $core->tpl->addValue('origineSeparator', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSeparator']);
+$core->tpl->addBlock('origineHeaderWidgetsNav', [__NAMESPACE__ . '\tplOrigineTheme', 'origineHeaderWidgetsNav']);
 $core->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 $core->tpl->addValue('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
 $core->tpl->addValue('origineFooterCredits', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooterCredits']);
@@ -140,6 +141,26 @@ class tplOrigineTheme
       return "/";
     } else {
       return $core->blog->settings->origineConfig->origine_settings['global_separator'];
+    }
+  }
+
+  /**
+   * Displays the navigation widget area.
+   */
+  public static function origineHeaderWidgetsNav($attr, $content)
+  {
+    global $core;
+
+    $plugin_activated = self::origineConfigActivationStatus();
+
+    if (
+      $plugin_activated === false
+      || (
+        $plugin_activated === true
+        && $core->blog->settings->origineConfig->origine_settings['header_widgets_nav'] === true
+      )
+    ) {
+      return $content;
     }
   }
 
