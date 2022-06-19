@@ -528,9 +528,6 @@ textarea {
 .ping-date {
   font-size: .9em;
 }
-#trackback-link-container {
-  position: relative;
-}
 #trackback-url {
   border-bottom: .063rem dotted var(--color-text-primary);
 }
@@ -543,13 +540,9 @@ textarea {
 }
 #trackback-url-copied {
   background-color: var(--color-input-background);
-  bottom: -125%;
   color: var(--color-input-text);
-  display: inline-block;
-  left: 0;
   line-height: 1;
-  padding: .25em;
-  position: absolute;
+  padding: .1em;
 }
 
 /**

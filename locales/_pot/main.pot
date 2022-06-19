@@ -116,7 +116,7 @@ msgstr ""
 msgid "Add a trackback:"
 msgstr ""
 
-msgid "URL copied"
+msgid "Copied"
 msgstr ""
 
 msgid "Read this post ›"

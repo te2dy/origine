@@ -163,12 +163,12 @@
         navigator.clipboard.writeText(trackbackURL);
 
         // Displays a message to confirm the copy.
-        trackbackButton.insertAdjacentHTML("afterend", ' <div id="trackback-url-copied">{{tpl:lang URL copied}}</div>');
+        trackbackButton.insertAdjacentHTML("afterend", ' <span id="trackback-url-copied">{{tpl:lang Copied}}</span>');
       }
     </script>
 
     <p class="text-secondary text-small" id="trackback-link-container">
-      {{tpl:lang Add a trackback:}} <span data-trackback-url="{{tpl:EntryPingLink}}" id="trackback-url" onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
+      {{tpl:lang Add a trackback:}}<br><span data-trackback-url="{{tpl:EntryPingLink}}" id="trackback-url" onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
     </p>
   </tpl:EntryIf>
 </tpl:origineCommentLinks>

@@ -119,8 +119,8 @@ msgstr "Ajouter un rétrolien&nbsp;:"
 msgid "Trackback URL:"
 msgstr "Adresse de rétrolien&nbsp;:"
 
-msgid "URL copied"
-msgstr "Adresse copiée"
+msgid "Copied"
+msgstr "Copiée"
 
 msgid "Read this post ›"
 msgstr "Lire ce billet ›"
