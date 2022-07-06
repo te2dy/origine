@@ -9,6 +9,10 @@
  * Styles used in __layout.html before being inlined.
  *
 :root {
+  --content-order: 2;
+  --widgets-nav-order: 3;
+  --widgets-extra-order: 4;
+  --footer-order: 5;
   --color-background: #fff;
   --color-text-primary: #000;
   --color-text-secondary: #595959;
@@ -94,27 +98,32 @@ body{
 body {
   background-color: var(--color-background);
   color: var(--color-text-primary);
-  margin: 0 2em;
+  margin: 0;
 }
 #site {
   box-sizing: border-box;
-  margin: 4em auto;
-  max-width: calc(1rem * 30); /* 480px for a 16px font size */
+  display: grid;
+  grid-row-gap: 2rem;
+  margin: 4rem auto;
+  max-width: 30rem; /* 480px for a 16px font size */
 }
 #site-header {
-  margin-bottom: 4em;
+  order: 1;
 }
 #site-content {
-  margin-top: 4em;
-  margin-bottom: 4em;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  order: var(--content-order);
 }
-#site-sidebar {
-  margin-top: 4em;
-  margin-bottom: 4em;
+#blognav {
+  order: var(--widgets-nav-order);
+}
+#blogextra {
+  order: var(--widgets-extra-order);
 }
 #site-footer {
   font-size: .9em;
-  margin-top: 4em
+  order: var(--footer-order);
 }
 
 /**
@@ -302,6 +311,7 @@ textarea {
  */
 #site-title {
   font-size: 1.5em;
+  grid-row-gap: 1rem;
   margin: 0;
 }
 #site-title a {
@@ -387,9 +397,9 @@ textarea {
 
 /* Post List */
 .post-list {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
-.post-list:last-child {
+.post-list:last-of-type {
   margin-bottom: 0;
 }
 .post-thumbnail {
@@ -549,7 +559,7 @@ textarea {
  * Pagination
  */
 .pagination {
-  margin: 2em 0 4em;
+  margin: 4rem 0 0;
 }
 .pagination .page-current {
   text-align: center;
@@ -567,32 +577,26 @@ textarea {
 /**
  * Widgets
  */
-#blognav {
-  margin-top: 2em;
+.widget {
+  margin-bottom: 2rem;
 }
-#site-header .widget,
-#site-sidebar .widget, {
-  margin: 2em 0;
+.widget:last-of-type {
+  margin-bottom: 0;
 }
-#site-header .widget h2,
-#site-sidebar .widget h2,
-#site-header .widget h3,
-#site-sidebar .widget h3,
-#site-header .widget h4,
-#site-sidebar .widget h4 {
+.widget:last-of-type {
+  margin-bottom: 0;
+}
+:where(#blognav, #blogextra) .widget :where(h2, h3, h4) {
   margin-bottom: .5em;
 }
-#site-header .widget h2,
-#site-sidebar .widget h2 {
+:where(#blognav, #blogextra) .widget h2 {
   font-size: 1.1em;
 }
-#site-header .widget ul,
-#site-sidebar .widget ul {
+:where(#blognav, #blogextra) .widget ul {
   margin: 0;
   padding: 0;
 }
-#site-header .widget ul li,
-#site-sidebar .widget ul li {
+:where(#blognav, #blogextra) .widget ul li {
   list-style: none;
 }
 
@@ -606,7 +610,7 @@ textarea {
 }
 #site-footer .widget h2 {
   font-size: 1em;
-  margin: 0 0 .5em;
+  margin: .5em 0;
 }
 #site-footer p {
   margin: .5em 0;
@@ -732,26 +736,13 @@ textarea {
     margin: 0;
   }
   #site {
+    grid-row-gap: 2rem;
     margin-top: 2em;
     max-width: none;
     width: 80%;
   }
-  #site-header {
-    margin-bottom: 2em;
-  }
   #main-menu {
-    margin-top: 1em;
-  }
-  #site-content {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  #site-sidebar {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-  #site-footer {
-    margin-top: 2em
+    margin-top: 1rem;
   }
 }
 
@@ -777,7 +768,7 @@ textarea {
     padding-left: .5em;
   }
   .pagination {
-    margin: 2em 0;
+    margin: 2rem 0 0;
   }
   .pagination-links {
     display: block;
@@ -820,17 +811,11 @@ textarea {
   #comment-feed-link,
   #comment-form,
   #main-menu,
-  #site-sidebar,
+  #blognav,
+  #blogextra,
   #site-footer,
   #trackback-link-container {
     display: none;
-  }
-  #site-header {
-    margin-bottom: 2em;
-  }
-  #site-content {
-    margin-top: 2em;
-    margin-bottom: 0
   }
   a {
     border-bottom: none;

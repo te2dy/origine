@@ -41,12 +41,6 @@
 
           {{tpl:SimpleMenu id="main-menu"}}
 
-          <tpl:origineHeaderWidgetsNav>
-            <div id="blognav">
-              {{tpl:Widgets type="nav"}}
-            </div>
-          </tpl:origineHeaderWidgetsNav>
-
           {{tpl:SysBehavior behavior="publicTopAfterContent"}}
         </tpl:Block>
       </header>
@@ -57,11 +51,9 @@
         </tpl:Block>
       </main>
 
-      <tpl:origineSidebar>
-        <tpl:Block name="site-sidebar">
-          {{tpl:include src="_sidebar.html"}}
-        </tpl:Block>
-      </tpl:origineSidebar>
+      <tpl:Block name="site-sidebar">
+        {{tpl:include src="_sidebar.html"}}
+      </tpl:Block>
 
       <tpl:origineFooter>
         <tpl:Block name="site-footer">
