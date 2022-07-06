@@ -103,7 +103,7 @@ body {
 #site {
   box-sizing: border-box;
   display: grid;
-  grid-row-gap: 2rem;
+  row-gap: 2rem;
   margin: 4rem auto;
   max-width: 30rem; /* 480px for a 16px font size */
 }
@@ -311,7 +311,7 @@ textarea {
  */
 #site-title {
   font-size: 1.5em;
-  grid-row-gap: 1rem;
+  row-gap: 1rem;
   margin: 0;
 }
 #site-title a {
@@ -736,7 +736,7 @@ textarea {
     margin: 0;
   }
   #site {
-    grid-row-gap: 2rem;
+    row-gap: 2rem;
     margin-top: 2em;
     max-width: none;
     width: 80%;
