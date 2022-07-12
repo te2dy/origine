@@ -216,8 +216,8 @@ msgstr "Aucun résultat."
 
 # 404
 
-msgid "There is nothing to display"
-msgstr "Il n’y a rien à afficher"
+msgid "There is nothing to display."
+msgstr "Il n’y a rien à afficher."
 
 msgid "Page without content"
 msgstr "Page sans contenu"

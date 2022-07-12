@@ -213,7 +213,7 @@ msgstr ""
 
 # 404
 
-msgid "There is nothing to display"
+msgid "There is nothing to display."
 msgstr ""
 
 msgid "Page without content"
