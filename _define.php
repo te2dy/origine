@@ -17,5 +17,5 @@ $this->registerModule(
     '1.13-beta1',     // Version
     [
         'type' => 'theme'
-    )
+    ]
 );
