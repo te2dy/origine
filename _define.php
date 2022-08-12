@@ -7,15 +7,15 @@
  */
 
 if (!defined('DC_RC_PATH')) {
-  return;
+    return;
 }
 
 $this->registerModule(
-  /* Name */        'Origine',
-  /* Description */ 'A simple theme',
-  /* Author */      'Teddy',
-  /* Version */     '1.12.3',
-  array(
-    'type' => 'theme',
-  )
+    'Origine',        // Name
+    'A simple theme', // Description
+    'Teddy',          // Author
+    '1.13-beta1',     // Version
+    [
+        'type' => 'theme'
+    )
 );
