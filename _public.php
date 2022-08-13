@@ -291,7 +291,6 @@ class tplOrigineTheme
             $styles .= '--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
             $styles .= '--font-size:1em;';
             $styles .= '--text-align:left;';
-            --content-order:2;--widgets-nav-order:3;--widgets-extra-order:4;--footer-order:5;
             $styles .= '--color-background:#fff;';
             $styles .= '--color-text-primary:#000;';
             $styles .= '--color-text-secondary:#595959;';
