@@ -14,7 +14,7 @@ $this->registerModule(
     'Origine',        // Name
     'A simple theme', // Description
     'Teddy',          // Author
-    '1.13-beta1',     // Version
+    '1.13-3',         // Version
     [
         'type' => 'theme'
     ]
