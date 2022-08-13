@@ -284,13 +284,14 @@ class tplOrigineTheme
 
         if ($plugin_activated === false) {
             $styles  = ':root{';
-            $styles .= '--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";';
-            $styles .= '--font-size:1em;';
-            $styles .= '--text-align:left;';
             $styles .= '--order-content:2;';
             $styles .= '--order-widgets-nav:3;';
             $styles .= '--order-widgets-extra:4;';
             $styles .= '--order-footer:5;';
+            $styles .= '--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
+            $styles .= '--font-size:1em;';
+            $styles .= '--text-align:left;';
+            --content-order:2;--widgets-nav-order:3;--widgets-extra-order:4;--footer-order:5;
             $styles .= '--color-background:#fff;';
             $styles .= '--color-text-primary:#000;';
             $styles .= '--color-text-secondary:#595959;';
@@ -311,7 +312,7 @@ class tplOrigineTheme
             $styles .= '--color-input-text:#d9d9d9;';
             $styles .= '--color-input-text-hover:#16161d;';
             $styles .= '--color-input-background:#333;';
-            $styles .= '--color-input-background-hover:#d9d9d9;';
+            $styles .= '--color-input-background-hover:#d9d9d9';
             $styles .= '}';
             $styles .= '}';
         } else {
