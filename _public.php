@@ -101,7 +101,7 @@ class tplOrigineTheme
      */
     public static function origineConfigActivationStatus()
     {
-        if (\dcCore::app()->plugins->moduleExists('origineConfig') === true && version_compare('0.6.3', \dcCore::app()->plugins->moduleInfo('origineConfig', 'version'), '<') && \dcCore::app()->blog->settings->origineConfig->active === true) {
+        if (\dcCore::app()->plugins->moduleExists('origineConfig') === true && version_compare('2.0', \dcCore::app()->plugins->moduleInfo('origineConfig', 'version'), '<=') && \dcCore::app()->blog->settings->origineConfig->active === true) {
             return true;
         } else {
             return false;
@@ -283,9 +283,9 @@ class tplOrigineTheme
         $plugin_activated = self::origineConfigActivationStatus();
 
         if ($plugin_activated === false) {
-            $styles = ':root{--content-order:2;--widgets-nav-order:3;--widgets-extra-order:4;--footer-order:5;--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000}@media (prefers-color-scheme:dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333;--color-input-background-hover:#d9d9d9}}body{font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:1em}.post-list-standard .post-link{display:block}.post-list-standard .post-meta{margin-bottom:.25em}.post-list-standard .post-title{font-size:1.1em}.post-list-standard .label-selected{border-left:none;margin-left:-1rem;margin-bottom:.5em}.post-list-standard .post-list-selected-content{border-left:.063rem solid var(--color-border);padding-left:1rem}.post-list-standard .label-page{margin-bottom:.5em}.post-list-standard .post-list-reactions{display:inline-block;margin-left:.25em}.post-list-standard .post-footer{font-size:.9em;margin-top:.5em}.post-list-standard .read-more{border:none}';
+            $styles = ':root{--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";--font-size:1em;--text-align:left;--order-content:2;--order-widgets-nav:3;--order-widgets-extra:4;--order-footer:5;--color-background:#fff;--color-text-primary:#000;--color-text-secondary:#595959;--color-link:#de0000;--color-border:#aaa;--color-input-text:#000;--color-input-text-hover:#fff;--color-input-background:#eaeaea;--color-input-background-hover:#000}@media (prefers-color-scheme:dark){:root{--color-background:#16161D;--color-text-primary:#d9d9d9;--color-text-secondary:#8c8c8c;--color-link:#f14646;--color-border:#aaa;--color-input-text:#d9d9d9;--color-input-text-hover:#16161D;--color-input-background:#333;--color-input-background-hover:#d9d9d9}}.post-list-standard .post-link{display:block}.post-list-standard .post-meta{margin-bottom:.25em}.post-list-standard .post-title{font-size:1.1em}.post-list-standard .label-selected{border-left:none;margin-left:-1rem;margin-bottom:.5em}.post-list-standard .post-list-selected-content{border-left:.063rem solid var(--color-border);padding-left:1rem}.post-list-standard .label-page{margin-bottom:.5em}.post-list-standard .post-list-reactions{display:inline-block;margin-left:.25em}.post-list-standard .post-footer{font-size:.9em;margin-top:.5em}.post-list-standard .read-more{border:none}';
         } else {
-            $styles = \dcCore::app()->blog->settings->origineConfig->global_css ? \dcCore::app()->blog->settings->origineConfig->global_css : '';
+            $styles = \dcCore::app()->blog->settings->origineConfig->css ? \dcCore::app()->blog->settings->origineConfig->global_css : '';
         }
 
         return '<style>' . $styles . '</style>';
