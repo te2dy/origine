@@ -281,41 +281,41 @@ class tplOrigineTheme
     {
         $plugin_activated = self::origineConfigActivationStatus();
 
-        if ($plugin_activated === false) {
-            $styles  = ':root{';
-            $styles .= '--page-width:30em;';
-            $styles .= '--order-content:2;';
-            $styles .= '--order-widgets-nav:3;';
-            $styles .= '--order-widgets-extra:4;';
-            $styles .= '--order-footer:5;';
-            $styles .= '--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
-            $styles .= '--font-size:1em;';
-            $styles .= '--color-background:#fff;';
-            $styles .= '--color-text-primary:#000;';
-            $styles .= '--color-text-secondary:#595959;';
-            $styles .= '--color-link:#de0000;';
-            $styles .= '--color-border:#aaa;';
-            $styles .= '--color-input-text:#000;';
-            $styles .= '--color-input-text-hover:#fff;';
-            $styles .= '--color-input-background:#eaeaea;';
-            $styles .= '--color-input-background-hover:#000';
-            $styles .= '--text-align:left;';
-            $styles .= '}';
-            $styles .= ' @media (prefers-color-scheme:dark){';
-            $styles .= ':root{';
-            $styles .= '--color-background:#16161d;';
-            $styles .= '--color-text-primary:#d9d9d9;';
-            $styles .= '--color-text-secondary:#8c8c8c;';
-            $styles .= '--color-link:#f14646;';
-            $styles .= '--color-border:#aaa;';
-            $styles .= '--color-input-text:#d9d9d9;';
-            $styles .= '--color-input-text-hover:#16161d;';
-            $styles .= '--color-input-background:#333;';
-            $styles .= '--color-input-background-hover:#d9d9d9';
-            $styles .= '}';
-            $styles .= '}';
-        } else {
-            $styles = \dcCore::app()->blog->settings->origineConfig->css_origine ? \dcCore::app()->blog->settings->origineConfig->css_origine : '';
+        $styles  = ':root{';
+        $styles .= '--page-width:30em;';
+        $styles .= '--order-content:2;';
+        $styles .= '--order-widgets-nav:3;';
+        $styles .= '--order-widgets-extra:4;';
+        $styles .= '--order-footer:5;';
+        $styles .= '--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
+        $styles .= '--font-size:1em;';
+        $styles .= '--color-background:#fff;';
+        $styles .= '--color-text-primary:#000;';
+        $styles .= '--color-text-secondary:#595959;';
+        $styles .= '--color-link:#de0000;';
+        $styles .= '--color-border:#aaa;';
+        $styles .= '--color-input-text:#000;';
+        $styles .= '--color-input-text-hover:#fff;';
+        $styles .= '--color-input-background:#eaeaea;';
+        $styles .= '--color-input-background-hover:#000';
+        $styles .= '--text-align:left;';
+        $styles .= '}';
+        $styles .= ' @media (prefers-color-scheme:dark){';
+        $styles .= ':root{';
+        $styles .= '--color-background:#16161d;';
+        $styles .= '--color-text-primary:#d9d9d9;';
+        $styles .= '--color-text-secondary:#8c8c8c;';
+        $styles .= '--color-link:#f14646;';
+        $styles .= '--color-border:#aaa;';
+        $styles .= '--color-input-text:#d9d9d9;';
+        $styles .= '--color-input-text-hover:#16161d;';
+        $styles .= '--color-input-background:#333;';
+        $styles .= '--color-input-background-hover:#d9d9d9';
+        $styles .= '}';
+        $styles .= '}';
+
+        if ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->css_origine) {
+            $styles = \dcCore::app()->blog->settings->origineConfig->css_origine;
         }
 
         return '<style>' . $styles . '</style>';
