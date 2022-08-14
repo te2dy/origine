@@ -297,8 +297,8 @@ class tplOrigineTheme
         $styles .= '--color-input-text:#000;';
         $styles .= '--color-input-text-hover:#fff;';
         $styles .= '--color-input-background:#eaeaea;';
-        $styles .= '--color-input-background-hover:#000';
-        $styles .= '--text-align:left;';
+        $styles .= '--color-input-background-hover:#000;';
+        $styles .= '--text-align:left';
         $styles .= '}';
         $styles .= ' @media (prefers-color-scheme:dark){';
         $styles .= ':root{';

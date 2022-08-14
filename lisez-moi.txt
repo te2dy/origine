@@ -12,6 +12,11 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.13.2 - 14 août 2022 ===
+- Correction : couleur des boutons au survol disparue.
+- Correction : oubli de minification des styles.
+- Suppression : valeur screen dans @media.
+
 === 1.13.1 - 14 août 2022 ===
 - Ajout : possibilité de changer le positionnement des widgets de navigation.
 - Amélioration : passage à une structure du site en grille pour plus de flexibilité.
