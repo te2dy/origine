@@ -12,6 +12,13 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.13.1 - 14 août 2022 ===
+- Ajout : possibilité de changer le positionnement des widgets de navigation.
+- Amélioration : passage à une structure du site en grille pour plus de flexibilité.
+- Amélioration : compatibilité avec les versions 2.23 et ultérieures de Dotclear (dcCore).
+- Modification : compatibilité avec origineConfig 2.0.
+- Correction : affichage de l’adresse des rétroliens.
+
 === 1.12.3 - 18 juin 2022 ===
 - Amélioration : texte du lien d’abonnement aux réactions/commentaires/rétroliens.
 - Correction : les styles de widgets ne s’appliquaient pas à ceux contenus dans l’en-tête.
