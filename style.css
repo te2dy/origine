@@ -291,31 +291,31 @@ textarea {
 .page-content {
   margin: 1.5em 0;
 }
-.text {
+.content-text {
   line-height: 1.5;
   text-align: var(--text-align);
 }
-.text ol,
-.text ul {
+.content-text ol,
+.content-text ul {
   margin: 1em 0;
   padding-left: 1em;
 }
-.text ol ol,
-.text ol ul,
-.text ul ol,
-.text ul ul {
+.content-text ol ol,
+.content-text ol ul,
+.content-text ul ol,
+.content-text ul ul {
   margin-top: 0;
   margin-bottom: 0;
 }
-.text li {
+.content-text li {
   list-style-position: inside;
 }
-.text hr {
+.content-text hr {
   border: 0;
   margin: 2em 0;
   text-align: center;
 }
-.text hr::after {
+.content-text hr::after {
   color: var(--color-text-primary);
   content: "\002042"; /* ⁂ */
 }
@@ -797,7 +797,7 @@ textarea {
     page-break-after: avoid;
     page-break-inside: avoid;
   }
-  .text a[href^=http]:after {
+  .content-text a[href^=http]:after {
     content: " [" attr(href) "]";
   }
   .post-single .post-footer {
