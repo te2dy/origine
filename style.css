@@ -73,7 +73,7 @@ body {
   display: grid;
   row-gap: 2rem;
   margin: 4rem auto;
-  max-width: 30rem; /* 480px for a 16px font size */
+  max-width: var(--page-width); /* 480px for a 16px font size */
 }
 #site-header {
   order: 1;
