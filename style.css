@@ -5,41 +5,6 @@
  * This one is just meant to be read by humans.
  */
 
-/**
- * Styles used in __layout.html before being inlined.
- *
-:root {
-  --font-family: "Iowan Old Style", "Apple Garamond", Baskerville, "Times New Roman", "Droid Serif", Times, "Source Serif Pro", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-size: 1em;
-  --order-content: 2;
-  --order-widgets-nav: 3;
-  --order-widgets-extra: 4;
-  --order-footer: 5;
-  --color-background: #fff;
-  --color-text-primary: #000;
-  --color-text-secondary: #595959;
-  --color-link: #de0000;
-  --color-border: #aaa;
-  --color-input-text: #000;
-  --color-input-text-hover: #fff;
-  --color-input-background: #eaeaea;
-  --color-input-background-hover: #000;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #16161D;
-    --color-text-primary: #d9d9d9;
-    --color-text-secondary: #8c8c8c;
-    --color-link: #f14646;
-    --color-border: #aaa;
-    --color-input-text: #d9d9d9;
-    --color-input-text-hover: #16161D;
-    --color-input-background: #333333;
-    --color-input-background-hover: #d9d9d9;
-  }
-}
-*/
-
 /* Accessibility: high contrast mode */
 @media (prefers-contrast: more),
        (prefers-contrast: less),
@@ -735,7 +700,7 @@ textarea {
  * Required: body left and right margin on full screens
  * if the default pixel size is superior to 16px.
  */
-@media only screen and (max-width: 608px) {
+@media (max-width: 608px) {
   body {
     margin: 0;
   }
@@ -763,7 +728,7 @@ textarea {
  * Required: body left and right margin on full screens
  * if the default pixel size is superior to 16px.
  */
-@media only screen and (max-width: 384px) {
+@media (max-width: 384px) {
   #site {
     width: 90%;
   }
