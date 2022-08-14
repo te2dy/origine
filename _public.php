@@ -94,10 +94,9 @@ class tplOrigineTheme
     // Template tags used in combination with origineConfig plugin.
 
     /**
-     * Returns true if the plugin origineConfig
-     * is installed and activated.
+     * Returns true if the plugin origineConfig is installed and activated.
      *
-     * To support the user’s settings, the version of the plugin must be superior to 2.0
+     * To support the user’s settings, the version of the plugin must be superior or equal to 2.0.
      */
     public static function origineConfigActivationStatus()
     {
@@ -284,13 +283,13 @@ class tplOrigineTheme
 
         if ($plugin_activated === false) {
             $styles  = ':root{';
+            $styles .= '--page-width:30em;';
             $styles .= '--order-content:2;';
             $styles .= '--order-widgets-nav:3;';
             $styles .= '--order-widgets-extra:4;';
             $styles .= '--order-footer:5;';
             $styles .= '--font-family:"Iowan Old Style","Apple Garamond",Baskerville,"Times New Roman","Droid Serif",Times,"Source Serif Pro",serif,"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";';
             $styles .= '--font-size:1em;';
-            $styles .= '--text-align:left;';
             $styles .= '--color-background:#fff;';
             $styles .= '--color-text-primary:#000;';
             $styles .= '--color-text-secondary:#595959;';
@@ -300,6 +299,7 @@ class tplOrigineTheme
             $styles .= '--color-input-text-hover:#fff;';
             $styles .= '--color-input-background:#eaeaea;';
             $styles .= '--color-input-background-hover:#000';
+            $styles .= '--text-align:left;';
             $styles .= '}';
             $styles .= ' @media (prefers-color-scheme:dark){';
             $styles .= ':root{';
@@ -315,7 +315,7 @@ class tplOrigineTheme
             $styles .= '}';
             $styles .= '}';
         } else {
-            $styles = \dcCore::app()->blog->settings->origineConfig->global_css ? \dcCore::app()->blog->settings->origineConfig->global_css : '';
+            $styles = \dcCore::app()->blog->settings->origineConfig->css_origine ? \dcCore::app()->blog->settings->origineConfig->css_origine : '';
         }
 
         return '<style>' . $styles . '</style>';
