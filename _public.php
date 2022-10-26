@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-\l10n::set(dirname(__FILE__) . '/locales/' . \dcCore::app()->lang . '/main');
+\l10n::set(__DIR__ . '/locales/' . \dcCore::app()->lang . '/main');
 
 \dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplOrigineTheme', 'origineHeadMeta']);
 \dcCore::app()->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
@@ -20,7 +20,7 @@ if (!defined('DC_RC_PATH')) {
 \dcCore::app()->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
 
 // Template tags used in combination with origineConfig plugin.
-\dcCore::app()->tpl->addValue('origineConfigActivationStatus', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActivationStatus']);
+\dcCore::app()->tpl->addValue('origineConfigActive', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActive']);
 \dcCore::app()->tpl->addValue('origineSeparator', [__NAMESPACE__ . '\tplOrigineTheme', 'origineSeparator']);
 \dcCore::app()->tpl->addValue('originePostListType', [__NAMESPACE__ . '\tplOrigineTheme', 'originePostListType']);
 \dcCore::app()->tpl->addValue('origineEntryIfSelected', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryIfSelected']);
@@ -30,28 +30,38 @@ if (!defined('DC_RC_PATH')) {
 \dcCore::app()->tpl->addBlock('origineWidgetsNav', [__NAMESPACE__ . '\tplOrigineTheme', 'origineWidgetsNav']);
 \dcCore::app()->tpl->addBlock('origineWidgetsExtra', [__NAMESPACE__ . '\tplOrigineTheme', 'origineWidgetsExtra']);
 \dcCore::app()->tpl->addBlock('origineFooter', [__NAMESPACE__ . '\tplOrigineTheme', 'origineFooter']);
-\dcCore::app()->tpl->addValue('origineInlineStyles', [__NAMESPACE__ . '\tplOrigineTheme', 'origineInlineStyles']);
+\dcCore::app()->tpl->addValue('origineStylesInline', [__NAMESPACE__ . '\tplOrigineTheme', 'origineStylesInline']);
 
 class tplOrigineTheme
 {
     /**
      * Adds meta tags in the <head> section depending on the blog settings.
+     *
+     * @return void
      */
     public static function origineHeadMeta()
     {
         // Adds the name of the editor.
         if (\dcCore::app()->blog->settings->system->editor) {
-            echo '<meta name=author content="', \dcCore::app()->blog->settings->system->editor, '" />', "\n";
+            $editor = \dcCore::app()->blog->settings->system->editor;
+            $editor = strpos($editor, ' ') === false ? $editor : '"' . $editor . '"';
+
+            echo '<meta name=author content=', $editor, '>', "\n";
         }
 
         // Adds the content of the copyright notice.
         if (\dcCore::app()->blog->settings->system->copyright_notice) {
-            echo '<meta name=copyright content="', \dcCore::app()->blog->settings->system->copyright_notice, '" />', "\n";
+            $notice = \dcCore::app()->blog->settings->system->copyright_notice;
+            $notice = strpos($notice, ' ') === false ? $notice : '"' . $notice . '"';
+
+            echo '<meta name=copyright content=', $notice, '>', "\n";
         }
     }
 
     /**
      * Displays navigation links for screen readers.
+     *
+     * @return void
      */
     public static function origineScreenReaderLinks()
     {
@@ -92,13 +102,13 @@ class tplOrigineTheme
     // Template tags used in combination with origineConfig plugin.
 
     /**
-     * Returns true if the plugin origineConfig is installed and activated.
+     * Checks if the plugin origineConfig is installed and activated.
      *
-     * To support the user’s settings, the version of the plugin must be superior or equal to 2.0.
+     * @return bool Returns true if the plugin is installed and activated.
      */
-    public static function origineConfigActivationStatus()
+    public static function origineConfigActive()
     {
-        if (\dcCore::app()->plugins->moduleExists('origineConfig') === true && version_compare('2.0', \dcCore::app()->plugins->moduleInfo('origineConfig', 'version'), '<=') && \dcCore::app()->blog->settings->origineConfig->active === true) {
+        if (\dcCore::app()->plugins->moduleExists('origineConfig') === true && \dcCore::app()->blog->settings->origineConfig->active === true) {
             return true;
         } else {
             return false;
@@ -111,7 +121,7 @@ class tplOrigineTheme
      */
     public static function origineSeparator()
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->global_separator === "/")) {
             return "/";
@@ -126,7 +136,7 @@ class tplOrigineTheme
      */
     public static function originePostListType()
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false) {
             $tpl = \dcCore::app()->tpl->includeFile(['src' => '_entry-list-standard.html']);
@@ -142,7 +152,7 @@ class tplOrigineTheme
      */
     public static function origineEntryIfSelected()
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false) {
             $tpl = 'standard';
@@ -164,15 +174,19 @@ class tplOrigineTheme
     }
 
     /**
-     * Displays credits in the footer.
+     * Credits to display at the bottom of the site.
+     *
+     * They can be remove with the plugin origineConfig.
+     *
+     * @return void
      */
     public static function origineFooterCredits()
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
         $the_footer             = '';
 
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->footer_credits === true)) {
-            $the_footer .= '<div class="widget" id="site-footer-ad">';
+            $the_footer .= '<div class=widget id=site-footer-ad>';
 
             $url_dotclear  = __('https://dotclear.org/');
             $text_dotclear = __('Dotclear');
@@ -221,7 +235,7 @@ class tplOrigineTheme
      */
     public static function origineCommentLinks($attr, $content)
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->content_comment_links === true)) {
             return $content;
@@ -233,7 +247,7 @@ class tplOrigineTheme
      */
     public static function origineWidgetsNav($attr, $content)
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->widgets_nav_position !== 'disabled')) {
             return $content;
@@ -245,7 +259,7 @@ class tplOrigineTheme
      */
     public static function origineWidgetsExtra($attr, $content)
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->widgets_extra_enabled === true)) {
             return $content;
@@ -257,7 +271,7 @@ class tplOrigineTheme
      */
     public static function origineFooter($attr, $content)
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->footer_enabled === true)) {
             return $content;
@@ -265,17 +279,16 @@ class tplOrigineTheme
     }
 
     /**
-     * Adds styles in the head section.
+     * Adds styles in the head.
      *
-     * If the plugin origineConfig is not installed nor activated,
-     * it will load default styles; otherwise, it will load
-     * the custom styles set in the plugin page.
+     * If origineConfig is activated, it returns custom styles generated by it;
+     * otherwise, default styles are returned.
      *
-     * @see origine/styles.css
+     * @return string The styles.
      */
-    public static function origineInlineStyles()
+    public static function origineStylesInline()
     {
-        $plugin_activated = self::origineConfigActivationStatus();
+        $plugin_activated = self::origineConfigActive();
 
         $styles  = ':root{';
         $styles .= '--page-width:30em;';
