@@ -5,24 +5,24 @@
 </tpl:Block>
 
 <tpl:Block name="head-description">
-  <meta name="description" content="{{tpl:lang Archives sorted by month}}" />
+  <meta name=description content="{{tpl:lang Archives sorted by month}}">
 </tpl:Block>
 
 <tpl:Block name="main-content">
-  <header class="content-info">
-    <div class="content-meta">
+  <header class=content-info>
+    <div class=content-meta>
       <tpl:ArchivePrevious>
-        <a href="{{tpl:ArchiveURL}}" class="prev">‹ {{tpl:ArchiveDate encode_html="1"}}</a> –
+        <a href={{tpl:ArchiveURL}} class=prev>‹ {{tpl:ArchiveDate encode_html="1"}}</a> –
       </tpl:ArchivePrevious>
 
       {{tpl:ArchiveDate}}
 
       <tpl:ArchiveNext>
-        – <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} ›</a>
+        – <a href={{tpl:ArchiveURL}} class=next>{{tpl:ArchiveDate encode_html="1"}} ›</a>
       </tpl:ArchiveNext>
     </div>
 
-    <h1 class="content-title">{{tpl:lang Archives:}} {{tpl:ArchiveDate}}</h1>
+    <h1 class=content-title>{{tpl:lang Archives:}} {{tpl:ArchiveDate}}</h1>
   </header>
 
   {{tpl:originePostListType}}

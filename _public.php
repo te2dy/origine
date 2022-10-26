@@ -41,12 +41,12 @@ class tplOrigineTheme
     {
         // Adds the name of the editor.
         if (\dcCore::app()->blog->settings->system->editor) {
-            echo '<meta name="author" content="', \dcCore::app()->blog->settings->system->editor, '" />', "\n";
+            echo '<meta name=author content="', \dcCore::app()->blog->settings->system->editor, '" />', "\n";
         }
 
         // Adds the content of the copyright notice.
         if (\dcCore::app()->blog->settings->system->copyright_notice) {
-            echo '<meta name="copyright" content="', \dcCore::app()->blog->settings->system->copyright_notice, '" />', "\n";
+            echo '<meta name=copyright content="', \dcCore::app()->blog->settings->system->copyright_notice, '" />', "\n";
         }
     }
 
@@ -61,7 +61,7 @@ class tplOrigineTheme
 
         // If simpleMenu exists, is activated and a menu has been set.
         if (\dcCore::app()->plugins->moduleExists('simpleMenu') && \dcCore::app()->blog->settings->system->simpleMenu_active === true) {
-            $links .= '<a id="skip-menu" class="skip-links" href="#main-menu">';
+            $links .= '<a id=skip-menu class=skip-links href=#main-menu>';
             $links .= __('Skip to menu');
             $links .= '</a>';
         }
@@ -70,16 +70,14 @@ class tplOrigineTheme
     }
 
     /**
-     * Displays a "lang" attribute and its value
-     * when the language of the current post is different
-     * from the language defined for the blog.
+     * Displays a lang attribute and its value when the language of the current post is different
+     * from the language defined for the whole blog.
+     *
+     * @return void
      */
     public static function origineEntryLang()
     {
-        return '
-        <?php if (\dcCore::app()->ctx->posts->post_lang !== \dcCore::app()->blog->settings->system->lang) {
-            echo " lang=\"" . \dcCore::app()->ctx->posts->post_lang . "\"";
-        } ?>';
+        return '<?php if (\dcCore::app()->ctx->posts->post_lang !== \dcCore::app()->blog->settings->system->lang) { echo " lang=" , dcCore::app()->ctx->posts->post_lang; } ?>';
     }
 
     /**
@@ -161,9 +159,7 @@ class tplOrigineTheme
         return '
         <?php
         if (\dcCore::app()->ctx->posts->post_selected === "1") {
-            echo "<div class=\"label label-selected\">";
-            echo "' . $label . '";
-            echo "</div>";
+            echo "<div class=\"label label-selected\">' . $label . '</div>";
         } ?>';
     }
 
@@ -195,7 +191,7 @@ class tplOrigineTheme
             }
 
             $the_footer .= sprintf(
-                __('Powered by <a href="%1$s">%2$s</a> and <a href="%3$s">%4$s</a>'),
+                __('Powered by <a href=%1$s>%2$s</a> and <a href=%3$s>%4$s</a>'),
                 $url_dotclear,
                 $text_dotclear,
                 $url_origine,
@@ -215,7 +211,7 @@ class tplOrigineTheme
     {
         if (\dcCore::app()->blog->settings->system->markdown_comments === true) {
             echo '<div class="form-entry text-italic text-small">',
-            __('Markdown language allowed (<a href="https://commonmark.org/help/" rel="nofollow">help</a>).'),
+            __('Markdown language allowed (<a href=https://commonmark.org/help/ rel=nofollow>help</a>).'),
             '</div>';
         }
     }

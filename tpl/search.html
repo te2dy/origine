@@ -7,20 +7,10 @@
 <tpl:Block name="head-description"></tpl:Block>
 
 <tpl:Block name="main-content">
-  <div class="content-info">
-    <h1 class="content-title">{{tpl:lang Search}}</h1>
+  <div class=content-info>
+    <h1 class=content-title>{{tpl:lang Search}}</h1>
 
-    <section class="page-content content-text">
-      <form action="{{tpl:BlogURL}}" id="page-search-form" method="get" role="search">
-        <div class="form-entry">
-          <input aria-label="Recherche" class="page-search-form-input" maxlength="255" name="q" placeholder="{{tpl:lang Search terms}}" type="text" value="{{tpl:SysSearchString}}" />
-        </div>
-
-        <div class="form-entry">
-          <input type="submit" value="{{tpl:lang Send}}" />
-        </div>
-      </form>
-    </section>
+    {{tpl:include src="_searchform.html"}}
 
     <tpl:SysIf search_count="==1">
       <p>{{tpl:SysSearchString encode_html="1" string="Your search returned <strong>one result</strong>:"}}</p>

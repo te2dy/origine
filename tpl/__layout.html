@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="{{tpl:BlogLanguage}}">
+<html lang={{tpl:BlogLanguage}}>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
 
     <tpl:Block name="head-title">
-      <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> – {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+      <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> – {{tpl:lang page-noun-before-number}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
     </tpl:Block>
 
     <tpl:Block name="head-description">
-      <meta name="description" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
+      <meta name=description content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}">
     </tpl:Block>
 
     <tpl:Block name="head-meta">
-      <meta name="robots" content="{{tpl:BlogMetaRobots}}" />
+      <meta name=robots content="{{tpl:BlogMetaRobots}}">
     </tpl:Block>
 
     {{tpl:origineInlineStyles}}
 
-    <link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.min.css" />
-
-    <link rel="alternate" type="application/atom+xml" title="{{tpl:lang Syndicated feed}}" href="{{tpl:BlogFeedURL}}" />
-
-    {{tpl:origineHeadMeta}}
+    <tpl:Block name="head-link">
+      <link rel=stylesheet href={{tpl:BlogThemeURL}}/style.min.css>
+      <link rel=alternate type=application/atom+xml title="{{tpl:lang feed-title}}" href={{tpl:BlogFeedURL}}>
+    </tpl:Block>
 
     {{tpl:SysBehavior behavior="publicHeadContent"}}
   </head>
@@ -30,14 +29,14 @@
   <body>
     {{tpl:origineScreenReaderLinks}}
 
-    <div id="site">
-      <header id="site-header">
+    <div id=site>
+      <header id=site-header>
         <tpl:Block name="site-header">
           {{tpl:origineConfigLogo link_home="1"}}
 
-          <h4 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h4>
+          <h4 id=site-title><a href={{tpl:BlogURL}}>{{tpl:BlogName}}</a></h4>
 
-          <h5 class="text-secondary" id="site-description">{{tpl:BlogDescription}}</h5>
+          <h5 class=text-secondary id=site-description>{{tpl:BlogDescription}}</h5>
 
           {{tpl:SimpleMenu id="main-menu"}}
 

@@ -1,5 +1,5 @@
 <tpl:Entries no_content="1">
-  <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
+  <article id={{tpl:lang post}}-{{tpl:EntryID}} class="post-list post-list-short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
     {{tpl:origineEntryIfSelected}}
 
     <tpl:EntryIf type="page">
@@ -10,13 +10,13 @@
 
     <tpl:EntryIf type="post">
       <span class="post-meta text-secondary">
-        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time>
+        <time aria-label="{{tpl:lang Published date of the post}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time>
 
         {{tpl:origineSeparator}}
       </span>
     </tpl:EntryIf>
 
-    <h3 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h3>
+    <h3 class=post-title><a href={{tpl:EntryURL}}>{{tpl:EntryTitle}}</a></h3>
 
     {{tpl:origineConfigEntriesAuthorName}}
 
@@ -25,7 +25,7 @@
         <span class="post-meta text-secondary">
           {{tpl:origineSeparator}}
 
-          <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
+          <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
         </span>
       </tpl:EntryIf>
 
@@ -33,7 +33,7 @@
         <span class="post-meta text-secondary">
           {{tpl:origineSeparator}}
 
-          <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
+          <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
         </span>
       </tpl:EntryIf>
 
@@ -41,7 +41,7 @@
         <span class="post-meta text-secondary">
           {{tpl:origineSeparator}}
 
-          <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
+          <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
         </span>
       </tpl:EntryIf>
     </tpl:EntryIf>

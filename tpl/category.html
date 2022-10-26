@@ -5,14 +5,14 @@
 </tpl:Block>
 
 <tpl:Block name="head-description">
-  <meta name="description" content="{{tpl:CategoryDescription encode_html="1" remove_html="1"}}" />
+  <meta name=description content="{{tpl:CategoryDescription encode_html="1" remove_html="1"}}">
 </tpl:Block>
 
 <tpl:Block name="main-content">
-  <header class="content-info">
-    <span class="label">{{tpl:lang category}}</span>
+  <header class=content-info>
+    <span class=label>{{tpl:lang category}}</span>
 
-    <h1 class="content-title">{{tpl:CategoryTitle}}</h1>
+    <h1 class=content-title>{{tpl:CategoryTitle}}</h1>
 
     {{tpl:CategoryDescription}}
   </header>

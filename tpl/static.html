@@ -5,7 +5,7 @@
 </tpl:Block>
 
 <tpl:Block name="head-description">
-  <meta name="description" content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}" />
+  <meta name=description content="{{tpl:BlogDescription remove_html="1" encode_html="1"}}">
 </tpl:Block>
 
 <tpl:Block name="main-content">
@@ -13,8 +13,8 @@
     {{tpl:BlogStaticEntryURL}}
 
     <tpl:Entries>
-      <article id="{{tpl:lang page}}-{{tpl:EntryID}}" class="page"{{tpl:origineEntryLang}}>
-        <section class="content-text">
+      <article id={{tpl:lang page}}-{{tpl:EntryID}} class=page{{tpl:origineEntryLang}}>
+        <section class=content-text>
           {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
 
           {{tpl:EntryContent}}

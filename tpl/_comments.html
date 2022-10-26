@@ -1,29 +1,29 @@
 <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-  <div id="{{tpl:lang reactions}}" class="reactions-block">
+  <div id={{tpl:lang reactions}} class=reactions-block>
 
   <tpl:EntryIf operator="and" has_comment="1" has_ping="1">
-    <h3 class="reaction-title">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</h3>
+    <h3 class=reaction-title>{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</h3>
   </tpl:EntryIf>
 
   <tpl:EntryIf operator="and" has_comment="1" has_ping="0">
-    <h3 class="reaction-title">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</h3>
+    <h3 class=reaction-title>{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</h3>
   </tpl:EntryIf>
 
   <tpl:EntryIf operator="and" has_comment="0" has_ping="1">
-    <h3 class="reaction-title">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</h3>
+    <h3 class=reaction-title>{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</h3>
   </tpl:EntryIf>
 </tpl:EntryIf>
 
 <tpl:EntryIf operator="or" show_comments="1" show_pings="1">
   <tpl:Comments with_pings="1">
     <tpl:CommentsHeader>
-      <ul id="reactions-list">
+      <ul id=reactions-list>
     </tpl:CommentsHeader>
 
     <tpl:CommentIf is_ping="0">
-      <li id="{{tpl:lang comment}}-{{tpl:CommentID}}" class="reaction comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
-        <header class="comment-meta">
-          <cite class="comment-author">{{tpl:CommentAuthorLink}}</cite><span class="comment-date text-secondary">, <a href="#{{tpl:lang comment}}-{{tpl:CommentID}}">{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
+      <li id={{tpl:lang comment}}-{{tpl:CommentID}} class="reaction comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
+        <header class=comment-meta>
+          <cite class=comment-author>{{tpl:CommentAuthorLink}}</cite><span class="comment-date text-secondary">, <a href=#{{tpl:lang comment}}-{{tpl:CommentID}}>{{tpl:lang on}} {{tpl:CommentDate}} {{tpl:lang at}} {{tpl:CommentTime}}</a>{{tpl:lang :}}</span>
         </header>
 
         <div class="comment-content content-text">
@@ -36,8 +36,8 @@
     </tpl:CommentIf>
 
     <tpl:CommentIf is_ping="1">
-      <li id="{{tpl:lang trackback}}-{{tpl:PingID}}" class="reaction ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
-        {{tpl:lang Trackback:}} <a class="ping-link" href="{{tpl:PingAuthorURL}}" {{tpl:PingNoFollow}}>{{tpl:PingTitle}}</a>, <cite class="ping-author">{{tpl:PingBlogName}}</cite><span class="ping-date text-secondary">, <a href="#{{tpl:lang trackback}}-{{tpl:PingID}}">{{tpl:PingDate}}, {{tpl:PingTime}}</a></span>
+      <li id={{tpl:lang trackback}}-{{tpl:PingID}} class="reaction ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+        {{tpl:lang Trackback:}} <a class=ping-link href={{tpl:PingAuthorURL}} {{tpl:PingNoFollow}}>{{tpl:PingTitle}}</a>, <cite class=ping-author>{{tpl:PingBlogName}}</cite><span class="ping-date text-secondary">, <a href=#{{tpl:lang trackback}}-{{tpl:PingID}}>{{tpl:PingDate}}, {{tpl:PingTime}}</a></span>
       </li>
     </tpl:CommentIf>
 
@@ -50,30 +50,30 @@
 <tpl:EntryIf comments_active="1">
   <tpl:Block name="comment-alerts">
     <tpl:SysIfCommentPublished>
-      <p class="comment-message" id="{{tpl:lang comment}}">
+      <p class=comment-message id={{tpl:lang comment}}>
         🟢 {{tpl:lang Your comment has been published.}}
       </p>
     </tpl:SysIfCommentPublished>
 
     <tpl:SysIfCommentPending>
-      <p class="comment-message" id="{{tpl:lang comment}}">
+      <p class=comment-message id={{tpl:lang comment}}>
         🟠 {{tpl:lang Your comment has been submitted and will be reviewed for publication.}}
       </p>
     </tpl:SysIfCommentPending>
 
     <tpl:SysIfFormError>
-      <p class="comment-message" id="{{tpl:lang comment}}">
+      <p class=comment-message id={{tpl:lang comment}}>
         🔴 {{tpl:SysFormError}}
       </p>
     </tpl:SysIfFormError>
   </tpl:Block>
 
   <tpl:Block name="comment-form">
-    <form action="{{tpl:EntryURL}}#{{tpl:lang comment}}" method="post" id="comment-form">
+    <form action={{tpl:EntryURL}}#{{tpl:lang comment}} method=post id=comment-form>
       <tpl:Block name="comment-form-preview">
         <tpl:IfCommentPreview>
-          <div id="{{tpl:lang comment}}" class="comment-preview">
-            <div class="comment-preview-info">
+          <div id={{tpl:lang comment}} class=comment-preview>
+            <div class=comment-preview-info>
               <h3>{{tpl:lang Previewing}}</h3>
             </div>
 
@@ -81,47 +81,47 @@
               {{tpl:CommentPreviewContent}}
             </div>
 
-            <input type="submit" class="submit" value="{{tpl:lang Send comment}}">
+            <input type=submit class=submit value="{{tpl:lang Send comment}}">
           </div>
         </tpl:IfCommentPreview>
       </tpl:Block>
 
       <tpl:Block name="comment-form-add">
-        <h3 class="reaction-title">{{tpl:lang Write a comment}}</h3>
+        <h3 class=reaction-title>{{tpl:lang Write a comment}}</h3>
 
         {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
 
-        <div class="form-entry">
-          <label for="c_name">{{tpl:lang Name or nickname}}</label>
-          <input name="c_name" id="c_name" type="text" size="30" maxlength="255"
+        <div class=form-entry>
+          <label for=c_name>{{tpl:lang Name or nickname}}</label>
+          <input name=c_name id=c_name size=30 maxlength=255
            value="{{tpl:CommentPreviewName encode_html="1"}}" required>
         </div>
 
-        <div class="form-entry">
-          <label for="c_mail">{{tpl:lang Email address}}</label>
-          <input name="c_mail" id="c_mail" type="email" size="30" maxlength="255"
+        <div class=form-entry>
+          <label for=c_mail>{{tpl:lang Email address}}</label>
+          <input name=c_mail id=c_mail type=email size=30 maxlength=255
            value="{{tpl:CommentPreviewEmail encode_html="1"}}" required>
         </div>
 
-        <div class="form-entry">
-          <label for="c_site">{{tpl:lang URL of a personal account or website (optional)}}</label>
-          <input name="c_site" id="c_site" type="text" size="30" maxlength="255"
-           placeholder="https://…" value="{{tpl:CommentPreviewSite encode_html="1"}}">
+        <div class=form-entry>
+          <label for=c_site>{{tpl:lang URL of a personal account or website (optional)}}</label>
+          <input name=c_site id=c_site size=30 maxlength=255
+           placeholder=https://… value="{{tpl:CommentPreviewSite encode_html="1"}}">
         </div>
 
-        <div class="form-entry">
-          <label for="c_content">{{tpl:lang Your comment}}</label>
-          <textarea name="c_content" id="c_content" cols="50"
-           rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+        <div class=form-entry>
+          <label for=c_content>{{tpl:lang Your comment}}</label>
+          <textarea name=c_content id=c_content cols=50
+           rows=7 required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
         </div>
 
         {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
 
-        <div class="form-entry">
-          <input type="submit" name="preview" value="{{tpl:lang Preview}}">
+        <div class=form-entry>
+          <input type=submit name=preview value="{{tpl:lang Preview}}">
 
           <tpl:IfCommentPreviewOptional>
-            <input type="submit" value="{{tpl:lang Send}}">
+            <input type=submit value="{{tpl:lang Send}}">
           </tpl:IfCommentPreviewOptional>
         </div>
       </tpl:Block>
@@ -132,17 +132,17 @@
 {{tpl:origineConfigEmailAuthor}}
 
 <tpl:origineCommentLinks>
-  <p class="text-secondary text-small" id="comment-feed-link">
+  <p class="text-secondary text-small" id=comment-feed-link>
     <tpl:EntryIf operator="and" comments_active="1" pings_active="1">
-      <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" rel="nofollow">{{tpl:lang Subscribe to reactions}}</a>
+      <a href={{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}} rel=nofollow>{{tpl:lang Subscribe to reactions}}</a>
     </tpl:EntryIf>
 
     <tpl:EntryIf operator="and" comments_active="1" pings_active="0">
-      <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" rel="nofollow">{{tpl:lang Subscribe to comments}}</a>
+      <a href={{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}} rel=nofollow>{{tpl:lang Subscribe to comments}}</a>
     </tpl:EntryIf>
 
     <tpl:EntryIf operator="and" comments_active="0" pings_active="1">
-      <a href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}" rel="nofollow">{{tpl:lang Subscribe to trackbacks}}</a>
+      <a href={{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}} rel=nofollow>{{tpl:lang Subscribe to trackbacks}}</a>
     </tpl:EntryIf>
 
 
@@ -167,8 +167,8 @@
       }
     </script>
 
-    <p class="text-secondary text-small" id="trackback-link-container">
-      {{tpl:lang Add a trackback:}}<br><span data-trackback-url="{{tpl:EntryPingLink}}" id="trackback-url" onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
+    <p class="text-secondary text-small" id=trackback-link-container>
+      {{tpl:lang Add a trackback:}}<br><span data-trackback-url={{tpl:EntryPingLink}} id=trackback-url onclick="origineTrackbackURLCopy();">{{tpl:EntryPingLink}}</span>
     </p>
   </tpl:EntryIf>
 </tpl:origineCommentLinks>

@@ -1,5 +1,5 @@
 <tpl:Entries no_content="0">
-  <article id="{{tpl:lang post}}-{{tpl:EntryID}}" class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
+  <article id={{tpl:lang post}}-{{tpl:EntryID}} class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
     <header>
       {{tpl:origineEntryIfSelected}}
 
@@ -10,10 +10,10 @@
       </tpl:EntryIf>
 
       <div class="post-meta text-secondary">
-        <time aria-label="{{tpl:lang Published date of the post}}" datetime="{{tpl:EntryDate format="%Y-%m-%dT%H:%m"}}" pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
+        <time aria-label="{{tpl:lang Published date of the post}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
       </div>
 
-      <h1 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle}}</a></h1>
+      <h1 class=post-title><a href={{tpl:EntryURL}}>{{tpl:EntryTitle}}</a></h1>
     </header>
 
     <section class="post-content content-text">
@@ -26,12 +26,12 @@
       {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
     </section>
 
-    <footer class="post-footer">
+    <footer class=post-footer>
       {{tpl:include src="_attachments.html"}}
 
       <tpl:EntryIf has_category="1">
         <div class="post-meta text-secondary">
-          {{tpl:lang Sorted in}} <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory}}</a>
+          {{tpl:lang Sorted in}} <a href={{tpl:EntryCategoryURL}}>{{tpl:EntryCategory}}</a>
         </div>
       </tpl:EntryIf>
 
@@ -40,7 +40,7 @@
           <div class="post-meta text-secondary">{{tpl:lang Tags:}}
         </tpl:TagsHeader>
 
-        <a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
+        <a href={{tpl:TagURL}} rel=tag>{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
 
         <tpl:TagsFooter>
           </div>
@@ -50,19 +50,19 @@
       <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
         <tpl:EntryIf operator="and" has_comment="1" has_ping="1">
           <span class="post-meta text-secondary">
-            <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
           </span>
         </tpl:EntryIf>
 
         <tpl:EntryIf operator="and" has_comment="1" has_ping="0">
           <span class="post-meta text-secondary">
-            <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
           </span>
         </tpl:EntryIf>
 
         <tpl:EntryIf operator="and" has_comment="0" has_ping="1">
           <span class="post-meta text-secondary">
-            <a href="{{tpl:EntryURL}}#{{tpl:lang reactions}}">{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
           </span>
         </tpl:EntryIf>
       </tpl:EntryIf>

@@ -5,7 +5,7 @@
 </tpl:Block>
 
 <tpl:Block name="head-description">
-  <meta name="description" content="{{tpl:BlogDescription}}" />
+  <meta name=description content="{{tpl:BlogDescription}}">
 </tpl:Block>
 
 <tpl:Block name="site-header">
@@ -13,16 +13,16 @@
   <tpl:PaginationIf start="1">
     {{tpl:origineConfigLogo}}
 
-    <h1 id="site-title">{{tpl:BlogName}}</h1>
+    <h1 id=site-title>{{tpl:BlogName}}</h1>
   </tpl:PaginationIf>
 
   <tpl:PaginationIf start="0">
     {{tpl:origineConfigLogo link_home="1"}}
 
-    <h1 id="site-title"><a href="{{tpl:BlogURL}}">{{tpl:BlogName}}</a></h1>
+    <h1 id=site-title><a href={{tpl:BlogURL}}>{{tpl:BlogName}}</a></h1>
   </tpl:PaginationIf>
 
-  <h2 id="site-description" class="text-secondary">{{tpl:BlogDescription}}</h2>
+  <h2 id=site-description class=text-secondary>{{tpl:BlogDescription}}</h2>
 
   {{tpl:SimpleMenu id="main-menu"}}
 
