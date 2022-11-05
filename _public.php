@@ -18,6 +18,7 @@ if (!defined('DC_RC_PATH')) {
 \dcCore::app()->tpl->addValue('origineScreenReaderLinks', [__NAMESPACE__ . '\tplOrigineTheme', 'origineScreenReaderLinks']);
 \dcCore::app()->tpl->addValue('origineEntryLang', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryLang']);
 \dcCore::app()->tpl->addValue('origineEntryPrintURL', [__NAMESPACE__ . '\tplOrigineTheme', 'origineEntryPrintURL']);
+\dcCore::app()->tpl->addValue('origineURIRelative', [__NAMESPACE__ . '\tplOrigineTheme', 'origineURIRelative']);
 
 // Template tags used in combination with origineConfig plugin.
 \dcCore::app()->tpl->addValue('origineConfigActive', [__NAMESPACE__ . '\tplOrigineTheme', 'origineConfigActive']);
@@ -66,13 +67,13 @@ class tplOrigineTheme
     public static function origineScreenReaderLinks()
     {
         $links  = '<a id="skip-content" class="skip-links" href="#site-content">';
-        $links .= __('Skip to content');
+        $links .= __('accessibility-skip-content');
         $links .= '</a>';
 
         // If simpleMenu exists, is activated and a menu has been set.
         if (\dcCore::app()->plugins->moduleExists('simpleMenu') && \dcCore::app()->blog->settings->system->simpleMenu_active === true) {
             $links .= '<a id=skip-menu class=skip-links href=#main-menu>';
-            $links .= __('Skip to menu');
+            $links .= __('accessibility-skip-menu');
             $links .= '</a>';
         }
 
@@ -97,6 +98,16 @@ class tplOrigineTheme
     public static function origineEntryPrintURL()
     {
         return '<?php echo str_replace([\'http://\', \'https://\'], "", \dcCore::app()->ctx->posts->getURL()); ?>';
+    }
+
+    /**
+     * Returns the relative URI of the current page.
+     *
+     * @return void
+     */
+    public static function origineURIRelative()
+    {
+        return '<?php echo $_SERVER["REQUEST_URI"]; ?>';
     }
 
     // Template tags used in combination with origineConfig plugin.
@@ -161,9 +172,9 @@ class tplOrigineTheme
         }
 
         if ($tpl === 'standard' || $tpl === 'full') {
-            $label = __('Selected post');
+            $label = __('post-selected-label');
         } else {
-            $label = __('Selected');
+            $label = __('post-selected-short-label');
         }
 
         return '
@@ -176,7 +187,7 @@ class tplOrigineTheme
     /**
      * Credits to display at the bottom of the site.
      *
-     * They can be remove with the plugin origineConfig.
+     * They can be removed with the plugin origineConfig.
      *
      * @return void
      */
@@ -188,24 +199,24 @@ class tplOrigineTheme
         if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->footer_credits === true)) {
             $the_footer .= '<div class=widget id=site-footer-ad>';
 
-            $url_dotclear  = __('https://dotclear.org/');
-            $text_dotclear = __('Dotclear');
-            $text_origine  = __('Origine');
+            $url_dotclear  = __('footer-dotclear-url');
+            $text_dotclear = __('footer-dotclear-name');
+            $text_origine  = __('footer-origine-name');
 
             if (!defined('DC_DEV') || (defined('DC_DEV') && DC_DEV === false)) {
-                $url_origine = __('https://themes.dotaddict.org/galerie-dc2/details/origine');
+                $url_origine = __('footer-origine-dotaddict-url');
             } else {
                 $dotclear_version        = \dcCore::app()->getVersion('core');
                 $dotclear_version_parts  = explode('-', $dotclear_version);
                 $dotclear_version_simple = $dotclear_version_parts[0] ? $dotclear_version_parts[0] : $dotclear_version;
 
                 $text_dotclear .= ' ' . $dotclear_version_simple;
-                $url_origine    = __('https://github.com/te2dy/origine');
+                $url_origine    = __('footer-origine-github-url');
                 $text_origine  .= ' ' . \dcCore::app()->themes->moduleInfo('origine', 'version');
             }
 
             $the_footer .= sprintf(
-                __('Powered by <a href=%1$s>%2$s</a> and <a href=%3$s>%4$s</a>'),
+                __('footer-powered-by'),
                 $url_dotclear,
                 $text_dotclear,
                 $url_origine,
@@ -225,7 +236,7 @@ class tplOrigineTheme
     {
         if (\dcCore::app()->blog->settings->system->markdown_comments === true) {
             echo '<div class="form-entry text-italic text-small">',
-            __('Markdown language allowed (<a href=https://commonmark.org/help/ rel=nofollow>help</a>).'),
+            __('comment-form-markdown-supported'),
             '</div>';
         }
     }

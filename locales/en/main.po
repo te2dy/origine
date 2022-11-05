@@ -9,289 +9,289 @@ msgstr ""
 # Head
 
 msgid "page-noun-before-number"
-msgstr ""
+msgstr "page"
 
 msgid "feed-title"
-msgstr ""
+msgstr "Feed"
 
 # Header
 
 msgid "accessibility-skip-content"
-msgstr ""
+msgstr "Skip to content"
 
 msgid "accessibility-skip-menu"
-msgstr ""
+msgstr "Skip to content"
 
 # Posts & pages
 
 msgid "post-id"
-msgstr ""
+msgstr "post"
 
 msgid "page-id"
-msgstr ""
+msgstr "page"
 
 msgid "post-selected-label"
-msgstr ""
+msgstr "Selected post"
 
 msgid "post-selected-short-label"
-msgstr ""
+msgstr "Selected"
 
 msgid "post-date-aria"
-msgstr ""
+msgstr "Published date of the post"
 
 msgid "post-list-read-more-before-aria"
-msgstr ""
+msgstr "Lire la suite de"
 
 msgid "post-list-read-more"
-msgstr ""
+msgstr "Read more"
 
 msgid "page-label"
-msgstr ""
+msgstr "Page"
 
 msgid "attachments-title"
-msgstr ""
+msgstr "Attachment(s)"
 
 msgid "post-category-before"
-msgstr ""
+msgstr "Sorted in"
 
 msgid "post-tags-before"
-msgstr ""
+msgstr "Tags:"
 
 msgid "post-print-before"
-msgstr ""
+msgstr "Post printed from"
 
 msgid "post-pagination-previous-before"
-msgstr ""
+msgstr "Previous post:"
 
 msgid "post-pagination-next-before"
-msgstr ""
+msgstr "Next post:"
 
 # Comments & trackbacks
 
 msgid "reactions-id"
-msgstr ""
+msgstr "reactions"
 
 msgid "reactions-one"
-msgstr ""
+msgstr "One reaction"
 
 msgid "reactions-multiple"
-msgstr ""
+msgstr "%d reactions"
 
 msgid "comments-one"
-msgstr ""
+msgstr "One comment"
 
 msgid "comments-multiple"
-msgstr ""
+msgstr "%d comments"
 
 msgid "trackbacks-one"
-msgstr ""
+msgstr "One trackback"
 
 msgid "trackbacks-multiple"
-msgstr ""
+msgstr "%d trackbacks"
 
 msgid "comment-id"
-msgstr ""
+msgstr "comment"
 
 msgid "trackback-id"
-msgstr ""
+msgstr "trackback"
 
 msgid "comment-datetime-separator"
-msgstr ""
+msgstr "at"
 
 msgid "comment-datetime-after"
-msgstr ""
+msgstr ":"
 
 msgid "trackback-before"
-msgstr ""
+msgstr "Trackback:"
 
 msgid "comment-message-published"
-msgstr ""
+msgstr "Your comment has been published."
 
 msgid "comment-message-moderation"
-msgstr ""
+msgstr "Your comment has been sent and will be reviewed before being published."
 
 msgid "comment-form-markdown-supported"
-msgstr ""https://commonmark.org/help/" hreflang="en" rel="nofollow">aide</a>)."
+msgstr "Markdown language allowed (<a href="https://commonmark.org/help/" rel="nofollow">help</a>)."
 
 msgid "comment-preview-title"
-msgstr ""
+msgstr "Previewing"
 
 msgid "comment-send-button"
-msgstr ""
+msgstr "Send comment"
 
 msgid "comment-form-title"
-msgstr ""
+msgstr "Write a comment"
 
 msgid "comment-form-field-name"
-msgstr ""
+msgstr "Name or alias"
 
 msgid "comment-form-field-email"
-msgstr ""
+msgstr "E-mail address"
 
 msgid "comment-form-field-url"
-msgstr ""
+msgstr "URL of a personal account or website (optional)"
 
 msgid "comment-form-field-comment"
-msgstr ""
+msgstr "Comment"
 
 msgid "comment-submit-preview"
-msgstr ""
+msgstr "Preview"
 
 msgid "comment-submit-send"
-msgstr ""
+msgstr "Send"
 
 msgid "reactions-subscribe"
-msgstr ""
+msgstr "Subscribe to reactions"
 
 msgid "comments-subscribe"
-msgstr ""
+msgstr "Subscribe to comments"
 
 msgid "trackbacks-subscribe"
-msgstr ""
+msgstr "Subscribe to trackbacks"
 
 msgid "trackbacks-add-before"
-msgstr ""
+msgstr "Add a trackback:"
 
 msgid "trackback-copied"
-msgstr ""
+msgstr "Copied"
 
 msgid "Read this post ›"
-msgstr ""
+msgstr "Lire ce billet ›"
 
 msgid "comment-remember-me"
-msgstr ""
+msgstr "Remember me"
 
 # Pagination
 
 msgid "pagination-prefix"
-msgstr ""
+msgstr "page"
 
 msgid "pagination-separator"
-msgstr ""
+msgstr "of"
 
 msgid "pagination-link-previous-aria"
-msgstr ""
+msgstr "Link to older posts"
 
 msgid "pagination-link-previous"
-msgstr ""
+msgstr "‹ Previous page"
 
 msgid "pagination-link-next-aria"
-msgstr ""
+msgstr "Link to more recent posts"
 
 msgid "pagination-link-next"
-msgstr ""
+msgstr "Next page ›"
 
 # Footer
 
 msgid "footer-dotclear-name"
-msgstr ""
+msgstr "Dotclear"
 
 msgid "footer-dotclear-url"
-msgstr ""
+msgstr "https://dotclear.org/"
 
 msgid "footer-origine-name"
-msgstr ""
+msgstr "Origine"
 
 msgid "footer-origine-dotaddict-url"
-msgstr ""
+msgstr "https://themes.dotaddict.org/galerie-dc2/details/origine"
 
 msgid "footer-origine-github-url"
-msgstr ""
+msgstr "https://github.com/te2dy/origine"
 
 msgid "footer-powered-by"
-msgstr ""%1$s">%2$s</a> et <a href="%3$s">%4$s</a>"
+msgstr "Powered by <a href="%1$s">%2$s</a> and <a href="%3$s">%4$s</a>"
 
 # Archives
 
 msgid "archive-title"
-msgstr ""
+msgstr "Archives"
 
 msgid "archive-date-from"
-msgstr ""
+msgstr "From"
 
 msgid "archive-date-to"
-msgstr ""
+msgstr "to"
 
 msgid "archive-by-category"
-msgstr ""
+msgstr "By category"
 
 msgid "archive-by-tag"
-msgstr ""
+msgstr "By tag"
 
 msgid "archive-pages"
-msgstr ""
+msgstr "Pages"
 
 msgid "archives-by-month"
-msgstr ""
+msgstr "Archives sorted by month"
 
 msgid "category-label"
-msgstr ""
+msgstr "category"
 
 msgid "archives-title"
-msgstr ""
+msgstr "Archives:"
 
 msgid "tag-meta-description"
-msgstr ""
+msgstr "Posts related to the tag"
 
 msgid "tag-label"
-msgstr ""
+msgstr "tag"
 
 msgid "tags-title"
-msgstr ""
+msgstr "List of tags"
 
 # Search
 
 msgid "search-title"
-msgstr ""
+msgstr "Search"
 
 msgid "search-results-one"
-msgstr ""
+msgstr "Your search returned <strong>one result</strong>:"
 
 msgid "search-results-multiple"
-msgstr ""
+msgstr "Your search returned <strong>%2$s results</strong>:"
 
 msgid "search-results-none"
-msgstr ""
+msgstr "No results."
 
 msgid "search-input-aria-label"
-msgstr ""
+msgstr "The search field"
 
 msgid "search-input-placeholder"
-msgstr ""
+msgstr "Query"
 
 msgid "search-submit-button"
-msgstr ""
+msgstr "Search"
 
 # 404
 
 msgid "404-title-head"
-msgstr ""
+msgstr "Page not found"
 
 msgid "404-title"
-msgstr ""
+msgstr "404 Error"
 
 msgid "404-url-not-found-before"
-msgstr ""
+msgstr "The requested URL"
 
 msgid "404-url-not-found-after"
-msgstr ""
+msgstr "was not found."
 
 msgid "404-page-moved"
-msgstr ""
+msgstr "The page you are looking for may have been moved."
 
 msgid "404-home-link-text"
-msgstr ""
+msgstr "‹ Home page"
 
 # Password form
 
 msgid "password-needed-title"
-msgstr ""
+msgstr "Password required"
 
 msgid "password-needed-form-intro"
-msgstr ""
+msgstr "You must enter the correct password to access the requested content."
 
 msgid "password-needed-form-label"
-msgstr ""
+msgstr "Password"
 
 msgid "password-needed-form-submit"
-msgstr ""
+msgstr "Send"

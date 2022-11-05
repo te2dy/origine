@@ -1,13 +1,13 @@
-<article id={{tpl:lang post}}-{{tpl:EntryID}} class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}"{{tpl:origineEntryLang}}>
+<article id={{tpl:lang post-id}}-{{tpl:EntryID}} class="post post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}"{{tpl:origineEntryLang}}>
   <header>
     <tpl:EntryIf selected="1">
       <div class="label label-selected">
-        {{tpl:lang Selected post}}
+        {{tpl:lang post-selected-label}}
       </div>
     </tpl:EntryIf>
 
     <div class="post-meta text-secondary">
-      <time aria-label="{{tpl:lang Published date of the post}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
+      <time aria-label="{{tpl:lang post-date-aria}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
     </div>
 
     <h1 class=post-title>{{tpl:EntryTitle}}</h1>
@@ -28,13 +28,13 @@
 
     <tpl:EntryIf has_category="1">
       <div class="post-meta text-secondary">
-        {{tpl:lang Sorted in}} <a href={{tpl:EntryCategoryURL}}>{{tpl:EntryCategory}}</a>
+        {{tpl:lang post-category-before}} <a href={{tpl:EntryCategoryURL}}>{{tpl:EntryCategory}}</a>
       </div>
     </tpl:EntryIf>
 
     <tpl:EntryTags>
       <tpl:TagsHeader>
-        <div class="post-meta text-secondary">{{tpl:lang Tags:}}
+        <div class="post-meta text-secondary">{{tpl:lang post-tags-before}}
       </tpl:TagsHeader>
 
       <a href={{tpl:TagURL}} rel=tag>{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
@@ -46,14 +46,14 @@
 
     <!-- # Displayed only on print. -->
     <div class="post-meta text-secondary" id=post-footer-print>
-      {{tpl:lang Post printed from}} <a href={{tpl:EntryURL}} rel=nofollow>{{tpl:origineEntryPrintURL}}</a>
+      {{tpl:lang post-print-before}} <a href={{tpl:EntryURL}} rel=nofollow>{{tpl:origineEntryPrintURL}}</a>
     </div>
 
     <div class="post-pagination text-secondary">
       <tpl:EntryPrevious>
         <div class=post-pagination-prev>
           <div class=post-pagination-title>
-            {{tpl:lang Previous post:}}
+            {{tpl:lang post-pagination-previous-before}}
           </div>
 
           <div class=post-pagination-link-container>
@@ -65,7 +65,7 @@
       <tpl:EntryNext>
         <div class=post-pagination-next>
           <div class=post-pagination-title>
-          {{tpl:lang Next post:}}
+          {{tpl:lang post-pagination-next-before}}
           </div>
 
           <div class=post-pagination-link-container>

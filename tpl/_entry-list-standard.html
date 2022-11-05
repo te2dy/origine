@@ -1,5 +1,5 @@
 <tpl:Entries no_content="0">
-  <article id={{tpl:lang post}}-{{tpl:EntryID}} class="post-list post-list-standard {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
+  <article id={{tpl:lang post-id}}-{{tpl:EntryID}} class="post-list post-list-standard {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}">
     <tpl:EntryIf selected="1">
       <div class="post-list-selected-content">
     </tpl:EntryIf>
@@ -8,14 +8,14 @@
 
     <tpl:EntryIf type="page">
       <div class="label label-page">
-        {{tpl:lang Page}}
+        {{tpl:lang page-label}}
       </div>
     </tpl:EntryIf>
 
     <header>
       <tpl:EntryIf type="post">
         <div class="post-meta text-secondary">
-          <time aria-label="{{tpl:lang Published date of the post}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
+          <time aria-label="{{tpl:lang post-date-aria}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntriesAuthorName}}
         </div>
       </tpl:EntryIf>
 
@@ -35,24 +35,24 @@
     </section>
 
     <footer class=post-footer>
-      <a aria-label="{{tpl:lang Read more about}} {{tpl:EntryTitle}}" class="button read-more" href="{{tpl:EntryURL}}">{{tpl:lang Read more}}</a>
+      <a aria-label="{{tpl:lang post-list-read-more-before-aria}} {{tpl:EntryTitle}}" class="button read-more" href={{tpl:EntryURL}}>{{tpl:lang post-list-read-more}}</a>
 
       <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
         <tpl:EntryIf operator="and" has_comment="1" has_ping="1">
           <span class="post-list-reactions text-secondary">
-            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions-id}}>{{tpl:EntryCommentCount one="reactions-one" more="reactions-multiple" count_all="1"}}</a>
           </span>
         </tpl:EntryIf>
 
         <tpl:EntryIf operator="and" has_comment="1" has_ping="0">
           <span class="post-list-reactions text-secondary">
-            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions-id}}>{{tpl:EntryCommentCount one="comments-one" more="comments-multiple"}}</a>
           </span>
         </tpl:EntryIf>
 
         <tpl:EntryIf operator="and" has_comment="0" has_ping="1">
           <span class="post-list-reactions text-secondary">
-            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions-id}}>{{tpl:EntryPingCount one="trackbacks-one" more="trackbacks-multiple"}}</a>
           </span>
         </tpl:EntryIf>
       </tpl:EntryIf>

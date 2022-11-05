@@ -1,16 +1,16 @@
 <tpl:Entries no_content="0">
-  <article id={{tpl:lang post}}-{{tpl:EntryID}} class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
+  <article id={{tpl:lang post-id}}-{{tpl:EntryID}} class="post-list post-list-full post-single {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} {{tpl:EntryIfSelected return="post-list-selected"}}"{{tpl:origineEntryLang}}>
     <header>
       {{tpl:origineEntryIfSelected}}
 
       <tpl:EntryIf type="page">
         <div class="label label-page">
-          {{tpl:lang Page}}
+          {{tpl:lang page-label}}
         </div>
       </tpl:EntryIf>
 
       <div class="post-meta text-secondary">
-        <time aria-label="{{tpl:lang Published date of the post}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
+        <time aria-label="{{tpl:lang post-date-aria}}" datetime={{tpl:EntryDate format="%Y-%m-%dT%H:%m"}} pubdate>{{tpl:EntryDate}}</time> {{tpl:origineConfigEntryAuthorNameNextToDate}}
       </div>
 
       <h1 class=post-title><a href={{tpl:EntryURL}}>{{tpl:EntryTitle}}</a></h1>
@@ -31,13 +31,13 @@
 
       <tpl:EntryIf has_category="1">
         <div class="post-meta text-secondary">
-          {{tpl:lang Sorted in}} <a href={{tpl:EntryCategoryURL}}>{{tpl:EntryCategory}}</a>
+          {{tpl:lang post-category-before}} <a href={{tpl:EntryCategoryURL}}>{{tpl:EntryCategory}}</a>
         </div>
       </tpl:EntryIf>
 
       <tpl:EntryTags>
         <tpl:TagsHeader>
-          <div class="post-meta text-secondary">{{tpl:lang Tags:}}
+          <div class="post-meta text-secondary">{{tpl:lang post-tags-before}}
         </tpl:TagsHeader>
 
         <a href={{tpl:TagURL}} rel=tag>{{tpl:TagID}}</a><tpl:LoopPosition start="1" length="-1">, </tpl:LoopPosition>
@@ -50,19 +50,19 @@
       <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
         <tpl:EntryIf operator="and" has_comment="1" has_ping="1">
           <span class="post-meta text-secondary">
-            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One reaction" more="%d reactions" count_all="1"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions-id}}>{{tpl:EntryCommentCount one="reactions-one" more="reactions-multiple" count_all="1"}}</a>
           </span>
         </tpl:EntryIf>
 
         <tpl:EntryIf operator="and" has_comment="1" has_ping="0">
           <span class="post-meta text-secondary">
-            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryCommentCount one="One comment" more="%d comments"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions-id}}>{{tpl:EntryCommentCount one="comments-one" more="comments-multiple"}}</a>
           </span>
         </tpl:EntryIf>
 
         <tpl:EntryIf operator="and" has_comment="0" has_ping="1">
           <span class="post-meta text-secondary">
-            <a href={{tpl:EntryURL}}#{{tpl:lang reactions}}>{{tpl:EntryPingCount one="One trackback" more="%d trackbacks"}}</a>
+            <a href={{tpl:EntryURL}}#{{tpl:lang reactions-id}}>{{tpl:EntryPingCount one="trackbacks-one" more="trackbacks-multiple"}}</a>
           </span>
         </tpl:EntryIf>
       </tpl:EntryIf>

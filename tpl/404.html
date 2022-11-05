@@ -1,17 +1,24 @@
 {{tpl:extends parent="__layout.html"}}
 
 <tpl:Block name="head-title">
-  <title>{{tpl:lang Page without content}} – {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang 404-title-head}} – {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
 
-<tpl:Block name="head-description">
-  <meta name=description content="{{tpl:lang There is nothing to display}}">
-</tpl:Block>
+<tpl:Block name="head-description"></tpl:Block>
 
 <tpl:Block name="main-content">
   <div id=content-info>
-    <h1 class=content-title>{{tpl:lang No content}}</h1>
+    <h1 class=content-title>{{tpl:lang 404-title}}</h1>
 
-    {{tpl:include src="_entry-empty.html"}}
+    <div class=content-text>
+      <p>{{tpl:lang 404-url-not-found-before}} <code>{{tpl:origineURIRelative}}</code> {{tpl:lang 404-url-not-found-after}}</p>
+
+      <p>{{tpl:lang 404-page-moved}}</p>
+
+      {{tpl:include src="_searchform.html"}}
+
+      <p><a href={{tpl:BlogURL}}>{{tpl:lang 404-home-link-text}}</a></p>
+    </div>
+
   </div>
 </tpl:Block>
