@@ -149,7 +149,9 @@ class tplOrigineTheme
     {
         $plugin_activated = self::origineConfigActive();
 
-        if ($plugin_activated === false) {
+        $post_list_types = ['standard', 'short', 'full'];
+
+        if ($plugin_activated === false || ($plugin_activated === true && !in_array(\dcCore::app()->blog->settings->origineConfig->content_post_list_type, $post_list_types))) {
             $tpl = \dcCore::app()->tpl->includeFile(['src' => '_entry-list-standard.html']);
         } elseif ($plugin_activated === true) {
             $tpl = \dcCore::app()->tpl->includeFile(['src' => '_entry-list-' . \dcCore::app()->blog->settings->origineConfig->content_post_list_type . '.html']);
