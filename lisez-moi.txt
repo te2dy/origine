@@ -12,6 +12,13 @@ Son auteur s’est particulièrement inspiré des travaux réalisés sur le thè
 
 == Notes de version ==
 
+=== 1.14 - 5 novembre 2022 ===
+- Correction : séparateur de contenu non fonctionnel.
+- Modification : passage à des balises HTML minimalistes, sans guillemets superflus.
+- Modification : passage à un système de traduction par identifiant.
+- Modification : la classe text est renommée en content-text.
+- Modification : harmonisation du code avec le thème Origine Mini.
+
 === 1.13.2 - 14 août 2022 ===
 - Correction : couleur des boutons au survol disparue.
 - Correction : oubli de minification des styles.
