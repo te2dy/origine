@@ -134,10 +134,10 @@ class tplOrigineTheme
     {
         $plugin_activated = self::origineConfigActive();
 
-        if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->global_separator === "/")) {
+        if ($plugin_activated === false || ($plugin_activated === true && \dcCore::app()->blog->settings->origineConfig->content_separator === "/")) {
             return "/";
         } else {
-            return \dcCore::app()->blog->settings->origineConfig->global_separator;
+            return \dcCore::app()->blog->settings->origineConfig->content_separator;
         }
     }
 
